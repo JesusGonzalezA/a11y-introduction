@@ -1,14 +1,17 @@
 export const course = {
-  title: 'Título del curso',
-  subtitle: 'Plantilla de cursos de weaaare',
+  title: 'Introducción al desarrollo web accesible',
+  subtitle: 'Una primera base práctica para reconocer y reducir barreras',
   author: 'Jesús González Álvarez',
-  duration: 'Duración por definir',
-  audience: 'Define los conocimientos previos de tu audiencia.',
-  description: 'Sustituye este texto por lo que aprenderá a hacer el alumnado.',
+  duration: '60 minutos',
+  audience:
+    'HTML y CSS básicos. No necesitas conocimientos previos de accesibilidad.',
+  description:
+    'Aprenderás a reconocer barreras frecuentes, aplicar soluciones básicas y comenzar a revisar una interfaz.',
   objectives: [
-    'Define una capacidad observable que se aprenderá en el curso.',
-    'Relaciona esa capacidad con una tarea real de una persona.',
-    'Indica cómo se comprobará el resultado.',
+    'Estructurar el contenido para orientarse y encontrar información.',
+    'Identificar imágenes, enlaces, botones y campos con información comprensible.',
+    'Facilitar la interacción con teclado y la percepción del contenido.',
+    'Comenzar a revisar una interfaz y reconocer los límites de las herramientas.',
   ],
   storybookUrl: import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006',
 }

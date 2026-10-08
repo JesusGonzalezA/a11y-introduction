@@ -1,5 +1,5 @@
 {
-  "name": "a11y-course",
+  "name": "a11y-introduction",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -46,7 +46,7 @@
     "@types/node": "^22.0.0",
     "@testing-library/dom": "^10.4.1"
   },
-  "description": "Plantilla de weaaare para cursos con diapositivas y Storybook.",
+  "description": "Introducción al desarrollo web accesible: curso de weaaare de 60 minutos para personas con HTML y CSS básicos.",
   "engines": {
     "node": ">=22.12.0"
   }
