@@ -1,0 +1,40 @@
+name: Feature
+description: Proponer una funcionalidad o comportamiento nuevo.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema u oportunidad
+      description: Explica qué necesidad resuelve esta funcionalidad.
+      placeholder: Como persona usuaria, necesito...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Describe el comportamiento que debería incorporarse.
+      placeholder: La aplicación debería...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      description: Lista condiciones observables que indiquen que la funcionalidad está terminada.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Describe otras soluciones evaluadas, si las hay.
+      placeholder: También se consideró...
+    validations:
+      required: false

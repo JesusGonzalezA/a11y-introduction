@@ -1,0 +1,84 @@
+@import "@fontsource-variable/geist";
+
+:root {
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  color: #18181b;
+  background: #fff;
+}
+
+html,
+body,
+#root,
+.course-deck {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.course-deck .reveal {
+  color: #18181b;
+  font-family: inherit;
+  font-size: 32px;
+}
+
+.course-deck .reveal .slides {
+  text-align: left;
+}
+
+.course-cover,
+.lesson-slide {
+  box-sizing: border-box;
+  padding: 1rem 0;
+}
+
+.course-deck .reveal .course-cover__brand,
+.course-deck .reveal .lesson-slide__lesson-number {
+  margin: 0 0 1rem;
+  color: #52525b;
+  font-size: 0.55em;
+  font-weight: 600;
+}
+
+.course-deck .reveal .course-cover__title,
+.course-deck .reveal .lesson-slide__title {
+  margin: 0 0 1.5rem;
+  color: #18181b;
+  font-family: inherit;
+  font-size: 1.6em;
+  font-weight: 650;
+  line-height: 1.15;
+  text-align: left;
+  text-transform: none;
+}
+
+.course-deck .reveal .course-cover__title {
+  font-size: 2.2em;
+}
+
+.course-cover__author {
+  color: #52525b;
+  font-size: 0.65em;
+}
+
+.course-deck .reveal li {
+  margin-block: 0.5rem;
+}
+
+.course-deck .reveal .lesson-slide__example-link {
+  display: inline-block;
+  margin: 0.5rem 1rem 0 0;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid currentColor;
+  border-radius: 0.375rem;
+  color: #004fc4;
+  font-size: 0.65em;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.course-deck .reveal a:focus-visible {
+  outline: 3px solid #18181b;
+  outline-offset: 4px;
+}

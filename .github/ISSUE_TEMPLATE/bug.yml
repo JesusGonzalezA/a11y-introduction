@@ -1,0 +1,45 @@
+name: Bug
+description: Reportar un comportamiento incorrecto o un fallo reproducible.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar el problema. Completa la información necesaria para reproducirlo.
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+      description: Explica qué ocurre y cuál era el comportamiento esperado.
+      placeholder: Describe el comportamiento actual y el esperado.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Pasos para reproducir
+      description: Indica los pasos mínimos para observar el fallo.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Entorno
+      description: Incluye navegador, sistema operativo y versión relevante.
+      placeholder: "macOS 15, Chrome 140"
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      description: Define cómo comprobaremos que el bug está corregido.
+      placeholder: El ejemplo o la presentación debe...
+    validations:
+      required: true
