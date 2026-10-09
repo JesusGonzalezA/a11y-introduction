@@ -12,15 +12,15 @@ y un formulario breve.
 ## Programa
 
 Fuente de verdad: [especificación #1](https://github.com/JesusGonzalezA/a11y-introduction/issues/1).
-El programa completo contiene **5 módulos y 11 lecciones**. En esta entrega está
-desarrollados los módulos 1 y 2; los módulos 3–5 están planificados y todavía no se
+El programa completo contiene **5 módulos y 11 lecciones**. En esta entrega están
+desarrollados los módulos 1–3; los módulos 4–5 están planificados y todavía no se
 incluyen en la presentación ni en Storybook.
 
 | Módulo | Lecciones | Duración |
 | --- | --- | --- |
 | [1. Introducción](./src/lessons/01-intro/README.md) | 1.1 Bienvenida y presentación (2 min); 1.2 Objetivos y contenidos (3 min) | 5 min |
 | [2. Entender la accesibilidad](./src/lessons/02-entender-la-accesibilidad/README.md) | 2.1 Personas, formas de interacción y barreras (5 min); 2.2 Cómo interpreta el navegador nuestra interfaz (5 min) | 10 min |
-| 3. Dar significado al contenido | 3.1 Estructura de página y orden de lectura (9 min); 3.2 Imágenes, enlaces y controles comprensibles (9 min) | 18 min |
+| [3. Dar significado al contenido](./src/lessons/03-dar-significado-al-contenido/README.md) | 3.1 Estructura de página y orden de lectura (9 min); 3.2 Imágenes, enlaces y controles comprensibles (9 min) | 18 min |
 | 4. Permitir la interacción y la percepción | 4.1 Navegación por teclado y foco visible (9 min); 4.2 Contraste, color y ampliación del contenido (8 min) | 17 min |
 | 5. Primeras comprobaciones de accesibilidad y próximos pasos | 5.1 Inspeccionar el contenido con bookmarklets (4 min); 5.2 Detectar problemas con Accessibility Insights (4 min); 5.3 Cómo continuar aprendiendo (2 min) | 10 min |
 
@@ -54,8 +54,9 @@ Usa las flechas para recorrer la presentación. La portada precede las slides
 numeradas por lección; el hash permite volver a una posición. El
 [mapa del módulo 1](./src/lessons/01-intro/README.md) identifica todas sus rutas.
 El [mapa del módulo 2](./src/lessons/02-entender-la-accesibilidad/README.md) enlaza
-las demos de teclado y semántica del botón. Las lecciones introductorias no
-necesitan demos.
+las demos de teclado y semántica del botón. El [mapa del módulo 3](./src/lessons/03-dar-significado-al-contenido/README.md) reúne
+las demos de estructura, secuencia, imágenes y nombres. Las lecciones
+introductorias no necesitan demos.
 
 ## Consultar y mantener los materiales
 
@@ -66,6 +67,8 @@ lecciones prácticas reúnen ejemplos, stories y tests co-localizados.
 - [Bienvenida y presentación](./src/lessons/01-intro/01.01-bienvenida-y-presentacion/README.md).
 - [Objetivos y contenidos](./src/lessons/01-intro/01.02-objetivos-y-contenidos/README.md).
 - [Entender la accesibilidad](./src/lessons/02-entender-la-accesibilidad/README.md).
+- [Dar significado al contenido](./src/lessons/03-dar-significado-al-contenido/README.md).
+- [Investigación y fuentes del módulo 3](./docs/research/03-dar-significado-al-contenido.md).
 - [Investigación y fuentes del módulo 2](./docs/research/02-entender-la-accesibilidad.md).
 - [Investigación y fuentes del módulo 1](./docs/research/01-introduccion.md).
 
