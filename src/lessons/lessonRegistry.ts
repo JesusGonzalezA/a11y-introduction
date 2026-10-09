@@ -11,6 +11,10 @@ import { slides as contentSlides } from './03-dar-significado-al-contenido/03.02
 import { slides as focusSlides } from './04-interaccion-y-percepcion/04.01-teclado-y-foco-visible/slides'
 import { slides as perceptionSlides } from './04-interaccion-y-percepcion/04.02-contraste-color-y-ampliacion/slides'
 
+import { slides as bookmarkletSlides } from './05-comprobaciones-y-proximos-pasos/05.01-bookmarklets/slides'
+import { slides as insightsSlides } from './05-comprobaciones-y-proximos-pasos/05.02-accessibility-insights/slides'
+import { slides as nextStepsSlides } from './05-comprobaciones-y-proximos-pasos/05.03-como-continuar-aprendiendo/slides'
+
 interface LessonSlide {
   lessonNumber: string
   slide: ReactElement
@@ -30,4 +34,7 @@ export const lessonSlides = [
   ...registerLesson('3.2', contentSlides),
   ...registerLesson('4.1', focusSlides),
   ...registerLesson('4.2', perceptionSlides),
+  ...registerLesson('5.1', bookmarkletSlides),
+  ...registerLesson('5.2', insightsSlides),
+  ...registerLesson('5.3', nextStepsSlides),
 ]

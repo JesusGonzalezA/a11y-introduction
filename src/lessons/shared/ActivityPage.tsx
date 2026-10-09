@@ -11,6 +11,7 @@ export interface ActivityPageProps {
   onRegister?: () => void
   notice?: ReactNode
   variantLabel?: string
+  inspectionBarrier?: 'headings-and-alt' | 'label'
 }
 
 /** Página completa: montar una por documento, sin main contenedor de Storybook. */
@@ -21,14 +22,21 @@ export function ActivityPage({
   onRegister,
   notice,
   variantLabel,
+  inspectionBarrier,
 }: ActivityPageProps) {
   const id = useId()
   const structureBarrier = stage === 'structure' && barrier
   const contentBarrier = stage === 'content' && barrier
+  const headingsAndAltBarrier = inspectionBarrier === 'headings-and-alt'
+  const labelBarrier = inspectionBarrier === 'label'
   const Main = structureBarrier ? 'div' : 'main'
   const Title = structureBarrier ? 'p' : 'h1'
-  const Heading = structureBarrier ? 'p' : 'h2'
-  const Subheading = structureBarrier ? 'p' : 'h3'
+  const Heading = structureBarrier ? 'p' : headingsAndAltBarrier ? 'h3' : 'h2'
+  const Subheading = structureBarrier
+    ? 'p'
+    : headingsAndAltBarrier
+      ? 'h2'
+      : 'h3'
   const imageDescription =
     'Sendero entre parterres que conduce a un pabellón junto a un árbol.'
   const Steps = structureBarrier ? 'div' : 'ol'
@@ -75,7 +83,7 @@ export function ActivityPage({
                 width="640"
                 height="220"
                 alt={
-                  contentBarrier
+                  contentBarrier || headingsAndAltBarrier
                     ? 'actividad.svg'
                     : decorative
                       ? ''
@@ -112,7 +120,7 @@ export function ActivityPage({
           {stage === 'content' ? (
             <form onSubmit={(event) => event.preventDefault()}>
               <div className="activity-page__field">
-                {!contentBarrier && (
+                {!contentBarrier && !labelBarrier && (
                   <label htmlFor={`${id}-name`}>Nombre (opcional)</label>
                 )}
                 <input
@@ -120,7 +128,13 @@ export function ActivityPage({
                   name="given-name"
                   type="text"
                   autoComplete="given-name"
-                  placeholder={contentBarrier ? 'Nombre' : 'Ej.: Ana'}
+                  placeholder={
+                    labelBarrier
+                      ? undefined
+                      : contentBarrier
+                        ? 'Nombre'
+                        : 'Ej.: Ana'
+                  }
                 />
               </div>
               <RegistrationAction
