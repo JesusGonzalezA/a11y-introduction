@@ -144,3 +144,13 @@ No se ha ejecutado zoom real 200%/400%, lector de pantalla, voz, gestos/orientac
 móvil ni ensayo. La inspección de árbol del navegador no es una prueba de AT.
 Pendientes y protocolo: [matriz manual](README.md#matriz-manual-pendiente).
 Las superficies locales quedan en 5176/6009; inventario en README, fuera de la PR.
+
+## Corrección tras revisión independiente
+
+La [revisión de e17aa49](https://github.com/JesusGonzalezA/a11y-introduction/pull/10#pullrequestreview-5468877011)
+no encontró bloqueos y señaló un P3: el README raíz aún declaraba M4 pendiente.
+Se corrigen el estado de entrega, el enlace de la tabla, el mapa de demos y los
+materiales/investigación, con enlace a esta auditoría. Aplicando self-learning,
+la corrección permanece en el índice existente; no añade una regla duplicada a
+las skills. No cambia ninguna superficie renderizada ni el contrato de código.
+Se revalidan enlaces locales y las cuatro comprobaciones antes del nuevo SHA.
