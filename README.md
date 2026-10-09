@@ -1,131 +1,99 @@
-# a11y-course
+# Introducción al desarrollo web accesible
 
-Plantilla privada de **weaaare** para crear un repositorio por curso de
-accesibilidad. Incluye diapositivas, guiones, ejemplos en Storybook y skills de
-autoría. El contenido inicial es una base para personalizar, no un curso terminado.
+Curso de **weaaare** para personas con HTML y CSS básicos, sin conocimientos
+previos de accesibilidad. Docente: **Jesús González Álvarez**.
 
-## Crear un curso
+En **60 minutos**, incluidas las demostraciones guiadas, aprenderás a reconocer
+barreras frecuentes, aplicar soluciones básicas y comenzar a revisar una
+interfaz. La tarea que conecta las lecciones es **conocer una actividad e
+inscribirse**: una página con título, descripción, imagen, información práctica
+y un formulario breve.
 
-En GitHub, selecciona **Use this template → Create a new repository**, elige un
-nombre para el curso y mantenlo privado. Copia únicamente la rama por defecto.
-También puedes utilizar GitHub CLI:
+## Programa
 
-```bash
-gh repo create nombre-del-curso --private --template JesusGonzalezA/a11y-course --clone
-cd nombre-del-curso
-pnpm install
-```
+Fuente de verdad: [especificación #1](https://github.com/JesusGonzalezA/a11y-introduction/issues/1).
+El programa completo contiene **5 módulos y 11 lecciones**. En esta entrega está
+desarrollado el módulo 1; los módulos 2–5 están planificados y todavía no se
+incluyen en la presentación ni en Storybook.
+
+| Módulo | Lecciones | Duración |
+| --- | --- | --- |
+| [1. Introducción](./src/lessons/01-intro/README.md) | 1.1 Bienvenida y presentación (2 min); 1.2 Objetivos y contenidos (3 min) | 5 min |
+| 2. Entender la accesibilidad | 2.1 Personas, formas de interacción y barreras (5 min); 2.2 Cómo interpreta el navegador nuestra interfaz (5 min) | 10 min |
+| 3. Dar significado al contenido | 3.1 Estructura de página y orden de lectura (9 min); 3.2 Imágenes, enlaces y controles comprensibles (9 min) | 18 min |
+| 4. Permitir la interacción y la percepción | 4.1 Navegación por teclado y foco visible (9 min); 4.2 Contraste, color y ampliación del contenido (8 min) | 17 min |
+| 5. Primeras comprobaciones de accesibilidad y próximos pasos | 5.1 Inspeccionar el contenido con bookmarklets (4 min); 5.2 Detectar problemas con Accessibility Insights (4 min); 5.3 Cómo continuar aprendiendo (2 min) | 10 min |
+
+## Resultados y dinámica
+
+- Estructurar contenido para orientarse y encontrar información.
+- Identificar imágenes, enlaces, botones y campos con información comprensible.
+- Facilitar la interacción con teclado y la percepción del contenido.
+- Comenzar a revisar una interfaz y reconocer los límites de las herramientas.
+
+Las lecciones prácticas parten de una necesidad, explican el concepto y la
+implementación, muestran la demo y comprueban el resultado. Las slides se
+entienden por sí mismas; las stories conservarán las etapas del ejemplo.
+Las herramientas se concentran en el módulo 5. Los ejercicios autónomos son
+material adicional a los 60 minutos. ARIA avanzado, auditorías exhaustivas y
+automatización profunda quedan fuera de esta introducción.
+
+## Instalar y ejecutar
 
 Requisitos: Node.js 22.12 o posterior y pnpm 10.26.1. `.nvmrc` selecciona Node 22.
-GitHub CLI solo es necesario para gestionar el repositorio y sus issues.
-
-1. Cambia el nombre y la descripción en `package.json` y ejecuta `pnpm install`.
-2. Define título, subtítulo, autor, duración, audiencia y objetivos en
-   [`src/course.ts`](./src/course.ts). La portada y el título del navegador usan
-   estos datos. Configura `storybookUrl` si publicas las demos; para cambiarlo
-   localmente utiliza `VITE_STORYBOOK_URL` en un archivo `.env.local`.
-3. Adapta las dos lecciones del [módulo 1](./src/lessons/01-intro/README.md).
-4. Sustituye el [módulo de ejemplo](./src/lessons/02-ejemplo/README.md) por los
-   módulos del temario validado, actualizando `src/lessons/lessonRegistry.ts`.
-5. Actualiza este README con el mapa, objetivos y requisitos del nuevo curso.
-
-La plantilla utiliza `develop` como rama por defecto. Si GitHub genera el nuevo
-repositorio con `main`, crea y publica `develop` desde esa rama antes de iniciar
-las lecciones, y selecciónala como rama por defecto. La CI cubre ambas ramas.
-Los ajustes de GitHub no se heredan del template: configura squash merge en el
-nuevo repositorio. Las skills describen el flujo issue → rama → PR a `develop`.
-
-## Ejecutar
+El repositorio es privado: utiliza una copia local o acceso autorizado a GitHub.
+Desde la raíz:
 
 ```bash
+pnpm install --frozen-lockfile
 pnpm dev        # Slides: http://localhost:5173
-pnpm storybook  # Ejemplos: http://localhost:6006 (otra terminal)
+pnpm storybook  # Storybook: http://localhost:6006 (otra terminal)
 ```
 
-En la presentación, usa las flechas para avanzar. El número de lección y el hash
-de la URL permiten localizar cada parte. Las slides de demostración enlazan las
-stories que indica el guion. Antes de grabar, convierte los guiones introductorios
-de plantilla en una narración propia y comprueba la duración real.
+Usa las flechas para recorrer la presentación. La portada precede las slides
+numeradas por lección; el hash permite volver a una posición. El
+[mapa del módulo 1](./src/lessons/01-intro/README.md) identifica todas sus rutas.
+Storybook se construye y arranca, pero en esta entrega no contiene stories:
+las dos lecciones introductorias no necesitan demos.
 
-## Estructura
+## Consultar y mantener los materiales
 
-```text
-.agents/skills/                Skills locales incluidas
-.storybook/                   Storybook y panel de accesibilidad
-src/
-  course.ts                   Datos generales del curso
-  lessons/
-    lessonRegistry.ts         Orden de la presentación continua
-    01-intro/
-      README.md               Mapa del módulo
-      01.01-bienvenida-y-presentacion/
-      01.02-objetivos-y-contenidos/
-    02-ejemplo/
-      README.md
-      02.01-activar-una-accion/
-        README.md             Objetivo, accesibilidad, pruebas y fuentes
-        presenter.md          Guion organizado por slide
-        slides.tsx            Diapositivas de la lección
-        examples/Button/
-          Button.tsx
-          Button.css
-          Button.stories.tsx
-          Button.test.tsx
-  slides/CourseSlides.tsx      Composición de la presentación
-  test/setup.ts               Testing Library y jest-axe
-```
+Cada lección reúne `README.md` (objetivo, ejecución, accesibilidad, pruebas y
+fuentes), `presenter.md` (narración) y `slides.tsx` (explicación visual). Las
+lecciones prácticas añadirán ejemplos, stories y tests co-localizados.
 
-Cada lección reúne su material en una carpeta. Las stories siguen la jerarquía
-`Módulo N: Nombre/Lección N.M: Nombre/Componentes|Ejemplos/Nombre` y se ordenan
-numéricamente. Una lección puramente introductoria no necesita un componente.
+- [Bienvenida y presentación](./src/lessons/01-intro/01.01-bienvenida-y-presentacion/README.md).
+- [Objetivos y contenidos](./src/lessons/01-intro/01.02-objetivos-y-contenidos/README.md).
+- [Investigación y fuentes del módulo 1](./docs/research/01-introduccion.md).
 
-## Base técnica
-
-- React, TypeScript y Vite para el proyecto.
-- Reveal.js y su integración React para las diapositivas.
-- Storybook con Controls, Actions y Accessibility para explorar los ejemplos.
-- Vitest, Testing Library, user-event y jest-axe/axe-core para las pruebas.
-- Biome para formato y lint; Geist y CSS con BEM para la base visual.
-
-Un único paquete; los ejemplos iniciales funcionan sin servidor de datos.
+`src/course.ts` contiene la identidad del curso; `src/lessons/lessonRegistry.ts`
+ordena la presentación continua. `src/slides/CourseSlides.tsx` compone las slides.
+La infraestructura usa React, TypeScript, Vite, Reveal.js, Storybook, Vitest,
+Testing Library, user-event, axe-core y Biome. Los estilos usan Geist y BEM.
+Las stories futuras siguen `Módulo N: Nombre/Lección N.M: Nombre/Componentes|Ejemplos/Nombre`.
+`VITE_STORYBOOK_URL` permite configurar su destino al publicarlas.
 
 ## Validar
 
 ```bash
-pnpm check
+pnpm test
+pnpm lint
+pnpm build
+pnpm build-storybook
 ```
 
-Ejecuta `pnpm test`, `pnpm lint`, `pnpm build` y `pnpm build-storybook`, los mismos
-cuatro controles que GitHub Actions. Puedes ejecutarlos por separado.
-`pnpm test:watch` acompaña el desarrollo y `pnpm format` aplica el formato.
+`pnpm check` reúne los cuatro comandos que ejecuta CI. `pnpm test:watch` acompaña
+el desarrollo y `pnpm format` aplica el formato. Los builds generan `dist/` y
+`storybook-static/`; `pnpm preview` sirve la presentación compilada.
 
-`pnpm build` produce `dist/`; `pnpm build-storybook` produce `storybook-static/`.
-`pnpm preview` permite revisar la presentación compilada. Publicar estos
-artefactos y configurar sus URLs se decide en cada curso.
+Los tests de introducción comprueban semántica DOM, foco simulado del enlace y
+reglas detectables por axe en las siete slides. No validan el reproductor completo,
+lectores de pantalla, contraste, zoom ni navegación real. Consulta la
+[matriz del módulo](./src/lessons/01-intro/README.md#criterios-y-evidencia).
+La revisión visual final del autor y el ensayo de duración permanecen pendientes.
 
-Las pruebas automáticas del ejemplo cubren semántica DOM, teclado, deshabilitado
-y reglas de axe. La [matriz de la lección](./src/lessons/02-ejemplo/02.01-activar-una-accion/README.md)
-identifica las comprobaciones visuales, móviles y con lector de pantalla que
-requieren revisión manual. El panel Accessibility no sustituye esa revisión.
-
-## Skills incluidas
-
-Las skills viven en `.agents/skills/`, con todas sus referencias locales, y se
-descubren desde el repositorio. [AGENTS.md](./AGENTS.md) enlaza cuándo aplicar cada una.
-
-| Skill | Uso |
-| --- | --- |
-| `course-structure` | Organizar módulos, lecciones, slides y ejemplos. |
-| `create-lesson` | Desarrollar una lección completa a partir de su especificación. |
-| `accessible-components` | Implementar y revisar componentes con fuentes y pruebas. |
-| `aria-patterns` | Consultar patrones y límites de tecnologías de apoyo. |
-| `repository-workflow` | Gestionar issues, ramas, validaciones y PRs. |
-| `storybook-pr-visuals` | Preparar las superficies para revisión manual. |
-| `self-learning` | Incorporar convenciones reutilizables a partir del feedback. |
-
-`aria-patterns` procede de [weaaare/a11y-agents-kit](https://github.com/weaaare/a11y-agents-kit)
-(licencia MIT); esta copia adapta su descripción para la validación de skills.
-Las skills se mantienen dentro del repositorio, sin un instalador externo.
-
-Las cifras de soporte incluidas en referencias de ARIA son evidencia histórica:
-contrástalas con las fuentes y versiones actuales antes de enseñarlas como vigentes.
+Las convenciones de autoría están enlazadas desde [AGENTS.md](./AGENTS.md).
+Los cambios siguen issue → rama → PR hacia `develop`, con squash merge cuando
+se autorice la fusión. La skill `aria-patterns` procede de
+[weaaare/a11y-agents-kit](https://github.com/weaaare/a11y-agents-kit) (MIT);
+sus cifras históricas de soporte requieren contraste actual antes de enseñarlas.

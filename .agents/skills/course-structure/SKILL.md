@@ -27,8 +27,7 @@ src/lessons/
 
 El módulo 1 conserva las lecciones «Bienvenida y presentación» y «Objetivos y
 contenidos» en todos los cursos. Su contenido y duración se adaptan al curso.
-Los módulos siguientes se definen según el temario validado por el autor.
-`02-ejemplo` solo demuestra la infraestructura; se sustituye al crear un curso.
+Los módulos siguientes se definen según el temario validado por el autor en GitHub.
 
 Los módulos contienen un `README.md` con el mapa del módulo. Las lecciones usan
 numeración `02.01`, `02.02`, etc., seguida de un nombre en kebab-case.

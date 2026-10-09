@@ -6,8 +6,9 @@ description: Use when the user asks to create, develop, start, or add a course l
 # Create a lesson
 
 Entrega una lección lista para impartir y revisar: documentación, guion, slides,
-superficies ejecutables, stories, tests e integración en el curso. La lección incluida en `02-ejemplo` muestra la estructura técnica mínima;
-la profundidad pedagógica se define por los objetivos y la duración del curso.
+superficies ejecutables, stories, tests e integración en el curso. La estructura
+canónica está en `course-structure`; la profundidad pedagógica se define por los
+objetivos y la duración del curso.
 
 ## Flujo
 

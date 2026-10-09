@@ -1,7 +1,7 @@
 # Cursos de weaaare
 
-Un repositorio contiene un curso. Esta base es una plantilla: el temario concreto
-se define al crear cada curso.
+Este repositorio contiene el curso Introducción al desarrollo web accesible.
+El temario validado está en la issue #1 de GitHub.
 
 - Para organizar módulos, lecciones, slides o Storybook, lee
   [.agents/skills/course-structure/SKILL.md](.agents/skills/course-structure/SKILL.md).
