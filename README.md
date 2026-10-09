@@ -13,13 +13,13 @@ y un formulario breve.
 
 Fuente de verdad: [especificación #1](https://github.com/JesusGonzalezA/a11y-introduction/issues/1).
 El programa completo contiene **5 módulos y 11 lecciones**. En esta entrega está
-desarrollado el módulo 1; los módulos 2–5 están planificados y todavía no se
+desarrollados los módulos 1 y 2; los módulos 3–5 están planificados y todavía no se
 incluyen en la presentación ni en Storybook.
 
 | Módulo | Lecciones | Duración |
 | --- | --- | --- |
 | [1. Introducción](./src/lessons/01-intro/README.md) | 1.1 Bienvenida y presentación (2 min); 1.2 Objetivos y contenidos (3 min) | 5 min |
-| 2. Entender la accesibilidad | 2.1 Personas, formas de interacción y barreras (5 min); 2.2 Cómo interpreta el navegador nuestra interfaz (5 min) | 10 min |
+| [2. Entender la accesibilidad](./src/lessons/02-entender-la-accesibilidad/README.md) | 2.1 Personas, formas de interacción y barreras (5 min); 2.2 Cómo interpreta el navegador nuestra interfaz (5 min) | 10 min |
 | 3. Dar significado al contenido | 3.1 Estructura de página y orden de lectura (9 min); 3.2 Imágenes, enlaces y controles comprensibles (9 min) | 18 min |
 | 4. Permitir la interacción y la percepción | 4.1 Navegación por teclado y foco visible (9 min); 4.2 Contraste, color y ampliación del contenido (8 min) | 17 min |
 | 5. Primeras comprobaciones de accesibilidad y próximos pasos | 5.1 Inspeccionar el contenido con bookmarklets (4 min); 5.2 Detectar problemas con Accessibility Insights (4 min); 5.3 Cómo continuar aprendiendo (2 min) | 10 min |
@@ -33,7 +33,7 @@ incluyen en la presentación ni en Storybook.
 
 Las lecciones prácticas parten de una necesidad, explican el concepto y la
 implementación, muestran la demo y comprueban el resultado. Las slides se
-entienden por sí mismas; las stories conservarán las etapas del ejemplo.
+entienden por sí mismas; las stories conservan las etapas implementadas del ejemplo.
 Las herramientas se concentran en el módulo 5. Los ejercicios autónomos son
 material adicional a los 60 minutos. ARIA avanzado, auditorías exhaustivas y
 automatización profunda quedan fuera de esta introducción.
@@ -53,24 +53,27 @@ pnpm storybook  # Storybook: http://localhost:6006 (otra terminal)
 Usa las flechas para recorrer la presentación. La portada precede las slides
 numeradas por lección; el hash permite volver a una posición. El
 [mapa del módulo 1](./src/lessons/01-intro/README.md) identifica todas sus rutas.
-Storybook se construye y arranca, pero en esta entrega no contiene stories:
-las dos lecciones introductorias no necesitan demos.
+El [mapa del módulo 2](./src/lessons/02-entender-la-accesibilidad/README.md) enlaza
+las demos de teclado y semántica del botón. Las lecciones introductorias no
+necesitan demos.
 
 ## Consultar y mantener los materiales
 
 Cada lección reúne `README.md` (objetivo, ejecución, accesibilidad, pruebas y
 fuentes), `presenter.md` (narración) y `slides.tsx` (explicación visual). Las
-lecciones prácticas añadirán ejemplos, stories y tests co-localizados.
+lecciones prácticas reúnen ejemplos, stories y tests co-localizados.
 
 - [Bienvenida y presentación](./src/lessons/01-intro/01.01-bienvenida-y-presentacion/README.md).
 - [Objetivos y contenidos](./src/lessons/01-intro/01.02-objetivos-y-contenidos/README.md).
+- [Entender la accesibilidad](./src/lessons/02-entender-la-accesibilidad/README.md).
+- [Investigación y fuentes del módulo 2](./docs/research/02-entender-la-accesibilidad.md).
 - [Investigación y fuentes del módulo 1](./docs/research/01-introduccion.md).
 
 `src/course.ts` contiene la identidad del curso; `src/lessons/lessonRegistry.ts`
 ordena la presentación continua. `src/slides/CourseSlides.tsx` compone las slides.
 La infraestructura usa React, TypeScript, Vite, Reveal.js, Storybook, Vitest,
 Testing Library, user-event, axe-core y Biome. Los estilos usan Geist y BEM.
-Las stories futuras siguen `Módulo N: Nombre/Lección N.M: Nombre/Componentes|Ejemplos/Nombre`.
+Las stories siguen `Módulo N: Nombre/Lección N.M: Nombre/Componentes|Ejemplos/Nombre`.
 `VITE_STORYBOOK_URL` permite configurar su destino al publicarlas.
 
 ## Validar
@@ -90,6 +93,9 @@ Los tests de introducción comprueban semántica DOM, foco simulado del enlace y
 reglas detectables por axe en las siete slides. No validan el reproductor completo,
 lectores de pantalla, contraste, zoom ni navegación real. Consulta la
 [matriz del módulo](./src/lessons/01-intro/README.md#criterios-y-evidencia).
+Los tests del módulo 2 añaden recorrido de teclado, activación, semántica y estados
+de las demos; su [matriz y auditoría](./src/lessons/02-entender-la-accesibilidad/audit.md)
+separan evidencia automática de comprobaciones manuales.
 La revisión visual final del autor y el ensayo de duración permanecen pendientes.
 
 Las convenciones de autoría están enlazadas desde [AGENTS.md](./AGENTS.md).
