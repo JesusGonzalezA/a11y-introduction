@@ -1,7 +1,7 @@
 import {
   ActivityPage,
   type ActivityPageProps,
-} from '../../../shared/ActivityPage'
+} from '../../../../shared/ActivityPage'
 
 export function ActivityStructure(
   props: Pick<ActivityPageProps, 'barrier' | 'onRegister'>,

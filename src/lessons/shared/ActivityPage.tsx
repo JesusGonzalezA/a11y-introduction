@@ -1,7 +1,7 @@
-import { useId } from 'react'
-import { activity } from '../../shared/activity'
-import { RegistrationAction } from '../../shared/RegistrationAction'
+import { type ReactNode, useId } from 'react'
+import { activity } from './activity'
 import illustration from './activity.svg'
+import { RegistrationAction } from './RegistrationAction'
 import './activity-page.css'
 
 export interface ActivityPageProps {
@@ -9,6 +9,8 @@ export interface ActivityPageProps {
   barrier?: boolean
   decorative?: boolean
   onRegister?: () => void
+  notice?: ReactNode
+  variantLabel?: string
 }
 
 /** Página completa: montar una por documento, sin main contenedor de Storybook. */
@@ -17,6 +19,8 @@ export function ActivityPage({
   barrier = false,
   decorative = false,
   onRegister,
+  notice,
+  variantLabel,
 }: ActivityPageProps) {
   const id = useId()
   const structureBarrier = stage === 'structure' && barrier
@@ -45,9 +49,10 @@ export function ActivityPage({
       <header className="activity-page__header">
         <p>Actividades del jardín</p>
         <p className="activity-page__variant">
-          {barrier
-            ? `Contraejemplo deliberado: ${structureBarrier ? 'títulos visuales y orden alterado' : 'imagen, enlace y campo sin información suficiente'}`
-            : `Solución: ${stage === 'structure' ? 'estructura y orden de lectura' : decorative ? 'imagen redundante con alt vacío' : 'información comprensible'}`}
+          {variantLabel ??
+            (barrier
+              ? `Contraejemplo deliberado: ${structureBarrier ? 'títulos visuales y orden alterado' : 'imagen, enlace y campo sin información suficiente'}`
+              : `Solución: ${stage === 'structure' ? 'estructura y orden de lectura' : decorative ? 'imagen redundante con alt vacío' : 'información comprensible'}`)}
         </p>
       </header>
       <nav aria-label="Actividad" className="activity-page__navigation">
@@ -93,6 +98,7 @@ export function ActivityPage({
           </Subheading>
           <p>Nos reunimos en el pabellón del jardín.</p>
         </section>
+        {notice}
         <section id={`${id}-registration`}>
           <Heading className="activity-page__heading">Inscripción</Heading>
           <Steps
