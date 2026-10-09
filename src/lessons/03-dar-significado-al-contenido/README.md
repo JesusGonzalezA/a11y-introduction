@@ -47,7 +47,7 @@ conservan su contenedor y sus rutas.
 - [Interfaces compartidas entre módulos](../shared/README.md): datos estables de
   actividad y `RegistrationAction`. La extracción mantiene la acción, confirmación,
   estado cerrado y apariencia del módulo 2; sus stories siguen recuperables.
-- `shared/ActivityPage.tsx`: composición de página completa, una por documento.
+- `../shared/ActivityPage.tsx`: composición de página completa, una por documento.
   `stage: 'structure' | 'content'` delimita la lección; `barrier` introduce solo
   las barreras de esa etapa; `decorative` añade el equivalente textual visible y
   vacía alt en la etapa de contenido; `onRegister` observa la acción simulada.

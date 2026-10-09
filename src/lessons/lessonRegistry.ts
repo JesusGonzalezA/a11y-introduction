@@ -8,6 +8,9 @@ import { slides as semanticsSlides } from './02-entender-la-accesibilidad/02.02-
 import { slides as structureSlides } from './03-dar-significado-al-contenido/03.01-estructura-y-orden-de-lectura/slides'
 import { slides as contentSlides } from './03-dar-significado-al-contenido/03.02-imagenes-enlaces-y-controles/slides'
 
+import { slides as focusSlides } from './04-interaccion-y-percepcion/04.01-teclado-y-foco-visible/slides'
+import { slides as perceptionSlides } from './04-interaccion-y-percepcion/04.02-contraste-color-y-ampliacion/slides'
+
 interface LessonSlide {
   lessonNumber: string
   slide: ReactElement
@@ -25,4 +28,6 @@ export const lessonSlides = [
   ...registerLesson('2.2', semanticsSlides),
   ...registerLesson('3.1', structureSlides),
   ...registerLesson('3.2', contentSlides),
+  ...registerLesson('4.1', focusSlides),
+  ...registerLesson('4.2', perceptionSlides),
 ]
