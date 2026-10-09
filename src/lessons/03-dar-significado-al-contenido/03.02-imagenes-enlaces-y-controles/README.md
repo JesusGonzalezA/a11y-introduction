@@ -62,7 +62,7 @@ La percepción del mensaje necesita AT real: no se promete un anuncio por ver el
 
 ## Pruebas, criterios y límites
 
-`ActivityContent.test.tsx` comprueba imagen/alt, enlace/href/destino y eventos,
+`ActivityContent.test.tsx` comprueba lista ordenada de dos pasos en ambas soluciones, imagen/alt, enlace/href/destino y eventos,
 label/id/nombre/type/autocomplete, edición y persistencia, recorrido de Tab en
 ambos sentidos, activación única, foco y status, variante decorativa, IDs por
 instancia y las barreras esperadas. Axe se ejecuta en solución inicial, confirmada

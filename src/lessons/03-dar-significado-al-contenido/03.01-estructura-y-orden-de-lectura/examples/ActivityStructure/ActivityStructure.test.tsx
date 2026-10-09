@@ -33,12 +33,15 @@ describe('Estructura de la página de actividad', () => {
   it('conserva la secuencia de instrucciones y Tab omite texto y regiones', async () => {
     const user = userEvent.setup()
     const { container } = render(<ActivityStructure />)
-    const steps = screen.getByText(
-      '1. Inscríbete antes del viernes.',
-    ).parentElement
-    expect(steps?.textContent).toBe(
-      '1. Inscríbete antes del viernes.2. Acude al punto de encuentro el sábado.',
-    )
+    const steps = screen.getByRole('list')
+    expect(steps.tagName).toBe('OL')
+    const items = within(steps).getAllByRole('listitem')
+    expect(items).toHaveLength(2)
+    expect(items.map((item) => [item.tagName, item.textContent])).toEqual([
+      ['LI', 'Inscríbete antes del viernes.'],
+      ['LI', 'Acude al punto de encuentro el sábado.'],
+    ])
+    expect(steps.children).toHaveLength(2)
     const stops = [
       ...screen.getAllByRole('link'),
       screen.getByRole('button', { name: 'Inscribirme' }),
@@ -59,6 +62,7 @@ describe('Estructura de la página de actividad', () => {
     expect(screen.getByText(/Contraejemplo deliberado/)).toBeVisible()
     expect(screen.queryByRole('main')).toBeNull()
     expect(screen.queryByRole('heading')).toBeNull()
+    expect(screen.queryByRole('list')).toBeNull()
     const steps = screen.getByText(
       '1. Inscríbete antes del viernes.',
     ).parentElement

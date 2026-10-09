@@ -207,3 +207,31 @@ Cruzar ambos resultados en la auditoría local de módulo antes de pedir revisi�
 Mantener explícitos ensayo humano de nueve minutos por lección, revisión visual
 final humana y validaciones AT/voz/zoom no ejecutadas. La construcción de slides y
 Storybook no acredita ninguna de ellas.
+
+## Ampliación de contrato: pasos como lista nativa
+
+Consulta **2026-10-09**, tras revisión independiente y antes de corregir el código.
+Los pasos de la solución son una secuencia agrupada: usar ol con dos hijos li,
+sin números escritos a mano ni roles redundantes. Fuentes:
+[HTML ol](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ol-element),
+[HTML-AAM ol](https://www.w3.org/TR/html-aam/#el-ol) y
+[H48](https://www.w3.org/WAI/WCAG22/Techniques/html/H48). H48 es una técnica suficiente
+para expresar relaciones de listas, no un requisito WCAG independiente.
+
+La [página Magenta List](https://www.magentaa11y.com/web-criteria/component/list) y
+su [original fijado](https://github.com/tmobile/magentaA11y/blob/c0d97812d9298757f5a2d8902ed7671afb1aa9ba/public/content/documentation/web/component/list.md)
+(clave **LS**) completan el inventario, con paráfrasis y las mismas condiciones
+Apache-2.0 ya registradas. No existe interacción compuesta APG que reconstruir.
+
+| Criterio original | Clasificación | Evidencia o razón |
+| --- | --- | --- |
+| LS G2/G3 Role/Group; HTML/HTML-AAM | Automatizado | Rol list en ol y dos listitem nativos li, texto y orden primero→segundo en soluciones 3.1/3.2; estructura sin hijos ajenos. |
+| LS G1/G2 Tab | Automatizado | Recorrido omite lista e ítems no interactivos; sin tabindex. |
+| LS G1 flechas/entrada en vista | Manual | Lector y navegador: desplazamiento al leer lista, no añadir manejador de flechas. |
+| LS G2 lectura y cantidad; G3 gestos | Manual | NVDA/VoiceOver desktop y VoiceOver/TalkBack móvil: reconocer lista, dos ítems y orden. Configurar verbosidad de posición/formato según dispositivo. No ejecutado. |
+| LS controles dentro de ítems; lista ARIA custom | No aplicable | Ítems solo de texto y HTML nativo suficiente. |
+
+El contraejemplo de estructura conserva p/div e inversión deliberada en DOM/CSS.
+La corrección queda en implementación, tests y contrato, conforme a self-learning:
+es una omisión puntual de semántica nativa ya exigida por las skills, no una nueva
+convención que deba duplicarse en AGENTS.md.

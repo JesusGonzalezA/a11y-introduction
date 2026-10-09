@@ -29,6 +29,8 @@ La evidencia DOM se separa de los criterios que exigen percepción o AT real.
 | H G2/G3 nombre, rol, nivel y grupo; HTML-AAM h1–h6 | Automatizado | E «expone regiones nativas y jerarquía…»: nombres y H1/H2/H2/H3/H2 dentro del main | Lectura real pendiente |
 | H G1/G2 Tab, M/B/N/F controles en DOM | Automatizado | E «conserva la secuencia…» y C «recorre enlaces…»: Tab/Shift+Tab, sin tabindex | Dibujo del foco y scroll no demostrados por JSDOM |
 | M/B/N/F G2/G3 rol y grupo; HTML/APG | Automatizado | E: MAIN/HEADER/NAV/FOOTER y h1 al principio de main; nav «Actividad» | Rotor/regiones reales pendientes; cabecera/pie sin controles propios |
+| LS G2/G3 rol/grupo; HTML ol/HTML-AAM/H48 | Automatizado | E «conserva la secuencia…» y C «conserva lista ordenada…»: ol con dos li, texto/orden y sin hijos ajenos; Tab omite lista/ítems | Lectura de cantidad y gestos pendientes |
+| LS G1 desplazamiento, G2/G3 lista/cantidad | Manual | Matriz NVDA/VoiceOver/TalkBack, verbosidad de listas habilitada | No ejecutado con AT; controles internos/lista ARIA custom NA |
 | WCAG 1.3.2 secuencia | Automatizado | E compara instrucciones primero→segundo y DOM invertido del contraejemplo | Comprensión con AT pendiente |
 | H/M y barreras de estructura | Automatizado | E: ausencia deliberada de heading/main, rótulo visible y secuencia invertida | No se exige infracción axe específica |
 | I G2/G3 Name/Role; HTML-AAM img | Automatizado | C «nombra la imagen…»: rol img con alternativa esperada | Pertinencia revisada editorialmente; lectura real pendiente |
@@ -68,13 +70,15 @@ La evidencia DOM se separa de los criterios que exigen percepción o AT real.
 | Narrativa, #4/course-structure | 7/8 slides y apartados con mismos títulos; 5 enlaces en sus slides de demo; conceptos transferibles | Ensayo 9 + 9 min pendiente |
 | Cobertura, contrato Magenta y aria-patterns | Se separan DOM, navegador, AT/manual y NA; originales fijados/enlazados con paráfrasis | No copia extensa ni declaración de conformidad completa |
 
-Resultado de la pasada: sin discrepancias bloqueantes identificadas en contrato,
-tests y documentación. Se corrigió un desbordamiento de enlaces de la slide 25
+La primera pasada propia no identificó el problema de los pasos como párrafos.
+La revisión externa detectó esa omisión y se corrigió mediante ol/li en las soluciones.
+La pasada posterior contrasta lista, dos elementos y orden en tests y documentación
+contra HTML, HTML-AAM, H48 y el original Magenta LS añadido a la investigación. Se corrigió un desbordamiento de enlaces de la slide 25
 antes de terminar. La revisión externa del SHA se registra en GitHub.
 
 ## Validaciones y revisión técnica de superficies
 
-- `pnpm test`: **62 tests**, siete archivos; 29 heredados y 33 del módulo 3.
+- `pnpm test`: **64 tests**, siete archivos; 29 heredados y 35 del módulo 3.
 - `pnpm lint`: pasa.
 - `pnpm build`: pasa, TypeScript y Vite.
 - `pnpm build-storybook`: pasa; índice con nueve stories (cinco nuevas y cuatro
@@ -117,3 +121,23 @@ incluye inventario de rutas ni capturas en la PR.
 **Pendiente explícito:** revisión visual final del autor humano, ensayo de duración,
 lectores reales de escritorio/móvil, voz, zoom/reflujo y teclado humano entre
 navegadores. La demo con lector está preparada y documentada, no ejecutada.
+
+
+## Corrección tras revisión independiente
+
+La [revisión del primer HEAD](https://github.com/JesusGonzalezA/a11y-introduction/pull/9#pullrequestreview-5468662464)
+detectó un P2: la solución presentaba pasos como p/div. Ahora las soluciones usan
+ol con dos li y numeración nativa; la barrera de estructura conserva p/div y su
+inversión deliberada. Se añadió primero la expectativa list/listitem, se observó
+su fallo y después se corrigió el componente. La investigación incorpora la clave
+LS, fuentes y clasificación de todos sus criterios. H48 se trata como técnica
+suficiente, sin presentarla como obligación WCAG independiente.
+
+Según self-learning, esta corrección de producto se conserva en implementación,
+pruebas y contrato existente; no añade reglas duplicadas a las skills. Las slides
+no cambian. Se renderizaron de nuevo las cinco stories afectadas a 1280×720:
+las soluciones exponen ol/li con marcadores decimales y dos ítems en orden;
+el contraejemplo de estructura conserva p/div con orden DOM invertido. No hay
+desbordamiento horizontal; el árbol del navegador expone la lista. Se mantienen
+las comprobaciones humanas y AT pendientes. El nuevo dictamen debe corresponder
+al SHA de la corrección, no al primer HEAD.

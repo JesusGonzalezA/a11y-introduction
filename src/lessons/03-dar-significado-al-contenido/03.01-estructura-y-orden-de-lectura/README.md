@@ -59,7 +59,8 @@ Enter/Espacio activan el botón. Encabezados e imágenes no reciben tabindex. La
 acción y el status conservan el contrato heredado; no hay formulario en esta etapa.
 
 `ActivityStructure.test.tsx` comprueba regiones, jerarquía/nombres, secuencia DOM,
-paradas de Tab, ausencia de tabindex, barreras deliberadas y axe de la solución.
+lista ordenada con dos ítems, paradas de Tab, ausencia de tabindex, barreras
+deliberadas y axe de la solución.
 No prueba navegación H/rotor, percepción del foco, desplazamiento ni lectura real.
 Criterios H/M/B/N/F y WCAG 1.3.2, clasificaciones y brechas en la
 [auditoría](../audit.md) y la [matriz manual](../README.md#matriz-manual-pendiente).

@@ -74,7 +74,7 @@ conformidad completa con toda la guía ni con WCAG a partir de axe.
 | Área | Automatizado | Manual o no aplicable |
 | --- | --- | --- |
 | Encabezados/regiones | Roles, nombres, niveles, un main, jerarquía DOM y Tab sin paradas añadidas | Descubrimiento y lectura real pendientes; headings ARIA custom NA |
-| Secuencia | Pasos en orden DOM y barrera invertida | Comprensión y lectura con AT pendientes; flowto/tabindex positivo NA |
+| Secuencia | Lista ol/li con dos pasos en orden DOM y barrera invertida | Comprensión y lectura con AT pendientes; flowto/tabindex positivo NA |
 | Imágenes | alt informativo; decorativa con alt vacío y texto equivalente | Pertinencia editorial revisada; lectura real pendiente; complejas/funcionales NA |
 | Enlace | Nombre visible, href/destino, Tab y evento Enter/clic | Navegación real comprobada técnicamente; AT/móvil/voz pendientes |
 | Campo | label/for/id, nombre/type/autocomplete, foco por etiqueta, escribir/editar, etiqueta persistente | Teclado virtual/AT/voz pendientes; required/error/readonly/disabled/grupo NA |
@@ -92,7 +92,7 @@ Registrar fecha, SO, versión de navegador/AT, configuración, recorrido y resul
 
 | Entorno | Comprobación | Estado |
 | --- | --- | --- |
-| NVDA + Firefox y Chrome, Windows | H/Shift+H, D/Shift+D, lectura secuencial; nombre/rol/etiqueta, alt y confirmación | No ejecutado |
+| NVDA + Firefox y Chrome, Windows | H/Shift+H, D/Shift+D, lectura secuencial y lista de dos pasos; nombre/rol/etiqueta, alt y confirmación | No ejecutado |
 | VoiceOver + Safari, macOS | Rotor de encabezados/regiones, secuencia, alt informativo y omisión de redundante, campo/acción/resultado | No ejecutado |
 | VoiceOver iOS/Safari y TalkBack Android/Chrome | Deslizar y doble toque; encabezados/regiones, imágenes, controles y teclado virtual | No ejecutado |
 | Control por voz | Localizar por texto visible y activar enlace, campo y botón | No ejecutado |

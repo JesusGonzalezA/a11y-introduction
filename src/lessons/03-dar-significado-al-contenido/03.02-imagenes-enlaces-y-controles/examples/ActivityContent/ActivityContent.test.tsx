@@ -1,10 +1,27 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { axe } from 'jest-axe'
 import { describe, expect, it, vi } from 'vitest'
 import { ActivityContent } from './ActivityContent'
 
 describe('Contenido comprensible de la actividad', () => {
+  it.each([false, true])(
+    'conserva lista ordenada de dos pasos, con imagen decorativa=%s',
+    (decorative) => {
+      render(<ActivityContent decorative={decorative} />)
+      const list = screen.getByRole('list')
+      expect(list.tagName).toBe('OL')
+      const items = within(list).getAllByRole('listitem')
+      expect(items.map((item) => [item.tagName, item.textContent])).toEqual([
+        ['LI', 'Inscríbete antes del viernes.'],
+        ['LI', 'Acude al punto de encuentro el sábado.'],
+      ])
+      expect(list.children).toHaveLength(2)
+      expect(list.querySelector('[tabindex]')).toBeNull()
+      expect(list).not.toHaveAttribute('tabindex')
+    },
+  )
+
   it('nombra la imagen y el destino y asocia una etiqueta persistente al campo', async () => {
     const user = userEvent.setup()
     render(<ActivityContent />)

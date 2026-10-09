@@ -27,9 +27,17 @@ export function ActivityPage({
   const Subheading = structureBarrier ? 'p' : 'h3'
   const imageDescription =
     'Sendero entre parterres que conduce a un pabellón junto a un árbol.'
-  const firstStep = <p key="register">1. Inscríbete antes del viernes.</p>
+  const Steps = structureBarrier ? 'div' : 'ol'
+  const Step = structureBarrier ? 'p' : 'li'
+  const firstStep = (
+    <Step key="register">
+      {structureBarrier ? '1. ' : ''}Inscríbete antes del viernes.
+    </Step>
+  )
   const secondStep = (
-    <p key="attend">2. Acude al punto de encuentro el sábado.</p>
+    <Step key="attend">
+      {structureBarrier ? '2. ' : ''}Acude al punto de encuentro el sábado.
+    </Step>
   )
 
   return (
@@ -87,13 +95,13 @@ export function ActivityPage({
         </section>
         <section id={`${id}-registration`}>
           <Heading className="activity-page__heading">Inscripción</Heading>
-          <div
+          <Steps
             className={`activity-page__steps${structureBarrier ? ' activity-page__steps--reversed' : ''}`}
           >
             {structureBarrier
               ? [secondStep, firstStep]
               : [firstStep, secondStep]}
-          </div>
+          </Steps>
           <p>Demostración: la inscripción es de prueba y no envía datos.</p>
           {stage === 'content' ? (
             <form onSubmit={(event) => event.preventDefault()}>
