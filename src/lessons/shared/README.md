@@ -36,3 +36,13 @@ página por documento con `pageLayout: true` en Storybook para evitar main anida
 contraejemplo. 4.2 añade una lista de dos turnos y un aviso adaptable o recortado.
 El formulario compartido mantiene un único campo opcional, envío interceptado
 y confirmación de prueba; el aviso no cambia la acción ni envía datos.
+
+## Inspección del módulo 5
+
+`inspectionBarrier?: 'headings-and-alt' | 'label'` permite recuperar dos defectos
+aislados sobre `stage="content"`. Solo los wrappers 5.1/5.2 la usan; no combinarla
+con `barrier` ni `decorative`. `headings-and-alt` conserva h1 y cambia las secciones
+a h3, la subsección a h2 y alt a actividad.svg. `label` omite etiqueta y placeholder
+para evitar un nombre de respaldo. Sin esta prop, las etapas 3/4 no cambian.
+Los wrappers aportan el rótulo explícito de contraejemplo; la solución vuelve al
+HTML nativo heredado. No ejecutan herramientas ni representan una extensión.
