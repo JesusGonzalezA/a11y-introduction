@@ -3,11 +3,16 @@ import './preview.css'
 
 const preview: Preview = {
   decorators: [
-    (Story) => (
-      <main className="storybook-canvas">
-        <Story />
-      </main>
-    ),
+    (Story, context) =>
+      context.parameters.pageLayout ? (
+        <div className="storybook-canvas">
+          <Story />
+        </div>
+      ) : (
+        <main className="storybook-canvas">
+          <Story />
+        </main>
+      ),
   ],
   parameters: {
     layout: 'padded',

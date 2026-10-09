@@ -49,6 +49,9 @@ simulada). No se usa `barrier` junto a `unavailable`. `KeyboardRegistration` res
 la API a la comparación de teclado; `ButtonSemantics` compone la comparación o el
 estado cerrado. Sus stories y tests están co-localizados en cada lección.
 
+La acción y los estilos se reutilizan desde las [interfaces entre módulos](../shared/README.md).
+La extracción para el módulo 3 mantiene las etapas originales.
+
 La acción nativa usa `button type="button"`, nombre desde el texto visible y
 `disabled` solo en la variante cerrada. `aria-describedby` relaciona la explicación
 de indisponibilidad. La confirmación `status` existe vacía antes de actuar y recibe
