@@ -5,10 +5,10 @@ export const busTimetableExample: ExampleDefinition = {
   slug: 'horarios',
   name: 'Próximas salidas de una línea de autobús',
   lesson: '4.2',
-  lessonTitle: 'Contraste, color y ampliación del contenido',
+  lessonTitle: 'Contraste, color y tamaño del texto',
   title: 'Línea 7 · Próximas salidas · Autobuses Ría',
   tryIt:
-    'Intenta saber qué salida está cancelada sin distinguir colores. Mide el contraste del texto gris y amplía la página al 200% o reduce la ventana a 320 píxeles de ancho.',
+    'Intenta saber qué salida está cancelada sin distinguir colores. Mide el contraste del texto gris. Sube el tamaño de letra del navegador (Ajustes → Aspecto → Tamaño de fuente: Muy grande) y observa qué texto no crece. Amplía al 200% o reduce la ventana a 320 píxeles de ancho.',
   fixes: [
     {
       id: 'color',
@@ -27,6 +27,17 @@ export const busTimetableExample: ExampleDefinition = {
       why: '#b4b4b4 sobre blanco tiene un contraste de 2,07:1, por debajo del mínimo de 4,5:1 para texto normal. #52525b sobre blanco llega a 7,73:1; el aviso usa el color de texto principal.',
       before: '.parada {\n  color: #b4b4b4; /* 2,07:1 */\n}',
       after: '.parada {\n  color: #52525b; /* 7,73:1 */\n}',
+    },
+    {
+      id: 'font-size',
+      title: 'La letra crece con el tamaño elegido por la persona',
+      where:
+        'Todo el texto de la página; se nota sobre todo en el título de la línea.',
+      why: 'Con font-size en px, el texto ignora el tamaño de letra que la persona ha configurado en su navegador o sistema. Con vw, el título depende solo del ancho de la ventana: al hacer zoom no crece e incluso encoge. En rem, el texto parte del tamaño elegido por la persona; clamp() con un mínimo en rem lo hace adaptable sin perder esa base.',
+      before:
+        '.horarios {\n  font-size: 15px;\n}\n.horarios h1 {\n  font-size: 4vw;\n}',
+      after:
+        '.horarios {\n  font-size: 1rem;\n}\n.horarios h1 {\n  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);\n}',
     },
     {
       id: 'reflow',

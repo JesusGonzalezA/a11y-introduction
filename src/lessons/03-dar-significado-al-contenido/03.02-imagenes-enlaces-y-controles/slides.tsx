@@ -1,145 +1,134 @@
 import { Fragment } from 'react'
-import { exampleUrl } from '../../../examples/exampleUrl'
+import {
+  Code,
+  ExampleLinks,
+  PersonaCard,
+  SlideTitle,
+} from '../../../slides/parts'
 
 export const slides = [
-  <Fragment key="3.2-1">
-    <h2 className="lesson-slide__title">
+  <Fragment key="3.2-leccion">
+    <SlideTitle kind="leccion">
       Imágenes, enlaces y controles comprensibles
-    </h2>
+    </SlideTitle>
     <p>
-      Aprenderemos a comunicar qué aporta una imagen, adónde lleva un enlace,
-      qué hace un botón y qué pide un campo.
+      Cada elemento necesita un texto que diga qué es o qué hace, aunque no se
+      vea.
     </p>
-    <p>
-      La información debe permitir decidir sin depender solo del aspecto ni de
-      una pista que desaparece.
-    </p>
-  </Fragment>,
-  <Fragment key="3.2-2">
-    <h2 className="lesson-slide__title">
-      La alternativa textual depende del propósito
-    </h2>
-    <p>
-      Pregunta qué información perdería la persona si no percibiera la imagen.
-      El alt debe comunicar lo relevante en ese contexto.
-    </p>
-    <pre>
-      <code>
-        {
-          '<img src="grafico.svg"\n  alt="Gráfico de barras: 1.200 viajes diarios\n       en marzo de 2025 y 2.450 en marzo de 2026.">'
-        }
-      </code>
-    </pre>
-    <p>
-      Un nombre de archivo o una descripción de todos los píxeles no explica
-      necesariamente esa información.
-    </p>
-  </Fragment>,
-  <Fragment key="3.2-3">
-    <h2 className="lesson-slide__title">
-      Una imagen decorativa no necesita narración
-    </h2>
-    <p>
-      Si solo adorna o repite información ya expresada en el contexto, usa alt
-      vacío explícito.
-    </p>
-    <pre>
-      <code>{'<img src="icono-sobre.svg" alt="">'}</code>
-    </pre>
-    <p>
-      Omitir alt no equivale a escribir alt vacío. No ocultes información útil
-      tratándola como decoración.
-    </p>
-  </Fragment>,
-  <Fragment key="3.2-4">
-    <h2 className="lesson-slide__title">
-      El enlace permite anticipar el destino
-    </h2>
-    <p>
-      Usa un enlace cuando la acción lleva a un recurso o lugar. Su texto debe
-      ayudar a decidir si seguirlo.
-    </p>
-    <pre>
-      <code>
-        {'<a href="#informe">\n  Consultar el informe de movilidad 2026\n</a>'}
-      </code>
-    </pre>
-    <p>
-      «Ver más» puede depender del contexto. Un texto descriptivo también se
-      entiende en una lista de enlaces.
-    </p>
-  </Fragment>,
-  <Fragment key="3.2-5">
-    <h2 className="lesson-slide__title">El botón nombra la acción</h2>
-    <p>
-      Usa un botón para ejecutar una acción. Su texto debe explicar qué ocurrirá
-      al activarlo.
-    </p>
-    <pre>
-      <code>{'<button type="submit">Suscribirme</button>'}</code>
-    </pre>
-    <p>
-      «Aceptar» puede resultar ambiguo. El texto visible aporta el nombre
-      accesible; no hace falta repetirlo con aria-label.
-    </p>
-    <p>El enlace navega; el botón actúa. Ambos necesitan un propósito claro.</p>
-  </Fragment>,
-  <Fragment key="3.2-6">
-    <h2 className="lesson-slide__title">La etiqueta permanece al escribir</h2>
-    <p>
-      El campo necesita indicar qué dato introducir y mantener esa información
-      mientras se edita.
-    </p>
-    <pre>
-      <code>
-        {
-          '<label for="correo">Correo electrónico</label>\n<input id="correo" type="email"\n  autocomplete="email" placeholder="nombre@ejemplo.com">'
-        }
-      </code>
-    </pre>
-    <p>
-      for e id relacionan etiqueta y campo. El placeholder es una pista; no
-      sustituye la etiqueta.
-    </p>
-  </Fragment>,
-  <Fragment key="3.2-7">
-    <h2 className="lesson-slide__title">
-      Corregir la información de cada elemento
-    </h2>
-    <ol>
-      <li>
-        Imagen: sustituye el nombre del archivo por la información relevante.
-      </li>
-      <li>Enlace y botón: expresa destino y acción en sus textos.</li>
-      <li>
-        Campo: añade una etiqueta asociada y escribe para comprobar que
-        permanece.
-      </li>
-      <li>Si la imagen repite el texto del contexto, usa alt vacío.</li>
-    </ol>
-    <a className="lesson-slide__example-link" href={exampleUrl('noticia')}>
-      {' '}
-      Examinar información con barreras{' '}
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href={exampleUrl('noticia', true)}
-    >
-      {' '}
-      Comprobar nombres, etiqueta e imagen decorativa{' '}
-    </a>
-  </Fragment>,
-  <Fragment key="3.2-8">
-    <h2 className="lesson-slide__title">Comprobar propósito y persistencia</h2>
+    <p>En esta lección:</p>
     <ul>
-      <li>¿La alternativa aporta lo necesario en este contexto?</li>
-      <li>¿El enlace permite anticipar el destino?</li>
-      <li>¿El botón explica la acción?</li>
-      <li>¿La etiqueta sigue visible y asociada después de escribir?</li>
+      <li>
+        Imágenes: qué escribir en el <code>alt</code>, y cuándo dejarlo vacío.
+      </li>
+      <li>Enlaces: un texto que anticipe el destino.</li>
+      <li>
+        Botones y campos: una acción clara y una etiqueta que no desaparece.
+      </li>
     </ul>
+  </Fragment>,
+  <Fragment key="3.2-situacion-elena">
+    <SlideTitle kind="situacion">Elena lee una noticia de su barrio</SlideTitle>
+    <PersonaCard
+      id="elena"
+      task="Quiere entender el gráfico de la noticia y abrir el informe completo."
+    />
+  </Fragment>,
+  <Fragment key="3.2-error-imagenes">
+    <SlideTitle kind="error">
+      Imágenes con nombre de archivo como texto
+    </SlideTitle>
+    <Code tone="error" caption="Así está">
+      {
+        '<img src="grafico.svg" alt="grafico_final_v2.png">\n<img src="icono-sobre.svg" alt="icono-sobre.svg">'
+      }
+    </Code>
     <p>
-      Revisa el contenido con personas y tecnologías de apoyo. Una comprobación
-      automática no decide si el mensaje tiene sentido.
+      <strong>Qué le pasa a Elena:</strong> oye «grafico final v2 punto png» y
+      no conoce los datos. Después oye el nombre de un icono que no aporta nada.
     </p>
+  </Fragment>,
+  <Fragment key="3.2-solucion-imagenes">
+    <SlideTitle kind="solucion">
+      El alt depende de para qué sirve la imagen
+    </SlideTitle>
+    <Code tone="solucion" caption="Informativa: contar lo que aporta">
+      {
+        '<img src="grafico.svg"\n  alt="Gráfico de barras: 1.200 viajes diarios\n       en marzo de 2025 y 2.450 en marzo de 2026.">'
+      }
+    </Code>
+    <Code tone="solucion" caption="Decorativa: alt vacío para que se ignore">
+      {'<img src="icono-sobre.svg" alt="">'}
+    </Code>
+    <p>
+      Pregunta clave: ¿qué se perdería si no se viera la imagen? Sin{' '}
+      <code>alt</code>, el lector lee el nombre del archivo.
+    </p>
+  </Fragment>,
+  <Fragment key="3.2-error-enlace">
+    <SlideTitle kind="error">Enlaces que dicen «Leer más»</SlideTitle>
+    <Code tone="error" caption="Así está">
+      {'<a href="#informe">Leer más</a>'}
+    </Code>
+    <p>
+      <strong>Qué le pasa a Elena:</strong> pide a su lector la lista de enlaces
+      de la página y oye «Leer más», sin contexto. ¿Más de qué?
+    </p>
+  </Fragment>,
+  <Fragment key="3.2-solucion-enlace">
+    <SlideTitle kind="solucion">
+      El texto del enlace anticipa el destino
+    </SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {'<a href="#informe">\n  Consultar el informe de movilidad 2026\n</a>'}
+    </Code>
+    <p>
+      Se entiende fuera de contexto, en una lista de enlaces o por voz: «pulsa
+      consultar el informe».
+    </p>
+  </Fragment>,
+  <Fragment key="3.2-situacion-lucia">
+    <SlideTitle kind="situacion">Lucía se suscribe al boletín</SlideTitle>
+    <PersonaCard
+      id="lucia"
+      task="Quiere recibir las noticias del barrio por correo: escribir su dirección y suscribirse."
+    />
+  </Fragment>,
+  <Fragment key="3.2-error-campo">
+    <SlideTitle kind="error">
+      Un campo sin etiqueta y un botón que dice «Aceptar»
+    </SlideTitle>
+    <Code tone="error" caption="Así está">
+      {
+        '<input type="email" placeholder="Tu correo">\n<button type="submit">Aceptar</button>'
+      }
+    </Code>
+    <p>
+      <strong>Qué le pasa a Lucía:</strong> al empezar a escribir, el
+      placeholder desaparece y ya no recuerda qué pedía el campo. «Aceptar» no
+      dice qué va a pasar.
+    </p>
+    <p>A Elena, su lector solo le dice «campo de edición».</p>
+  </Fragment>,
+  <Fragment key="3.2-solucion-campo">
+    <SlideTitle kind="solucion">
+      Etiqueta visible y botón que nombra la acción
+    </SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        '<label for="correo">Correo electrónico</label>\n<input id="correo" type="email"\n  autocomplete="email"\n  placeholder="nombre@ejemplo.com">\n<button type="submit">Suscribirme</button>'
+      }
+    </Code>
+    <ul>
+      <li>
+        <code>for</code> e <code>id</code> unen etiqueta y campo: da nombre y
+        amplía la zona de clic.
+      </li>
+      <li>El placeholder es solo una pista, nunca la etiqueta.</li>
+    </ul>
+    <ExampleLinks
+      slug="noticia"
+      barrier="Leer la noticia y suscribirse con barreras"
+      fixed="Leer la noticia y suscribirse corregida"
+    />
   </Fragment>,
 ]

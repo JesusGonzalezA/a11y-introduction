@@ -1,129 +1,100 @@
 import { Fragment } from 'react'
-import { exampleUrl } from '../../../examples/exampleUrl'
+import {
+  Code,
+  ExampleLinks,
+  PersonaCard,
+  SlideTitle,
+} from '../../../slides/parts'
 
 export const slides = [
-  <Fragment key="3.1-1">
-    <h2 className="lesson-slide__title">
+  <Fragment key="3.1-leccion">
+    <SlideTitle kind="leccion">
       Estructura de página y orden de lectura
-    </h2>
+    </SlideTitle>
     <p>
-      Aprenderemos a organizar una página para localizar contenido y
-      comprenderlo al leer en secuencia.
+      Con la vista, una página se entiende de un vistazo. Con un lector de
+      pantalla se recorre por partes: la estructura es el mapa.
     </p>
-    <p>
-      Antes de actuar necesitamos saber de qué trata, dónde está la información
-      y en qué orden usarla.
-    </p>
-  </Fragment>,
-  <Fragment key="3.1-2">
-    <h2 className="lesson-slide__title">
-      Los encabezados permiten localizar secciones
-    </h2>
-    <p>
-      Un encabezado anuncia de qué trata el contenido que viene después. Un
-      texto grande o en negrita no aporta esa relación por sí solo.
-    </p>
-    <pre>
-      <code>{'<h2>Ingredientes</h2>\n<ul>\n  <li>1 cebolla</li>\n</ul>'}</code>
-    </pre>
-    <p>
-      Los lectores de pantalla pueden reunir los encabezados en una lista y
-      saltar entre ellos.
-    </p>
-  </Fragment>,
-  <Fragment key="3.1-3">
-    <h2 className="lesson-slide__title">
-      El nivel expresa una relación entre secciones
-    </h2>
-    <p>
-      El título principal orienta sobre la página; las secciones y subsecciones
-      organizan sus partes.
-    </p>
-    <pre>
-      <code>
-        {
-          '<h1>Lentejas estofadas con verduras</h1>\n<h2>Ingredientes</h2>\n<h3>Para el sofrito</h3>\n<h2>Preparación</h2>'
-        }
-      </code>
-    </pre>
-    <p>
-      Elige el nivel por jerarquía; usa CSS para el tamaño. Al cerrar una
-      subsección se puede volver a un nivel superior.
-    </p>
-  </Fragment>,
-  <Fragment key="3.1-4">
-    <h2 className="lesson-slide__title">
-      Las regiones identifican grandes áreas
-    </h2>
-    <p>
-      Para orientarse también ayuda distinguir la cabecera, la navegación, el
-      contenido principal y el pie.
-    </p>
-    <pre>
-      <code>
-        {
-          '<header>…</header>\n<nav>…</nav>\n<main>Contenido propio de esta página</main>\n<footer>…</footer>'
-        }
-      </code>
-    </pre>
-    <p>
-      Usa un main visible por documento. Un header o footer dentro de una
-      sección no representa necesariamente la cabecera o el pie global.
-    </p>
-  </Fragment>,
-  <Fragment key="3.1-5">
-    <h2 className="lesson-slide__title">
-      El documento debe conservar una secuencia con sentido
-    </h2>
-    <p>
-      Si el orden cambia el significado, conserva una secuencia correcta en el
-      HTML.
-    </p>
-    <ol>
-      <li>Presentar la información necesaria.</li>
-      <li>Dar las instrucciones en su orden.</li>
-      <li>Ofrecer la acción y su resultado.</li>
-    </ol>
-    <p>
-      Reordenar con CSS no corrige el orden del documento. Leer contenido y
-      recorrer controles con Tab son comprobaciones diferentes.
-    </p>
-  </Fragment>,
-  <Fragment key="3.1-6">
-    <h2 className="lesson-slide__title">
-      Recorrer encabezados y leer las instrucciones
-    </h2>
-    <ol>
-      <li>Abre la lista de encabezados del lector y localiza una sección.</li>
-      <li>Busca el contenido principal mediante regiones.</li>
-      <li>Lee los pasos: ¿mantienen el mismo sentido que en pantalla?</li>
-    </ol>
-    <p>
-      Una lista de roles en el inspector no demuestra lo que anuncia un lector
-      real.
-    </p>
-    <a className="lesson-slide__example-link" href={exampleUrl('receta')}>
-      {' '}
-      Examinar estructura con barreras{' '}
-    </a>
-    <a className="lesson-slide__example-link" href={exampleUrl('receta', true)}>
-      {' '}
-      Recorrer estructura corregida{' '}
-    </a>
-  </Fragment>,
-  <Fragment key="3.1-7">
-    <h2 className="lesson-slide__title">Comprobar estructura y secuencia</h2>
+    <p>En esta lección:</p>
     <ul>
-      <li>¿Los encabezados describen las secciones y sus relaciones?</li>
-      <li>¿Se identifica el contenido principal?</li>
-      <li>¿La lectura secuencial conserva las instrucciones?</li>
+      <li>Encabezados y sus niveles: h1, h2, h3…</li>
+      <li>Regiones: cabecera, navegación, contenido principal y pie.</li>
+      <li>Un orden del HTML que conserve el sentido.</li>
+    </ul>
+  </Fragment>,
+  <Fragment key="3.1-situacion">
+    <SlideTitle kind="situacion">Elena quiere cocinar unas lentejas</SlideTitle>
+    <PersonaCard
+      id="elena"
+      task="Abre una receta en un blog. Quiere saltar directamente a los ingredientes y después seguir los pasos en orden."
+    />
+    <p>
+      Su lector le ofrece la lista de encabezados y de regiones para saltar
+      entre secciones, como quien echa un vistazo.
+    </p>
+  </Fragment>,
+  <Fragment key="3.1-error-estructura">
+    <SlideTitle kind="error">Títulos y zonas que solo lo parecen</SlideTitle>
+    <Code tone="error" caption="Así está">
+      {
+        '<div class="cabecera">…</div>\n<div class="contenido">\n  <div class="titulo">Ingredientes</div>\n  <div class="subtitulo">Para el sofrito</div>\n</div>'
+      }
+    </Code>
+    <p>
+      <strong>Qué le pasa a Elena:</strong> su lector no encuentra ningún
+      encabezado ni región. Tiene que escuchar la página entera, desde el menú,
+      para llegar a los ingredientes.
+    </p>
+  </Fragment>,
+  <Fragment key="3.1-solucion-estructura">
+    <SlideTitle kind="solucion">Encabezados con nivel y regiones</SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        '<header>…</header>\n<nav aria-label="Principal">…</nav>\n<main>\n  <h1>Lentejas estofadas</h1>\n  <h2>Ingredientes</h2>\n  <h3>Para el sofrito</h3>\n</main>\n<footer>…</footer>'
+      }
+    </Code>
+    <ul>
       <li>
-        ¿La presentación visual y el documento permiten comprender lo mismo?
+        El nivel indica la jerarquía, no el tamaño: el tamaño se cambia con CSS.
+      </li>
+      <li>
+        Un solo <code>h1</code> y un solo <code>main</code> por página.
       </li>
     </ul>
+  </Fragment>,
+  <Fragment key="3.1-error-orden">
+    <SlideTitle kind="error">
+      Los pasos se ven en orden, pero se leen al revés
+    </SlideTitle>
+    <Code tone="error" caption="Así está">
+      {
+        '<div style="flex-direction: column-reverse">\n  <p>4. Cuece 35 minutos…</p>\n  …\n  <p>1. Pica la cebolla…</p>\n</div>'
+      }
+    </Code>
     <p>
-      Comprueba con un lector real; el aspecto y el código por separado no
-      muestran toda la experiencia.
+      <strong>Qué le pasa a Elena:</strong> el lector sigue el orden del HTML,
+      no el de la pantalla. Oye «cuece 35 minutos» antes de picar la cebolla.
     </p>
+  </Fragment>,
+  <Fragment key="3.1-solucion-orden">
+    <SlideTitle kind="solucion">
+      El orden del HTML es el orden de lectura
+    </SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        '<ol>\n  <li>Pica la cebolla…</li>\n  …\n  <li>Cuece 35 minutos…</li>\n</ol>'
+      }
+    </Code>
+    <ul>
+      <li>Escribe el HTML en el orden en que debe leerse; CSS solo coloca.</li>
+      <li>
+        <code>ol</code> anuncia que son pasos y cuántos hay.
+      </li>
+    </ul>
+    <ExampleLinks
+      slug="receta"
+      barrier="Recorrer la receta sin estructura"
+      fixed="Recorrer la receta con encabezados y regiones"
+    />
   </Fragment>,
 ]

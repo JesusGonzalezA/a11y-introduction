@@ -1,58 +1,47 @@
 # 3.1 Estructura de página y orden de lectura
 
-**9 minutos, demo incluida.** La persona quiere localizar información antes de
-actuar. Aprenderá a reconocer secciones, jerarquía y contenido principal y a
-comprobar que una secuencia sigue teniendo sentido sin depender de su posición.
+> Módulo 3 · Dar significado al contenido · ejemplo: `/ejemplos/receta`
 
-## Recorrido y alcance
+## Objetivo
 
-Encabezados → niveles → regiones → secuencia del documento → demo con lector →
-comprobación. Teclado y foco se profundizan en el módulo 4.
+- Usar encabezados con un nivel que exprese la jerarquía.
+- Identificar grandes áreas con regiones.
+- Mantener en el HTML el orden en que debe leerse el contenido.
 
-## Página de ejemplo
+## Situación
 
-Instalar y arrancar según el [mapa del módulo](../README.md#ejecutar-y-revisar). Ruta: `/ejemplos/receta`, una receta de lentejas
-en un blog de cocina. Enlaces de la slide 6: «Examinar estructura con barreras»
-y «Recorrer estructura corregida» (`?arreglo=1`).
+- **Persona:** Elena — ciega; usa lector de pantalla y salta por encabezados y regiones.
+- **Tarea:** ir directa a los ingredientes de una receta y seguir los pasos en orden.
 
-| Arreglo | Sin arreglo | Con arreglo |
+## Errores comunes → solución
+
+| Error | Qué le pasa a Elena | Solución |
 | --- | --- | --- |
-| Encabezados | Títulos como `div` con estilos | h1, h2 (Ingredientes, Preparación, Consejo) y h3 (Para el sofrito, Para el guiso) |
-| Regiones | Cabecera, navegación, contenido y pie como `div` | `header`, `nav aria-label="Principal"`, `main`, `footer` |
-| Orden | Pasos escritos al revés y recolocados con `column-reverse` | `ol` con los pasos en orden de documento |
+| Títulos con `div` y clases de tamaño | No encuentra encabezados: escucha toda la página | `h1`, `h2`, `h3` según la jerarquía |
+| Sin regiones (`div.cabecera`, `div.contenido`) | No puede saltar al contenido principal | `header`, `nav`, `main`, `footer` |
+| Pasos invertidos con `column-reverse` | Oye los pasos al revés | HTML en orden + `ol` |
 
-Ambas versiones se ven prácticamente igual: la diferencia está en el documento.
+## Ejemplo
 
-## Demo preparada con lector de pantalla
+- Página: receta de lentejas en el blog «La Cuchara Lenta».
+- Demo: lista de encabezados y de regiones del lector (o del inspector) → leer los pasos → **Aplicar arreglo** → repetir.
+- Código: `examples/RecipePage/`.
 
-1. Abrir la barrera. Con NVDA o VoiceOver, abrir la lista de encabezados: no
-   aparece ninguno. Buscar regiones: no hay contenido principal.
-2. Leer la preparación en secuencia: el lector empieza por «Cuece 35 minutos».
-3. Pulsar **Aplicar arreglo** y abrir **Ver cambios**; los tres cambios quedan
-   resaltados. Cerrar el panel y repetir: seis encabezados en tres niveles,
-   cuatro regiones y los pasos en orden.
+## Conceptos clave
 
-La herramienta flotante no añade encabezados ni regiones. Recorrer con Tab y leer
-en secuencia son comprobaciones distintas.
+- El nivel indica jerarquía, no tamaño; el tamaño es CSS.
+- Un solo `h1` y un solo `main` por página.
+- CSS coloca; el HTML decide el orden de lectura.
 
-## Componentes y pruebas
+## Pruebas
 
-`RecipePage` (escenario de página completa) recibe `fixed: boolean`; su definición
-está en `RecipePage.example.ts`. `RecipePage.test.tsx` comprueba que la barrera no
-expone encabezados ni regiones y que su DOM invierte los pasos; con el arreglo,
-la jerarquía exacta, una única `main`, banner, navegación con nombre, contentinfo,
-la `ol` en orden y axe sin infracciones detectables. La lectura real con AT queda
-en la [matriz manual del módulo](../README.md#matriz-manual-pendiente).
+- Automatizadas (`RecipePage.test.tsx`): con barrera no hay encabezados, regiones ni lista ordenada; con arreglo jerarquía, regiones, pasos en orden y axe sin infracciones.
+- Manuales pendientes: recorrido real con lector de pantalla.
 
-## Referencias
+## Fuentes
 
-[Investigación previa](../../../../docs/research/03-dar-significado-al-contenido.md),
-[WAI encabezados](https://www.w3.org/WAI/tutorials/page-structure/headings/),
-[WAI regiones](https://www.w3.org/WAI/tutorials/page-structure/regions/),
-[APG regiones](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/),
-[HTML main](https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element),
-[HTML-AAM headings](https://www.w3.org/TR/html-aam/#el-h1-h6),
-[WCAG secuencia](https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html),
-[Magenta Heading](https://www.magentaa11y.com/web-criteria/component/heading) y
-[Magenta Main](https://www.magentaa11y.com/web-criteria/page-level/main-landmark).
-Los originales específicos de cada región están fijados en la investigación.
+- [Encabezados, W3C WAI](https://www.w3.org/WAI/tutorials/page-structure/headings/) · [Regiones, W3C WAI](https://www.w3.org/WAI/tutorials/page-structure/regions/)
+- [HTML main](https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element) · [HTML-AAM h1–h6](https://www.w3.org/TR/html-aam/#el-h1-h6)
+- [APG regiones](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/)
+- [WCAG 1.3.2 Secuencia con significado](https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html)
+- [Magenta Heading](https://www.magentaa11y.com/web-criteria/component/heading) · [Magenta Main](https://www.magentaa11y.com/web-criteria/page-level/main-landmark)

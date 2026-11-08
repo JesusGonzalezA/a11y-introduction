@@ -70,42 +70,35 @@ no al revés:
 
 ## Contrato de una lección
 
-- `README.md`: guía mínima de la lección: objetivo, instalación y ejecución,
-  componentes, consideraciones de accesibilidad, pruebas y referencias.
-- `presenter.md`: narración completa, organizada por slide y lista para leer
-  durante una grabación. Usa acotaciones breves como
-  `[Ejemplo: abrir …]` o `[Ejemplo: pulsar «Aplicar arreglo» …]` solo cuando haya
-  que cambiar lo que aparece en pantalla.
-- `slides.tsx`: columna vertebral visual del guion. Cada slide muestra el número
-  de la lección en formato humano (`2.1`, `2.2`, etc.), seguido de un título arriba,
-  fondo blanco y contenido alineado a la izquierda. Debe representar fielmente lo
-  que desarrolla el presentador sin copiar toda la narración. Presenta primero la
-  tarea de la persona en lenguaje cotidiano y descubre los controles técnicos
-  a partir de las acciones necesarias para completarla. Formula cada concepto
-  desde la pregunta o necesidad que resuelve para la persona antes de explicar
-  la técnica. Los títulos y el texto explicativo expresan conceptos transferibles
-  que se entienden sin conocer la demo. Los detalles propios del escenario aparecen
-  solo en fragmentos de código; los enlaces a las páginas de ejemplo se rotulan por
-  la interacción o el concepto que permiten revisar. Cuando una lección presenta los primeros
-  elementos de una familia
-  más amplia, sitúalos como punto de partida y anticipa que el resto aparecerá
-  a lo largo del curso. Al explicar teclado, describe el recorrido en el orden
-  de la tarea y cómo permite completarla sin saltos inesperados. Reserva el
-  detalle de tests y las decisiones de alcance para el README, salvo cuando
-  sean el concepto que se está explicando.
-  La primera slide usa como título el nombre completo publicado en el `README.md`
-  del módulo y define de forma directa qué se va a aprender. Todos los demás
-  títulos nombran el concepto concreto de la slide; evita conclusiones abstractas
-  que presupongan que la audiencia ya conoce el tema. Una persona debe poder
-  identificar y comprender la lección leyendo las slides en orden, sin abrir
-  los ejemplos. Las demos refuerzan una explicación ya visible.
-  En una lección dedicada a un componente o patrón interactivo, ordena la
-  explicación para responder de forma explícita y con ejemplos concretos:
-  **para qué sirve y cuándo se usa → qué alternativa nativa existe → qué ARIA
-  necesita y para qué sirve cada atributo → qué interacciones ofrece → qué
-  consideraciones o límites especiales tiene**. No uses como título una
-  conclusión metafórica o un contraste técnico —por ejemplo, «ya tiene
-  contrato»— antes de explicar en lenguaje básico qué significa.
+Toda lección práctica cuenta la misma historia, centrada en una persona usuaria:
+
+1. **Lección:** título completo de la lección y qué se va a aprender.
+2. **Situación:** una persona de `src/personas.ts` (Andrés, Elena, Lucía, Manuel,
+   Ana), cómo usa la web y qué quiere hacer en la página del ejemplo.
+3. **Error común:** qué falla en el código y qué le pasa a esa persona.
+4. **Solución:** el código corregido, por qué funciona y los enlaces a la página
+   de ejemplo con y sin arreglo.
+
+Cuando una lección tiene varias barreras, repite pares error → solución. Puede
+añadir slides de tipo «Lección» con conceptos previos y cerrar con un «Resumen».
+
+- `slides.tsx`: se entiende sin el vídeo ni otro material. Usa las piezas de
+  `src/slides/parts.tsx`: `SlideTitle` (tipo `leccion`, `situacion`, `error`,
+  `solucion`, `comprobar` o `resumen`), `PersonaCard`, `Code` (tono `error`,
+  `solucion` o `neutral`) y `ExampleLinks`. La primera slide es de tipo
+  `leccion` y su título es el nombre completo de la lección. Cada título nombra
+  el concepto o el error concreto en lenguaje cotidiano. El texto de error dice
+  «Qué le pasa a <persona>». El código reproduce el antes y el después de la
+  definición del ejemplo. Los enlaces se rotulan por la interacción que permiten
+  revisar. **Nunca muestres tiempos en las slides.**
+- `presenter.md`: guía para presentar, no texto para leer. Por cada slide, un
+  apartado `## N. Título` con palabras clave en viñetas, frases importantes como
+  cita (`> «…»`) y acotaciones `[Ejemplo: …]` cuando cambia la pantalla. La
+  cabecera puede indicar la duración aproximada y la demo.
+- `README.md`: resumen esquemático con estas secciones: Objetivo, Situación,
+  Errores comunes → solución (tabla error / qué le pasa / solución), Ejemplo
+  (página, pasos de la demo, código), Conceptos clave, Pruebas (automatizadas y
+  manuales pendientes) y Fuentes. Sin prosa larga ni duplicar las slides.
 - `examples/`: páginas de ejemplo de la lección.
 - `*.example.ts`: definición de la página (slug, lección, título, qué probar y lista
   de arreglos con dónde, por qué y código antes/después). Se registra una vez en
@@ -113,9 +106,8 @@ no al revés:
 - `*.test.tsx`: comportamiento, semántica accesible y teclado de la página con y sin
   arreglo.
 
-Una lección puede ser inicialmente documental. Añade `slides.tsx` y `presenter.md`
-cuando se prepare para impartirla; no inventes
-componentes solo para completar una plantilla.
+Las lecciones de introducción y cierre (1.1, 1.2, 5.3) no tienen persona ni
+ejemplo: usan slides `leccion` y `resumen`.
 
 ## Páginas de ejemplo
 
@@ -134,13 +126,26 @@ la sirve en `/ejemplos/<slug>`; `?arreglo=1` la abre con el arreglo aplicado.
 - La herramienta flotante no añade encabezados ni regiones, para no alterar lo que
   revelan lectores, bookmarklets o Accessibility Insights.
 
-## Slides continuas
+## Slides continuas y superficies del servidor
 
-`src/lessons/lessonRegistry.ts` es la única fuente de orden de las slides. Cada nueva
-lección debe exportar `slides` (elementos React con claves únicas) desde su `slides.tsx` y añadirse al registro en el
-orden pedagógico. Cada elemento contiene el título y el contenido;
-`CourseSlides` añade el contenedor y el número de lección. La composición de `src/slides/CourseSlides.tsx` solo renderiza ese
-registro y no contiene contenido específico de una lección.
+`src/lessons/lessonRegistry.ts` (`courseModules`) es la única fuente del orden de
+módulos, lecciones y slides. Cada lección exporta `slides` (elementos React con
+claves únicas) desde su `slides.tsx`. `CourseSlides` añade la portada, una slide
+separadora por módulo (`#/modulo-N`), el identificador de la primera slide de cada
+lección (`#/leccion-N-M`) y la etiqueta «Lección N.M · Título»; no contiene
+contenido de lecciones. Una lección no importa `lessonRegistry` (dependencia
+circular).
+
+El servidor ofrece cuatro superficies (rutas en `src/routes.ts`):
+
+- `/`: índice; por módulo y lección enlaza diapositivas, ejemplos y contenido.
+- `/diapositivas/`: la presentación.
+- `/ejemplos/`: páginas de ejemplo, agrupadas por módulo (`#modulo-N`).
+- `/contenido/`: Markdown del repositorio (`modulo-N`, `N.M`, `N.M/presentador`).
+
+`src/lessons/slides.test.tsx` valida todas las slides: tipo y título, axe,
+situación → error → solución en lecciones con ejemplo, enlaces a cada ejemplo y
+ausencia de tiempos.
 
 ## Reglas de colocación
 
@@ -180,10 +185,12 @@ registro y no contiene contenido específico de una lección.
 - [ ] La tarea de la persona, el orden de descubrimiento y lo que queda para
       lecciones posteriores están definidos antes de los detalles técnicos.
 - [ ] `presenter.md` y `slides.tsx` existen cuando la lección está preparada.
-- [ ] `presenter.md` se puede leer en voz alta y sus únicas instrucciones son
-      acotaciones breves para cambiar la superficie mostrada.
-- [ ] Cada slide tiene el título arriba, fondo blanco y contenido alineado a la
-      izquierda, y sirve de base al apartado equivalente del guion.
+- [ ] Las slides siguen lección → situación → error común → solución, con una
+      persona de `src/personas.ts`, y no muestran tiempos.
+- [ ] `presenter.md` contiene palabras clave y frases importantes por slide, no
+      narración para leer.
+- [ ] Cada slide usa `SlideTitle`, tiene fondo blanco y contenido alineado a la
+      izquierda, y tiene un apartado equivalente en `presenter.md`.
 - [ ] Los títulos y el texto principal se entienden sin conocer el ejemplo; cualquier
       detalle del escenario queda dentro de código de apoyo y los enlaces nombran el
       concepto o la interacción que permiten revisar.
@@ -195,7 +202,8 @@ registro y no contiene contenido específico de una lección.
       página en la slide correspondiente.
 - [ ] Cada ejemplo tiene página, definición y test co-localizados, y está en el
       registro de ejemplos.
-- [ ] La lección está incluida una sola vez y en orden en `lessonRegistry.ts`.
+- [ ] La lección está incluida una sola vez y en orden en `lessonRegistry.ts` y
+      aparece en el índice `/` con sus diapositivas, ejemplos y contenido.
 - [ ] Las páginas de ejemplo y slides afectadas quedan disponibles para la
       revisión manual del autor, y la PR indica si esa revisión está pendiente
       o completada.

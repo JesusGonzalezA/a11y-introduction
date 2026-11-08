@@ -15,9 +15,10 @@ review locally; the agent leaves every affected surface ready to inspect.
    Reuse the slugs in `src/examples/exampleRegistry.ts` and the slide headings
    already present in the repository. Completion means the author can identify
    every changed rendered surface without reconstructing the diff.
-2. Build the app with the commands declared in `package.json`. Slides and example
-   pages are served by the same Vite app: slides at `/`, examples at
-   `/ejemplos/<slug>`, with `?arreglo=1` for the fixed state.
+2. Build the app with the commands declared in `package.json`. The same Vite app
+   serves the index at `/`, slides at `/diapositivas/` (`#/modulo-N`,
+   `#/leccion-N-M`), examples at `/ejemplos/<slug>` with `?arreglo=1` for the
+   fixed state, and Markdown content at `/contenido/`.
 3. Confirm that each affected example page opens in both states, that the floating
    toggle switches between them, and that "Ver cambios" highlights every fix listed
    in its definition. Confirm that every affected slide is reachable in teaching

@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { examplesBase } from './examples/exampleUrl'
+import { contentBase, examplesBase, slidesBase } from './routes'
 
 const root = document.getElementById('root')
 
@@ -9,14 +9,20 @@ if (!root) {
 }
 
 const { pathname } = window.location
-const isExample = `${pathname}/`.startsWith(examplesBase)
+const startsWith = (base: string) => `${pathname}/`.startsWith(base)
 
 // Cada superficie carga solo sus estilos: las páginas de ejemplo no heredan Reveal.
-const surface = isExample
+const surface = startsWith(examplesBase)
   ? import('./examples/ExamplesApp').then(({ ExamplesApp }) => (
       <ExamplesApp pathname={pathname} />
     ))
-  : import('./slides/SlidesApp').then(({ SlidesApp }) => <SlidesApp />)
+  : startsWith(slidesBase)
+    ? import('./slides/SlidesApp').then(({ SlidesApp }) => <SlidesApp />)
+    : startsWith(contentBase)
+      ? import('./content/ContentApp').then(({ ContentApp }) => (
+          <ContentApp pathname={pathname} />
+        ))
+      : import('./portal/PortalApp').then(({ PortalApp }) => <PortalApp />)
 
 surface.then((element) => {
   createRoot(root).render(<StrictMode>{element}</StrictMode>)

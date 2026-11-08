@@ -1,83 +1,37 @@
-# Guion · 2.1 Personas, formas de interacción y barreras
+# Notas · 2.1 Personas, formas de interacción y barreras
 
-## 1. Personas, formas de interacción y barreras · 35 s
+≈ 5 min · demo: tienda online
 
-Queremos que una persona conozca una actividad y pueda inscribirse. Para ello
-necesita percibir la información, entender qué hacer y completar la acción.
-Vamos a reconocer barreras que pueden interrumpir ese recorrido.
+## 1. Lección
 
-La barrera no se explica diciendo que una persona no sabe utilizar nuestra web.
-Aparece cuando la interfaz exige una forma de uso que esa persona no puede
-realizar. Podemos cambiar las decisiones de contenido y código que la producen.
+- Barrera = la web exige algo que la persona no puede hacer
+- > «La barrera no está en la persona: está en nuestro código.»
 
-## 2. Distintas formas de recorrer y activar · 55 s
+## 2. Situación · Cinco personas
 
-Con ratón podemos señalar un control y activarlo. Con teclado recorremos los
-controles y utilizamos teclas para actuar. Una persona también puede dar órdenes
-por voz; reconocer el nombre de la acción le ayuda a indicar qué quiere activar.
+- Presentar uno a uno: Andrés (teclado), Elena (lector), Lucía (claridad), Manuel (color y letra), Ana (movimiento)
+- Nos acompañan todo el curso
+- Una persona puede combinar varias formas de uso
 
-Otras herramientas ayudan a percibir y explorar la página. La ampliación aumenta
-el contenido para facilitar su lectura. Un lector de pantalla utiliza información
-de la interfaz para presentar contenido mediante voz sintetizada o braille y
-permitir recorrer su estructura.
+## 3. Cada necesidad, una barrera típica
 
-Estas formas se combinan. Una persona puede ampliar la página y usar el teclado,
-o alternar entre ratón y voz. No debemos suponer que todas las personas con una
-misma necesidad utilizan la misma herramienta. Lo que vamos a revisar es si
-nuestra interfaz permite completar la tarea mediante esas distintas formas.
+- Visual → color · auditiva → subtítulos · motora → solo ratón · cognitiva → instrucciones
+- Permanente, temporal, de situación
+- No es una lista completa: es para aprender a reconocer
 
-## 3. Necesidades y barreras concretas · 65 s
+## 4. Situación · Andrés quiere comprar una taza
 
-Pensemos en cuatro ejemplos. Si la disponibilidad aparece únicamente en verde o
-rojo, una persona que no distingue esos colores pierde información. Un texto que
-indique su significado evita depender solo del color.
+- Solo teclado · Tab, Enter, Espacio
+- Tarea sencilla: añadir a la cesta
 
-Si un vídeo explica la actividad hablando y no tiene subtítulos, quien no puede
-oírlo pierde esa explicación. Los subtítulos deben recoger el habla y también los
-sonidos relevantes para entenderla.
+## 5. Error · El botón solo responde al ratón
 
-Si una acción solo responde al clic, puede quedar fuera del alcance de quien
-utiliza teclado por una necesidad motora. El problema está en cómo se ha construido
-la acción, no en que falte un ratón.
+- `div` + `onclick` = se ve, no se alcanza
+- [Ejemplo: abrir «Intentar comprar solo con teclado» y recorrer con Tab]
+- Tab: envíos → dudas · el botón no existe para el teclado
 
-Y si las instrucciones son confusas, comprender los pasos exige un esfuerzo que
-podemos evitar con orden y lenguaje claro. Esto importa especialmente para
-necesidades cognitivas, aunque ayuda a muchas personas. Son ejemplos para
-reconocer barreras, no una lista completa ni una solución universal.
+## 6. Solución · Botón HTML de verdad
 
-## 4. Alcanzar una acción con teclado · 90 s, incluida demo
-
-Tab nos permite avanzar entre controles y Shift más Tab retroceder. El foco
-indica cuál recibirá la acción. En este recorrido consultamos información,
-alcanzamos la acción y después encontramos ayuda. Veamos qué sucede si falta
-la parada que permite actuar.
-
-[Ejemplo: abrir «Observar una acción inalcanzable».]
-
-Es la ficha de una taza en una tienda online, con la barrera activada. Sin
-utilizar el ratón, avanzo desde el enlace de envíos. El siguiente Tab llega al
-enlace de dudas: se ha saltado «Añadir a la cesta». El botón se ve, pero no
-podemos alcanzarlo para completar la compra desde el teclado.
-
-[Ejemplo: pulsar «Aplicar arreglo» y abrir «Ver cambios».]
-
-El panel señala el cambio en la página: el div con clic pasa a ser el botón HTML
-que aparece en la slide. Ahora el recorrido pasa de envíos a la acción y después
-a dudas. Retrocedo con Shift más Tab al botón. Lo activo con Enter y la cesta
-cambia a un artículo; no se compra nada. El botón también admite Espacio.
-Conservamos el foco para poder continuar.
-
-## 5. Comprobar que la tarea se puede completar · 55 s
-
-Podemos organizar la comprobación en tres preguntas. ¿Alcanzamos el control y
-vemos dónde está el foco? ¿Entendemos qué hace y podemos activarlo? ¿Percibimos
-el resultado y podemos seguir?
-
-La variante que solo respondía al ratón podía parecer terminada si la probábamos
-únicamente de esa manera. La comprobación con teclado ha revelado una barrera
-concreta y el botón nativo nos ha dado una solución directa.
-
-No hemos probado aquí todas las formas de utilizar la web. Hemos aprendido a
-observar una tarea desde otra forma de interacción. Ahora vamos a mirar qué
-información comunica el navegador sobre esos controles, para entender por qué
-el aspecto visual no basta.
+- `button` = foco + Enter + Espacio + rol, gratis
+- [Ejemplo: «Aplicar arreglo» y «Ver cambios»; repetir con Tab y Enter]
+- > «Si funciona solo con ratón, no está terminado.»

@@ -1,109 +1,106 @@
 import { Fragment } from 'react'
-import { exampleUrl } from '../../../examples/exampleUrl'
+import {
+  Code,
+  ExampleLinks,
+  PersonaCard,
+  SlideTitle,
+} from '../../../slides/parts'
 
 export const slides = [
-  <Fragment key="5.2-1">
-    <h2 className="lesson-slide__title">
+  <Fragment key="5.2-leccion">
+    <SlideTitle kind="leccion">
       Detectar problemas con Accessibility Insights
-    </h2>
+    </SlideTitle>
     <p>
-      Aprenderemos a localizar un fallo, entender su corrección y repetir la
-      comprobación con FastPass.
+      Accessibility Insights for Web es una extensión gratuita de Microsoft para
+      Chrome y Edge.
     </p>
+    <ul>
+      <li>
+        <strong>FastPass → Automated checks:</strong> analiza la página y lista
+        los fallos que se pueden detectar automáticamente.
+      </li>
+      <li>
+        <strong>Tab stops:</strong> dibuja el recorrido del teclado mientras
+        pulsas Tab.
+      </li>
+    </ul>
     <p>
-      Accessibility Insights for Web combina comprobaciones automáticas con un
-      recorrido de teclado asistido: Tab stops.
+      <a
+        className="lesson-slide__example-link"
+        href="https://accessibilityinsights.io/downloads/"
+      >
+        Instalar Accessibility Insights
+      </a>
+      <a
+        className="lesson-slide__example-link"
+        href="https://accessibilityinsights.io/docs/web/getstarted/fastpass/"
+      >
+        Guía de FastPass
+      </a>
     </p>
   </Fragment>,
-  <Fragment key="5.2-2">
-    <h2 className="lesson-slide__title">Ejecutar y abrir un resultado</h2>
-    <p>
-      Instala la extensión oficial en Chrome o Edge. Abre la página aislada,
-      lanza la extensión y elige FastPass → Automated checks.
-    </p>
-    <p>
-      Expande una regla, selecciona la instancia y localiza el elemento
-      resaltado. Lee por qué falla y cómo corregirlo.
-    </p>
-    <a
-      className="lesson-slide__example-link"
-      href="https://accessibilityinsights.io/downloads/"
-    >
-      Instalar Accessibility Insights
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href="https://accessibilityinsights.io/docs/web/getstarted/fastpass/"
-    >
-      Consultar el procedimiento FastPass
-    </a>
+  <Fragment key="5.2-situacion">
+    <SlideTitle kind="situacion">
+      Elena pide cita en un taller de bicicletas
+    </SlideTitle>
+    <PersonaCard
+      id="elena"
+      task="Quiere rellenar el formulario de cita: nombre, teléfono y qué le pasa a la bici."
+    />
   </Fragment>,
-  <Fragment key="5.2-3">
-    <h2 className="lesson-slide__title">Corregir el nombre de un campo</h2>
+  <Fragment key="5.2-error">
+    <SlideTitle kind="error">
+      El texto «Teléfono» no está unido al campo
+    </SlideTitle>
+    <Code tone="error" caption="Así está">
+      {'<span>Teléfono</span>\n<input id="telefono" type="tel">'}
+    </Code>
     <p>
-      Un texto visible junto al campo no le da nombre si no está asociado.
-      Asocia una etiqueta visible y persistente mediante for e id.
+      <strong>Qué le pasa a Elena:</strong> llega al campo y su lector solo dice
+      «campo de edición». No sabe qué escribir.
     </p>
-    <pre>
-      <code>
-        {
-          '<label for="telefono">Teléfono</label>\n<input id="telefono" type="tel"\n  autocomplete="tel">'
-        }
-      </code>
-    </pre>
     <p>
-      Analiza la página, aplica el arreglo y ejecuta FastPass de nuevo.
-      Comprueba que el fallo del campo desaparece.
+      FastPass lo detecta: abre el resultado, selecciona la instancia y la
+      herramienta resalta el campo en la página.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={exampleUrl('taller-bicicletas')}
-    >
-      Detectar el campo sin etiqueta
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href={exampleUrl('taller-bicicletas', true)}
-    >
-      Repetir con etiqueta asociada
-    </a>
   </Fragment>,
-  <Fragment key="5.2-4">
-    <h2 className="lesson-slide__title">Recorrer la interfaz con Tab stops</h2>
-    <p>
-      Selecciona Tab stops, recarga la página objetivo y activa Show tab stops.
-      Vuelve a la página y recórrela con Tab y Shift + Tab.
-    </p>
-    <p>
-      Las marcas numeran las paradas visitadas. Comprueba alcance, orden, foco
-      visible y salida; escribe en el campo y activa el botón.
-    </p>
-    <p>
-      La numeración ayuda a observar. Tú decides si la tarea se puede completar
-      y registras los resultados.
-    </p>
-    <a
-      className="lesson-slide__example-link"
-      href={exampleUrl('taller-bicicletas', true)}
-    >
-      Revisar el recorrido del formulario
-    </a>
+  <Fragment key="5.2-solucion">
+    <SlideTitle kind="solucion">
+      Asociar la etiqueta y repetir la prueba
+    </SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        '<label for="telefono">Teléfono</label>\n<input id="telefono" type="tel"\n  autocomplete="tel">'
+      }
+    </Code>
+    <ol>
+      <li>Ejecuta FastPass otra vez: el fallo del campo desaparece.</li>
+      <li>
+        Activa Tab stops y recorre el formulario como Andrés: ¿llegas a todo, en
+        orden, viendo el foco?
+      </li>
+    </ol>
+    <ExampleLinks
+      slug="taller-bicicletas"
+      barrier="Analizar el formulario con el campo sin etiqueta"
+      fixed="Repetir el análisis con la etiqueta asociada"
+    />
   </Fragment>,
-  <Fragment key="5.2-5">
-    <h2 className="lesson-slide__title">
-      Cero errores no garantiza accesibilidad
-    </h2>
+  <Fragment key="5.2-limites">
+    <SlideTitle kind="resumen">Cero errores no significa accesible</SlideTitle>
     <p>
-      Las reglas automáticas detectan ciertos problemas. No deciden por sí solas
-      si un texto se entiende o una tarea resulta utilizable.
+      Las herramientas automáticas solo detectan una parte de los problemas. No
+      saben si:
     </p>
+    <ul>
+      <li>un alt describe bien la imagen;</li>
+      <li>un enlace o un botón se entiende;</li>
+      <li>el orden tiene sentido o la tarea se puede completar.</li>
+    </ul>
     <p>
-      Revisa los casos Needs review y completa el recorrido manual. Añade
-      pruebas con tecnologías de apoyo y personas usuarias.
-    </p>
-    <p>
-      Conserva página, versión, pasos y resultado. Una comprobación pendiente no
-      es una comprobación aprobada.
+      Combina herramientas, revisión manual con teclado y lector de pantalla y,
+      siempre que puedas, pruebas con personas usuarias.
     </p>
   </Fragment>,
 ]
