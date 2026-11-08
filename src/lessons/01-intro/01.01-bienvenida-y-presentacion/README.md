@@ -1,49 +1,29 @@
 # 1.1 Bienvenida y presentación
 
-**Duración: 2 minutos.** Presentar al docente, la audiencia y el propósito del curso,
-y reconocer la tarea que conectará sus lecciones: conocer una actividad e
-inscribirse. Solo se utiliza el nombre del docente ya presente en `src/course.ts`;
-no se atribuyen biografía ni credenciales adicionales.
+> Módulo 1 · Introducción · sin página de ejemplo
 
-## Recorrido
+## Objetivo
 
-1. **Bienvenida y presentación**: HTML y CSS básicos como punto de partida;
-   reconocer barreras, aplicar soluciones y comenzar a revisar.
-2. **La accesibilidad se construye al desarrollar**: relacionar estructura,
-   instrucciones y controles con percibir, comprender, navegar e interactuar.
-3. **Conocer una actividad e inscribirse**: reconocer el contenido, decidir,
-   introducir los datos, enviar y reconocer el resultado.
+- Presentar el curso, al docente y a quién va dirigido.
+- Explicar qué es la accesibilidad web y por qué es parte del desarrollo.
+- Presentar el formato de cada lección: lección → situación → error común → solución.
 
-El detalle del navegador, HTML, controles y herramientas se enseña después. Aquí
-se presenta la necesidad de la persona antes de introducir soluciones técnicas.
+## Ideas clave
 
-## Material y ejecución
+- Accesible = cualquier persona puede **percibir, entender, recorrer y usar** la web.
+- 1 de cada 6 personas vive con una discapacidad (OMS, 2023).
+- Necesidades permanentes, temporales y de situación.
+- Ley Europea de Accesibilidad (Directiva UE 2019/882): exigible desde el 28 de junio de 2025; en España, Ley 11/2023.
+- Las barreras nacen en el HTML y el CSS; se arreglan ahí.
 
-- [Slides](./slides.tsx): posiciones globales 1–3; entrada `http://localhost:5173/#/1`.
-- [Guion](./presenter.md): tres apartados, uno por slide, listo para narrar.
-- Componentes, demos y stories: no aplicables a esta introducción documental.
+## Slides
 
-Desde la raíz, con Node.js 22.12+ y pnpm 10.26.1, ejecuta
-`pnpm install --frozen-lockfile` y `pnpm dev`. El contenido se entiende sin abrir los ejemplos.
-Presupuesto oral: 35/40/45 segundos, incluidas transiciones. Ensayo real pendiente.
-
-## Accesibilidad y pruebas
-
-Las slides usan encabezados `h2`, párrafos, listas y elementos `li` nativos.
-No tienen controles propios, estados ARIA ni gestión de foco. La
-[matriz del módulo](../README.md#criterios-y-evidencia) clasifica criterios,
-fuentes, pruebas y comprobaciones manuales. Se hereda completa para estas tres
-slides; el criterio de enlace no aplica a esta lección porque no tiene enlaces.
-
-[Tests compartidos](../slides.test.tsx): semántica por rol/nivel y axe por slide.
-Ejecutar `pnpm test`, `pnpm lint` y `pnpm build` desde la
-raíz. El DOM no acredita anuncios reales, contraste, zoom ni navegación del deck.
-La lectura con tecnología de asistencia, los gestos móviles, la revisión visual
-humana y el ensayo de duración permanecen pendientes.
+1. Bienvenida y presentación.
+2. Qué es la accesibilidad web.
+3. Cómo funciona cada lección.
 
 ## Fuentes
 
-[Investigación previa y contrato del módulo](../../../../docs/research/01-introduccion.md),
-consultados el 8 de octubre de 2026. Base conceptual:
-[Introducción a la accesibilidad de WAI](https://www.w3.org/WAI/fundamentals/accessibility-intro/).
-La tarea y el alcance proceden de [#2](https://github.com/JesusGonzalezA/a11y-introduction/issues/2).
+- [Introducción a la accesibilidad, W3C WAI](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
+- [Discapacidad y salud, OMS](https://www.who.int/news-room/fact-sheets/detail/disability-and-health)
+- [Ley Europea de Accesibilidad, Comisión Europea](https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/union-equality-strategy-rights-persons-disabilities-2021-2030/european-accessibility-act_en)

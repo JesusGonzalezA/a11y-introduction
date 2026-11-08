@@ -1,51 +1,45 @@
 # 2.1 Personas, formas de interacción y barreras
 
-**5 minutos, demo incluida.** La persona quiere localizar una acción, alcanzarla
-y reconocer el resultado. Al terminar, el alumnado relacionará teclado, ratón, voz,
-ampliación y lector de pantalla con distintas formas de usar una web; reconocerá
-barreras visuales, auditivas, motoras y cognitivas.
+> Módulo 2 · Entender la accesibilidad · ejemplo: `/ejemplos/tienda-online`
 
-## Recorrido y alcance
+## Objetivo
 
-Primero se presentan formas de uso y necesidades; después, una barrera motora
-observable: una acción que solo responde al clic. Las slides contienen la
-explicación; la demo la hace visible. La semántica del botón se amplía en 2.2.
+- Conocer a las cinco personas del curso y cómo usan la web.
+- Relacionar cada tipo de necesidad con una barrera típica.
+- Reconocer la barrera más básica: una acción que solo funciona con ratón.
 
-## Página de ejemplo
+## Situación
 
-Instalar y arrancar según el [mapa del módulo](../README.md#ejecutar-y-revisar). Ruta: `/ejemplos/tienda-online`, ficha de una
-taza en la tienda de un taller de cerámica. Enlaces de la slide 4: «Observar una
-acción inalcanzable» (barrera) y «Completar la acción con teclado» (`?arreglo=1`).
+- **Persona:** Andrés — temblor en las manos; usa solo el teclado.
+- **Tarea:** añadir una taza a la cesta en una tienda online.
 
-| Arreglo | Sin arreglo | Con arreglo |
+## Error común → solución
+
+| Error | Qué le pasa a Andrés | Solución |
 | --- | --- | --- |
-| Acción con teclado | `<div onclick>` con aspecto de botón | `<button type="button">Añadir a la cesta</button>` |
+| «Añadir a la cesta» es un `div` con `onclick` | Tab salta el botón: no puede comprar | `<button type="button">` |
 
-Demo: con la barrera, recorrer con Tab desde «Consultar envíos y devoluciones»:
-el foco salta a «¿Dudas sobre la pieza?». Pulsar **Aplicar arreglo** y **Ver
-cambios** para ver el botón resaltado. Repetir: Tab llega al botón, Enter o
-Espacio añaden la taza, la cesta cambia y el foco permanece en el botón.
+## Ejemplo
 
-## Componentes y pruebas
+- Página: ficha de una taza en la tienda de un taller de cerámica.
+- Demo: Tab desde «Consultar envíos y devoluciones» → el foco salta a «¿Dudas sobre la pieza?» → **Aplicar arreglo** → Tab llega al botón → Enter o Espacio añaden la taza.
+- Código: `examples/ProductPage/` (página, definición y tests).
 
-`ProductPage` (escenario de página completa) recibe `fixed: boolean`; su
-definición está en `ProductPage.example.ts`. La barrera es un `div` con dos
-supresiones de lint locales justificadas. La confirmación usa `role="status"`
-en ambos estados; no es el foco de esta lección.
+## Conceptos clave
 
-`ProductPage.test.tsx` comprueba que con la barrera no existe el botón, Tab salta
-la acción y solo el clic la ejecuta; con el arreglo, Tab la alcanza, Enter y
-Espacio la activan una vez, la cesta se actualiza, el foco se conserva y axe no
-detecta infracciones. Foco dibujado, lectores reales y voz quedan en la
-[matriz manual del módulo](../README.md#matriz-manual-pendiente).
+- Formas de uso: ratón, teclado, voz, ampliación, lector de pantalla. Se combinan.
+- Necesidades visuales, auditivas, motoras y cognitivas; permanentes, temporales o de situación.
+- El botón nativo trae foco, Enter, Espacio y rol sin código extra.
+
+## Pruebas
+
+- Automatizadas (`ProductPage.test.tsx`): con barrera no hay botón y Tab lo salta; con arreglo Tab lo alcanza, Enter y Espacio lo activan, el foco se conserva y axe no detecta infracciones.
+- Manuales pendientes: foco dibujado, lector de pantalla y control por voz ([matriz del módulo](../README.md)).
 
 ## Fuentes
 
-La [investigación específica](../../../../docs/research/02-entender-la-accesibilidad.md)
-conserva fecha, enlaces primarios y criterios originales trazables: WAI
-[formas de uso](https://www.w3.org/WAI/people-use-web/tools-techniques/),
-[necesidades y barreras](https://www.w3.org/WAI/people-use-web/abilities-barriers/),
-[APG Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/),
-[Magenta Button](https://www.magentaa11y.com/web-criteria/component/button),
-[HTML button](https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element)
-y [WCAG teclado](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html).
+- [Cómo usan la web las personas, W3C WAI](https://www.w3.org/WAI/people-use-web/tools-techniques/)
+- [Necesidades y barreras, W3C WAI](https://www.w3.org/WAI/people-use-web/abilities-barriers/)
+- [HTML button](https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element) · [APG Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/) · [Magenta Button](https://www.magentaa11y.com/web-criteria/component/button)
+- [WCAG 2.1.1 Teclado](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html)
+- Investigación previa: [docs/research/02](../../../../docs/research/02-entender-la-accesibilidad.md)

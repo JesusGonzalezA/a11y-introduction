@@ -9,7 +9,7 @@ const departures = [
   { time: '09:30', state: 'on-time', label: 'A tiempo' },
 ] as const
 
-/** Próximas salidas de una línea: estado sin color, contraste y reflujo. */
+/** Próximas salidas de una línea: estado sin color, contraste, tamaño de letra y reflujo. */
 export function BusTimetable({ fixed }: ExamplePageProps) {
   const id = useId()
   return (
@@ -26,7 +26,7 @@ export function BusTimetable({ fixed }: ExamplePageProps) {
         <p className="bus-timetable__line" aria-hidden="true">
           7
         </p>
-        <h1>Línea 7 · Estación – Hospital</h1>
+        <h1 data-fix="font-size">Línea 7 · Estación – Hospital</h1>
         <p className="bus-timetable__stop" data-fix="contrast">
           Parada Plaza Mayor · actualizado hace 1 minuto
         </p>

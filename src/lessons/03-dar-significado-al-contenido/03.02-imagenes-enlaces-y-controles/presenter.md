@@ -1,67 +1,48 @@
-# Guion · 3.2 Imágenes, enlaces y controles comprensibles
+# Notas · 3.2 Imágenes, enlaces y controles comprensibles
 
-## 1. Imágenes, enlaces y controles comprensibles · 40 s
+≈ 8 min · demo: noticia
 
-Una vez localizada una sección, todavía necesitamos entender lo que contiene. Una imagen puede aportar información; un enlace propone ir a algún lugar; un botón realiza una acción; un campo pide un dato.
+## 1. Lección
 
-En esta lección vamos a dar a cada elemento la información adecuada para su propósito. Usaremos como ejemplo una noticia de un periódico local, pero las decisiones se aplican a cualquier interfaz. No hace falta describir todo con ARIA: empezaremos por el texto visible y las relaciones que ya ofrece HTML.
+- Todo elemento necesita un texto que diga qué es o qué hace
+- Imágenes · enlaces · botones · campos
 
-## 2. La alternativa textual depende del propósito · 75 s
+## 2. Situación · Elena lee una noticia
 
-El texto alternativo no es una etiqueta que añadimos para pasar una comprobación. Su contenido depende de la razón por la que la imagen está en la página. Antes de escribirlo preguntamos qué información se perdería si no pudiéramos percibirla.
+- Gráfico con datos · enlace al informe
 
-En el fragmento el gráfico compara los viajes diarios en bicicleta de dos años. El alt comunica esas dos cifras, que son lo que el gráfico aporta a la noticia. Un nombre como grafico_final_v2.png solo identifica el archivo. Tampoco necesitamos enumerar cada color y cada forma si esos detalles no ayudan a comprender el propósito.
+## 3. Error · Nombre de archivo como alt
 
-El mismo archivo puede requerir otro texto en otro contexto. Si la imagen fuera el único contenido de un enlace o un botón, habría que comunicar su función. Aquí trabajamos una imagen informativa estática, sin convertirla en un control. La calidad de la alternativa se decide mirando la imagen y leyendo el contexto; la mera presencia del atributo no basta.
+- Leer en voz alta: «grafico final v2 punto png»
+- Icono: ruido que no aporta
 
-## 3. Una imagen decorativa no necesita narración · 50 s
+## 4. Solución · El alt depende del propósito
 
-A veces la imagen solo acompaña el contenido. Otras veces toda su información ya está expresada en el texto que la rodea. En esos casos repetirla puede añadir ruido a la lectura. Con una imagen img usamos alt vacío de forma explícita.
+- Informativa → lo que aporta (los datos)
+- Decorativa → `alt=""`
+- > «¿Qué se perdería si no vieras la imagen?»
 
-Eso no significa borrar el atributo. Un archivo sin alt puede terminar anunciado de otra manera por el navegador o el lector, y no expresa nuestra intención de que sea decorativo. Tampoco significa que cualquier imagen bonita sea decoración. Si comunica algo necesario que no aparece en otra parte, hay que conservar esa información. En la demo veremos un icono de sobre junto a un título que ya dice todo lo que el icono sugiere.
+## 5. Error · «Leer más»
 
-## 4. El enlace permite anticipar el destino · 65 s
+- Lista de enlaces del lector: «Leer más, Leer más, Leer más…»
 
-El enlace propone una navegación. Puede conducir a otra página, a un documento o a una sección de la misma página. En HTML usamos a con href, que proporciona el destino y el comportamiento nativo.
+## 6. Solución · El enlace anticipa el destino
 
-Antes de activarlo la persona necesita anticipar adónde va. Consultar el informe de movilidad 2026 aporta más orientación que Leer más. Esto es especialmente útil al consultar una lista de enlaces, donde puede faltar el párrafo que los rodeaba.
+- Se entiende solo · también para control por voz
 
-No vamos a decir que cualquier Leer más incumple automáticamente WCAG: el propósito también puede obtenerse de un contexto identificable por software. En nuestro ejemplo preferimos que el propio texto describa el destino. Mejoramos el texto visible para todas las personas; no añadimos un nombre oculto distinto que obligue a adivinar qué decir al usar control por voz.
+## 7. Situación · Lucía se suscribe
 
-## 5. El botón nombra la acción · 55 s
+- Le cuesta retener instrucciones que desaparecen
 
-Un botón realiza una acción. En un formulario, el botón de envío puede llamarse Suscribirme para indicar qué estamos a punto de hacer. Aceptar es un texto válido en algunos contextos, pero aquí no explica tan bien la consecuencia.
+## 8. Error · Placeholder como etiqueta y «Aceptar»
 
-El texto visible del button ya proporciona su nombre accesible. No hace falta añadir aria-label con el mismo contenido, y un nombre oculto diferente puede dificultar la relación entre lo que se ve y lo que se anuncia o se dice por voz.
+- Escribe → la pista desaparece → ¿qué era?
+- Elena: «campo de edición» sin nombre
+- [Ejemplo: abrir «Leer la noticia y suscribirse con barreras»; escribir en el campo]
 
-Recuperamos la distinción: un enlace conduce a un destino; un botón ejecuta una acción. Elegimos el elemento por lo que hace, no por si el diseño lo muestra con borde o subrayado. La demo simula la suscripción al boletín y muestra una confirmación visible: no envía datos reales.
+## 9. Solución · Etiqueta visible y botón con acción
 
-## 6. La etiqueta permanece al escribir · 70 s
-
-Un campo que solo muestra Tu correo como placeholder pierde esa pista visual cuando empezamos a escribir. La persona puede necesitar recordar qué se le pedía, revisar una respuesta o volver al formulario después de una interrupción.
-
-Una etiqueta visible permanece junto al campo. El atributo for del label debe coincidir con el id del input. Así el navegador relaciona el texto con el control; hacer clic en la etiqueta también permite enfocar el campo. En React escribimos htmlFor, que genera ese for en HTML.
-
-El placeholder puede aportar un ejemplo breve, como nombre@ejemplo.com, pero no sustituye esa relación ni la etiqueta persistente. Algunos navegadores pueden usarlo como nombre de respaldo: no afirmamos que el campo vaya a quedar siempre en silencio. El problema que corregimos es concreto: falta una etiqueta visible y asociada que siga ayudando durante la edición. Usamos además type email y autocomplete para su propósito.
-
-## 7. Corregir la información de cada elemento · 145 s, incluida demo
-
-Vamos a aplicar estas decisiones a la página que ya tiene estructura.
-
-[Ejemplo: abrir «Examinar información con barreras».]
-
-El gráfico tiene como alternativa el nombre del archivo y el icono del boletín también. El enlace dice Leer más y el botón dice Aceptar. En el campo solo encontramos un placeholder. Escribimos un correo de prueba y observamos que falta una etiqueta visible persistente. Esta versión es un contraejemplo deliberado; sus controles siguen siendo nativos para concentrarnos en la información que proporcionan.
-
-[Ejemplo: pulsar «Aplicar arreglo» y abrir «Ver cambios».]
-
-El panel numera cinco cambios y los resalta en la página. El gráfico aporta ahora sus dos cifras. El enlace anuncia el informe y el botón nombra la suscripción. Hacemos clic en la etiqueta del campo: el foco llega al control. Escribimos un correo y comprobamos que la etiqueta sigue visible. Recorremos campo y botón con teclado y activamos la suscripción de prueba para reconocer su confirmación.
-
-[Ejemplo: localizar en el panel «El icono decorativo tiene alt vacío».]
-
-El título junto al icono ya expresa lo que el sobre sugiere. El alt está vacío. Al preparar la grabación comprobaremos con lector que se conserva la información del texto y que la imagen no añade una narración repetida. El DOM permite comprobar lo que hemos escrito; la lectura real y la pertinencia del texto requieren su propia revisión.
-
-## 8. Comprobar propósito y persistencia · 40 s
-
-La revisión empieza por el propósito: qué aporta cada elemento y qué necesita saber la persona. Una alternativa puede existir y ser inútil. Un enlace o un botón pueden tener texto y seguir siendo ambiguos. Un campo puede ser editable y carecer de una etiqueta que permanezca.
-
-Comprobamos las relaciones en el código, pero también leemos los mensajes en contexto y probamos con tecnologías de apoyo. Las comprobaciones automáticas ayudan a encontrar ciertos errores; no deciden por sí solas si la información permite comprender y completar la tarea.
+- `label for` + `id` · clic en la etiqueta enfoca el campo
+- «Suscribirme» dice lo que pasa
+- [Ejemplo: «Aplicar arreglo» y «Ver cambios»: cinco arreglos]
+- > «El placeholder es una pista, nunca la etiqueta.»

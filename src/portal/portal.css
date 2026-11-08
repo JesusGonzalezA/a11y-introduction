@@ -1,0 +1,175 @@
+@import "@fontsource-variable/geist";
+
+.portal {
+  min-block-size: 100vh;
+  background: #fafafa;
+  color: #18181b;
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.portal a {
+  color: #004fc4;
+  text-underline-offset: 0.15em;
+}
+
+.portal a:focus-visible {
+  outline: 3px solid #18181b;
+  outline-offset: 3px;
+}
+
+.portal ul,
+.portal ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portal__header,
+.portal__main,
+.portal__footer {
+  max-inline-size: 64rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.portal__header {
+  padding-block: 2.5rem 1.5rem;
+}
+
+.portal__brand {
+  margin: 0;
+  color: #52525b;
+  font-weight: 600;
+}
+
+.portal__title {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+  line-height: 1.1;
+}
+
+.portal__subtitle {
+  margin: 0 0 1.5rem;
+  color: #3f3f46;
+  font-size: 1.125rem;
+}
+
+.portal__surfaces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.75rem;
+}
+
+.portal .portal__surface {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #3f3f46;
+  text-decoration: none;
+}
+
+.portal .portal__surface:hover {
+  border-color: #004fc4;
+}
+
+.portal__surface-name {
+  color: #004fc4;
+  font-size: 1.25rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.portal__section-title {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.portal__modules {
+  display: grid;
+  gap: 1rem;
+  padding-block-end: 2rem;
+}
+
+.portal__module {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.portal__module-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.portal__module-number {
+  display: block;
+  color: #52525b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.portal__module-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-end: 1rem;
+}
+
+.portal__module-links a,
+.portal__none {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.portal__none {
+  border-color: #d4d4d8;
+  color: #52525b;
+}
+
+.portal__lessons {
+  display: grid;
+  gap: 0.75rem;
+  padding-block-start: 0.75rem;
+  border-block-start: 1px solid #e4e4e7;
+}
+
+.portal__lesson-title {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.portal__lesson-number {
+  color: #52525b;
+  font-variant-numeric: tabular-nums;
+}
+
+.portal__lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.portal__footer {
+  padding-block: 1rem 2rem;
+  color: #52525b;
+  font-size: 0.9rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

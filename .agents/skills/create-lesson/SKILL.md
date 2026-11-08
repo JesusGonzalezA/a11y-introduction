@@ -38,10 +38,11 @@ objetivos y la duración del curso.
 
 4. **Implementa la vertical slice.** Crea dentro de la lección:
 
-   - `README.md` con objetivo, ejecución, componentes o ejemplos, accesibilidad,
-     cobertura automatizada, matriz manual y fuentes;
-   - `presenter.md`, listo para leer durante la grabación;
-   - `slides.tsx`, fiel al guion y con enlaces a las stories que se demuestran;
+   - `README.md` esquemático: objetivo, situación, errores → solución, ejemplo,
+     conceptos clave, pruebas y fuentes;
+   - `presenter.md`, con palabras clave y frases importantes por slide;
+   - `slides.tsx`, con el recorrido lección → situación → error → solución y
+     enlaces a las páginas de ejemplo;
    - componentes y ejemplos ejecutables co-localizados con sus stories y tests.
 
    Actualiza el mapa del módulo y `src/lessons/lessonRegistry.ts` una sola vez y en

@@ -68,7 +68,7 @@
 
 .bus-timetable h1 {
   margin: 0.5rem 0 0.25rem;
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);
   line-height: 1.2;
 }
 
@@ -160,7 +160,22 @@
   text-align: center;
 }
 
-/* Barreras deliberadas: texto gris claro y un aviso rígido que recorta al ampliar. */
+/*
+ * Barreras deliberadas: texto gris claro, letra en px y vw que ignora el
+ * tamaño de letra elegido por la persona, y un aviso rígido que recorta.
+ */
+.bus-timetable--barrier {
+  font-size: 15px;
+}
+
+.bus-timetable--barrier h1 {
+  font-size: 4vw;
+}
+
+.bus-timetable--barrier .bus-timetable__time {
+  font-size: 20px;
+}
+
 .bus-timetable--barrier .bus-timetable__stop,
 .bus-timetable--barrier .bus-timetable__notice-text {
   color: #b4b4b4;

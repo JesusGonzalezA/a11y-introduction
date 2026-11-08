@@ -15,6 +15,7 @@ describe('Registro de páginas de ejemplo', () => {
       '3.2',
       '4.1',
       '4.2',
+      '4.3',
       '5.1',
       '5.2',
     ])
@@ -50,9 +51,16 @@ describe('Registro de páginas de ejemplo', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Páginas de ejemplo' }),
     ).toBeInTheDocument()
+    const exampleLinks = screen
+      .getAllByRole('link')
+      .map((link) => link.getAttribute('href'))
+      .filter((href) => href?.startsWith('/ejemplos/'))
+    expect(exampleLinks).toEqual(
+      exampleRegistry.map(({ slug }) => exampleUrl(slug)),
+    )
     expect(
-      screen.getAllByRole('link').map((link) => link.getAttribute('href')),
-    ).toEqual(exampleRegistry.map(({ slug }) => exampleUrl(slug)))
+      screen.getByRole('link', { name: 'Índice del curso' }),
+    ).toHaveAttribute('href', '/')
   })
 
   it('avisa de una página inexistente sin perder el índice', () => {
@@ -62,7 +70,7 @@ describe('Registro de páginas de ejemplo', () => {
         /No existe ninguna página de ejemplo llamada «no-existe»/,
       ),
     ).toBeInTheDocument()
-    expect(screen.getAllByRole('link')).toHaveLength(exampleRegistry.length)
+    expect(screen.getAllByRole('link')).toHaveLength(exampleRegistry.length + 1)
   })
 
   it('monta la página y la herramienta para una ruta conocida', () => {

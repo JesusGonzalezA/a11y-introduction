@@ -1,119 +1,106 @@
 import { Fragment } from 'react'
-import { exampleUrl } from '../../../examples/exampleUrl'
+import {
+  Code,
+  ExampleLinks,
+  PersonaCard,
+  SlideTitle,
+} from '../../../slides/parts'
 
 export const slides = [
-  <Fragment key="4.1-1">
-    <h2 className="lesson-slide__title">
+  <Fragment key="4.1-leccion">
+    <SlideTitle kind="leccion">
       Navegación por teclado y foco visible
-    </h2>
+    </SlideTitle>
     <p>
-      Aprenderemos a llegar a los controles, utilizarlos y reconocer dónde está
-      el foco sin usar el ratón.
+      El <strong>foco</strong> es el elemento que recibirá la próxima tecla.
+      Quien navega con teclado necesita verlo en todo momento.
     </p>
+    <ul className="keys">
+      <li>
+        <kbd>Tab</kbd> avanza y <kbd>Shift</kbd> + <kbd>Tab</kbd> retrocede
+        entre enlaces y controles.
+      </li>
+      <li>
+        <kbd>Enter</kbd> sigue un enlace; <kbd>Enter</kbd> o <kbd>Espacio</kbd>{' '}
+        pulsan un botón.
+      </li>
+      <li>
+        Todo se debe poder <strong>alcanzar</strong>, <strong>ver</strong>,{' '}
+        <strong>activar</strong> y <strong>abandonar</strong> con teclado.
+      </li>
+    </ul>
+  </Fragment>,
+  <Fragment key="4.1-situacion">
+    <SlideTitle kind="situacion">
+      Andrés entra en su cuenta de la biblioteca
+    </SlideTitle>
+    <PersonaCard
+      id="andres"
+      task="Quiere escribir su número de carné y su PIN, pulsar «Entrar» y renovar un préstamo."
+    />
+  </Fragment>,
+  <Fragment key="4.1-error-foco">
+    <SlideTitle kind="error">El foco se ha borrado con CSS</SlideTitle>
+    <Code tone="error" caption="Así está">
+      {'*:focus {\n  outline: none;\n}'}
+    </Code>
     <p>
-      La tarea debe poder completarse y permitir continuar fuera del formulario.
+      <strong>Qué le pasa a Andrés:</strong> pulsa Tab y no sabe dónde está.
+      ¿Escribe en el carné o en el PIN? ¿Está ya en «Entrar»? Navega a ciegas.
     </p>
   </Fragment>,
-  <Fragment key="4.1-2">
-    <h2 className="lesson-slide__title">Tab avanza y Shift + Tab retrocede</h2>
+  <Fragment key="4.1-solucion-foco">
+    <SlideTitle kind="solucion">
+      Un indicador de foco visible y con contraste
+    </SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        ':focus-visible {\n  outline: 3px solid #6d28d9;\n  outline-offset: 3px;\n}'
+      }
+    </Code>
+    <ul>
+      <li>
+        <code>:focus-visible</code> es un selector de CSS: se aplica cuando el
+        navegador sabe que hace falta ver el foco, como al usar el teclado.
+      </li>
+      <li>
+        Nunca quites el <code>outline</code> sin poner otro indicador. Contraste
+        mínimo 3:1 con el fondo.
+      </li>
+    </ul>
+  </Fragment>,
+  <Fragment key="4.1-error-tapado">
+    <SlideTitle kind="error">
+      La cabecera fija tapa el elemento con foco
+    </SlideTitle>
+    <Code tone="error" caption="Así está">
+      {'.cabecera {\n  position: sticky;\n  top: 0;\n}'}
+    </Code>
     <p>
-      El foco indica qué elemento recibirá la próxima interacción. Tab recorre
-      enlaces y controles; Shift + Tab vuelve al anterior.
-    </p>
-    <p>
-      Ordena el documento según la tarea: llegar al campo, escribir, revisar y
-      activar el envío. Tab no lee todos los párrafos.
+      <strong>Qué le pasa a Andrés:</strong> al volver hacia arriba con Shift +
+      Tab, el enlace con foco queda debajo de la cabecera. El foco existe, pero
+      no se ve.
     </p>
   </Fragment>,
-  <Fragment key="4.1-3">
-    <h2 className="lesson-slide__title">Activar enlaces y botones nativos</h2>
+  <Fragment key="4.1-solucion-tapado">
+    <SlideTitle kind="solucion">
+      Reservar espacio para la cabecera fija
+    </SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {'html {\n  scroll-padding-top: 6rem;\n}'}
+    </Code>
     <p>
-      Enlace: Enter sigue su destino. Botón: Enter o Espacio ejecuta su acción.
-      En un campo, las teclas permiten escribir y editar.
+      Al desplazarse hasta el elemento con foco, el navegador deja ese margen
+      libre arriba.
     </p>
     <p>
-      HTML proporciona estas interacciones. No hace falta programar otra vez las
-      teclas ni añadir roles redundantes.
+      Compruébalo: recorre la página entera hacia delante y hacia atrás, sin
+      ratón, mirando siempre dónde está el foco.
     </p>
-    <pre>
-      <code>
-        {
-          '<a href="#horarios">Horarios</a>\n<button type="submit">Entrar</button>'
-        }
-      </code>
-    </pre>
-  </Fragment>,
-  <Fragment key="4.1-4">
-    <h2 className="lesson-slide__title">El foco debe poder verse</h2>
-    <p>
-      Saber dónde estamos permite anticipar qué ocurrirá al pulsar una tecla.
-      Conserva el indicador del navegador o define otro visible.
-    </p>
-    <p>
-      No elimines outline sin sustituto. Comprueba también que el control
-      enfocado no queda tapado.
-    </p>
-    <pre>
-      <code>
-        {
-          ':focus-visible {\n  outline: 3px solid #004fc4;\n  outline-offset: 4px;\n}'
-        }
-      </code>
-    </pre>
-  </Fragment>,
-  <Fragment key="4.1-5">
-    <h2 className="lesson-slide__title">Reconocer tres barreras de teclado</h2>
-    <p>
-      Inalcanzable: una acción solo funciona con puntero y no ofrece alternativa
-      de teclado.
-    </p>
-    <p>
-      Incoherente: el foco salta en un orden que dificulta comprender o
-      completar la tarea. Revisa el DOM antes de usar tabindex.
-    </p>
-    <p>
-      Sin salida: un componente retiene el foco y no permite continuar con
-      teclado. Si necesita una salida no estándar, debe explicarla.
-    </p>
-    <pre>
-      <code>
-        {
-          '// Contraejemplo NO ejecutable: bloquea Tab\nif (event.key === "Tab") event.preventDefault()'
-        }
-      </code>
-    </pre>
-  </Fragment>,
-  <Fragment key="4.1-6">
-    <h2 className="lesson-slide__title">
-      Completar el recorrido y comparar el foco
-    </h2>
-    <p>
-      Desde el primer campo: escribir → Tab → botón → Enter o Espacio →
-      confirmación. Después, continuar con Tab.
-    </p>
-    <p>
-      Volver con Shift + Tab y repetir sin indicador: el foco sigue moviéndose,
-      pero cuesta localizarlo.
-    </p>
-    <a className="lesson-slide__example-link" href={exampleUrl('biblioteca')}>
-      Comparar recorrido sin foco visible
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href={exampleUrl('biblioteca', true)}
-    >
-      Completar el acceso con foco visible
-    </a>
-  </Fragment>,
-  <Fragment key="4.1-7">
-    <h2 className="lesson-slide__title">Comprobar el recorrido completo</h2>
-    <p>
-      Recorre hacia delante y atrás. Comprueba destino de enlaces, activación de
-      botones y salida del formulario.
-    </p>
-    <p>
-      Observa el foco en cada paso. Alcanzar un control no demuestra que se vea;
-      ver un control no demuestra que pueda usarse.
-    </p>
+    <ExampleLinks
+      slug="biblioteca"
+      barrier="Entrar en la cuenta sin foco visible"
+      fixed="Entrar en la cuenta con foco visible"
+    />
   </Fragment>,
 ]

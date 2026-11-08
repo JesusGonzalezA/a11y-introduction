@@ -1,115 +1,113 @@
 import { Fragment } from 'react'
-import { exampleUrl } from '../../../examples/exampleUrl'
+import {
+  Code,
+  ExampleLinks,
+  PersonaCard,
+  SlideTitle,
+} from '../../../slides/parts'
 
 export const slides = [
-  <Fragment key="interpretacion-del-navegador">
-    <h2 className="lesson-slide__title">
+  <Fragment key="2.2-leccion">
+    <SlideTitle kind="leccion">
       Cómo interpreta el navegador nuestra interfaz
-    </h2>
+    </SlideTitle>
     <p>
-      Aprenderemos qué información permite reconocer y utilizar un control más
-      allá de su aspecto.
+      Un lector de pantalla no ve la página: lee lo que el navegador le cuenta
+      de cada elemento.
     </p>
-    <p>
-      Para decidir cómo actuar necesitamos saber qué hace, qué tipo de control
-      es y si está disponible.
-    </p>
-  </Fragment>,
-  <Fragment key="arbol-de-accesibilidad">
-    <h2 className="lesson-slide__title">Del HTML al árbol de accesibilidad</h2>
-    <p>
-      El navegador representa estructura, controles y propiedades para las
-      tecnologías de apoyo.
-    </p>
-    <ol>
-      <li>HTML: elementos y contenido de la página.</li>
-      <li>Árbol de accesibilidad: información expuesta por el navegador.</li>
-      <li>
-        Tecnología de apoyo: utiliza esa información para presentar y recorrer
-        la interfaz.
-      </li>
-    </ol>
-    <p>
-      No es una captura de pantalla ni una copia de todos los nodos del DOM.
-    </p>
-  </Fragment>,
-  <Fragment key="nombre-rol-estado">
-    <h2 className="lesson-slide__title">Nombre, rol y estado</h2>
+    <p>En esta lección:</p>
     <ul>
-      <li>Nombre: identifica la acción concreta.</li>
-      <li>Rol: indica qué clase de control es.</li>
-      <li>Estado: informa de su situación, por ejemplo, no disponible.</li>
+      <li>Qué es el árbol de accesibilidad.</li>
+      <li>Qué son el nombre, el rol y el estado de un control.</li>
+      <li>Por qué HTML va primero y ARIA solo completa lo que falta.</li>
     </ul>
-    <pre>
-      <code>{'<button type="button" disabled>19:00 · Agotada</button>'}</code>
-    </pre>
-    <p>Nombre: «19:00 · Agotada». Rol: botón. Estado: deshabilitado.</p>
+  </Fragment>,
+  <Fragment key="2.2-arbol">
+    <SlideTitle kind="leccion">Nombre, rol y estado</SlideTitle>
     <p>
-      El navegador obtiene esta información del HTML; no hace falta repetirla
-      con ARIA.
+      HTML → el navegador crea el <strong>árbol de accesibilidad</strong> → la
+      tecnología de apoyo lo lee y lo anuncia.
+    </p>
+    <Code tone="neutral">
+      {'<button type="button" disabled>19:00 · Agotada</button>'}
+    </Code>
+    <ul>
+      <li>
+        <strong>Nombre</strong> (qué es): «19:00 · Agotada».
+      </li>
+      <li>
+        <strong>Rol</strong> (qué tipo de control): botón.
+      </li>
+      <li>
+        <strong>Estado</strong> (cómo está): no disponible.
+      </li>
+    </ul>
+    <p>Un lector lo anuncia así: «19:00 Agotada, botón, atenuado».</p>
+  </Fragment>,
+  <Fragment key="2.2-situacion">
+    <SlideTitle kind="situacion">
+      Elena quiere elegir sesión en el cine
+    </SlideTitle>
+    <PersonaCard
+      id="elena"
+      task="Quiere ver una película esta tarde: elegir una sesión que tenga entradas y saber que la ha elegido."
+    />
+  </Fragment>,
+  <Fragment key="2.2-error">
+    <SlideTitle kind="error">
+      Las sesiones parecen botones, pero no lo son
+    </SlideTitle>
+    <Code tone="error" caption="Así está">
+      {
+        '<div class="sesion" onclick="elegir()">16:30</div>\n<div class="sesion sesion--agotada">19:00</div>\n<p class="resultado"></p>'
+      }
+    </Code>
+    <p>
+      <strong>Qué le pasa a Elena:</strong>
+    </p>
+    <ul>
+      <li>Oye «16:30», sin rol: no sabe que puede pulsarlo.</li>
+      <li>La sesión agotada solo se distingue por estar en gris.</li>
+      <li>Al elegir, el mensaje aparece en pantalla, pero nadie se lo lee.</li>
+    </ul>
+  </Fragment>,
+  <Fragment key="2.2-solucion-html">
+    <SlideTitle kind="solucion">Botones nativos con su estado</SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        '<button type="button" onclick="elegir()">16:30</button>\n<button type="button" disabled>\n  19:00 · Agotada\n</button>'
+      }
+    </Code>
+    <p>
+      El elemento <code>button</code> ya aporta rol, teclado y foco;{' '}
+      <code>disabled</code> aporta el estado. El texto «Agotada» lo hace visible
+      para todas las personas.
     </p>
   </Fragment>,
-  <Fragment key="aspecto-y-semantica">
-    <h2 className="lesson-slide__title">El aspecto no define el control</h2>
-    <pre>
-      <code>
-        {
-          '<button type="button">16:30</button>\n<div class="sesion">16:30</div>'
-        }
-      </code>
-    </pre>
+  <Fragment key="2.2-solucion-aria">
+    <SlideTitle kind="solucion">Anunciar la confirmación con ARIA</SlideTitle>
+    <Code tone="solucion" caption="Así se arregla">
+      {
+        '<p role="status" aria-atomic="true"></p>\n<!-- al elegir: «Has elegido la sesión de las 16:30» -->'
+      }
+    </Code>
+    <ul>
+      <li>
+        <code>role="status"</code>: el lector anuncia el texto cuando cambia,
+        sin mover el foco.
+      </li>
+      <li>
+        <code>aria-atomic="true"</code>: lo lee completo.
+      </li>
+    </ul>
     <p>
-      Con el mismo estilo, solo el botón aporta semántica de botón y teclado
-      nativo.
+      Regla de oro: primero HTML. ARIA solo añade información; no añade teclado
+      ni comportamiento.
     </p>
-    <p>
-      El texto del elemento genérico puede leerse; el clic añadido no lo
-      convierte en botón.
-    </p>
-    <a className="lesson-slide__example-link" href={exampleUrl('cine')}>
-      Comparar nombre y rol
-    </a>
-    <a className="lesson-slide__example-link" href={exampleUrl('cine', true)}>
-      Inspeccionar el estado no disponible
-    </a>
-  </Fragment>,
-  <Fragment key="html-y-aria">
-    <h2 className="lesson-slide__title">
-      HTML primero; ARIA completa información
-    </h2>
-    <p>
-      Usa el elemento HTML que resuelve la tarea. ARIA puede describir
-      información adicional: una confirmación sin mover el foco.
-    </p>
-    <pre>
-      <code>
-        {
-          '<p role="status" aria-atomic="true"></p>\n<!-- Después de actuar: insertar la confirmación -->'
-        }
-      </code>
-    </pre>
-    <p>
-      <code>status</code> identifica el mensaje no urgente;{' '}
-      <code>aria-atomic</code> indica que se presente completo.
-    </p>
-    <p>
-      ARIA no añade teclado ni ejecuta acciones. Los anuncios reales necesitan
-      comprobación con lector.
-    </p>
-  </Fragment>,
-  <Fragment key="verificar-significado">
-    <h2 className="lesson-slide__title">
-      Comprobar significado y comportamiento
-    </h2>
-    <ol>
-      <li>¿El nombre permite entender la acción?</li>
-      <li>¿El rol corresponde al control y se comunica su estado?</li>
-      <li>¿Se alcanza y activa con teclado cuando está disponible?</li>
-      <li>¿La persona puede percibir el resultado?</li>
-    </ol>
-    <p>
-      Inspeccionar la información del navegador ayuda; no sustituye probar con
-      tecnologías de apoyo.
-    </p>
+    <ExampleLinks
+      slug="cine"
+      barrier="Ver las sesiones en el árbol de accesibilidad"
+      fixed="Elegir sesión con botones y confirmación"
+    />
   </Fragment>,
 ]

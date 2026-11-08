@@ -1,36 +1,36 @@
 # 5.3 Cómo continuar aprendiendo
 
-**2 minutos**. Objetivo: elegir un siguiente aprendizaje según la necesidad y
-recuperar herramientas y ejemplos. Recapitulación documental: tres slides con tres
-apartados de guion, sin demo ni componente nuevo. La última slide reúne enlaces.
-Instalación, arranque y posiciones en el [mapa](../README.md#ejecutar-y-revisar).
+> Módulo 5 · Primeras comprobaciones y próximos pasos · sin página de ejemplo
 
-## Ruta prevista y enlaces reales
+## Objetivo
 
-Verificación pública **2026-10-09**, desde el [catálogo weAAAre](https://weaaare.com/cursos).
-Los nombres de la especificación se conservan como ruta; los enlaces muestran los
-títulos reales de sus fichas. Ficha accesible no implica contenido gratuito ni haber
-probado el curso de pago. No se afirma que todos los cursos tengan el mismo alcance.
+- Repasar lo aprendido desde las cinco personas.
+- Presentar cursos y recursos para continuar.
 
-| Necesidad / ruta prevista | Oferta comprobada o límite |
+## Repaso
+
+| Persona | Necesita | Solución vista |
+| --- | --- | --- |
+| Andrés | Llegar a todo con teclado y ver el foco | `button`, `:focus-visible`, `scroll-padding-top` |
+| Elena | Que el lector le cuente qué es cada cosa | Encabezados, regiones, `alt`, `label`, `role="status"` |
+| Lucía | Textos claros que no desaparecen | Etiquetas visibles, botones con acción, pausa |
+| Manuel | Leer sin depender del color ni del tamaño | Texto en el estado, contraste, `rem`, reflujo |
+| Ana | Una página que no se mueva sin control | `prefers-reduced-motion`, pausar |
+
+## Cursos para profundizar
+
+| Necesidad | Curso |
 | --- | --- |
-| Estructura y significado / HTML Semántico | [HTML Semántico para diseñadores](https://weaaare.com/cursos/curso-accesibilidad-digital-html-semantico-para-disenadores) |
-| Nombres, roles, estados, relaciones / Fundamentos de ARIA | [Introducción a ARIA](https://weaaare.com/cursos/curso-accesibilidad-digital-introduccion-a-aria), que incluye el módulo Fundamentos de ARIA |
-| Comportamiento / Testing de componentes para accesibilidad | [Testing de accesibilidad para desarrolladores](https://weaaare.com/cursos/curso-testing-de-accesibilidad-digital-para-desarrolladores) |
-| Interfaces concretas / Formularios y navegación | [ARIA Avanzado: Navegación accesible](https://weaaare.com/cursos/aria-avanzado-navegacion-accesible). Curso específico de Formularios: **URL/publicación no verificadas** |
-| Data Display | **Curso futuro previsto, sin URL/publicación verificadas** |
+| Estructura y significado | [HTML Semántico para diseñadores](https://weaaare.com/cursos/curso-accesibilidad-digital-html-semantico-para-disenadores) |
+| Nombres, roles, estados | [Introducción a ARIA](https://weaaare.com/cursos/curso-accesibilidad-digital-introduccion-a-aria) |
+| Verificar componentes | [Testing de accesibilidad para desarrolladores](https://weaaare.com/cursos/curso-testing-de-accesibilidad-digital-para-desarrolladores) |
+| Navegación | [ARIA Avanzado: Navegación accesible](https://weaaare.com/cursos/aria-avanzado-navegacion-accesible) |
+| Formularios | [Tutorial de formularios, W3C WAI](https://www.w3.org/WAI/tutorials/forms/) (curso propio pendiente de publicar) |
 
-Para Formularios, [WAI, etiquetar controles](https://www.w3.org/WAI/tutorials/forms/labels/)
-es apoyo primario comprobado; no se presenta como curso weAAAre. El taller de
-Formularios que aparece en el sitio está marcado como celebrado y no acredita
-publicación de un curso ni disponibilidad de una grabación. Más detalle y fuentes
-en la [investigación](../../../../docs/research/05-comprobaciones-y-proximos-pasos.md).
+Catálogo completo: [weaaare.com/cursos](https://weaaare.com/cursos). Data Display queda como curso futuro.
 
-## Comprobaciones
+## Herramientas y referencias
 
-Los tests de slides del módulo comprueban título/semántica/axe, registro único de
-las once lecciones, correspondencia 1:1, tiempos nominales y enlaces de demos.
-Los enlaces externos se contrastaron con páginas públicas durante la investigación;
-los tests no garantizan su disponibilidad futura. No hay patrón APG nuevo: se
-reutilizan enlaces HTML. Teclado/AT del reproductor, visual final y ensayo de dos
-minutos siguen pendientes. Véase [auditoría](../audit.md).
+- [Headings](https://pauljadam.com/bookmarklets/headings.html) · [Images](https://pauljadam.com/bookmarklets/images.html) · [Accessibility Insights](https://accessibilityinsights.io/docs/web/getstarted/fastpass/)
+- [WCAG 2.2, referencia rápida](https://www.w3.org/WAI/WCAG22/quickref/)
+- [Cómo usan la web las personas con discapacidad, W3C WAI](https://www.w3.org/WAI/people-use-web/)

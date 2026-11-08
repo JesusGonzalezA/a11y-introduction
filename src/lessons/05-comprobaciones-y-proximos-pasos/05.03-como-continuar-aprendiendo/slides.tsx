@@ -1,104 +1,128 @@
 import { Fragment } from 'react'
-import { examplesBase, exampleUrl } from '../../../examples/exampleUrl'
+import { portalUrl } from '../../../routes'
+import { SlideTitle } from '../../../slides/parts'
 
 export const slides = [
-  <Fragment key="5.3-1">
-    <h2 className="lesson-slide__title">Cómo continuar aprendiendo</h2>
+  <Fragment key="5.3-resumen">
+    <SlideTitle kind="leccion">Cómo continuar aprendiendo</SlideTitle>
     <p>
-      Ya puedes reconocer barreras, dar significado al contenido, facilitar la
-      interacción y comenzar una revisión.
+      Antes de seguir, repasemos qué necesita cada persona y cómo se lo damos:
     </p>
-    <p>
-      Para profundizar en estructura: HTML Semántico. Para nombres, roles,
-      estados y relaciones: Fundamentos de ARIA.
-    </p>
-    <a
-      className="lesson-slide__example-link"
-      href="https://weaaare.com/cursos/curso-accesibilidad-digital-html-semantico-para-disenadores"
-    >
-      HTML Semántico para diseñadores
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href="https://weaaare.com/cursos/curso-accesibilidad-digital-introduccion-a-aria"
-    >
-      Introducción a ARIA
-    </a>
-    <p>Estos son los títulos de las fichas públicas verificadas.</p>
+    <table className="summary-table">
+      <thead>
+        <tr>
+          <th scope="col">Persona</th>
+          <th scope="col">Necesita</th>
+          <th scope="col">Solución</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Andrés</th>
+          <td>Llegar a todo con teclado y ver el foco</td>
+          <td>
+            <code>button</code>, <code>:focus-visible</code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Elena</th>
+          <td>Que el lector le cuente qué es cada cosa</td>
+          <td>Encabezados, regiones, alt, label, ARIA justa</td>
+        </tr>
+        <tr>
+          <th scope="row">Lucía</th>
+          <td>Textos claros que no desaparecen</td>
+          <td>Etiquetas visibles, botones con acción, pausa</td>
+        </tr>
+        <tr>
+          <th scope="row">Manuel</th>
+          <td>Leer sin depender del color ni del tamaño</td>
+          <td>
+            Texto en el estado, contraste, <code>rem</code>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Ana</th>
+          <td>Una página que no se mueva sin control</td>
+          <td>
+            <code>prefers-reduced-motion</code>, pausar
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </Fragment>,
-  <Fragment key="5.3-2">
-    <h2 className="lesson-slide__title">
-      Practicar, probar y ampliar las interfaces
-    </h2>
-    <p>
-      Ruta prevista: Testing de componentes para accesibilidad; después,
-      Formularios y navegación. Data Display queda como curso futuro.
-    </p>
-    <a
-      className="lesson-slide__example-link"
-      href="https://weaaare.com/cursos/curso-testing-de-accesibilidad-digital-para-desarrolladores"
-    >
-      Testing de accesibilidad para desarrolladores
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href="https://weaaare.com/cursos/aria-avanzado-navegacion-accesible"
-    >
-      ARIA Avanzado: Navegación accesible
-    </a>
-    <p>
-      Curso específico de Formularios y Data Display: publicación y URL no
-      verificadas. Como apoyo para formularios:
-    </p>
-    <a
-      className="lesson-slide__example-link"
-      href="https://www.w3.org/WAI/tutorials/forms/labels/"
-    >
-      Etiquetado de controles, WAI
-    </a>
+  <Fragment key="5.3-cursos">
+    <SlideTitle kind="resumen">Cursos para profundizar</SlideTitle>
+    <ul>
+      <li>
+        Estructura y significado del contenido:{' '}
+        <a href="https://weaaare.com/cursos/curso-accesibilidad-digital-html-semantico-para-disenadores">
+          HTML Semántico
+        </a>
+        .
+      </li>
+      <li>
+        Nombres, roles, estados y relaciones:{' '}
+        <a href="https://weaaare.com/cursos/curso-accesibilidad-digital-introduccion-a-aria">
+          Introducción a ARIA
+        </a>
+        .
+      </li>
+      <li>
+        Verificar el comportamiento de los componentes:{' '}
+        <a href="https://weaaare.com/cursos/curso-testing-de-accesibilidad-digital-para-desarrolladores">
+          Testing de accesibilidad para desarrolladores
+        </a>
+        .
+      </li>
+      <li>
+        Navegación y menús:{' '}
+        <a href="https://weaaare.com/cursos/aria-avanzado-navegacion-accesible">
+          ARIA Avanzado: Navegación accesible
+        </a>
+        .
+      </li>
+      <li>
+        Formularios:{' '}
+        <a href="https://www.w3.org/WAI/tutorials/forms/">
+          tutorial de formularios de W3C WAI
+        </a>
+        .
+      </li>
+    </ul>
   </Fragment>,
-  <Fragment key="5.3-3">
-    <h2 className="lesson-slide__title">
-      Herramientas, ejemplos y continuación
-    </h2>
+  <Fragment key="5.3-materiales">
+    <SlideTitle kind="resumen">Herramientas y materiales</SlideTitle>
+    <ul>
+      <li>
+        Revisar:{' '}
+        <a href="https://pauljadam.com/bookmarklets/headings.html">Headings</a>,{' '}
+        <a href="https://pauljadam.com/bookmarklets/images.html">Images</a> y{' '}
+        <a href="https://accessibilityinsights.io/docs/web/getstarted/fastpass/">
+          Accessibility Insights
+        </a>
+        .
+      </li>
+      <li>
+        Consultar:{' '}
+        <a href="https://www.w3.org/WAI/WCAG22/quickref/">
+          WCAG 2.2, referencia rápida
+        </a>{' '}
+        y{' '}
+        <a href="https://www.w3.org/WAI/people-use-web/">
+          cómo usan la web las personas con discapacidad
+        </a>
+        .
+      </li>
+    </ul>
     <p>
-      Inspeccionar:{' '}
-      <a href="https://pauljadam.com/bookmarklets/headings.html">Headings</a>,{' '}
-      <a href="https://pauljadam.com/bookmarklets/images.html">Images</a> y{' '}
-      <a href="https://accessibilityinsights.io/docs/web/getstarted/fastpass/">
-        FastPass
-      </a>
-      .
+      Método: elige una tarea → piensa en una persona → revisa → corrige →
+      vuelve a comprobar.
     </p>
     <p>
-      Practicar:{' '}
-      <a href={exampleUrl('taller-bicicletas', true)}>formulario corregido</a> y{' '}
-      <a href={examplesBase}>páginas de ejemplo del curso</a>.
-    </p>
-    <p>
-      Continuar:{' '}
-      <a href="https://weaaare.com/cursos/curso-accesibilidad-digital-html-semantico-para-disenadores">
-        HTML Semántico
+      <a className="lesson-slide__example-link" href={portalUrl}>
+        Volver al índice del curso: diapositivas, ejemplos y contenido
       </a>
-      ,{' '}
-      <a href="https://weaaare.com/cursos/curso-accesibilidad-digital-introduccion-a-aria">
-        Introducción a ARIA
-      </a>
-      ,{' '}
-      <a href="https://weaaare.com/cursos/curso-testing-de-accesibilidad-digital-para-desarrolladores">
-        Testing
-      </a>{' '}
-      y{' '}
-      <a href="https://weaaare.com/cursos/aria-avanzado-navegacion-accesible">
-        Navegación
-      </a>
-      .
     </p>
-    <p>
-      Formularios:{' '}
-      <a href="https://www.w3.org/WAI/tutorials/forms/labels/">apoyo WAI</a>.
-      curso aún no verificado. Data Display: futuro, sin enlace verificado.
-    </p>
-    <p>Elegir una tarea → revisar → corregir → volver a comprobar.</p>
   </Fragment>,
 ]

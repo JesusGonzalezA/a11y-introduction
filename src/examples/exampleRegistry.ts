@@ -4,6 +4,7 @@ import { recipePageExample } from '../lessons/03-dar-significado-al-contenido/03
 import { newsArticleExample } from '../lessons/03-dar-significado-al-contenido/03.02-imagenes-enlaces-y-controles/examples/NewsArticle/NewsArticle.example'
 import { libraryLoginExample } from '../lessons/04-interaccion-y-percepcion/04.01-teclado-y-foco-visible/examples/LibraryLogin/LibraryLogin.example'
 import { busTimetableExample } from '../lessons/04-interaccion-y-percepcion/04.02-contraste-color-y-ampliacion/examples/BusTimetable/BusTimetable.example'
+import { festivalPageExample } from '../lessons/04-interaccion-y-percepcion/04.03-animaciones-y-movimiento/examples/FestivalPage/FestivalPage.example'
 import { museumExhibitionExample } from '../lessons/05-comprobaciones-y-proximos-pasos/05.01-bookmarklets/examples/MuseumExhibition/MuseumExhibition.example'
 import { repairBookingExample } from '../lessons/05-comprobaciones-y-proximos-pasos/05.02-accessibility-insights/examples/RepairBooking/RepairBooking.example'
 import type { ExampleDefinition } from './types'
@@ -16,6 +17,7 @@ export const exampleRegistry: ExampleDefinition[] = [
   newsArticleExample,
   libraryLoginExample,
   busTimetableExample,
+  festivalPageExample,
   museumExhibitionExample,
   repairBookingExample,
 ]
