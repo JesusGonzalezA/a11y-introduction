@@ -33,12 +33,11 @@ Desde la raíz, con Node.js 22.12+ y pnpm 10.26.1:
 ```bash
 pnpm install --frozen-lockfile
 pnpm dev
-pnpm storybook
 ```
 
-`pnpm dev` sirve la presentación en `http://localhost:5173`. `pnpm storybook`
-se ejecuta en otra terminal y sirve `http://localhost:6006`, sin stories en esta
-entrega. Se conserva la infraestructura para las lecciones prácticas posteriores.
+`pnpm dev` sirve la presentación en `http://localhost:5173` y las páginas de
+ejemplo de las lecciones prácticas en `http://localhost:5173/ejemplos/`. Este
+módulo no tiene ejemplos propios.
 
 | Posición global / hash | Lección | Título |
 | --- | --- | --- |
@@ -86,7 +85,7 @@ El 8 de octubre de 2026, en macOS con Node.js 25.2.1 y pnpm 10.26.1:
 - `pnpm test`: 8 pruebas superadas (siete slides y enlace a materiales).
 - `pnpm lint`: correcto.
 - `pnpm build`: correcto.
-- `pnpm build-storybook`: correcto; aviso esperado de ausencia de stories.
+- `pnpm build-storybook`: correcto en su momento; Storybook se retiró en #13.
 - Navegador integrado de Codex a 1280 × 720: portada y las siete slides
   recorridas por sus hashes; medidas DOM de títulos, párrafos, listas y enlaces
   dentro del lienzo, sin recortes ni solapamientos entre bloques. Sin capturas.

@@ -10,7 +10,7 @@ slides, los ejemplos y los materiales después del curso.
    interacción y comenzar a revisar conociendo los límites de las herramientas.
 2. **El recorrido del curso**: cinco módulos que suman 60 minutos, incluidas demos.
 3. **Aprender desde una tarea**: necesidad → concepto → implementación → demo →
-   comprobación; empezar por HTML nativo y conservar etapas en Storybook.
+   comprobación; empezar por HTML nativo y observar cada arreglo en una página de ejemplo.
 4. **Consultar los materiales y seguir practicando**: README, slides, guion y
    ejemplos; ejercicios adicionales y alcance de esta primera base.
 
@@ -25,9 +25,8 @@ módulos pendientes. Las herramientas se concentran en el módulo 5.
 - Componentes, demos y stories: no aplicables a esta introducción documental.
 
 Desde la raíz, con Node.js 22.12+ y pnpm 10.26.1, ejecuta
-`pnpm install --frozen-lockfile` y `pnpm dev`. `pnpm storybook` conserva la
-infraestructura en el puerto 6006, sin stories todavía. No se abre durante esta
-lección. Presupuesto oral: 45/55/40/40 segundos. Ensayo real pendiente.
+`pnpm install --frozen-lockfile` y `pnpm dev`. Las páginas de ejemplo se sirven
+en `/ejemplos/`; no se abren durante esta lección. Presupuesto oral: 45/55/40/40 segundos. Ensayo real pendiente.
 
 El enlace de la última slide abre el README del repositorio privado con acceso
 autorizado. Una copia local permite consultar los mismos documentos.
@@ -40,8 +39,8 @@ No se añaden roles redundantes, estados ARIA ni gestión de foco. La
 slides y clasifica todos los criterios, incluidos los del enlace.
 
 [Tests compartidos](../slides.test.tsx): estructura semántica, axe por slide y foco
-DOM con Tab en el enlace. Ejecutar `pnpm test`, `pnpm lint`, `pnpm build` y
-`pnpm build-storybook`. Navegar realmente con Enter, identificar el foco, leer con
+DOM con Tab en el enlace. Ejecutar `pnpm test`, `pnpm lint` y
+`pnpm build`. Navegar realmente con Enter, identificar el foco, leer con
 tecnologías de asistencia, usar gestos móviles, medir contraste o ampliar la
 presentación requiere las comprobaciones manuales pendientes de la matriz.
 También quedan pendientes la revisión visual final del autor y el ensayo oral.

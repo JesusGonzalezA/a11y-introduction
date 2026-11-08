@@ -1,0 +1,305 @@
+/* Herramienta del curso: estilos aislados con su propio bloque BEM. */
+.example-devtools {
+  --devtools-bg: #18181b;
+  --devtools-surface: #27272a;
+  --devtools-border: #3f3f46;
+  --devtools-text: #fafafa;
+  --devtools-muted: #d4d4d8;
+  --devtools-focus: #93c5fd;
+  --devtools-barrier: #f87171;
+  --devtools-fixed: #4ade80;
+
+  position: fixed;
+  inset-block-end: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2147483000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  max-inline-size: calc(100vw - 2rem);
+  color: var(--devtools-text);
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  text-align: start;
+}
+
+.example-devtools *,
+.example-devtools *::before,
+.example-devtools *::after {
+  box-sizing: border-box;
+}
+
+.example-devtools :focus-visible {
+  outline: 2px solid var(--devtools-focus);
+  outline-offset: 2px;
+}
+
+.example-devtools__bar,
+.example-devtools__panel {
+  position: relative;
+  z-index: 1;
+}
+
+.example-devtools__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+  border: 1px solid var(--devtools-border);
+  border-radius: 999px;
+  background: var(--devtools-bg);
+  box-shadow: 0 8px 24px #0000004d;
+}
+
+.example-devtools button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.example-devtools__switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-weight: 600;
+}
+
+.example-devtools__track {
+  position: relative;
+  display: inline-block;
+  inline-size: 2.5rem;
+  block-size: 1.375rem;
+  border: 2px solid var(--devtools-barrier);
+  border-radius: 999px;
+  background: #450a0a;
+}
+
+.example-devtools__thumb {
+  position: absolute;
+  inset-block-start: 0.125rem;
+  inset-inline-start: 0.125rem;
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  border-radius: 50%;
+  background: var(--devtools-barrier);
+}
+
+.example-devtools__switch[aria-pressed="true"] .example-devtools__track {
+  border-color: var(--devtools-fixed);
+  background: #052e16;
+}
+
+.example-devtools__switch[aria-pressed="true"] .example-devtools__thumb {
+  inset-inline-start: auto;
+  inset-inline-end: 0.125rem;
+  background: var(--devtools-fixed);
+}
+
+.example-devtools__switch-state {
+  min-inline-size: 6.5em;
+  color: var(--devtools-muted);
+}
+
+.example-devtools__toggle {
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--devtools-border);
+  border-radius: 999px;
+  background: var(--devtools-surface);
+  color: inherit;
+}
+
+.example-devtools__toggle[aria-expanded="true"] {
+  background: var(--devtools-text);
+  color: var(--devtools-bg);
+}
+
+.example-devtools__panel {
+  inline-size: min(28rem, calc(100vw - 2rem));
+  max-block-size: min(70vh, 40rem);
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid var(--devtools-border);
+  border-radius: 0.75rem;
+  background: var(--devtools-bg);
+  box-shadow: 0 8px 24px #0000004d;
+}
+
+.example-devtools__panel[hidden] {
+  display: none;
+}
+
+.example-devtools__panel p {
+  margin: 0 0 0.75rem;
+}
+
+.example-devtools__eyebrow {
+  color: var(--devtools-muted);
+  font-size: 0.8125rem;
+}
+
+.example-devtools__state {
+  font-weight: 600;
+}
+
+.example-devtools__option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.example-devtools__option input {
+  inline-size: 1rem;
+  block-size: 1rem;
+  margin: 0;
+  accent-color: var(--devtools-fixed);
+}
+
+.example-devtools__fixes {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.example-devtools__fix {
+  padding-block: 1rem;
+  border-block-start: 1px solid var(--devtools-border);
+}
+
+.example-devtools__fix-title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-weight: 600;
+}
+
+.example-devtools__badge {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border-radius: 50%;
+  background: var(--devtools-text);
+  color: var(--devtools-bg);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.example-devtools__details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.75rem;
+  margin: 0 0 0.75rem;
+}
+
+.example-devtools__details dt {
+  color: var(--devtools-muted);
+  font-weight: 600;
+}
+
+.example-devtools__details dd {
+  margin: 0;
+}
+
+.example-devtools__panel .example-devtools__code-label {
+  margin-block-end: 0.25rem;
+  color: var(--devtools-muted);
+  font-size: 0.8125rem;
+}
+
+.example-devtools__panel .example-devtools__code-label--current {
+  color: var(--devtools-text);
+  font-weight: 700;
+}
+
+.example-devtools__code {
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 0.75rem;
+  overflow-x: auto;
+  border-radius: 0.375rem;
+  background: var(--devtools-surface);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.8125rem;
+  white-space: pre;
+}
+
+.example-devtools__locate {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--devtools-border);
+  border-radius: 0.375rem;
+  background: var(--devtools-surface);
+  color: inherit;
+}
+
+.example-devtools__link {
+  color: var(--devtools-focus);
+}
+
+/* Marcas sobre la página, bajo el panel: no capturan el puntero ni se anuncian. */
+.fix-highlights {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fix-highlights__box {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  border: 3px dashed #dc2626;
+  border-radius: 0.25rem;
+  background: #dc262614;
+}
+
+.fix-highlights__box[hidden] {
+  display: none;
+}
+
+.fix-highlights__box--fixed {
+  border-style: solid;
+  border-color: #15803d;
+  background: #15803d14;
+}
+
+.fix-highlights__box--located {
+  box-shadow: 0 0 0 6px #facc15;
+}
+
+.fix-highlights__badge {
+  position: absolute;
+  inset-block-end: 100%;
+  inset-inline-start: -3px;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+  background: #b91c1c;
+  color: #fff;
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.fix-highlights__box--fixed .fix-highlights__badge {
+  background: #15803d;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fix-highlights__box--located {
+    animation: fix-highlights-pulse 1s ease-out 2;
+  }
+}
+
+@keyframes fix-highlights-pulse {
+  50% {
+    box-shadow: 0 0 0 12px #facc1500;
+  }
+}

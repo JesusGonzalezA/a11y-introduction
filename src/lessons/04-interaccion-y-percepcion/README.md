@@ -2,8 +2,9 @@
 
 **17 minutos**, incluidas demos. [Issue #5](https://github.com/JesusGonzalezA/a11y-introduction/issues/5),
 [temario #1](https://github.com/JesusGonzalezA/a11y-introduction/issues/1).
-La persona debe poder inscribirse sin ratón, localizar el foco, entender la
-disponibilidad y conservar la información al ampliar.
+La persona debe poder completar un formulario sin ratón y localizar el foco
+(4.1, acceso a una biblioteca), y entender estados y conservar la información al
+ampliar (4.2, horarios de autobús).
 
 | Lección | Objetivo | Duración | Slides (portada = 1) |
 | --- | --- | --- | --- |
@@ -17,42 +18,35 @@ No se añaden widgets ARIA compuestos, validación, backend ni datos persistente
 
 ## Ejecutar y revisar
 
-Desde la raíz: `pnpm install --frozen-lockfile`. Puertos propios de esta sesión:
+Desde la raíz: `pnpm install --frozen-lockfile` y `pnpm dev`. Slides en
+`http://localhost:5173`; páginas de ejemplo en `http://localhost:5173/ejemplos/`.
+Cada página se abre con la barrera. El botón flotante **Aplicar arreglo** la
+corrige sin recargar y **Ver cambios** resalta dónde está cada cambio y explica
+por qué. `?arreglo=1` abre directamente la versión corregida; los enlaces de las
+slides usan ambas rutas.
 
-```bash
-VITE_STORYBOOK_URL=http://localhost:6009 pnpm dev --host 127.0.0.1 --port 5176 --strictPort
-pnpm storybook --host 127.0.0.1 --port 6009 --ci
-```
+| Lección | Página | Ruta | Arreglos |
+| --- | --- | --- | --- |
+| 4.1 | Acceso a la cuenta de una biblioteca | `/ejemplos/biblioteca` | `:focus-visible` en lugar de `outline: none`; `scroll-padding` bajo la cabecera fija |
+| 4.2 | Próximas salidas de una línea de autobús | `/ejemplos/horarios` | Estado escrito junto al color; texto secundario con contraste suficiente; aviso sin tamaño fijo ni recorte |
 
-Slides en <http://localhost:5176/#/34>; Storybook en <http://localhost:6009>.
-Los valores habituales sin opciones son 5173/6006. `VITE_STORYBOOK_URL` configura
-los enlaces de las slides. Cada demo usa documento aislado y `pageLayout: true`.
+## Páginas de ejemplo y límites
 
-| Superficie | Ruta desde Storybook |
-| --- | --- |
-| 4.1 Contraejemplo deliberado: foco oculto | `/iframe.html?id=m4-focus-registration--contraejemplo&viewMode=story` |
-| 4.1 Solución: foco visible | `/iframe.html?id=m4-focus-registration--solucion&viewMode=story` |
-| 4.2 Contraejemplo deliberado: color, contraste y recorte | `/iframe.html?id=m4-perception-registration--contraejemplo&viewMode=story` |
-| 4.2 Solución: texto y reflujo | `/iframe.html?id=m4-perception-registration--solucion&viewMode=story` |
+`LibraryLogin` y `BusTimetable` son escenarios de página completa. Ocultar el foco
+cambia solo CSS acotado a la página; **no intercepta Tab** y la herramienta
+flotante conserva su propio foco. La trampa de teclado se explica con un fragmento
+no ejecutable. El margen de desplazamiento de 4.1 se aplica como clase en `html`
+mientras la página está montada con el arreglo.
 
-## Continuidad y límites
+En 4.2, `#b4b4b4` sobre blanco da 2,07:1 y `#52525b` da 7,73:1 (calculado con la
+fórmula de luminancia relativa de WCAG). El aviso con barrera tiene ancho y alto
+fijos con `overflow: hidden`; la versión corregida crece con su contenido. Los
+puntos de color son decorativos (`aria-hidden`) y nunca son la única señal en la
+versión corregida. JSDOM no calcula contraste, foco dibujado ni reflujo.
 
-[Interfaces compartidas](../shared/README.md): ActivityPage, RegistrationAction y
-activity. ActivityPage y sus assets se trasladan del módulo 3 al shared común;
-las APIs originales conservan su resultado. Se añaden únicamente `notice` y
-`variantLabel` opcionales para componer el módulo 4. Las nueve stories anteriores
-permanecen recuperables. El formulario simula la inscripción al turno 10:00.
-El aviso añade el turno 12:00 completo como comparación estática: no es selector.
-
-Los contraejemplos están rotulados. Ocultar foco cambia solo CSS local; **no
-intercepta Tab**. La trampa se explica con un fragmento no ejecutable, de modo que
-el entorno sigue siendo navegable. El contraejemplo de percepción recorta solo
-el aviso, mantiene el formulario fuera del recorte y omite deliberadamente las
-palabras de los estados. Nunca se presenta como solución utilizable.
-
-[Investigación previa](../../../docs/research/04-interaccion-y-percepcion.md),
-[contrato y resultados auditados](audit.md). Las matrices enlazan originales
-Magenta por commit y usan paráfrasis; no duplican la investigación heredada.
+[Investigación previa](../../../docs/research/04-interaccion-y-percepcion.md).
+La [auditoría](audit.md) registra la evidencia de los ejemplos anteriores a las
+páginas de ejemplo; su matriz manual sigue vigente como lista de comprobaciones.
 No se declara conformidad completa mediante axe ni mediante esta muestra.
 
 ## Matriz manual pendiente
@@ -65,9 +59,9 @@ Registrar fecha, SO, navegador/versión, configuración, recorrido y resultado.
 | VoiceOver + Safari, macOS | Igual; rotor y navegación de formulario según configuración | No ejecutado |
 | VoiceOver iOS/Safari y TalkBack Android/Chrome | Gestos, teclado virtual, nombre/rol, estados y confirmación; ambas orientaciones | No ejecutado |
 | Control por voz | Alcanzar y activar por nombre visible | No ejecutado |
-| Chrome, Firefox y Safari con teclado humano | Tab/Shift+Tab, Enter/Espacio, foco perceptible/no tapado, salida al entorno; habilitar navegación por teclado cuando proceda | Pendiente |
+| Chrome, Firefox y Safari con teclado humano | Tab/Shift+Tab, Enter/Espacio, foco perceptible/no tapado por la cabecera fija, salida al entorno; habilitar navegación por teclado cuando proceda | Pendiente |
 | Zoom real de navegador, 100→200% y 1280 al 400% | Texto legible, aviso completo, formulario operable y sin pérdida; pasos intermedios | Pendiente; no sustituir con zoom CSS |
-| Autor humano | Revisión visual final de 4 stories y 14 slides, colores/foco/legibilidad y ensayo 9 + 8 min | Pendiente |
+| Autor humano | Revisión visual final de dos páginas de ejemplo en ambos estados y 14 slides, colores/foco/legibilidad y ensayo 9 + 8 min | Pendiente |
 
 La revisión técnica de navegador y reflujo a 320 CSS px se registra en audit.md;
 no equivale a zoom real, percepción humana ni anuncios de AT.

@@ -12,23 +12,23 @@ Al expandir una regla vemos sus instancias. Seleccionar una permite localizar el
 
 ## 3. Corregir el nombre de un campo · 90 s, incluida demo
 
-[Storybook: abrir «Detectar el campo sin etiqueta» y lanzar FastPass en la extensión.]
+[Ejemplo: abrir «Detectar el campo sin etiqueta», cerrar el panel y lanzar FastPass en la extensión.]
 
-En esta versión el campo no tiene etiqueta ni otro nombre que explique qué introducir. En Automated checks buscamos la regla relacionada con el nombre del campo, la expandimos y seleccionamos la instancia. El resaltado permite reconocer el input afectado; leemos cómo corregirlo.
+Es el formulario para pedir cita en un taller de bicicletas. El texto Teléfono se ve encima del campo, pero no está asociado: el campo no tiene nombre. En Automated checks buscamos la regla relacionada con el nombre del campo, la expandimos y seleccionamos la instancia. El resaltado permite reconocer el input afectado; leemos cómo corregirlo.
 
 La solución es HTML nativo: un label visible cuyo for coincide con el id del input. La etiqueta permanece cuando escribimos. El fragmento de la slide muestra esa relación; no necesitamos añadir un rol al campo.
 
-[Storybook: abrir «Repetir con etiqueta asociada».]
+[Ejemplo: pulsar «Aplicar arreglo» y abrir «Ver cambios».]
 
-Ejecutamos de nuevo FastPass sobre esta página corregida, asegurándonos de que la extensión analiza esta pestaña. Comprobamos que el fallo del campo ya no aparece. No basta conservar los resultados de la pestaña anterior. Si aparece otro resultado, lo revisamos; no lo ocultamos para conseguir el número que esperábamos.
+El panel señala el cambio: el span pasa a ser un label. Ejecutamos de nuevo FastPass sobre la página corregida, asegurándonos de que la extensión analiza el estado actual. Comprobamos que el fallo del campo ya no aparece. No basta conservar los resultados del análisis anterior. Si aparece otro resultado, lo revisamos; no lo ocultamos para conseguir el número que esperábamos.
 
 La comparación termina cuando hemos localizado el elemento, entendido el cambio y repetido la comprobación sobre la versión correcta.
 
 ## 4. Recorrer la interfaz con Tab stops · 65 s, incluida demo
 
-[Storybook: mostrar «Revisar el recorrido de inscripción» con Tab stops de la extensión.]
+[Ejemplo: mostrar «Revisar el recorrido del formulario» con Tab stops de la extensión.]
 
-Seleccionamos Tab stops, recargamos la página objetivo y activamos Show tab stops. Volvemos a la página y avanzamos con Tab por los enlaces hasta el campo. Las marcas numeradas van mostrando el recorrido que realizamos. Escribimos Ana, avanzamos al botón, volvemos con Shift más Tab y regresamos al botón para activarlo con Espacio. Comprobamos la confirmación y continuamos con Tab para salir.
+Seleccionamos Tab stops, recargamos la página objetivo y activamos Show tab stops. Volvemos a la página y avanzamos con Tab por los enlaces hasta los campos. Las marcas numeradas van mostrando el recorrido que realizamos. Escribimos en cada campo, avanzamos al botón, volvemos con Shift más Tab y regresamos al botón para activarlo con Espacio. Comprobamos la confirmación y continuamos con Tab para salir.
 
 Observamos si podemos alcanzar las acciones, si el orden tiene sentido y si el foco se reconoce en cada paso. Los números son una ayuda; no deciden si la tarea es utilizable. Revisamos las posibles incidencias y registramos nuestro juicio en la herramienta.
 

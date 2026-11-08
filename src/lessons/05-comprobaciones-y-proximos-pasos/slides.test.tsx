@@ -68,19 +68,18 @@ describe('Slides de comprobaciones y próximos pasos', () => {
       ).toBe(duration)
     },
   )
-  it('enlaza las cuatro variantes aisladas y mantiene los límites de disponibilidad', () => {
+  it('enlaza las páginas de ejemplo y mantiene los límites de disponibilidad', () => {
     render(<main>{slides}</main>)
-    const ids = screen
+    const examples = screen
       .getAllByRole('link')
-      .map((link) =>
-        new URL(link.getAttribute('href') || '').searchParams.get('id'),
-      )
-      .filter(Boolean)
-    expect([...new Set(ids)]).toEqual([
-      'm5-content-inspection--contraejemplo',
-      'm5-content-inspection--solucion',
-      'm5-label-inspection--contraejemplo',
-      'm5-label-inspection--solucion',
+      .map((link) => link.getAttribute('href') || '')
+      .filter((href) => href.startsWith('/ejemplos/'))
+    expect([...new Set(examples)]).toEqual([
+      '/ejemplos/museo',
+      '/ejemplos/museo?arreglo=1',
+      '/ejemplos/taller-bicicletas',
+      '/ejemplos/taller-bicicletas?arreglo=1',
+      '/ejemplos/',
     ])
     expect(
       screen.getByText(

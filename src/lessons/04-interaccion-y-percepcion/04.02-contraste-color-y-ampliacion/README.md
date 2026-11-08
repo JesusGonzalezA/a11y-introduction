@@ -1,70 +1,44 @@
 # 4.2 Contraste, color y ampliación del contenido
 
-**8 minutos**, incluida demo. La persona necesita distinguir disponibilidad,
-leer el aviso y conservar acceso al formulario al ampliar. Primero pregunta qué
-significa cada estado; después distingue texto/fondo y comprueba reorganización.
-No se introduce una auditoría exhaustiva ni una herramienta nueva de producto.
+**8 minutos**, incluida demo. La persona necesita distinguir el estado de cada
+salida, leer el aviso y conservar el acceso al contenido al ampliar. Primero
+pregunta qué significa cada estado; después distingue texto/fondo y comprueba
+reorganización. No se introduce una auditoría exhaustiva ni una herramienta nueva.
 
-## Ejecución y materiales
+## Página de ejemplo
 
-`pnpm install --frozen-lockfile`; [servidores, rutas y posiciones](../README.md#ejecutar-y-revisar).
-Siete slides y siete apartados del presentador, 480 s nominales; ensayo pendiente.
-La slide 6 enlaza ambas variantes de `PerceptionRegistration`. Props:
-`barrier?: boolean` y `onRegister?: () => void`. Composición de ActivityPage con
-un aviso en su slot `notice`; no hay un nuevo control reutilizable.
+Instalar y arrancar según el [mapa del módulo](../README.md#ejecutar-y-revisar). Ruta: `/ejemplos/horarios`, próximas salidas de
+una línea de autobús con un aviso por obras. Enlaces de la slide 6: «Examinar
+color y recortes» y «Revisar texto, contraste y reflujo» (`?arreglo=1`).
 
-El aviso es una lista nativa de dos turnos estáticos. 10:00 tiene plazas; 12:00
-está completo. El formulario sigue la actividad de las 10:00 y no selecciona turno.
-En la solución hay palabras visibles; los puntos redundantes usan aria-hidden.
-La lista se nombra con aria-labelledby del encabezado visible, con ID único.
-No se usa status para información estática. El status de confirmación del
-formulario conserva el contrato de módulos 2/3.
+| Arreglo | Sin arreglo | Con arreglo |
+| --- | --- | --- |
+| Color | Solo un punto verde, ámbar o rojo | Punto decorativo + «A tiempo», «Retraso de 10 minutos», «Cancelado» |
+| Contraste | `#b4b4b4` sobre blanco: 2,07:1 | `#52525b`: 7,73:1; aviso con el color de texto principal |
+| Reflujo | Aviso de 40rem × 9,5rem con `overflow: hidden` | Sin tamaños fijos, `overflow-wrap: anywhere` |
+
+Los ratios se calculan con la fórmula de luminancia relativa de WCAG, sin redondear
+para alcanzar el umbral.
 
 ## Demostración reproducible
 
-1. Abrir el contraejemplo aislado y reconocer que los puntos no explican su
-   significado sin interpretar el tono. El aviso está rotulado como barrera.
-2. Inspeccionar color computado de la instrucción y su fondo: `#aaa` / `#fff`.
-   Calcular ratio con luminancia relativa WCAG: aproximadamente **2,32:1**,
-   inferior a 4,5:1 para texto normal. La solución `#18181b` / `#fff` da **17,72:1**.
-   Los valores mostrados se redondean solo para comunicar, nunca para aprobar.
-3. Con zoom **real del navegador**, probar 100→200% incluidos pasos intermedios.
-   Leer hasta «punto de encuentro»; comprobar campo y botón. Registrar resultado.
-4. Comprobar por separado reflujo a **320 CSS px**, o 1280 al 400% real. El aviso
-   rígido usa ancho/alto y recorta; no basta buscar barras de scroll para detectar
-   pérdida. La solución permite ajustar líneas y crecer.
-5. Repetir con la solución, leer ambos estados, llegar al formulario y activarlo.
-   Restaurar zoom y viewport. Cambiar el ancho solo acredita reflujo, no zoom.
+1. Con la barrera, intentar saber qué salida está cancelada sin distinguir colores.
+2. Inspeccionar el texto de la parada y medir su contraste en las devtools.
+3. Ampliar con el zoom real del navegador hasta 200%, revisando pasos intermedios;
+   después reducir a 320 px CSS (o 1280 px al 400%). El aviso se recorta.
+4. Pulsar **Aplicar arreglo** y abrir **Ver cambios**. Repetir los tres pasos: los
+   estados se leen, el contraste supera 4,5:1 y el aviso crece sin recorte.
 
-Fórmula reproducible: linealizar cada canal sRGB en [0,1] (si ≤0,04045, dividir
-por 12,92; si no, ((canal+0,055)/1,055)^2,4); luminancia =
-0,2126R + 0,7152G + 0,0722B; ratio = (L clara+0,05)/(L oscura+0,05).
-[Definición WCAG](https://www.w3.org/TR/WCAG22/#dfn-contrast-ratio).
-El cálculo comprueba la pareja elegida; la cascada, fondos efectivos y otros
-estados se comprueban en navegador. El gris informativo no es texto exento.
+## Componentes y pruebas
 
-## Contrato y pruebas
+`BusTimetable` (escenario de página completa) recibe `fixed: boolean`; su
+definición está en `BusTimetable.example.ts`. La lista toma su nombre del
+encabezado «Próximas salidas»; los puntos son `aria-hidden`.
 
-[Investigación de color/contraste/ampliación](../../../../docs/research/04-interaccion-y-percepcion.md),
-[originales Magenta y condiciones](../../../../docs/research/04-interaccion-y-percepcion.md#magentaa11y-páginas-concretas-trazabilidad-y-reutilización),
-[auditoría cruzada](../audit.md). Lista y controles heredan el contrato de módulos 2/3.
+`BusTimetable.test.tsx` comprueba que con la barrera la lista solo contiene horas
+y que con el arreglo cada salida escribe su estado, el aviso conserva su texto y
+axe no detecta infracciones. JSDOM no calcula contraste ni reflujo: esas
+comprobaciones son manuales según la [matriz del módulo](../README.md#matriz-manual-pendiente).
 
-| Criterio / fuente | Clasificación | Evidencia / límite |
-| --- | --- | --- |
-| 1.4.1 estado sin color | Automatizado parcial | `PerceptionRegistration.test.tsx`: lista UL, dos LI y texto visible en ambos estados; solo horas en barrera |
-| HTML/HTML-AAM lista, Magenta LS heredado | Automatizado | Rol list/nombre desde heading, ítems nativos y orden; la lista no añade parada de Tab |
-| B/L/T/F recorrido/acción; status heredado | Automatizado | «mantiene la inscripción…»: Tab por enlaces/campo/botón, volver, escribir y activar una vez |
-| Axe solución inicial/confirmación | Automatizado | Sin infracciones detectables en ambos estados |
-| 1.4.1 pertinencia y visibilidad de estados | Manual | Revisar que se entiendan sin distinguir tonos; no basta un aria-label |
-| 1.4.3 texto/fondo y 1.4.11 señales necesarias | Manual / cálculo | Colores reales y ratios en auditoría; sin prueba completa mediante JSDOM |
-| 1.4.4 hasta 200% y Magenta P G4 | Manual | Zoom real, contenido/funcionalidad conservados; pendiente si no ejecutado |
-| 1.4.10 a 320 CSS px | Manual / navegador | Leer sin pérdida ni desplazamiento bidimensional; no confundir con prueba de zoom |
-| P orientación, AT, voz y lectura de lista/estado | Manual | Matriz del módulo; inspección DOM no acredita percepción ni anuncio |
-| Lista interactiva, selección/disabled, estado dinámico del aviso | No aplicable | Solo texto informativo, sin selector ni actualizaciones |
-| Excepción bidimensional de reflujo | No aplicable | Aviso/formulario no necesitan disposición fija como un mapa |
-| Resto de condicionales de form/campo/botón | No aplicable o heredado | Campo opcional único y acción simple; ver matriz 4.1 e investigación |
-
-Validación focalizada: `pnpm exec vitest run src/lessons/04-interaccion-y-percepcion/04.02-contraste-color-y-ampliacion`.
-Generales: `pnpm test`, `pnpm lint`, `pnpm build`, `pnpm build-storybook`.
-Revisión visual final humana, AT/voz, zoom real y ensayo siguen pendientes hasta
-registrar su ejecución. No declarar la demo conforme por un resultado axe limpio.
+[Investigación de color/contraste/ampliación](../../../../docs/research/04-interaccion-y-percepcion.md)
+y [originales Magenta y condiciones](../../../../docs/research/04-interaccion-y-percepcion.md#magentaa11y-páginas-concretas-trazabilidad-y-reutilización).

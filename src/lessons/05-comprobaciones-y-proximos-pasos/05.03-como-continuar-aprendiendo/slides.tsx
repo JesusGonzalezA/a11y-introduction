@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
+import { examplesBase, exampleUrl } from '../../../examples/exampleUrl'
 
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
 export const slides = [
   <Fragment key="5.3-1">
     <h2 className="lesson-slide__title">Cómo continuar aprendiendo</h2>
@@ -72,12 +72,8 @@ export const slides = [
     </p>
     <p>
       Practicar:{' '}
-      <a
-        href={`${storybook}/iframe.html?id=m5-label-inspection--solucion&viewMode=story`}
-      >
-        actividad corregida
-      </a>{' '}
-      y <a href={storybook}>etapas del curso en Storybook</a>.
+      <a href={exampleUrl('taller-bicicletas', true)}>formulario corregido</a> y{' '}
+      <a href={examplesBase}>páginas de ejemplo del curso</a>.
     </p>
     <p>
       Continuar:{' '}

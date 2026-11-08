@@ -33,7 +33,8 @@ del autor siguen pendientes; los límites de ejecución se registran por módulo
 
 Las lecciones prácticas parten de una necesidad, explican el concepto y la
 implementación, muestran la demo y comprueban el resultado. Las slides se
-entienden por sí mismas; las stories conservan las etapas implementadas del ejemplo.
+entienden por sí mismas; cada demo es una página de ejemplo de un sitio distinto
+que se abre con una barrera y un botón flotante para aplicar el arreglo.
 Las herramientas se concentran en el módulo 5. Los ejercicios autónomos son
 material adicional a los 60 minutos. ARIA avanzado, auditorías exhaustivas y
 automatización profunda quedan fuera de esta introducción.
@@ -46,12 +47,36 @@ Desde la raíz:
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm dev        # Slides: http://localhost:5173
-pnpm storybook  # Storybook: http://localhost:6006 (otra terminal)
+pnpm dev        # Slides: http://localhost:5173 · Ejemplos: http://localhost:5173/ejemplos/
 ```
 
 Usa las flechas para recorrer la presentación. La portada precede las slides
-numeradas por lección; el hash permite volver a una posición. El
+numeradas por lección; el hash permite volver a una posición.
+
+## Páginas de ejemplo
+
+Cada demo es una página sencilla y creíble de un sitio distinto, servida por la
+misma aplicación en `/ejemplos/<página>`. Se abre con la barrera; el botón
+flotante **Aplicar arreglo** la corrige sin recargar y **Ver cambios** abre un
+panel tipo devtools que resalta en la página dónde está cada cambio, explica por
+qué y muestra el código antes y después. `?arreglo=1` abre la página ya corregida.
+
+| Lección | Página | Ruta |
+| --- | --- | --- |
+| 2.1 | Ficha de producto de una tienda online | `/ejemplos/tienda-online` |
+| 2.2 | Elegir sesión en la web de un cine | `/ejemplos/cine` |
+| 3.1 | Receta en un blog de cocina | `/ejemplos/receta` |
+| 3.2 | Noticia en un periódico local | `/ejemplos/noticia` |
+| 4.1 | Acceso a la cuenta de una biblioteca | `/ejemplos/biblioteca` |
+| 4.2 | Próximas salidas de una línea de autobús | `/ejemplos/horarios` |
+| 5.1 | Exposición temporal en la web de un museo | `/ejemplos/museo` |
+| 5.2 | Formulario de cita en un taller de bicicletas | `/ejemplos/taller-bicicletas` |
+
+La infraestructura común vive en `src/examples/` (rutas, herramienta flotante y
+resaltado); cada página, su definición y sus tests viven en la lección que la
+enseña y se registran en `src/examples/exampleRegistry.ts`. Al publicar en un
+servidor estático, configura que las rutas desconocidas sirvan `index.html`,
+como hacen `pnpm dev` y `pnpm preview`. El
 [mapa del módulo 1](./src/lessons/01-intro/README.md) identifica todas sus rutas.
 El [mapa del módulo 2](./src/lessons/02-entender-la-accesibilidad/README.md) enlaza
 las demos de teclado y semántica del botón. El [mapa del módulo 3](./src/lessons/03-dar-significado-al-contenido/README.md) reúne
@@ -66,7 +91,7 @@ continuación. Introducción y recapitulación no añaden demos nuevas.
 
 Cada lección reúne `README.md` (objetivo, ejecución, accesibilidad, pruebas y
 fuentes), `presenter.md` (narración) y `slides.tsx` (explicación visual). Las
-lecciones prácticas reúnen ejemplos, stories y tests co-localizados.
+lecciones prácticas reúnen páginas de ejemplo, sus definiciones y tests co-localizados.
 
 - [Bienvenida y presentación](./src/lessons/01-intro/01.01-bienvenida-y-presentacion/README.md).
 - [Objetivos y contenidos](./src/lessons/01-intro/01.02-objetivos-y-contenidos/README.md).
@@ -81,11 +106,10 @@ lecciones prácticas reúnen ejemplos, stories y tests co-localizados.
 - [Investigación y fuentes del módulo 1](./docs/research/01-introduccion.md).
 
 `src/course.ts` contiene la identidad del curso; `src/lessons/lessonRegistry.ts`
-ordena la presentación continua. `src/slides/CourseSlides.tsx` compone las slides.
-La infraestructura usa React, TypeScript, Vite, Reveal.js, Storybook, Vitest,
-Testing Library, user-event, axe-core y Biome. Los estilos usan Geist y BEM.
-Las stories siguen `Módulo N: Nombre/Lección N.M: Nombre/Componentes|Ejemplos/Nombre`.
-`VITE_STORYBOOK_URL` permite configurar su destino al publicarlas.
+ordena la presentación continua. `src/slides/CourseSlides.tsx` compone las slides
+y `src/examples/exampleRegistry.ts` ordena las páginas de ejemplo.
+La infraestructura usa React, TypeScript, Vite, Reveal.js, Vitest,
+Testing Library, user-event, axe-core y Biome. Los estilos usan BEM.
 
 ## Validar
 
@@ -93,26 +117,23 @@ Las stories siguen `Módulo N: Nombre/Lección N.M: Nombre/Componentes|Ejemplos/
 pnpm test
 pnpm lint
 pnpm build
-pnpm build-storybook
 ```
 
-`pnpm check` reúne los cuatro comandos que ejecuta CI. `pnpm test:watch` acompaña
-el desarrollo y `pnpm format` aplica el formato. Los builds generan `dist/` y
-`storybook-static/`; `pnpm preview` sirve la presentación compilada.
+`pnpm check` reúne los tres comandos que ejecuta CI. `pnpm test:watch` acompaña
+el desarrollo y `pnpm format` aplica el formato. El build genera `dist/`;
+`pnpm preview` sirve la presentación y los ejemplos compilados.
 
 Los tests de introducción comprueban semántica DOM, foco simulado del enlace y
 reglas detectables por axe en las siete slides. No validan el reproductor completo,
 lectores de pantalla, contraste, zoom ni navegación real. Consulta la
 [matriz del módulo](./src/lessons/01-intro/README.md#criterios-y-evidencia).
-Los tests del módulo 2 añaden recorrido de teclado, activación, semántica y estados
-de las demos; su [matriz y auditoría](./src/lessons/02-entender-la-accesibilidad/audit.md)
-separan evidencia automática de comprobaciones manuales.
-El módulo 4 añade pruebas del recorrido completo y estados con texto; su
-[auditoría](./src/lessons/04-interaccion-y-percepcion/audit.md) distingue DOM,
-contraste calculado y reflujo observado en navegador del zoom real pendiente.
-El módulo 5 añade casos aislados de jerarquía/alt y campo sin nombre; su
-[auditoría](./src/lessons/05-comprobaciones-y-proximos-pasos/audit.md) separa las
-pruebas DOM/axe de la ejecución real de herramientas. FastPass permanece pendiente.
+Cada página de ejemplo tiene tests de su barrera y de su arreglo (semántica,
+teclado y axe en JSDOM), y `src/examples/` prueba la herramienta flotante: estado
+en la URL, activación con teclado, panel, resaltado y orden de foco. JSDOM no mide
+contraste, foco dibujado, zoom ni lectores reales: esas comprobaciones siguen
+siendo manuales en navegador. Las auditorías de los módulos 2 a 5 registran la
+evidencia de los ejemplos anteriores a las páginas de ejemplo y conservan su
+matriz de comprobaciones manuales pendientes. FastPass permanece pendiente.
 La revisión visual final del autor y el ensayo de duración permanecen pendientes.
 
 Las convenciones de autoría están enlazadas desde [AGENTS.md](./AGENTS.md).

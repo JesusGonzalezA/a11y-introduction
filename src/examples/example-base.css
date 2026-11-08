@@ -1,0 +1,31 @@
+@import "@fontsource-variable/geist";
+
+/* Base mínima común; cada página define su propia identidad visual. */
+html {
+  color: #18181b;
+  background: #fff;
+}
+
+body {
+  margin: 0;
+  /* Deja sitio a la herramienta flotante al final de la página. */
+  padding-block-end: 5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}

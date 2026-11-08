@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
 export const slides = [
   <Fragment key="3.1-1">
@@ -25,9 +24,7 @@ export const slides = [
       texto grande o en negrita no aporta esa relación por sí solo.
     </p>
     <pre>
-      <code>
-        {'<h2>Información práctica</h2>\n<p>Sábado · 10:00 · 60 minutos</p>'}
-      </code>
+      <code>{'<h2>Ingredientes</h2>\n<ul>\n  <li>1 cebolla</li>\n</ul>'}</code>
     </pre>
     <p>
       Los lectores de pantalla pueden reunir los encabezados en una lista y
@@ -45,7 +42,7 @@ export const slides = [
     <pre>
       <code>
         {
-          '<h1>Paseo por el jardín botánico</h1>\n<h2>Información práctica</h2>\n<h3>Punto de encuentro</h3>\n<h2>Inscripción</h2>'
+          '<h1>Lentejas estofadas con verduras</h1>\n<h2>Ingredientes</h2>\n<h3>Para el sofrito</h3>\n<h2>Preparación</h2>'
         }
       </code>
     </pre>
@@ -105,17 +102,11 @@ export const slides = [
       Una lista de roles en el inspector no demuestra lo que anuncia un lector
       real.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m3-activity-structure--contraejemplo&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('receta')}>
       {' '}
       Examinar estructura con barreras{' '}
     </a>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m3-activity-structure--estructura-corregida&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('receta', true)}>
       {' '}
       Recorrer estructura corregida{' '}
     </a>

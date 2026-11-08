@@ -52,19 +52,20 @@ indica cuál recibirá la acción. En este recorrido consultamos información,
 alcanzamos la acción y después encontramos ayuda. Veamos qué sucede si falta
 la parada que permite actuar.
 
-[Storybook: abrir «Observar una acción inalcanzable».]
+[Ejemplo: abrir «Observar una acción inalcanzable».]
 
-Esta variante está rotulada como contraejemplo deliberado. Sin utilizar el ratón,
-avanzo desde el enlace de información. El siguiente Tab llega a la ayuda: se ha
-saltado la acción. El texto está visible, pero no podemos alcanzarlo para completar
-la tarea desde el teclado.
+Es la ficha de una taza en una tienda online, con la barrera activada. Sin
+utilizar el ratón, avanzo desde el enlace de envíos. El siguiente Tab llega al
+enlace de dudas: se ha saltado «Añadir a la cesta». El botón se ve, pero no
+podemos alcanzarlo para completar la compra desde el teclado.
 
-[Storybook: abrir «Completar la acción con teclado».]
+[Ejemplo: pulsar «Aplicar arreglo» y abrir «Ver cambios».]
 
-Aquí usamos el botón HTML que aparece en la slide. Ahora el recorrido pasa de
-información a la acción y después a ayuda. Retrocedo con Shift más Tab al botón.
-Lo activo con Enter y aparece la confirmación de prueba; no se envían datos.
-El botón también admite Espacio. Conservamos el foco para poder continuar.
+El panel señala el cambio en la página: el div con clic pasa a ser el botón HTML
+que aparece en la slide. Ahora el recorrido pasa de envíos a la acción y después
+a dudas. Retrocedo con Shift más Tab al botón. Lo activo con Enter y la cesta
+cambia a un artículo; no se compra nada. El botón también admite Espacio.
+Conservamos el foco para poder continuar.
 
 ## 5. Comprobar que la tarea se puede completar · 55 s
 

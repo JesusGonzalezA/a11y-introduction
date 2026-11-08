@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
 export const slides = [
   <Fragment key="5.1-1">
     <h2 className="lesson-slide__title">
@@ -53,7 +53,7 @@ export const slides = [
     <pre>
       <code>
         {
-          '<h1>Visita al jardín</h1>\n<h3>Información práctica</h3>  ← sección\n<h2>Punto de encuentro</h2>    ← subsección'
+          '<h1>Hilos del Mediterráneo</h1>\n<h3>Información práctica</h3>  ← sección\n<h2>Horarios</h2>              ← subsección'
         }
       </code>
     </pre>
@@ -61,10 +61,7 @@ export const slides = [
       Aquí la sección necesita h2 y su subsección h3. Volver de h3 a h2 para
       abrir otra sección sí puede tener sentido.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m5-content-inspection--contraejemplo&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('museo')}>
       Inspeccionar niveles incoherentes
     </a>
   </Fragment>,
@@ -77,7 +74,7 @@ export const slides = [
     <pre>
       <code>
         {
-          'alt="actividad.svg"  ← nombre de archivo\nalt="Sendero entre parterres que conduce\na un pabellón junto a un árbol."'
+          'alt="sala3_IMG_0412.jpg"  ← nombre de archivo\nalt="Tapiz de lana con olas azules y\nbarcas rojas sobre fondo arena."'
         }
       </code>
     </pre>
@@ -85,16 +82,10 @@ export const slides = [
       Compara imagen, texto y propósito. Si la imagen es decorativa o
       redundante, alt vacío puede ser adecuado; omitirlo es distinto.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m5-content-inspection--contraejemplo&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('museo')}>
       Inspeccionar una alternativa poco útil
     </a>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m5-content-inspection--solucion&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('museo', true)}>
       Revisar jerarquía y alternativa corregidas
     </a>
   </Fragment>,

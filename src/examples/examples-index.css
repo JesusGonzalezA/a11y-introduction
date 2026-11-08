@@ -1,0 +1,44 @@
+.examples-index {
+  padding: 2rem 1rem;
+  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.examples-index__main {
+  max-inline-size: 44rem;
+  margin-inline: auto;
+}
+
+.examples-index__list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.examples-index__list li {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.5rem;
+}
+
+.examples-index__list p {
+  margin: 0.25rem 0 0;
+  color: #52525b;
+}
+
+.examples-index a {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.examples-index :focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+}
+
+.examples-index__missing {
+  padding: 0.75rem 1rem;
+  border-inline-start: 4px solid #b91c1c;
+  background: #fef2f2;
+}

@@ -1,5 +1,0 @@
-/* Contraejemplo acotado: solo oculta el dibujo, nunca captura Tab ni borra el foco. */
-.focus-registration--hidden-focus .activity-page :focus {
-  outline: none;
-  box-shadow: none;
-}

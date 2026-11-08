@@ -1,58 +1,43 @@
 # 2.1 Personas, formas de interacción y barreras
 
-**5 minutos, demo incluida.** La persona quiere conocer una actividad, alcanzar
-la acción de inscripción y reconocer el resultado. Al terminar, el alumnado
-relacionará teclado, ratón, voz, ampliación y lector de pantalla con distintas
-formas de usar una web; reconocerá barreras visuales, auditivas, motoras y cognitivas.
+**5 minutos, demo incluida.** La persona quiere localizar una acción, alcanzarla
+y reconocer el resultado. Al terminar, el alumnado relacionará teclado, ratón, voz,
+ampliación y lector de pantalla con distintas formas de usar una web; reconocerá
+barreras visuales, auditivas, motoras y cognitivas.
 
 ## Recorrido y alcance
 
-Cinco slides y cinco apartados del [guion](presenter.md): tarea (35 s), formas de
-uso (55 s), necesidades/barreras (65 s), demo de teclado (90 s) y comprobación
-(55 s). Total previsto 300 s; **ensayo humano pendiente**. La solución técnica
-aparece después del problema. La inspección del árbol se reserva para 2.2; el
-recorrido completo del formulario y el foco se profundizan en el módulo 4.
+Primero se presentan formas de uso y necesidades; después, una barrera motora
+observable: una acción que solo responde al clic. Las slides contienen la
+explicación; la demo la hace visible. La semántica del botón se amplía en 2.2.
 
-## Ejecutar la demo
+## Página de ejemplo
 
-Desde la raíz: `pnpm install --frozen-lockfile`, `pnpm dev` y `pnpm storybook`.
-Abrir las [slides 9–13](http://localhost:5173/#/8), después:
+Instalar y arrancar según el [mapa del módulo](../README.md#ejecutar-y-revisar). Ruta: `/ejemplos/tienda-online`, ficha de una
+taza en la tienda de un taller de cerámica. Enlaces de la slide 4: «Observar una
+acción inalcanzable» (barrera) y «Completar la acción con teclado» (`?arreglo=1`).
 
-1. [Contraejemplo deliberado](http://localhost:6006/?path=/story/m2-keyboard-registration--contraejemplo).
-   Entrar al canvas/iframe de la story, empezar antes del primer enlace y usar
-   Tab. Se pasa de información a ayuda sin alcanzar «Inscribirme». No confundir
-   la navegación de la interfaz de Storybook con la de la demo.
-2. [Botón nativo](http://localhost:6006/?path=/story/m2-keyboard-registration--boton-nativo).
-   Recorrer información → botón → ayuda; volver con Shift+Tab y activar con Enter.
-   Aparece una confirmación de prueba y se conserva el foco. Espacio también activa.
-   Recargar la story para reiniciar la confirmación antes de repetirla.
+| Arreglo | Sin arreglo | Con arreglo |
+| --- | --- | --- |
+| Acción con teclado | `<div onclick>` con aspecto de botón | `<button type="button">Añadir a la cesta</button>` |
 
-En Safari se debe habilitar la navegación de teclado. El ensayo no debe implicar
-que no ver foco por una preferencia del navegador prueba una barrera del ejemplo.
+Demo: con la barrera, recorrer con Tab desde «Consultar envíos y devoluciones»:
+el foco salta a «¿Dudas sobre la pieza?». Pulsar **Aplicar arreglo** y **Ver
+cambios** para ver el botón resaltado. Repetir: Tab llega al botón, Enter o
+Espacio añaden la taza, la cesta cambia y el foco permanece en el botón.
 
-## Ejemplo y contrato
+## Componentes y pruebas
 
-`examples/KeyboardRegistration` compone el escenario compartido documentado en el
-[mapa del módulo](../README.md#interfaz-compartida-explícita). No hay componente de
-botón personalizado: la solución es HTML nativo y el genérico solo es un
-contraejemplo identificado. Ratón/voz/ampliación/lector se explican; la demo guiada
-se centra en teclado. No se implementan vídeo, formulario ni envío real.
+`ProductPage` (escenario de página completa) recibe `fixed: boolean`; su
+definición está en `ProductPage.example.ts`. La barrera es un `div` con dos
+supresiones de lint locales justificadas. La confirmación usa `role="status"`
+en ambos estados; no es el foco de esta lección.
 
-| Entrada | Resultado nativo |
-| --- | --- |
-| Tab / Shift+Tab | Recorre enlace, botón y ayuda en orden / orden inverso |
-| Enter / Espacio, botón enfocado | Ejecuta una vez; confirmación visible; conserva foco |
-| Clic | Misma acción; el foco por clic depende del navegador |
-
-`KeyboardRegistration.test.tsx` comprueba el recorrido bidireccional, activación
-una vez por entrada, resultado, relación con status y axe inicial/final. El test
-del contraejemplo documenta ausencia de rol y salto en Tab; un resultado limpio
-de axe no lo convierte en solución. La prueba de foco con clic solo describe
-JSDOM, no promete el mismo foco de puntero en Safari.
-
-Consultar [matriz de criterios y manuales](../README.md#criterios-y-evidencia) y
-[auditoría](../audit.md). Quedan pendientes lector real, voz, gestos móviles,
-foco visual, ampliación/reflujo y revisión visual final humana.
+`ProductPage.test.tsx` comprueba que con la barrera no existe el botón, Tab salta
+la acción y solo el clic la ejecuta; con el arreglo, Tab la alcanza, Enter y
+Espacio la activan una vez, la cesta se actualiza, el foco se conserva y axe no
+detecta infracciones. Foco dibujado, lectores reales y voz quedan en la
+[matriz manual del módulo](../README.md#matriz-manual-pendiente).
 
 ## Fuentes
 

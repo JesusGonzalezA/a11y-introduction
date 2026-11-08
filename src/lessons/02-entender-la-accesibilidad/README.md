@@ -2,7 +2,7 @@
 
 **10 minutos**, incluidas las demos. Fuente: [issue #3](https://github.com/JesusGonzalezA/a11y-introduction/issues/3)
 y [temario #1](https://github.com/JesusGonzalezA/a11y-introduction/issues/1).
-Continúa la tarea presentada en el módulo 1: conocer una actividad e inscribirse.
+Cada lección usa una página de ejemplo distinta donde la barrera aparece con naturalidad.
 
 | Lección | Objetivo | Duración | Slides (portada = 1) |
 | --- | --- | --- | --- |
@@ -11,56 +11,45 @@ Continúa la tarea presentada en el módulo 1: conocer una actividad e inscribir
 
 ## Decisiones pedagógicas
 
-La persona necesita conocer la actividad, localizar la acción y reconocer su
-resultado. Primero se descubre que una acción visible puede resultar inalcanzable;
-después se explica qué significado transmite el navegador. Las dos lecciones
-comparten contenido y estilos de la actividad para aislar la diferencia del control.
+La persona necesita localizar una acción, entender qué hace y reconocer su
+resultado. Primero se descubre que una acción visible puede resultar inalcanzable
+(2.1, ficha de producto de una tienda); después se explica qué significado
+transmite el navegador (2.2, elegir sesión en un cine).
 
-No se implementa un formulario ni se recogen datos. El aviso visible identifica la
-inscripción como simulación. Imagen, estructura completa y formulario se desarrollan
-en los módulos posteriores; aquí basta título, descripción e información práctica
-para contextualizar la acción. No se añade multimedia para ilustrar la barrera de
+No se recogen datos: la cesta y la sesión elegida son simulaciones y el pie de
+cada página lo indica. Estructura completa y formularios se desarrollan en los
+módulos posteriores. No se añade multimedia para ilustrar la barrera de
 subtítulos ni se enseña a reconstruir un botón genérico con ARIA.
 
 ## Ejecutar y revisar
 
-Desde la raíz: `pnpm install --frozen-lockfile`, `pnpm dev` y, en otra terminal,
-`pnpm storybook`. Slides en `http://localhost:5173`; Storybook en
-`http://localhost:6006`. `VITE_STORYBOOK_URL` cambia el destino de los enlaces de
-las slides. Las stories conservan estas etapas y se pueden abrir por separado:
+Desde la raíz: `pnpm install --frozen-lockfile` y `pnpm dev`. Slides en
+`http://localhost:5173`; páginas de ejemplo en `http://localhost:5173/ejemplos/`.
+Cada página se abre con la barrera. El botón flotante **Aplicar arreglo** la
+corrige sin recargar y **Ver cambios** resalta dónde está cada cambio y explica
+por qué. `?arreglo=1` abre directamente la versión corregida; los enlaces de las
+slides usan ambas rutas.
 
-| Superficie | Ruta de Storybook |
-| --- | --- |
-| 2.1 Contraejemplo deliberado: acción inalcanzable | `/?path=/story/m2-keyboard-registration--contraejemplo` |
-| 2.1 Solución: botón nativo | `/?path=/story/m2-keyboard-registration--boton-nativo` |
-| 2.2 Botón HTML y contraejemplo genérico | `/?path=/story/m2-button-semantics--comparacion` |
-| 2.2 Botón HTML: inscripción cerrada | `/?path=/story/m2-button-semantics--no-disponible` |
+| Lección | Página | Ruta | Arreglos |
+| --- | --- | --- | --- |
+| 2.1 | Ficha de producto de una tienda online | `/ejemplos/tienda-online` | `div` con clic → `button` |
+| 2.2 | Elegir sesión en la web de un cine | `/ejemplos/cine` | Sesiones como `button`; sesión agotada con `disabled` y texto; confirmación en `role="status"` |
 
-Jerarquía: `Módulo 2: Entender la accesibilidad/Lección 2.N: Título/Ejemplos/Nombre`.
 Cada slide que abre una demo tiene su enlace; los guiones mantienen los mismos
 5 y 6 apartados que sus respectivas slides.
 
-## Interfaz compartida explícita
+## Páginas de ejemplo
 
-`shared/ActivityRegistration.tsx` contiene **el escenario**, no un componente de
-botón genérico reutilizable. Sus props son `barrier` (contraejemplo intencional),
-`unavailable` (estado nativo cerrado) y `onRegister` (observador opcional de la acción
-simulada). No se usa `barrier` junto a `unavailable`. `KeyboardRegistration` restringe
-la API a la comparación de teclado; `ButtonSemantics` compone la comparación o el
-estado cerrado. Sus stories y tests están co-localizados en cada lección.
+`ProductPage` y `CinemaBooking` son escenarios de página completa, no componentes
+reutilizables. Reciben `fixed: boolean` y marcan con `data-fix` los elementos que
+cambian. Sus definiciones (`*.example.ts`) describen cada arreglo con dónde está,
+por qué y el código antes y después.
 
-La acción y los estilos se reutilizan desde las [interfaces entre módulos](../shared/README.md).
-La extracción para el módulo 3 mantiene las etapas originales.
-
-La acción nativa usa `button type="button"`, nombre desde el texto visible y
-`disabled` solo en la variante cerrada. `aria-describedby` relaciona la explicación
-de indisponibilidad. La confirmación `status` existe vacía antes de actuar y recibe
-el texto completo, con `aria-atomic="true"`. `aria-controls` apunta a su ID único;
-no se promete que esa relación permita saltar al resultado en cualquier lector.
-El foco de teclado permanece en el botón: no cambia de contexto. No hay popup,
-selección, expansión, error ni carga asíncrona. El contraejemplo `span onClick`
-tiene dos supresiones de lint locales justificadas; no se ocultan las barreras con
-roles ni tabulación artificial.
+Las barreras usan un `div` con `onClick`, con dos supresiones de lint locales
+justificadas; no se ocultan con roles ni tabulación artificial. En 2.2 la
+confirmación `status` existe vacía antes de actuar y recibe el texto completo, con
+`aria-atomic="true"`; el foco de teclado permanece en el botón. Un botón `disabled`
+no recibe foco: su estado se comprueba en el árbol de accesibilidad.
 
 ## Criterios y evidencia
 
@@ -74,12 +63,15 @@ la evidencia concreta y las brechas; no es una declaración de conformidad compl
 
 | Área | Automatizado | Manual o no aplicable |
 | --- | --- | --- |
-| Botón | Nombre/rol/texto/type, Tab y Shift+Tab, Enter/Espacio/clic una vez, foco DOM | Apariencia del foco, lectura real y voz pendientes |
-| Indisponibilidad | disabled, descripción, ausencia de activación y de Tab | Descubribilidad/estado con lector pendientes; aria-disabled enfocable no aplicable |
-| Confirmación | Región previa, texto actualizado, atomicidad, relación única, foco retenido | Anuncio real y lectura por gestos pendientes; alert urgente no aplicable |
-| Contraejemplo | Ausencia de rol button; Tab lo salta; solo clic produce acción | Comparar semántica real en navegador; no exige que axe detecte la barrera |
-| Solución | axe antes/después de actuar y estado cerrado | Contraste, zoom y reflujo no demostrables en JSDOM |
+| Acción con teclado (2.1) | Barrera: Tab salta la acción y solo el clic la activa. Arreglo: Tab la alcanza, Enter y Espacio la activan, foco conservado | Apariencia del foco, lectura real y voz pendientes |
+| Rol y estado (2.2) | Barrera: sin botones ni estado. Arreglo: tres botones, «19:00 · Agotada» deshabilitado, Tab salta la sesión agotada | Estado con lector pendiente |
+| Confirmación (2.2) | Región previa vacía, texto actualizado, atomicidad | Anuncio real pendiente |
+| Solución | axe sin infracciones detectables con el arreglo | Contraste, zoom y reflujo no demostrables en JSDOM |
+| Herramienta flotante | Estado en URL, teclado, panel, resaltado y orden de foco (`src/examples`) | Revisión visual humana pendiente |
 | Slides | Títulos/axe, enlaces de demos, foco simulado, registro ordenado | Revisión visual humana y ensayo pendientes |
+
+La [auditoría](audit.md) registra la evidencia de los ejemplos anteriores a las
+páginas de ejemplo; su matriz manual sigue vigente como lista de comprobaciones.
 
 ## Matriz manual pendiente
 
@@ -92,13 +84,13 @@ sustituyen ninguna de estas comprobaciones.
 | NVDA + Chrome y Firefox, Windows | Nombre/rol del botón, estado disabled en lectura, confirmación completa sin mover foco | Pendiente; no ejecutado |
 | VoiceOver + Safari, macOS | Mismo recorrido; verificar resultado con interacción real y lectura posterior | Pendiente; no ejecutado |
 | VoiceOver + Safari, iOS; TalkBack + Chrome, Android | Deslizar, reconocer control/estado, doble toque, leer confirmación | Pendiente; no ejecutado |
-| Control por voz, macOS/Safari | Activar por nombre visible «Inscribirme» en story nativa aislada | Pendiente; no ejecutado |
+| Control por voz, macOS/Safari | Activar por nombre visible «Añadir a la cesta» con el arreglo aplicado | Pendiente; no ejecutado |
 | Navegador, zoom 200%/400% y ancho 320 CSS px | Legibilidad, reflujo, foco y controles sin recortes; contraste calculado no sustituye inspección | Pendiente de revisión humana |
 | Autor humano | Revisar todas las superficies; ensayar 5 + 5 minutos incluidas demos e inspección | Pendiente; tiempos estimados, no ensayo |
 
 ## Validación de entrega
 
 Consultar [audit.md](audit.md) para resultados reales y revisión técnica de superficies.
-Ejecutar `pnpm test`, `pnpm lint`, `pnpm build` y `pnpm build-storybook` desde la raíz.
+Ejecutar `pnpm test`, `pnpm lint` y `pnpm build` desde la raíz.
 Los builds y las comprobaciones técnicas no dan por realizada la revisión visual
 final del autor, el ensayo ni las pruebas de tecnologías de apoyo.

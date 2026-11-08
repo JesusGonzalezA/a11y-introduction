@@ -36,8 +36,9 @@ En las lecciones prácticas seguiremos una secuencia: partir de una necesidad,
 entender el concepto, ver cómo se implementa, observar la demostración y comprobar
 el resultado. Empezaremos por los elementos que ya ofrece HTML.
 
-Las diapositivas contienen la explicación. Storybook permite abrir los ejemplos
-por separado; cada story conserva una etapa de la página para volver a observarla.
+Las diapositivas contienen la explicación. Cada ejemplo es una página sencilla
+que se abre con una barrera; un botón flotante activa el arreglo y muestra dónde
+está cada cambio y por qué.
 Primero entenderemos qué estamos comprobando. La explicación de las herramientas
 de revisión se concentra en el módulo cinco.
 
@@ -45,8 +46,8 @@ de revisión se concentra en el módulo cinco.
 
 Después puedes volver al README de cada lección para consultar cómo ejecutarla,
 qué fuentes utiliza y qué comprobaciones propone. Las slides y el guion permiten
-recuperar la explicación. Los ejemplos se podrán explorar en Storybook a medida
-que se incorporen los módulos.
+recuperar la explicación. Las páginas de ejemplo permiten activar y desactivar
+cada arreglo para volver a observarlo.
 
 El enlace lleva al repositorio de materiales; necesitas acceso autorizado o una
 copia local. Los ejercicios autónomos quedan fuera de los sesenta minutos.

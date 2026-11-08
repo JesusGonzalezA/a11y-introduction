@@ -1,5 +1,11 @@
 # Auditoría del módulo 3
 
+> **Nota (#13).** Los ejemplos auditados aquí se sustituyeron por páginas de
+> ejemplo con conmutador de arreglo. Esta auditoría conserva la evidencia
+> histórica de los ejemplos anteriores; la evidencia automatizada actual está en
+> los README de cada lección y en los tests de cada página. La matriz manual
+> sigue vigente como lista de comprobaciones pendientes.
+
 Pasada separada de la autoría, **2026-10-09**. Alcance: delta propio de #4 sobre
 `f98c911610a80bfa7f1fe33b7c0dec61317db7e8` (PR #8, que hereda #7).
 La [investigación](../../../docs/research/03-dar-significado-al-contenido.md) quedó

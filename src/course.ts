@@ -13,5 +13,4 @@ export const course = {
     'Facilitar la interacción con teclado y la percepción del contenido.',
     'Comenzar a revisar una interfaz y reconocer los límites de las herramientas.',
   ],
-  storybookUrl: import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006',
 }

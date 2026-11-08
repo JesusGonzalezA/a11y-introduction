@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
 export const slides = [
   <Fragment key="interpretacion-del-navegador">
@@ -42,9 +41,9 @@ export const slides = [
       <li>Estado: informa de su situación, por ejemplo, no disponible.</li>
     </ul>
     <pre>
-      <code>{'<button type="button" disabled>Inscribirme</button>'}</code>
+      <code>{'<button type="button" disabled>19:00 · Agotada</button>'}</code>
     </pre>
-    <p>Nombre: «Inscribirme». Rol: botón. Estado: deshabilitado.</p>
+    <p>Nombre: «19:00 · Agotada». Rol: botón. Estado: deshabilitado.</p>
     <p>
       El navegador obtiene esta información del HTML; no hace falta repetirla
       con ARIA.
@@ -54,7 +53,9 @@ export const slides = [
     <h2 className="lesson-slide__title">El aspecto no define el control</h2>
     <pre>
       <code>
-        {'<button type="button">Inscribirme</button>\n<span>Inscribirme</span>'}
+        {
+          '<button type="button">16:30</button>\n<div class="sesion">16:30</div>'
+        }
       </code>
     </pre>
     <p>
@@ -65,16 +66,10 @@ export const slides = [
       El texto del elemento genérico puede leerse; el clic añadido no lo
       convierte en botón.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/?path=/story/m2-button-semantics--comparacion`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('cine')}>
       Comparar nombre y rol
     </a>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/?path=/story/m2-button-semantics--no-disponible`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('cine', true)}>
       Inspeccionar el estado no disponible
     </a>
   </Fragment>,

@@ -27,7 +27,7 @@ representado para que una persona pueda orientarse y actuar.
 Hay tres preguntas útiles. El nombre permite identificar la acción concreta;
 el rol indica qué tipo de control es; el estado informa de su situación.
 
-En este fragmento, el texto «Inscribirme» proporciona el nombre. El elemento
+En este fragmento, el texto «19:00 · Agotada» proporciona el nombre. El elemento
 button aporta el rol de botón. El atributo disabled indica que la acción no
 está disponible. No tenemos que escribir atributos ARIA para repetir esa
 información: ya procede del HTML.
@@ -39,20 +39,23 @@ un lector. El estado ayuda a comprender por qué una acción no está disponible
 ## 4. El aspecto no define el control · 90 s, incluida demo
 
 Estos dos elementos pueden recibir el mismo estilo. El botón aporta semántica e
-interacción nativas. El span aporta texto, pero darle un manejador de clic no
+interacción nativas. El div aporta texto, pero darle un manejador de clic no
 lo convierte en botón ni incorpora su teclado.
 
-[Storybook: abrir «Comparar nombre y rol».]
+[Ejemplo: abrir «Comparar nombre y rol».]
 
-Tenemos la solución y el contraejemplo claramente separados. En la información
-de accesibilidad del navegador, inspeccionamos el botón: nombre «Inscribirme» y
-rol de botón. Inspeccionamos ahora el elemento genérico. Su texto puede seguir
-siendo legible, pero no ofrece el mismo rol. No diremos que no comunica nada.
+Es la página de una película en un cine, con la barrera activada. En la
+información de accesibilidad del navegador inspeccionamos la sesión de las
+16:30: es un elemento genérico. Su texto puede seguir siendo legible, pero no
+ofrece el rol de botón. No diremos que no comunica nada. La sesión de las 19:00
+solo parece apagada: el navegador no expone ningún estado.
 
-[Storybook: abrir «Inspeccionar el estado no disponible».]
+[Ejemplo: pulsar «Aplicar arreglo» y abrir «Ver cambios».]
 
-En esta variante conservamos el botón nativo y añadimos disabled. La interfaz
-explica que la inscripción está cerrada. Inspeccionamos su estado no disponible.
+El panel señala tres cambios. Inspeccionamos de nuevo la sesión de las 16:30:
+nombre «16:30» y rol de botón. La de las 19:00 conserva el botón nativo con
+disabled y el texto «Agotada». Inspeccionamos su estado no disponible. Al
+elegir otra sesión, la confirmación aparece en un mensaje de estado.
 La representación exacta de estas propiedades puede variar según el navegador;
 lo que comprobamos es su significado, no una frase fija de un lector.
 

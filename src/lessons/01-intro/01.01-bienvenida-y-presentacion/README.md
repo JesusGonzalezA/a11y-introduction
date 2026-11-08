@@ -24,7 +24,7 @@ se presenta la necesidad de la persona antes de introducir soluciones técnicas.
 - Componentes, demos y stories: no aplicables a esta introducción documental.
 
 Desde la raíz, con Node.js 22.12+ y pnpm 10.26.1, ejecuta
-`pnpm install --frozen-lockfile` y `pnpm dev`. El contenido se entiende sin Storybook.
+`pnpm install --frozen-lockfile` y `pnpm dev`. El contenido se entiende sin abrir los ejemplos.
 Presupuesto oral: 35/40/45 segundos, incluidas transiciones. Ensayo real pendiente.
 
 ## Accesibilidad y pruebas
@@ -36,7 +36,7 @@ fuentes, pruebas y comprobaciones manuales. Se hereda completa para estas tres
 slides; el criterio de enlace no aplica a esta lección porque no tiene enlaces.
 
 [Tests compartidos](../slides.test.tsx): semántica por rol/nivel y axe por slide.
-Ejecutar `pnpm test`, `pnpm lint`, `pnpm build` y `pnpm build-storybook` desde la
+Ejecutar `pnpm test`, `pnpm lint` y `pnpm build` desde la
 raíz. El DOM no acredita anuncios reales, contraste, zoom ni navegación del deck.
 La lectura con tecnología de asistencia, los gestos móviles, la revisión visual
 humana y el ensayo de duración permanecen pendientes.

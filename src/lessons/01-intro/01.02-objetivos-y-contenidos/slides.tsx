@@ -31,11 +31,13 @@ export const slides = [
       <li>
         Entender el concepto y su implementación, empezando por HTML nativo.
       </li>
-      <li>Observar el ejemplo en Storybook y comprobar el resultado.</li>
+      <li>
+        Observar la barrera en una página de ejemplo y activar el arreglo.
+      </li>
     </ol>
     <p>
-      Las slides explican los conceptos; las stories conservan las etapas de la
-      página.
+      Las slides explican los conceptos; cada página de ejemplo muestra dónde
+      está el arreglo y por qué funciona.
     </p>
     <p>Las herramientas de revisión se presentan en el módulo 5.</p>
   </Fragment>,
@@ -46,9 +48,7 @@ export const slides = [
     <ul>
       <li>README de cada lección: ejecución, fuentes y comprobaciones.</li>
       <li>Slides y guion: volver sobre la explicación.</li>
-      <li>
-        Ejemplos en Storybook: explorar las etapas cuando estén incorporadas.
-      </li>
+      <li>Páginas de ejemplo: activar y desactivar cada arreglo.</li>
     </ul>
     <p>Los ejercicios autónomos son adicionales a los 60 minutos.</p>
     <p>

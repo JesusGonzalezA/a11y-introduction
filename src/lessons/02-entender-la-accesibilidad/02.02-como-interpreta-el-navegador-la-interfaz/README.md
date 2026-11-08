@@ -7,59 +7,46 @@ empieza por HTML antes de añadir ARIA.
 
 ## Recorrido y alcance
 
-Seis slides y seis apartados del [guion](presenter.md): necesidad (35 s), árbol
-(45 s), nombre/rol/estado (50 s), comparación (90 s), HTML/ARIA (50 s) y comprobación
-(30 s). Total previsto 300 s; **ensayo humano pendiente**. El inspector se usa
-solo para observar significado. La enseñanza de herramientas de auditoría queda
-en el módulo 5; no se introduce un patrón ARIA avanzado ni una reparación del span.
+Del HTML al árbol de accesibilidad; nombre, rol y estado; el aspecto no define el
+control; HTML primero y ARIA para completar información (`role="status"`). No se
+enseña a reconstruir un botón genérico con ARIA.
 
-## Ejecutar la demo
+## Página de ejemplo
 
-Desde la raíz: `pnpm install --frozen-lockfile`, `pnpm dev` y `pnpm storybook`.
-Abrir las [slides 14–19](http://localhost:5173/#/13), después:
+Instalar y arrancar según el [mapa del módulo](../README.md#ejecutar-y-revisar). Ruta: `/ejemplos/cine`, página de una película con
+sus sesiones del día. Enlaces de la slide 4: «Comparar nombre y rol» (barrera) e
+«Inspeccionar el estado no disponible» (`?arreglo=1`).
 
-1. [Comparación](http://localhost:6006/?path=/story/m2-button-semantics--comparacion).
-   En herramientas de desarrollo de Chrome, seleccionar el botón y su panel de
-   accesibilidad: nombre «Inscribirme», rol button. Comparar con el span del panel
-   rotulado como contraejemplo. Su texto puede aparecer en el árbol, pero no aporta
-   el contrato de botón. Ambos usan la misma clase visual; el clic del genérico
-   no incorpora semántica ni teclado. No presentar una frase universal de lector.
-2. [No disponible](http://localhost:6006/?path=/story/m2-button-semantics--no-disponible).
-   Inspeccionar disabled y la descripción de inscripción cerrada. Tab omite el
-   botón; un lector puede descubrirlo al recorrer el contenido. La disponibilidad
-   está fijada para esta story, no se cambia como consecuencia de la inscripción.
+| Arreglo | Sin arreglo | Con arreglo |
+| --- | --- | --- |
+| Rol | Sesiones como `div` con clic | `<button type="button">16:30</button>` |
+| Estado | Sesión agotada solo con color apagado | `<button disabled>19:00 · Agotada</button>` |
+| Mensaje | Confirmación en un `p` sin rol | `<p role="status" aria-atomic="true">` |
 
-Preparar el inspector antes de grabar para encajar en 90 s. Recargar reinicia la
-confirmación. Las versiones concretas de navegador/AT deben acompañar cualquier
-registro de anuncios reales; observar el árbol no es ejecutar un lector.
+Demo: abrir el árbol de accesibilidad de las devtools del navegador e inspeccionar
+la sesión de las 16:30 y la de las 19:00 con la barrera. Pulsar **Aplicar
+arreglo**, abrir **Ver cambios** y repetir: rol botón, nombre desde el texto y
+estado deshabilitado. Elegir una sesión para mostrar la confirmación sin mover el
+foco. La representación exacta varía según navegador.
 
-## Ejemplo, semántica y pruebas
+## Componentes y pruebas
 
-`examples/ButtonSemantics` compone dos instancias del escenario
-[compartido](../README.md#interfaz-compartida-explícita), separadas por regiones con
-nombre, o una sola instancia no disponible. La acción es `button type="button"`;
-su texto aporta el nombre. `disabled` es nativo, sin `aria-disabled` redundante;
-`aria-describedby` identifica el motivo visible. Los IDs se generan por instancia.
+`CinemaBooking` (escenario de página completa) recibe `fixed: boolean`; su
+definición está en `CinemaBooking.example.ts`. La región `status` existe vacía
+antes de actuar. Un botón `disabled` no recibe foco: su estado se comprueba en
+el árbol de accesibilidad, no con Tab.
 
-La confirmación usa `role="status"`, montado vacío antes del cambio, y
-`aria-atomic="true"`; `aria-controls` enlaza botón y resultado. No necesita
-`aria-pressed`, `aria-expanded`, popup ni `alert`. Se conserva el foco de teclado
-en la acción y el texto del mensaje permanece visible. El código de la slide
-sintetiza la región; el escenario ejecutable contiene la relación y el manejador.
-
-`ButtonSemantics.test.tsx` verifica nombre/rol/type nativos y texto visible,
-ausencia de rol button en el contraejemplo, IDs independientes y relación;
-verifica disabled, omisión de Tab, descripción, bloqueo de acción y axe del estado
-cerrado. La interacción y transición del escenario compartido se prueban en 2.1,
-sin duplicar esos tests. Clasificación exhaustiva y brechas en la
-[matriz del módulo](../README.md#criterios-y-evidencia) y [auditoría](../audit.md).
-Anuncios reales, gestos, voz, revisión humana y ensayo permanecen pendientes.
+`CinemaBooking.test.tsx` comprueba que con la barrera no hay botones, estado ni
+región de mensaje; con el arreglo, tres botones con sus nombres, la sesión
+agotada deshabilitada y fuera del recorrido de Tab, activación con Enter,
+confirmación en `status` con `aria-atomic` y axe sin infracciones detectables.
+Anuncios reales y voz quedan en la [matriz manual del módulo](../README.md#matriz-manual-pendiente).
 
 ## Fuentes
 
 [Investigación específica](../../../../docs/research/02-entender-la-accesibilidad.md):
 [HTML-AAM button](https://www.w3.org/TR/html-aam/#el-button) y
-[span](https://www.w3.org/TR/html-aam/#el-span),
+[div](https://www.w3.org/TR/html-aam/#el-div),
 [APG Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/),
 [Magenta Button](https://www.magentaa11y.com/web-criteria/component/button),
 [WAI-ARIA status](https://www.w3.org/TR/wai-aria-1.2/#status),

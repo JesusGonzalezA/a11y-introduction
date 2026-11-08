@@ -1,0 +1,119 @@
+.product-page {
+  min-block-size: 100vh;
+  background: #fffdf9;
+  color: #292524;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+}
+
+.product-page a {
+  color: #9a3412;
+  text-underline-offset: 0.2em;
+}
+
+.product-page :focus-visible {
+  outline: 3px solid #9a3412;
+  outline-offset: 3px;
+}
+
+.product-page__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: 1px solid #e7e0d5;
+}
+
+.product-page .product-page__brand {
+  color: inherit;
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-page__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.product-page__cart {
+  margin: 0 0 0 auto;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.product-page__main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 2rem;
+  max-inline-size: 64rem;
+  margin-inline: auto;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+}
+
+.product-page__image {
+  inline-size: 100%;
+  border-radius: 0.75rem;
+}
+
+.product-page__category {
+  margin: 0;
+  color: #57534e;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+}
+
+.product-page h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.product-page__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.product-page__actions {
+  margin-block: 1.5rem 0.5rem;
+}
+
+.product-page__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 3rem;
+  padding: 0.75rem 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: #9a3412;
+  color: #fff;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.product-page__add:hover {
+  background: #7c2d12;
+}
+
+.product-page__result {
+  min-block-size: 1.55em;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.product-page__section,
+.product-page__footer {
+  max-inline-size: 64rem;
+  margin-inline: auto;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+}
+
+.product-page__footer {
+  border-block-start: 1px solid #e7e0d5;
+  color: #57534e;
+  font-size: 0.875rem;
+}

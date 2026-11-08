@@ -1,5 +1,11 @@
 # Auditoría del módulo 2
 
+> **Nota (#13).** Los ejemplos auditados aquí se sustituyeron por páginas de
+> ejemplo con conmutador de arreglo. Esta auditoría conserva la evidencia
+> histórica de los ejemplos anteriores; la evidencia automatizada actual está en
+> los README de cada lección y en los tests de cada página. La matriz manual
+> sigue vigente como lista de comprobaciones pendientes.
+
 Pasada separada de la autoría, **2026-10-09**. Alcance: delta de #3 sobre
 `7e36269e5638eda00209327b5d3c4674dc48f1a2`. El módulo 1 es contexto heredado.
 La [investigación previa](../../../docs/research/02-entender-la-accesibilidad.md)

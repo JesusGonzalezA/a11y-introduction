@@ -52,7 +52,6 @@ Ejecuta los comandos de validación definidos por el repositorio. En este proyec
 pnpm test
 pnpm lint
 pnpm build
-pnpm build-storybook
 ```
 
 Corrige los fallos que introduzca el cambio. La tarea no está lista mientras la aceptación de la issue no sea comprobable y las validaciones aplicables no pasen.
@@ -69,7 +68,7 @@ Closes #<issue>
 
 Incluye también un resumen breve, las pruebas ejecutadas y cualquier validación manual
 pendiente. Mantén el detalle del alcance y los criterios en la issue. Cuando cambie UI,
-aplica `storybook-pr-visuals`: la PR no contiene capturas ni inventarios de rutas, solo
+aplica `example-pr-visuals`: la PR no contiene capturas ni inventarios de rutas, solo
 el estado de la revisión local. No abras una PR sin una issue enlazada.
 
 ### 5. Fusionar
