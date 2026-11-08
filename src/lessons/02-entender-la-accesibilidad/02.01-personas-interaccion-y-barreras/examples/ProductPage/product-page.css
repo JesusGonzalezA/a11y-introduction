@@ -1,19 +1,29 @@
+/* Tienda de cerámica con el lenguaje visual de weAAAre. Acento: melocotón. */
 .product-page {
+  --page-accent: #f3c3b3;
+  --page-tint: #fffaf6;
+
   min-block-size: 100vh;
-  background: #fffdf9;
-  color: #292524;
-  font-family: Georgia, "Times New Roman", serif;
+  background: var(--page-tint);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   line-height: 1.55;
 }
 
 .product-page a {
-  color: #9a3412;
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
 }
 
+.product-page a:hover {
+  background: var(--color-accent);
+}
+
 .product-page :focus-visible {
-  outline: 3px solid #9a3412;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .product-page__header {
@@ -22,13 +32,16 @@
   align-items: center;
   gap: 1rem 2rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: 1px solid #e7e0d5;
+  border-block-end: var(--border);
+  background: var(--color-surface);
 }
 
 .product-page .product-page__brand {
   color: inherit;
-  font-size: 1.375rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -40,7 +53,11 @@
 
 .product-page__cart {
   margin: 0 0 0 auto;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  padding: 0.15rem 0.75rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--page-accent);
+  font-weight: 700;
 }
 
 .product-page__main {
@@ -49,25 +66,39 @@
   gap: 2rem;
   max-inline-size: 64rem;
   margin-inline: auto;
-  padding: 2rem clamp(1rem, 4vw, 3rem);
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
 .product-page__image {
   inline-size: 100%;
-  border-radius: 0.75rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
 }
 
 .product-page__category {
+  display: inline-block;
   margin: 0;
-  color: #57534e;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  padding: 0.05rem 0.7rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-yellow);
   font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.product-page h1,
+.product-page h2 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
 }
 
 .product-page h1 {
-  margin: 0.25rem 0;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.15;
+  margin: 0.75rem 0 0.25rem;
+  font-size: clamp(2.1875rem, 4vw, 2.75rem);
+  line-height: 1.12;
 }
 
 .product-page__price {
@@ -79,30 +110,35 @@
   margin-block: 1.5rem 0.5rem;
 }
 
+/* Botón principal de weAAAre: borde, sombra dura y relleno del acento. */
 .product-page__add {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-block-size: 3rem;
-  padding: 0.75rem 2rem;
-  border: 0;
-  border-radius: 999px;
-  background: #9a3412;
-  color: #fff;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  box-shadow:
+    0 6px 0 0 var(--page-accent),
+    0 6px 0 2px var(--color-ink);
+  color: var(--color-paper);
+  font-weight: 700;
   cursor: pointer;
   user-select: none;
 }
 
 .product-page__add:hover {
-  background: #7c2d12;
+  transform: translateY(2px);
+  box-shadow:
+    0 4px 0 0 var(--page-accent),
+    0 4px 0 2px var(--color-ink);
 }
 
 .product-page__result {
   min-block-size: 1.55em;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .product-page__section,
@@ -113,7 +149,7 @@
 }
 
 .product-page__footer {
-  border-block-start: 1px solid #e7e0d5;
-  color: #57534e;
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
   font-size: 0.875rem;
 }

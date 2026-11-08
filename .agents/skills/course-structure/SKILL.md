@@ -166,8 +166,9 @@ ausencia de tiempos.
 8. Mantén una correspondencia uno a uno entre los apartados de `presenter.md` y
    las slides. Cuando una acotación abra un ejemplo, incluye en esa misma slide
    un enlace directo con `exampleUrl(slug, fixed)` y nombre descriptivo.
-9. Da a cada página de ejemplo una identidad visual propia y creíble para su
-   sitio (marca, colores, tipografía), con un foco inequívoco salvo cuando el foco
+9. Da a cada página de ejemplo una identidad propia y creíble para su sitio
+   (nombre, acento pastel, contenido) dibujada con el lenguaje visual de weAAAre
+   que define la skill `weaaare-brand`, con un foco inequívoco salvo cuando el foco
    sea la barrera. La herramienta flotante mantiene un aspecto propio de devtools,
    distinto de la página.
 10. Representa las affordances comunes como aparecerían en producto. Por ejemplo,

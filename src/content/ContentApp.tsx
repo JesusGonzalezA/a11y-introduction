@@ -36,7 +36,12 @@ function renderMarkdown(page: ContentPage) {
         token.href = resolveContentLink(page.file, token.href)
     },
   })
-  return marked.parse(page.markdown, { async: false })
+  // Tablas y bloques de código se desplazan en horizontal al ampliar: deben
+  // poder recibir el foco para desplazarlos con el teclado.
+  return marked
+    .parse(page.markdown, { async: false })
+    .replaceAll('<pre>', '<pre tabindex="0">')
+    .replaceAll('<table>', '<table tabindex="0">')
 }
 
 function firstHeading(markdown: string) {

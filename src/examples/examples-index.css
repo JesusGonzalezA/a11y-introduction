@@ -1,44 +1,83 @@
 .examples-index {
-  padding: 2rem 1rem;
-  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  min-block-size: 100vh;
+  padding: 2rem 1rem 4rem;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   line-height: 1.5;
 }
 
 .examples-index__main {
-  max-inline-size: 44rem;
+  max-inline-size: 48rem;
   margin-inline: auto;
+}
+
+.examples-index h1,
+.examples-index h2 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.examples-index h1 {
+  font-size: clamp(2.1875rem, 1.5rem + 2.5vw, 2.75rem);
+}
+
+.examples-index h2 {
+  margin-block: 2.5rem 1rem;
+  font-size: 1.75rem;
 }
 
 .examples-index__list {
   display: grid;
-  gap: 0.75rem;
+  gap: 1rem;
   padding: 0;
   list-style: none;
 }
 
 .examples-index__list li {
-  padding: 0.75rem 1rem;
-  border: 1px solid #d4d4d8;
-  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .examples-index__list p {
   margin: 0.25rem 0 0;
-  color: #52525b;
+  color: var(--color-ink-soft);
+  font-size: 1rem;
 }
 
 .examples-index a {
-  color: #1d4ed8;
-  font-weight: 600;
+  color: var(--color-ink);
+  border-block-end: 2px solid currentColor;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.examples-index a:hover,
+.examples-index a:focus-visible {
+  border-block-end-width: 3px;
+  background-size: 100% 87%;
 }
 
 .examples-index :focus-visible {
-  outline: 3px solid #1d4ed8;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .examples-index__missing {
-  padding: 0.75rem 1rem;
-  border-inline-start: 4px solid #b91c1c;
-  background: #fef2f2;
+  padding: 1rem 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-steps-tint);
+  color: var(--color-ink);
+  font-weight: 700;
 }

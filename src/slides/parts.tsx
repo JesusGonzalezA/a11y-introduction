@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { exampleUrl } from '../examples/exampleUrl'
 import { type PersonaId, personas } from '../personas'
+import { type CodeLanguage, guessLanguage, highlight } from './highlight'
 
 /**
  * Piezas comunes de las slides. Cada lección sigue el mismo recorrido:
@@ -60,17 +61,39 @@ export function PersonaCard({ id, task }: { id: PersonaId; task: ReactNode }) {
 export function Code({
   tone,
   caption,
+  lang,
   children,
 }: {
   tone: 'error' | 'solucion' | 'neutral'
   caption?: string
+  /** Lenguaje del fragmento; si falta, se deduce del propio código. */
+  lang?: CodeLanguage
   children: string
 }) {
+  const language = lang ?? guessLanguage(children)
+  // Un fragmento puede mezclar HTML y CSS separados por una línea en blanco.
+  const html = children
+    .split('\n\n')
+    .map((part) => highlight(part, lang ?? guessLanguage(part)))
+    .join('\n\n')
   return (
     <figure className={`code code--${tone}`}>
-      {caption && <figcaption className="code__caption">{caption}</figcaption>}
+      {caption && (
+        <figcaption className="code__caption">
+          {tone !== 'neutral' && (
+            <span className="code__mark" aria-hidden="true">
+              {tone === 'error' ? '✕' : '✓'}
+            </span>
+          )}
+          {caption}
+        </figcaption>
+      )}
       <pre>
-        <code>{children}</code>
+        <code
+          className={`hljs language-${language}`}
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: highlight.js escapa el código
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </pre>
     </figure>
   )

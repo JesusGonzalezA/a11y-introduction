@@ -1,9 +1,14 @@
-@import "@fontsource-variable/geist";
+@import "../brand/tokens.css";
 
-/* Base mínima común; cada página define su propia identidad visual. */
+/*
+ * Base común de las páginas de ejemplo. Cada página es una «marca ficticia»
+ * dibujada con el lenguaje visual de weAAAre (ver DESIGN.md, sección 8):
+ * papel y tinta, Fraunces y Atkinson, bordes de 2 px y sombras duras, y un
+ * acento pastel propio. Las barreras deliberadas viven en cada página.
+ */
 html {
-  color: #18181b;
-  background: #fff;
+  color: var(--color-ink);
+  background: var(--color-paper);
 }
 
 body {

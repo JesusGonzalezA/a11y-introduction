@@ -8,7 +8,7 @@ export const slides = [
     <p>{course.description}</p>
     <dl className="facts">
       <dt>Docente</dt>
-      <dd>{course.author} · weaaare</dd>
+      <dd>{course.author} · weAAAre</dd>
       <dt>Para quién</dt>
       <dd>{course.audience}</dd>
     </dl>

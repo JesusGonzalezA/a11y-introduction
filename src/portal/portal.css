@@ -1,21 +1,51 @@
-@import "@fontsource-variable/geist";
+@import "../brand/tokens.css";
 
 .portal {
   min-block-size: 100vh;
-  background: #fafafa;
-  color: #18181b;
-  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.5;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
 }
 
+.portal h1,
+.portal h2,
+.portal h3 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
+}
+
+/* Enlaces de weAAAre: filete inferior y relleno ámbar al pasar o enfocar. */
 .portal a {
-  color: #004fc4;
-  text-underline-offset: 0.15em;
+  color: var(--color-ink);
+  border-block-end: 2px solid currentColor;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  text-decoration: none;
+}
+
+.portal a:hover,
+.portal a:focus-visible {
+  border-block-end-width: 3px;
+  background-size: 100% 87%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .portal a {
+    transition:
+      background-size 0.25s ease-in-out,
+      transform 0.15s ease-out,
+      box-shadow 0.15s ease-out;
+  }
 }
 
 .portal a:focus-visible {
-  outline: 3px solid #18181b;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .portal ul,
@@ -25,144 +55,224 @@
   list-style: none;
 }
 
-.portal__header,
-.portal__main,
-.portal__footer {
-  max-inline-size: 64rem;
-  margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2.5rem);
+/* Barra superior con el logotipo, como la cabecera de weaaare.com. */
+.portal__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  padding: 1rem clamp(1.25rem, 5vw, 3.5rem);
+  border-block-end: var(--border);
+  background: var(--color-surface);
 }
 
-.portal__header {
-  padding-block: 2.5rem 1.5rem;
+.portal__mark {
+  font-size: 1.5rem;
 }
 
 .portal__brand {
   margin: 0;
-  color: #52525b;
-  font-weight: 600;
+  font-size: 1rem;
+}
+
+.portal__hero,
+.portal__main,
+.portal__footer {
+  max-inline-size: 64rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.portal__hero {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 7vw, 5rem);
 }
 
 .portal__title {
-  margin: 0.25rem 0 0.5rem;
-  font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+  margin: 0 0 1rem;
+  overflow-wrap: break-word;
+  font-size: clamp(2.1875rem, 1.4rem + 3vw, 4.3125rem);
   line-height: 1.1;
 }
 
 .portal__subtitle {
-  margin: 0 0 1.5rem;
-  color: #3f3f46;
-  font-size: 1.125rem;
+  margin: 0 0 2.5rem;
+  color: var(--color-ink-medium);
+  font-size: 1.4375rem;
+  line-height: 1.75rem;
 }
 
 .portal__surfaces {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1.75rem 1.5rem;
 }
 
+/* Tarjetas pulsables con sombra dura. */
 .portal .portal__surface {
   display: grid;
-  gap: 0.25rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid #d4d4d8;
-  border-radius: 0.75rem;
-  background: #fff;
-  color: #3f3f46;
-  text-decoration: none;
+  gap: 0.5rem;
+  block-size: 100%;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  color: var(--color-ink-medium);
 }
 
-.portal .portal__surface:hover {
-  border-color: #004fc4;
+.portal .portal__surface:hover,
+.portal .portal__surface:focus-visible {
+  border-block-end-width: 2px;
+  background: var(--color-accent-50);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(2px);
 }
 
 .portal__surface-name {
-  color: #004fc4;
-  font-size: 1.25rem;
-  font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.portal__surface-name::after {
+  content: " →";
+  font-family: var(--font-body);
+  font-size: 0.8em;
 }
 
 .portal__section-title {
-  margin: 1rem 0;
-  font-size: 1.5rem;
+  margin: 0 0 2rem;
+  font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.1875rem);
+}
+
+.portal {
+  /* La línea de 2 px separa secciones a todo el ancho, como en weaaare.com. */
+  --portal-section-gap: clamp(3rem, 7vw, 5rem);
+}
+
+.portal__main {
+  padding-block: var(--portal-section-gap);
+}
+
+.portal__header + .portal__main {
+  border-block-start: var(--border);
 }
 
 .portal__modules {
   display: grid;
-  gap: 1rem;
-  padding-block-end: 2rem;
+  gap: 2.5rem;
 }
 
 .portal__module {
-  padding: 1.25rem 1.5rem;
-  border: 1px solid #e4e4e7;
-  border-radius: 0.75rem;
-  background: #fff;
+  min-inline-size: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  overflow-wrap: break-word;
 }
 
 .portal__module-title {
-  margin: 0 0 0.75rem;
-  font-size: 1.35rem;
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.1875rem);
+  line-height: 1.15;
 }
 
 .portal__module-number {
   display: block;
-  color: #52525b;
-  font-size: 0.9rem;
-  font-weight: 600;
+  inline-size: fit-content;
+  margin-block-end: 0.75rem;
+  padding: 0.1rem 0.75rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-yellow);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .portal__module-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-block-end: 1rem;
+  gap: 1.25rem 1rem;
+  margin-block-end: 2rem;
 }
 
-.portal__module-links a,
+/* Botones secundarios de weAAAre: 44 px de alto como mínimo. */
+.portal .portal__module-links a,
 .portal__none {
-  display: inline-block;
-  padding: 0.35rem 0.9rem;
-  border: 2px solid currentColor;
-  border-radius: 999px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  padding: 0.4rem 1rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.portal .portal__module-links a:hover,
+.portal .portal__module-links a:focus-visible {
+  border-block-end-width: 2px;
+  background: var(--color-accent);
+  box-shadow: 0 2px 0 0 var(--color-ink);
+  transform: translateY(2px);
 }
 
 .portal__none {
-  border-color: #d4d4d8;
-  color: #52525b;
+  border-color: var(--color-rule-soft);
+  box-shadow: none;
+  color: var(--color-ink-soft);
 }
 
 .portal__lessons {
   display: grid;
-  gap: 0.75rem;
-  padding-block-start: 0.75rem;
-  border-block-start: 1px solid #e4e4e7;
+}
+
+.portal__lesson {
+  padding-block: 1.5rem;
+  border-block-start: 1px solid var(--color-rule-soft);
+}
+
+.portal__lesson:last-child {
+  padding-block-end: 0;
 }
 
 .portal__lesson-title {
-  margin: 0 0 0.25rem;
-  font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .portal__lesson-number {
-  color: #52525b;
+  color: var(--color-ink-soft);
   font-variant-numeric: tabular-nums;
 }
 
 .portal__lesson-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-  font-size: 0.95rem;
+  gap: 0.5rem 2rem;
+}
+
+/* Enlaces de lección: objetivo de 44 px de alto sin cambiar su aspecto. */
+.portal__lesson-links li {
+  display: flex;
+  align-items: center;
+  min-block-size: 2.75rem;
 }
 
 .portal__footer {
-  padding-block: 1rem 2rem;
-  color: #52525b;
-  font-size: 0.9rem;
+  padding-block: 2rem 3rem;
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
 }
 
 .visually-hidden {

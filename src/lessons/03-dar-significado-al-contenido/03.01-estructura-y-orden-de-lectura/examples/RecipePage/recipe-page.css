@@ -1,19 +1,29 @@
+/* Blog de recetas con el lenguaje visual de weAAAre. Acento: verde hoja. */
 .recipe-page {
+  --page-accent: #c8e0a4;
+  --page-tint: #fbfdf7;
+
   min-block-size: 100vh;
-  background: #fefce8;
-  color: #1c1917;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  background: var(--page-tint);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .recipe-page a {
-  color: #166534;
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
 }
 
+.recipe-page a:hover {
+  background: var(--color-accent);
+}
+
 .recipe-page :focus-visible {
-  outline: 3px solid #166534;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .recipe-page__header {
@@ -23,24 +33,22 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  background: #166534;
-  color: #fff;
+  border-block-end: var(--border);
+  background: var(--page-accent);
 }
 
-.recipe-page__header a {
-  color: #fff;
-}
-
+/* Sobre el acento pastel, el anillo ámbar no llega a 3:1: se dibuja en tinta. */
 .recipe-page__header :focus-visible {
-  outline-color: #fff;
+  outline-color: var(--color-ink);
 }
 
 .recipe-page__brand {
   margin: 0;
-  font-family: Georgia, serif;
-  font-size: 1.375rem;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .recipe-page__nav {
@@ -52,35 +60,43 @@
 .recipe-page__main {
   max-inline-size: 42rem;
   margin-inline: auto;
-  padding: 2rem clamp(1rem, 4vw, 3rem);
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
 .recipe-page__meta {
+  display: inline-block;
   margin: 0;
-  color: #57534e;
+  padding: 0.05rem 0.7rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
   font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.recipe-page__title,
+.recipe-page__heading {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
 }
 
 .recipe-page__title {
-  margin: 0.25rem 0 1rem;
-  font-family: Georgia, serif;
-  font-size: clamp(1.875rem, 5vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.15;
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(2.1875rem, 5vw, 2.75rem);
+  line-height: 1.1;
 }
 
 .recipe-page__heading {
-  margin: 2rem 0 0.5rem;
+  margin: 2.25rem 0 0.75rem;
   padding-block-end: 0.25rem;
-  border-block-end: 2px solid #bbf7d0;
-  font-family: Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  border-block-end: var(--border);
+  font-size: 1.75rem;
 }
 
 .recipe-page__subheading {
   margin: 1rem 0 0.25rem;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
 }
 
@@ -102,8 +118,8 @@
 
 .recipe-page__footer {
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: 1px solid #e7e5e4;
-  color: #57534e;
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
   font-size: 0.875rem;
   text-align: center;
 }

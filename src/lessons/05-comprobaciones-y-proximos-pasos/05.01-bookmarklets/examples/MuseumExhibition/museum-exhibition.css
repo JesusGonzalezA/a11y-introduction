@@ -1,19 +1,29 @@
+/* Museo textil con el lenguaje visual de weAAAre. Acento: rosa. */
 .museum-exhibition {
+  --page-accent: #fecaca;
+  --page-tint: #fcf9f5;
+
   min-block-size: 100vh;
-  background: #faf7f2;
-  color: #1c1917;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  background: var(--page-tint);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .museum-exhibition a {
-  color: #9f1239;
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
 }
 
+.museum-exhibition a:hover {
+  background: var(--color-accent);
+}
+
 .museum-exhibition :focus-visible {
-  outline: 3px solid #9f1239;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .museum-exhibition__header {
@@ -23,14 +33,16 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: 1px solid #d6d3d1;
+  border-block-end: var(--border);
+  background: var(--color-surface);
 }
 
 .museum-exhibition__brand {
   margin: 0;
-  font-family: Georgia, serif;
-  font-size: 1.25rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .museum-exhibition__nav {
@@ -41,48 +53,57 @@
 .museum-exhibition__main {
   max-inline-size: 48rem;
   margin-inline: auto;
-  padding: 2rem clamp(1rem, 4vw, 3rem);
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
 .museum-exhibition__kicker {
+  display: inline-block;
   margin: 0;
-  color: #9f1239;
+  padding: 0.05rem 0.75rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--page-accent);
   font-size: 0.875rem;
   font-weight: 700;
-  text-transform: uppercase;
+}
+
+.museum-exhibition h1,
+.museum-exhibition__section {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
 }
 
 .museum-exhibition h1 {
-  margin: 0.25rem 0 1.5rem;
-  font-family: Georgia, serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
+  margin: 0.75rem 0 1.5rem;
+  font-size: clamp(2.1875rem, 5vw, 3.4375rem);
+  line-height: 1.08;
 }
 
 .museum-exhibition__image {
   display: block;
   inline-size: 100%;
-  border-radius: 0.5rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 /* El tamaño viene de la clase, no del nivel: ambas versiones se ven igual. */
 .museum-exhibition__section {
-  margin: 2rem 0 0.5rem;
-  font-family: Georgia, serif;
-  font-size: 1.625rem;
-  font-weight: 700;
+  margin: 2.25rem 0 0.5rem;
+  font-size: 1.75rem;
 }
 
 .museum-exhibition__subsection {
   margin: 1rem 0 0.25rem;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
 }
 
 .museum-exhibition__footer {
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: 1px solid #d6d3d1;
-  color: #57534e;
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
   font-size: 0.875rem;
   text-align: center;
 }
