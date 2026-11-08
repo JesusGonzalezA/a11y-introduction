@@ -1,19 +1,30 @@
+/*
+ * Cine de barrio con el lenguaje de weAAAre en negativo: sección de tinta,
+ * tarjetas de papel y acento amarillo.
+ */
 .cinema-booking {
   min-block-size: 100vh;
-  background: #0f172a;
-  color: #f1f5f9;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   line-height: 1.55;
 }
 
 .cinema-booking a {
-  color: #fcd34d;
+  color: var(--color-paper);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
 }
 
+.cinema-booking a:hover {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+
 .cinema-booking :focus-visible {
-  outline: 3px solid #fcd34d;
-  outline-offset: 3px;
+  outline: 3px solid var(--color-accent);
+  outline-offset: var(--focus-offset);
 }
 
 .cinema-booking__header {
@@ -23,15 +34,15 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: 1px solid #334155;
+  border-block-end: 2px solid var(--color-paper);
 }
 
 .cinema-booking__brand {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .cinema-booking__nav {
@@ -43,36 +54,49 @@
 .cinema-booking__main {
   max-inline-size: 48rem;
   margin-inline: auto;
-  padding: 2rem clamp(1rem, 4vw, 3rem);
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
 .cinema-booking__meta {
   margin: 0;
-  color: #cbd5e1;
+  color: var(--color-rule-soft);
+}
+
+.cinema-booking h1,
+.cinema-booking h2 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
 }
 
 .cinema-booking h1 {
   margin: 0.25rem 0 1rem;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
+  font-size: clamp(2.1875rem, 5vw, 3.4375rem);
+  line-height: 1.08;
 }
 
+/* Tarjeta de papel sobre la sección de tinta, como en «¡Aprende a tu ritmo!». */
 .cinema-booking__sessions {
   margin-block-start: 2rem;
   padding: 1.5rem;
-  border-radius: 0.75rem;
-  background: #1e293b;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
 .cinema-booking h2 {
   margin-block-start: 0;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
+}
+
+.cinema-booking__sessions :focus-visible {
+  outline-color: var(--color-focus);
 }
 
 .cinema-booking__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -83,47 +107,52 @@
   align-items: center;
   min-block-size: 3rem;
   padding: 0.5rem 1.25rem;
-  border: 2px solid #fcd34d;
-  border-radius: 0.5rem;
-  background: transparent;
-  color: #fcd34d;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink);
   font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;
 }
 
 .cinema-booking__session:hover:not(:disabled) {
-  background: #fcd34d;
-  color: #0f172a;
+  background: var(--color-accent);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 var(--color-ink);
 }
 
 .cinema-booking__session:disabled {
-  border-color: #64748b;
-  color: #cbd5e1;
+  border-style: dashed;
+  background: var(--color-surface-sunken);
+  box-shadow: none;
+  color: var(--color-ink-medium);
   cursor: not-allowed;
 }
 
 /* Barrera deliberada: el estado agotado solo se intuye por el color apagado. */
 .cinema-booking__session--sold-out {
-  border-color: #475569;
-  color: #64748b;
+  border-color: #b0b0b0;
+  box-shadow: 0 4px 0 0 #b0b0b0;
+  color: #b0b0b0;
   cursor: default;
 }
 
 .cinema-booking__sold-out {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .cinema-booking__result {
   min-block-size: 1.55em;
   margin-block-end: 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .cinema-booking__footer {
   max-inline-size: 48rem;
   margin-inline: auto;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  color: #cbd5e1;
+  color: var(--color-rule-soft);
   font-size: 0.875rem;
 }

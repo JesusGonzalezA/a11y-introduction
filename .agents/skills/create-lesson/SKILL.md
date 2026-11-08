@@ -46,7 +46,8 @@ objetivos y la duración del curso.
    - componentes y ejemplos ejecutables co-localizados con sus stories y tests.
 
    Actualiza el mapa del módulo y `src/lessons/lessonRegistry.ts` una sola vez y en
-   orden. Reutiliza las convenciones visuales y técnicas existentes.
+   orden. Reutiliza las convenciones técnicas existentes y aplica la skill
+   `weaaare-brand` a la voz de los textos y al aspecto de slides y ejemplos.
    **Completado cuando:** la lección puede leerse, presentarse, ejecutarse y probarse
    sin depender de archivos de otra ubicación salvo interfaces compartidas explícitas.
 

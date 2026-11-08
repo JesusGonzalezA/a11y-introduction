@@ -1,9 +1,31 @@
-@import "@fontsource-variable/geist";
+@import "./brand/tokens.css";
 
+/* Diapositivas con la identidad de weAAAre. Ver DESIGN.md. */
 :root {
-  font-family: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
-  color: #18181b;
-  background: #fff;
+  --r-background-color: var(--color-paper);
+  --r-main-font: var(--font-body);
+  --r-main-color: var(--color-ink);
+  --r-heading-font: var(--font-display);
+  --r-heading-color: var(--color-ink);
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: 500;
+  --r-link-color: var(--color-ink);
+  --r-link-color-hover: var(--color-ink);
+  --r-selection-background-color: var(--color-accent);
+  --r-selection-color: var(--color-ink);
+  --r-code-font: var(--font-mono);
+
+  /* El lienzo mide 1920 × 1080: todo crece en proporción. */
+  font-size: 25px;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+.course-deck {
+  --border: 3px solid var(--color-ink);
+  --shadow-sm: 0 6px 0 0 var(--color-ink);
+  --shadow-md: 0 9px 0 0 var(--color-ink);
 }
 
 html,
@@ -18,27 +40,78 @@ body {
 }
 
 .course-deck .reveal {
-  color: #18181b;
-  font-family: inherit;
-  font-size: 26px;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 42px;
 }
 
 .course-deck .reveal .slides {
   text-align: left;
 }
 
+.course-deck .reveal h1,
+.course-deck .reveal h2,
+.course-deck .reveal h3 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.course-deck .reveal .progress {
+  height: 6px;
+  color: var(--color-ink);
+}
+
+.course-deck .reveal .slide-number {
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+.course-deck .reveal .controls {
+  color: var(--color-ink);
+}
+
 .course-cover,
 .lesson-slide {
   box-sizing: border-box;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.course-cover {
+  padding: 4rem 3.5rem;
+}
+
+/* Portada */
+.course-cover {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 2rem;
+  align-items: start;
+}
+
+.course-cover > * {
+  grid-column: 1;
+}
+
+.course-deck .reveal .course-cover__mark {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  margin: 0;
+  font-size: 1.8em;
 }
 
 .course-deck .reveal .course-cover__brand,
 .course-deck .reveal .lesson-slide__lesson-number {
   margin: 0 0 1rem;
-  color: #52525b;
-  font-size: 0.65em;
-  font-weight: 600;
+  color: var(--color-ink-soft);
+  font-size: 0.7em;
+  font-weight: 700;
 }
 
 .course-deck .reveal .lesson-slide__lesson-number {
@@ -49,43 +122,96 @@ body {
 .course-deck .reveal .course-cover__title,
 .course-deck .reveal .lesson-slide__title {
   margin: 0 0 1rem;
-  color: #18181b;
-  font-family: inherit;
-  font-size: 1.5em;
-  font-weight: 650;
-  line-height: 1.15;
+  color: var(--color-ink);
+  font-size: 1.6em;
+  line-height: 1.12;
   text-align: left;
-  text-transform: none;
 }
 
 .course-deck .reveal .course-cover__title {
-  font-size: 2.2em;
+  font-size: 2.4em;
+}
+
+/* Subrayado dibujado bajo la idea clave del titular. */
+.course-deck .reveal .course-cover__title .course-cover__highlight {
+  font-style: normal;
+  text-decoration: underline wavy var(--color-ink);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+}
+
+.course-deck .reveal .course-cover__subtitle {
+  font-size: 1.1em;
 }
 
 .course-cover__author {
-  color: #52525b;
+  color: var(--color-ink-soft);
   font-size: 0.65em;
 }
 
-.course-deck .reveal li {
-  margin-block: 0.5rem;
+/* Enlaces: filete inferior y relleno ámbar al pasar o enfocar. */
+.course-deck .reveal a {
+  color: var(--color-ink);
+  border-block-end: 3px solid currentColor;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  text-decoration: none;
 }
 
-.course-deck .reveal .lesson-slide__example-link {
-  display: inline-block;
-  margin: 0.5rem 1rem 0 0;
-  padding: 0.5rem 0.75rem;
-  border: 2px solid currentColor;
-  border-radius: 0.375rem;
-  color: #004fc4;
-  font-size: 0.65em;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+.course-deck .reveal a:hover,
+.course-deck .reveal a:focus-visible {
+  color: var(--color-ink);
+  border-block-end-width: 4px;
+  background-size: 100% 87%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .course-deck .reveal a {
+    transition: background-size 0.25s ease-in-out;
+  }
 }
 
 .course-deck .reveal a:focus-visible {
-  outline: 3px solid #18181b;
-  outline-offset: 4px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Botón secundario de weAAAre: borde, sombra dura y flecha. */
+.course-deck .reveal .lesson-slide__example-link {
+  display: inline-block;
+  margin: 0.5rem 1rem 0.5rem 0;
+  padding: 0.5rem 0.9rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  font-size: 0.65em;
+  font-weight: 700;
+}
+
+.course-deck .reveal .lesson-slide__example-link::after {
+  content: " →";
+}
+
+.course-deck .reveal .lesson-slide__example-link:hover,
+.course-deck .reveal .lesson-slide__example-link:focus-visible {
+  border-block-end-width: 3px;
+  background: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(3px);
+}
+
+.course-deck .reveal .example-links__fixed {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.course-deck .reveal .example-links__fixed:hover,
+.course-deck .reveal .example-links__fixed:focus-visible {
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
 
 .course-deck .reveal p,
@@ -93,7 +219,7 @@ body {
 .course-deck .reveal ol,
 .course-deck .reveal dl {
   margin-block: 0 0.75rem;
-  line-height: 1.35;
+  line-height: 1.38;
 }
 
 .course-deck .reveal li {
@@ -101,65 +227,73 @@ body {
 }
 
 .course-deck .reveal code {
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: 0.85em;
 }
 
 .course-deck .reveal p code,
 .course-deck .reveal li code,
-.course-deck .reveal td code {
-  padding: 0.05em 0.25em;
-  border-radius: 0.2em;
-  background: #f4f4f5;
+.course-deck .reveal td code,
+.course-deck .reveal dd code {
+  padding: 0.05em 0.35em;
+  border-radius: 0.25em;
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
 
-/* Tipo de slide: lección, situación, error común, solución… */
+.course-deck .reveal mark {
+  padding-inline: 0.15em;
+  background: var(--color-mark-tint);
+  color: inherit;
+}
+
+/* Tipo de slide: etiqueta pastel con borde de tinta, como los niveles de curso. */
 .course-deck .reveal .lesson-slide__kind {
   display: inline-block;
   margin: 0 0 1rem;
-  padding: 0.1em 0.6em;
-  border: 2px solid currentColor;
-  border-radius: 999px;
-  font-size: 0.6em;
+  padding: 0.15em 0.75em;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink);
+  font-size: 0.65em;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .lesson-slide__kind--leccion,
 .lesson-slide__kind--resumen {
-  color: #3f3f46;
+  background: var(--color-tag-yellow);
 }
 
 .lesson-slide__kind--situacion {
-  color: #1d4ed8;
+  background: var(--color-decide-rule);
 }
 
 .lesson-slide__kind--error {
-  color: #b91c1c;
+  background: var(--color-tag-red);
 }
 
 .lesson-slide__kind--solucion {
-  color: #15803d;
+  background: var(--color-tag-green);
 }
 
 .lesson-slide__kind--comprobar {
-  color: #7e22ce;
+  background: var(--color-compare-rule);
 }
 
-/* Persona de la situación */
+/* Persona de la situación: tarjeta de la familia «decide». */
 .course-deck .reveal .persona {
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 0.4rem 1rem;
   padding: 1rem 1.25rem;
-  border-inline-start: 6px solid #1d4ed8;
-  border-radius: 0.5rem;
-  background: #eff6ff;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-decide-tint);
+  box-shadow: var(--shadow-sm);
 }
 
 .course-deck .reveal .persona dt {
-  color: #1e3a8a;
+  color: var(--color-decide-ink);
   font-weight: 700;
 }
 
@@ -192,51 +326,57 @@ body {
 
 /* Código rotulado como error o solución */
 .course-deck .reveal .code {
-  margin: 0 0 0.75rem;
+  margin: 0 0 1rem;
 }
 
 .course-deck .reveal .code__caption {
-  margin-block-end: 0.25rem;
-  font-size: 0.6em;
+  margin-block-end: 0.4rem;
+  font-size: 0.7em;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .course-deck .reveal .code pre {
   width: 100%;
   margin: 0;
   box-shadow: none;
-  font-size: 0.72em;
+  font-size: 0.8em;
 }
 
 .course-deck .reveal .code pre code {
   max-height: none;
-  padding: 0.6em 0.9em;
-  border-inline-start: 6px solid #a1a1aa;
-  border-radius: 0.375rem;
-  background: #f4f4f5;
-  color: #18181b;
-  line-height: 1.4;
+  padding: 0.7em 1em;
+  border-radius: var(--radius-md);
+  background: #000;
+  color: #f8f8f8;
+  line-height: 1.45;
   white-space: pre-wrap;
 }
 
-.course-deck .reveal .code--error .code__caption {
-  color: #b91c1c;
+/* Marca ✕ / ✓ en círculo, como en «No uses ARIA» de las presentaciones. */
+.course-deck .reveal .code__caption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.course-deck .reveal .code--error pre code {
-  border-inline-start-color: #b91c1c;
-  background: #fef2f2;
+.code__mark {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 1.7em;
+  block-size: 1.7em;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  font-size: 1.1em;
+  line-height: 1;
 }
 
-.course-deck .reveal .code--solucion .code__caption {
-  color: #15803d;
+.code--error .code__mark {
+  background: var(--color-tag-red);
 }
 
-.course-deck .reveal .code--solucion pre code {
-  border-inline-start-color: #15803d;
-  background: #f0fdf4;
+.code--solucion .code__mark {
+  background: var(--color-tag-green);
 }
 
 .course-deck .reveal .example-links {
@@ -244,12 +384,13 @@ body {
 }
 
 .course-deck .reveal kbd {
-  padding: 0.05em 0.4em;
-  border: 1px solid #a1a1aa;
-  border-block-end-width: 3px;
-  border-radius: 0.3em;
-  font-family: inherit;
+  padding: 0.05em 0.45em;
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-family: var(--font-body);
   font-size: 0.85em;
+  font-weight: 700;
 }
 
 .course-deck .reveal .summary-table {
@@ -261,54 +402,227 @@ body {
 .course-deck .reveal .summary-table th,
 .course-deck .reveal .summary-table td {
   padding: 0.4em 0.6em;
-  border-block-end: 1px solid #d4d4d8;
+  border-block-end: 2px solid var(--color-ink);
   text-align: start;
   vertical-align: top;
 }
 
-/* Separador de módulo */
-.module-slide {
-  box-sizing: border-box;
-  padding: 3rem 0 1rem;
+.course-deck .reveal .summary-table td {
+  border-block-end: 1px solid var(--color-rule-soft);
 }
 
-.course-deck .reveal .module-slide__number {
-  margin: 0 0 0.5rem;
-  color: #1d4ed8;
-  font-size: 0.75em;
-  font-weight: 700;
+/* Separador de módulo: portada con degradado iridiscente y lecciones en tarjetas. */
+.module-slide {
+  box-sizing: border-box;
+  padding: 3.5rem 3.5rem 1rem;
 }
 
 .course-deck .reveal .module-slide__title {
-  margin: 0 0 1.5rem;
-  color: #18181b;
-  font-family: inherit;
-  font-size: 2em;
-  font-weight: 650;
-  line-height: 1.1;
+  margin: 0 0 1.75rem;
+  font-size: 2.6em;
+  line-height: 1.05;
   text-align: left;
-  text-transform: none;
 }
 
 .course-deck .reveal .module-slide__lessons {
+  display: grid;
+  gap: 0.8rem;
+  max-inline-size: 46rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .course-deck .reveal .module-slide__lessons li {
-  margin-block: 0.6rem;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 0.95em;
+  font-weight: 500;
 }
 
 .module-slide__lesson-number {
   display: inline-block;
-  min-inline-size: 2.5em;
-  color: #52525b;
+  min-inline-size: 2.75em;
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.85em;
   font-weight: 700;
 }
 
+/*
+ * Insignia de lección: etiqueta «Módulo N» inclinada sobre la píldora
+ * «Lección N.M», con sombra iridiscente, como en las presentaciones de weAAAre.
+ */
+.course-deck .reveal .lesson-badge {
+  position: relative;
+  display: inline-block;
+  margin: 0.9rem 0 1.25rem;
+}
+
+.lesson-badge__module {
+  position: absolute;
+  inset-block-start: -0.95rem;
+  inset-inline-start: 1.1rem;
+  z-index: 1;
+  padding: 0.05rem 0.55rem;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 0.5em;
+  font-weight: 700;
+  transform: rotate(-4deg);
+}
+
+.lesson-badge__lesson {
+  position: relative;
+  display: inline-block;
+  padding: 0.2rem 1.4rem 0.3rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  box-shadow: 0 6px 0 0 var(--color-ink);
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-size: 0.85em;
+  font-weight: 500;
+  transform: rotate(-1.5deg);
+}
+
+.lesson-badge__lesson::after {
+  position: absolute;
+  inset: auto 0.6rem -9px;
+  z-index: -1;
+  block-size: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--iridescent);
+  content: "";
+}
+
+/* Portadas: degradado iridiscente que sube desde la base del lienzo. */
+.slide-cover {
+  box-sizing: border-box;
+  block-size: 1080px;
+  background:
+    radial-gradient(60% 55% at 0% 100%, #c4b5fd 0%, transparent 70%),
+    radial-gradient(45% 45% at 40% 105%, #bfdbfe 0%, transparent 70%),
+    radial-gradient(45% 45% at 72% 105%, #fef08a 0%, transparent 70%),
+    radial-gradient(55% 60% at 100% 100%, #fda4af 0%, transparent 70%),
+    var(--color-paper);
+}
+
+/* Marco de las presentaciones: barras con celdas separadas por filetes. */
+.slide-frame {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  box-sizing: border-box;
+  block-size: 1080px;
+}
+
+.slide-frame__bar {
+  display: grid;
+  /* La última celda deja sitio a los controles y al número de reveal. */
+  grid-template-columns: 7.5rem minmax(0, max-content) 1fr 10rem;
+  block-size: 2.8rem;
+  border-block: 2px solid var(--color-ink);
+  font-size: 0.55em;
+}
+
+.slide-frame__bar--top {
+  border-block-start: 0;
+}
+
+.slide-frame__bar--bottom {
+  border-block-end: 0;
+}
+
+.slide-frame__cell,
+.slide-frame__logo {
+  display: flex;
+  align-items: center;
+  padding-inline: 0.9rem;
+  border-inline-end: 2px solid var(--color-ink);
+  white-space: nowrap;
+}
+
+.slide-frame__cell--end {
+  grid-column: 4;
+  justify-content: center;
+  padding: 0;
+  border-inline-start: 2px solid var(--color-ink);
+  border-inline-end: 0;
+}
+
+.slide-frame__cell--module {
+  justify-content: center;
+}
+
+.slide-frame__logo {
+  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    #c4b5fd,
+    #bfdbfe 35%,
+    #fef08a 65%,
+    #fda4af
+  );
+  font-size: 0.85em;
+}
+
+.slide-frame__body {
+  min-block-size: 0;
+  padding: 1.25rem 3.5rem 0;
+  overflow: hidden;
+}
+
 .course-deck .reveal .course-cover__portal {
-  color: #004fc4;
   font-size: 0.7em;
-  text-decoration: underline;
+  font-weight: 700;
+}
+
+/*
+ * Resaltado de sintaxis sobre negro, con los colores de las presentaciones de
+ * weAAAre: etiquetas lila, valores verdes y comentarios grises. Todos los
+ * colores superan 7:1 sobre #000, y el código se entiende sin ellos.
+ */
+.course-deck .reveal .hljs-tag,
+.course-deck .reveal .hljs-name {
+  color: #c4b5fd;
+}
+
+.course-deck .reveal .hljs-attr,
+.course-deck .reveal .hljs-attribute {
+  color: #a5b4fc;
+}
+
+.course-deck .reveal .hljs-string,
+.course-deck .reveal .hljs-number,
+.course-deck .reveal .hljs-literal {
+  color: #86efac;
+}
+
+.course-deck .reveal .hljs-comment {
+  color: #a3a3a3;
+}
+
+.course-deck .reveal .hljs-selector-tag,
+.course-deck .reveal .hljs-selector-class,
+.course-deck .reveal .hljs-selector-pseudo,
+.course-deck .reveal .hljs-selector-id {
+  color: #fde68a;
+}
+
+.course-deck .reveal .hljs-keyword,
+.course-deck .reveal .hljs-meta {
+  color: #f9a8d4;
+}
+
+.course-deck .reveal .hljs-title,
+.course-deck .reveal .hljs-built_in {
+  color: #93c5fd;
 }

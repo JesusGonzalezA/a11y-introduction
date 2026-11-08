@@ -14,6 +14,10 @@ El temario validado está en la issue #1 de GitHub.
   [.agents/skills/repository-workflow/SKILL.md](.agents/skills/repository-workflow/SKILL.md).
   Issues y specs viven en GitHub y se gestionan con `gh`:
   [docs/agents/issue-tracker.md](docs/agents/issue-tracker.md).
+- Para escribir textos o dar estilo a slides, ejemplos, portal o contenido con
+  la voz y el sistema visual de weAAAre, lee
+  [.agents/skills/weaaare-brand/SKILL.md](.agents/skills/weaaare-brand/SKILL.md).
+  La referencia completa está en [DESIGN.md](DESIGN.md).
 - Para preparar la revisión de superficies visuales, lee
   [.agents/skills/example-pr-visuals/SKILL.md](.agents/skills/example-pr-visuals/SKILL.md).
 - Para incorporar feedback reutilizable, lee

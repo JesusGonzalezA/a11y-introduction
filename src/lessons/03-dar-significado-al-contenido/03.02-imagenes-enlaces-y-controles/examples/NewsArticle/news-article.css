@@ -1,19 +1,29 @@
+/* Diario local con el lenguaje visual de weAAAre. Acento: azul «decide». */
 .news-article {
+  --page-accent: #c4d2f3;
+  --page-tint: var(--color-paper);
+
   min-block-size: 100vh;
-  background: #fff;
-  color: #111827;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  background: var(--page-tint);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .news-article a {
-  color: #1d4ed8;
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.2em;
 }
 
+.news-article a:hover {
+  background: var(--color-accent);
+}
+
 .news-article :focus-visible {
-  outline: 3px solid #1d4ed8;
-  outline-offset: 3px;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 .news-article__header {
@@ -23,21 +33,23 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-end: 4px solid #111827;
+  border-block-end: var(--border);
+  background: var(--color-surface);
 }
 
 .news-article__brand {
   margin: 0;
-  font-family: Georgia, serif;
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .news-article__nav {
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .news-article__main {
@@ -46,7 +58,7 @@
   gap: 2rem;
   max-inline-size: 68rem;
   margin-inline: auto;
-  padding: 2rem clamp(1rem, 4vw, 3rem);
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
 }
 
 @media (min-width: 60rem) {
@@ -57,24 +69,33 @@
 }
 
 .news-article__kicker {
+  display: inline-block;
   margin: 0;
-  color: #b91c1c;
+  padding: 0.05rem 0.7rem;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--color-tag-red);
   font-size: 0.875rem;
   font-weight: 700;
-  text-transform: uppercase;
+}
+
+.news-article h1,
+.news-article h2 {
+  font-family: var(--font-display);
+  font-variation-settings: var(--font-display-settings);
+  font-weight: 500;
 }
 
 .news-article h1 {
-  margin: 0.25rem 0 0.5rem;
-  font-family: Georgia, serif;
-  font-size: clamp(1.875rem, 5vw, 2.75rem);
-  line-height: 1.15;
+  margin: 0.75rem 0 0.5rem;
+  font-size: clamp(2.1875rem, 5vw, 2.75rem);
+  line-height: 1.12;
 }
 
 .news-article__byline,
 .news-article__note,
 .news-article figcaption {
-  color: #4b5563;
+  color: var(--color-ink-soft);
   font-size: 0.875rem;
 }
 
@@ -85,13 +106,22 @@
 .news-article__figure img {
   display: block;
   inline-size: 100%;
-  border: 1px solid #d1d5db;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
 }
 
 .news-article__newsletter {
   padding: 1.5rem;
-  border-radius: 0.75rem;
-  background: #eff6ff;
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--page-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Sobre el acento pastel, el anillo ámbar no llega a 3:1: se dibuja en tinta. */
+.news-article__newsletter :focus-visible {
+  outline-color: var(--color-ink);
 }
 
 .news-article__icon {
@@ -100,7 +130,8 @@
 
 .news-article h2 {
   margin: 0.5rem 0;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
+  line-height: 1.15;
 }
 
 .news-article__form {
@@ -114,43 +145,49 @@
 }
 
 .news-article__field label {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .news-article__field input {
   min-inline-size: 0;
   padding: 0.5rem 0.75rem;
-  border: 1px solid #6b7280;
-  border-radius: 0.375rem;
-  background: #fff;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
 }
 
 .news-article__field input::placeholder {
-  color: #6b7280;
+  color: var(--color-ink-soft);
   opacity: 1;
 }
 
 .news-article__submit {
   justify-self: start;
-  padding: 0.5rem 1.25rem;
-  border: 0;
-  border-radius: 0.375rem;
-  background: #1d4ed8;
-  color: #fff;
-  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  box-shadow: 0 4px 0 0 var(--color-ink);
+  color: var(--color-paper);
+  font-weight: 700;
   cursor: pointer;
+}
+
+.news-article__submit:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 var(--color-ink);
 }
 
 .news-article__result {
   min-block-size: 1.6em;
   margin-block-end: 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .news-article__footer {
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-block-start: 1px solid #e5e7eb;
-  color: #4b5563;
+  border-block-start: var(--border);
+  color: var(--color-ink-soft);
   font-size: 0.875rem;
   text-align: center;
 }
