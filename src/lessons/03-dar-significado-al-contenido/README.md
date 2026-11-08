@@ -2,9 +2,9 @@
 
 **18 minutos**, incluidas las demostraciones. Fuente: [issue #4](https://github.com/JesusGonzalezA/a11y-introduction/issues/4)
 y [temario #1](https://github.com/JesusGonzalezA/a11y-introduction/issues/1).
-La persona necesita localizar información de una actividad, comprenderla y saber
-cómo inscribirse. Primero descubre la organización del contenido; después, el
-propósito de cada imagen, enlace y control.
+La persona necesita localizar información, comprenderla y saber dónde actuar.
+Primero descubre la organización del contenido (3.1, una receta); después, el
+propósito de cada imagen, enlace y control (3.2, una noticia local).
 
 | Lección | Objetivo | Duración | Slides (portada = 1) |
 | --- | --- | --- | --- |
@@ -18,50 +18,28 @@ validación avanzada, datos persistentes, peticiones de red ni patrones ARIA com
 
 ## Ejecutar y revisar
 
-Desde la raíz: `pnpm install --frozen-lockfile`, `pnpm dev` y `pnpm storybook`.
-Slides: `http://localhost:5173`. Storybook: `http://localhost:6006`.
-`VITE_STORYBOOK_URL` configura los enlaces de las slides. En esta sesión se usan
-**5175 y 6008** para no ocupar los servidores de los módulos anteriores:
+Desde la raíz: `pnpm install --frozen-lockfile` y `pnpm dev`. Slides en
+`http://localhost:5173`; páginas de ejemplo en `http://localhost:5173/ejemplos/`.
+Cada página se abre con la barrera. El botón flotante **Aplicar arreglo** la
+corrige sin recargar y **Ver cambios** resalta dónde está cada cambio y explica
+por qué. `?arreglo=1` abre directamente la versión corregida; los enlaces de las
+slides usan ambas rutas.
 
-```bash
-VITE_STORYBOOK_URL=http://localhost:6008 pnpm dev --host 127.0.0.1 --port 5175 --strictPort
-pnpm storybook --host 127.0.0.1 --port 6008 --ci
-```
+| Lección | Página | Ruta | Arreglos |
+| --- | --- | --- | --- |
+| 3.1 | Receta en un blog de cocina | `/ejemplos/receta` | Encabezados h1–h3; regiones header/nav/main/footer; pasos en una `ol` en orden de documento |
+| 3.2 | Noticia en un periódico local | `/ejemplos/noticia` | alt del gráfico; alt vacío del icono; texto del enlace; texto del botón; label del campo |
 
-Las siguientes rutas se añaden al origen de Storybook. Para la demo con lector
-usar el documento aislado `/iframe.html?id=ID&viewMode=story`; los enlaces de las
-slides ya lo hacen. `pageLayout: true` cambia el contenedor global de Storybook a
-div únicamente para estas páginas: evita main anidado. Las stories anteriores
-conservan su contenedor y sus rutas.
+## Páginas de ejemplo
 
-| Superficie | ID de story |
-| --- | --- |
-| 3.1 Contraejemplo deliberado: estructura y secuencia | `m3-activity-structure--contraejemplo` |
-| 3.1 Solución: estructura y orden | `m3-activity-structure--estructura-corregida` |
-| 3.2 Contraejemplo deliberado: información insuficiente | `m3-activity-content--contraejemplo` |
-| 3.2 Solución: nombres y etiqueta | `m3-activity-content--contenido-corregido` |
-| 3.2 Solución: imagen redundante en contexto | `m3-activity-content--imagen-decorativa` |
-
-## Interfaces y etapas conservadas
-
-- [Interfaces compartidas entre módulos](../shared/README.md): datos estables de
-  actividad y `RegistrationAction`. La extracción mantiene la acción, confirmación,
-  estado cerrado y apariencia del módulo 2; sus stories siguen recuperables.
-- `../shared/ActivityPage.tsx`: composición de página completa, una por documento.
-  `stage: 'structure' | 'content'` delimita la lección; `barrier` introduce solo
-  las barreras de esa etapa; `decorative` añade el equivalente textual visible y
-  vacía alt en la etapa de contenido; `onRegister` observa la acción simulada.
-- `ActivityStructure` expone barrier/onRegister; `ActivityContent` añade decorative.
-  Son escenarios co-localizados con sus stories/tests, no nuevos controles genéricos.
-- La ilustración SVG local es original del curso. Se usa como `img`, con alt en el
-  HTML anfitrión. El title interno permite abrir el archivo aislado; no sustituye
-  el alt. La variante redundante conserva la información en un párrafo visible.
-
-La etapa 3.1 añade encabezados y regiones, sin campo ni imagen. La 3.2 conserva esa
-estructura e introduce el nombre opcional. El formulario intercepta el envío;
-el botón submit activa la simulación una sola vez. La confirmación permanece en
-status y no traslada el foco de teclado. No hay datos reales ni estados de error,
-required, readonly, selección, expansión o popup.
+`RecipePage` y `NewsArticle` son escenarios de página completa, no componentes
+reutilizables. La barrera de 3.1 conserva el aspecto pero sustituye encabezados y
+regiones por `div` y escribe los pasos al revés en el DOM, recolocados con
+`column-reverse`. La de 3.2 mantiene controles nativos para concentrarse en la
+información: alt con nombres de archivo, «Leer más», «Aceptar» y un campo con solo
+placeholder. Las ilustraciones SVG son originales del curso; su title interno no
+sustituye el alt. El formulario del boletín intercepta el envío y muestra una
+confirmación de prueba en `status`, sin datos reales ni estados de error.
 
 ## Criterios y límites de evidencia
 
@@ -73,18 +51,15 @@ conformidad completa con toda la guía ni con WCAG a partir de axe.
 
 | Área | Automatizado | Manual o no aplicable |
 | --- | --- | --- |
-| Encabezados/regiones | Roles, nombres, niveles, un main, jerarquía DOM y Tab sin paradas añadidas | Descubrimiento y lectura real pendientes; headings ARIA custom NA |
-| Secuencia | Lista ol/li con dos pasos en orden DOM y barrera invertida | Comprensión y lectura con AT pendientes; flowto/tabindex positivo NA |
-| Imágenes | alt informativo; decorativa con alt vacío y texto equivalente | Pertinencia editorial revisada; lectura real pendiente; complejas/funcionales NA |
-| Enlace | Nombre visible, href/destino, Tab y evento Enter/clic | Navegación real comprobada técnicamente; AT/móvil/voz pendientes |
-| Campo | label/for/id, nombre/type/autocomplete, foco por etiqueta, escribir/editar, etiqueta persistente | Teclado virtual/AT/voz pendientes; required/error/readonly/disabled/grupo NA |
-| Acción y resultado | Contrato heredado más integración submit, activación única, status previo y foco | Anuncios reales pendientes; toggles/popup NA |
+| Encabezados/regiones | Barrera sin encabezados ni regiones; arreglo con niveles h1/h2/h3 en orden, un main, banner, navegación con nombre y contentinfo | Descubrimiento y lectura real pendientes |
+| Secuencia | Barrera con pasos invertidos en el DOM; arreglo con `ol` en orden | Comprensión con AT pendiente |
+| Imágenes | Gráfico con alt de datos; icono con alt vacío fuera del árbol | Pertinencia editorial y lectura real pendientes |
+| Enlace | Nombre descriptivo y destino existente | AT/móvil/voz pendientes |
+| Campo y botón | label/for/id, type/autocomplete, etiqueta tras escribir, botón «Suscribirme», confirmación | Teclado virtual/AT/voz pendientes |
 | Slides | Títulos, registro ordenado, 1:1 con guion, enlaces y axe | Revisión visual humana y ensayo pendientes |
 
-Una sola navegación usa nombre «Actividad». No existe navegación adicional en el
-pie ni enlace de salto a main: no aplican sus condicionales. El campo no tiene
-ayuda asociada ni errores; la indicación de simulación es contenido general del
-formulario. Si se amplía la API, reclasificar esos criterios y probarlos.
+La [auditoría](audit.md) registra la evidencia de los ejemplos anteriores a las
+páginas de ejemplo; su matriz manual sigue vigente como lista de comprobaciones.
 
 ## Matriz manual pendiente
 
@@ -98,7 +73,7 @@ Registrar fecha, SO, versión de navegador/AT, configuración, recorrido y resul
 | Control por voz | Localizar por texto visible y activar enlace, campo y botón | No ejecutado |
 | Chrome/Safari/Firefox, teclado humano | Tab/Shift+Tab, foco perceptible, enlaces al destino, envío simulado; Safari con navegación de teclado habilitada | Revisión humana pendiente |
 | Zoom 200%/400%, ancho 320 CSS px | Texto, controles, lectura y reflujo sin recortes | No ejecutado |
-| Autor humano | Revisión visual final de cinco stories y quince slides; ensayo 9 + 9 minutos | Pendiente |
+| Autor humano | Revisión visual final de dos páginas de ejemplo en ambos estados y quince slides; ensayo 9 + 9 minutos | Pendiente |
 
 El navegador y las comprobaciones de geometría/colores no ejecutan un lector.
 La demo auditiva está preparada y reproducible, pero no se da por realizada.

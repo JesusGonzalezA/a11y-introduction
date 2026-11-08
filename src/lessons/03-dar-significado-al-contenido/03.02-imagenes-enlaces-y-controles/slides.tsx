@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
 export const slides = [
   <Fragment key="3.2-1">
@@ -27,7 +26,7 @@ export const slides = [
     <pre>
       <code>
         {
-          '<img src="actividad.svg"\n  alt="Sendero entre parterres que conduce\n       a un pabellón junto a un árbol.">'
+          '<img src="grafico.svg"\n  alt="Gráfico de barras: 1.200 viajes diarios\n       en marzo de 2025 y 2.450 en marzo de 2026.">'
         }
       </code>
     </pre>
@@ -45,7 +44,7 @@ export const slides = [
       vacío explícito.
     </p>
     <pre>
-      <code>{'<img src="actividad.svg" alt="">'}</code>
+      <code>{'<img src="icono-sobre.svg" alt="">'}</code>
     </pre>
     <p>
       Omitir alt no equivale a escribir alt vacío. No ocultes información útil
@@ -62,7 +61,7 @@ export const slides = [
     </p>
     <pre>
       <code>
-        {'<a href="#informacion">\n  Consultar información práctica\n</a>'}
+        {'<a href="#informe">\n  Consultar el informe de movilidad 2026\n</a>'}
       </code>
     </pre>
     <p>
@@ -77,7 +76,7 @@ export const slides = [
       al activarlo.
     </p>
     <pre>
-      <code>{'<button type="submit">Inscribirme</button>'}</code>
+      <code>{'<button type="submit">Suscribirme</button>'}</code>
     </pre>
     <p>
       «Aceptar» puede resultar ambiguo. El texto visible aporta el nombre
@@ -94,7 +93,7 @@ export const slides = [
     <pre>
       <code>
         {
-          '<label for="nombre">Nombre (opcional)</label>\n<input id="nombre" type="text"\n  autocomplete="given-name" placeholder="Ej.: Ana">'
+          '<label for="correo">Correo electrónico</label>\n<input id="correo" type="email"\n  autocomplete="email" placeholder="nombre@ejemplo.com">'
         }
       </code>
     </pre>
@@ -118,26 +117,16 @@ export const slides = [
       </li>
       <li>Si la imagen repite el texto del contexto, usa alt vacío.</li>
     </ol>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m3-activity-content--contraejemplo&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('noticia')}>
       {' '}
       Examinar información con barreras{' '}
     </a>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m3-activity-content--contenido-corregido&viewMode=story`}
+      href={exampleUrl('noticia', true)}
     >
       {' '}
-      Comprobar nombres y etiqueta{' '}
-    </a>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m3-activity-content--imagen-decorativa&viewMode=story`}
-    >
-      {' '}
-      Comparar imagen redundante{' '}
+      Comprobar nombres, etiqueta e imagen decorativa{' '}
     </a>
   </Fragment>,
   <Fragment key="3.2-8">

@@ -1,0 +1,88 @@
+.museum-exhibition {
+  min-block-size: 100vh;
+  background: #faf7f2;
+  color: #1c1917;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.museum-exhibition a {
+  color: #9f1239;
+  text-underline-offset: 0.2em;
+}
+
+.museum-exhibition :focus-visible {
+  outline: 3px solid #9f1239;
+  outline-offset: 3px;
+}
+
+.museum-exhibition__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-end: 1px solid #d6d3d1;
+}
+
+.museum-exhibition__brand {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.museum-exhibition__nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.museum-exhibition__main {
+  max-inline-size: 48rem;
+  margin-inline: auto;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+}
+
+.museum-exhibition__kicker {
+  margin: 0;
+  color: #9f1239;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.museum-exhibition h1 {
+  margin: 0.25rem 0 1.5rem;
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+.museum-exhibition__image {
+  display: block;
+  inline-size: 100%;
+  border-radius: 0.5rem;
+}
+
+/* El tamaño viene de la clase, no del nivel: ambas versiones se ven igual. */
+.museum-exhibition__section {
+  margin: 2rem 0 0.5rem;
+  font-family: Georgia, serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+}
+
+.museum-exhibition__subsection {
+  margin: 1rem 0 0.25rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.museum-exhibition__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-block-start: 1px solid #d6d3d1;
+  color: #57534e;
+  font-size: 0.875rem;
+  text-align: center;
+}

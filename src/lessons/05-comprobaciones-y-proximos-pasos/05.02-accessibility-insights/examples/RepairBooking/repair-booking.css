@@ -1,0 +1,110 @@
+.repair-booking {
+  min-block-size: 100vh;
+  background: #f4f4f5;
+  color: #18181b;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.repair-booking a {
+  color: #c2410c;
+  text-underline-offset: 0.2em;
+}
+
+.repair-booking :focus-visible {
+  outline: 3px solid #c2410c;
+  outline-offset: 3px;
+}
+
+.repair-booking__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  background: #18181b;
+  color: #fff;
+}
+
+.repair-booking__header a {
+  color: #fdba74;
+}
+
+.repair-booking__header :focus-visible {
+  outline-color: #fdba74;
+}
+
+.repair-booking__brand {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.repair-booking__nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.repair-booking__main {
+  max-inline-size: 36rem;
+  margin-inline: auto;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+}
+
+.repair-booking h1 {
+  margin-block-start: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.repair-booking__form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 1px 3px #18181b1f;
+}
+
+.repair-booking__field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.repair-booking__field label,
+.repair-booking__fake-label {
+  font-weight: 600;
+}
+
+.repair-booking__field input,
+.repair-booking__field textarea {
+  min-inline-size: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #71717a;
+  border-radius: 0.375rem;
+  background: #fff;
+}
+
+.repair-booking__submit {
+  justify-self: start;
+  padding: 0.625rem 1.5rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: #c2410c;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.repair-booking__result {
+  min-block-size: 1.6em;
+  font-weight: 600;
+}
+
+.repair-booking__footer {
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  color: #52525b;
+  font-size: 0.875rem;
+  text-align: center;
+}

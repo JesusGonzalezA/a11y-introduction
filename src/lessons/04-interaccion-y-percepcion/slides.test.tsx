@@ -30,19 +30,15 @@ describe('Slides de interacción y percepción', () => {
     expect(lessonSlides.indexOf(registered[0])).toBe(33)
   })
 
-  it('enlaza las cuatro demos de página aislada', () => {
+  it('enlaza las páginas de ejemplo con y sin arreglo', () => {
     render(<main>{slides}</main>)
     expect(
-      screen.getAllByRole('link').map((link) => {
-        const url = new URL(link.getAttribute('href') || '')
-        expect(url.pathname).toBe('/iframe.html')
-        return url.searchParams.get('id')
-      }),
+      screen.getAllByRole('link').map((link) => link.getAttribute('href')),
     ).toEqual([
-      'm4-focus-registration--contraejemplo',
-      'm4-focus-registration--solucion',
-      'm4-perception-registration--contraejemplo',
-      'm4-perception-registration--solucion',
+      '/ejemplos/biblioteca',
+      '/ejemplos/biblioteca?arreglo=1',
+      '/ejemplos/horarios',
+      '/ejemplos/horarios?arreglo=1',
     ])
   })
 

@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
 export const slides = [
   <Fragment key="4.2-1">
@@ -31,7 +30,7 @@ export const slides = [
     <pre>
       <code>
         {
-          '<p class="disponible">Plazas disponibles</p>\n<p class="completo">Completo</p>'
+          '<span class="estado estado--a-tiempo">A tiempo</span>\n<span class="estado estado--cancelado">Cancelado</span>'
         }
       </code>
     </pre>
@@ -96,17 +95,14 @@ export const slides = [
     </p>
     <p>
       Amplía al 200%; después revisa 320 píxeles CSS o 1280 al 400%. Lee el
-      aviso completo y alcanza el botón.
+      aviso completo y alcanza el enlace final.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m4-perception-registration--contraejemplo&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('horarios')}>
       Examinar color y recortes
     </a>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m4-perception-registration--solucion&viewMode=story`}
+      href={exampleUrl('horarios', true)}
     >
       Revisar texto, contraste y reflujo
     </a>

@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
 export const slides = [
   <Fragment key="5.2-1">
     <h2 className="lesson-slide__title">
@@ -41,29 +41,29 @@ export const slides = [
   <Fragment key="5.2-3">
     <h2 className="lesson-slide__title">Corregir el nombre de un campo</h2>
     <p>
-      Un campo sin etiqueta ni nombre alternativo no explica qué introducir.
+      Un texto visible junto al campo no le da nombre si no está asociado.
       Asocia una etiqueta visible y persistente mediante for e id.
     </p>
     <pre>
       <code>
         {
-          '<label for="nombre">Nombre (opcional)</label>\n<input id="nombre" type="text"\n  autocomplete="given-name">'
+          '<label for="telefono">Teléfono</label>\n<input id="telefono" type="tel"\n  autocomplete="tel">'
         }
       </code>
     </pre>
     <p>
-      Analiza el contraejemplo, abre la solución y ejecuta FastPass de nuevo
-      sobre ella. Comprueba que el fallo del campo desaparece.
+      Analiza la página, aplica el arreglo y ejecuta FastPass de nuevo.
+      Comprueba que el fallo del campo desaparece.
     </p>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m5-label-inspection--contraejemplo&viewMode=story`}
+      href={exampleUrl('taller-bicicletas')}
     >
       Detectar el campo sin etiqueta
     </a>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m5-label-inspection--solucion&viewMode=story`}
+      href={exampleUrl('taller-bicicletas', true)}
     >
       Repetir con etiqueta asociada
     </a>
@@ -84,9 +84,9 @@ export const slides = [
     </p>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m5-label-inspection--solucion&viewMode=story`}
+      href={exampleUrl('taller-bicicletas', true)}
     >
-      Revisar el recorrido de inscripción
+      Revisar el recorrido del formulario
     </a>
   </Fragment>,
   <Fragment key="5.2-5">

@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
 export const slides = [
   <Fragment key="4.1-1">
@@ -39,7 +38,7 @@ export const slides = [
     <pre>
       <code>
         {
-          '<a href="#informacion">Información práctica</a>\n<button type="submit">Inscribirme</button>'
+          '<a href="#horarios">Horarios</a>\n<button type="submit">Entrar</button>'
         }
       </code>
     </pre>
@@ -96,17 +95,14 @@ export const slides = [
       Volver con Shift + Tab y repetir sin indicador: el foco sigue moviéndose,
       pero cuesta localizarlo.
     </p>
-    <a
-      className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m4-focus-registration--contraejemplo&viewMode=story`}
-    >
+    <a className="lesson-slide__example-link" href={exampleUrl('biblioteca')}>
       Comparar recorrido sin foco visible
     </a>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/iframe.html?id=m4-focus-registration--solucion&viewMode=story`}
+      href={exampleUrl('biblioteca', true)}
     >
-      Completar inscripción con foco visible
+      Completar el acceso con foco visible
     </a>
   </Fragment>,
   <Fragment key="4.1-7">

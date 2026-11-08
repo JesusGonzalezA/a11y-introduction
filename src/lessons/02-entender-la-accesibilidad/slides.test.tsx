@@ -18,17 +18,15 @@ describe('Slides de entender la accesibilidad', () => {
     },
   )
 
-  it('enlaza las cuatro etapas de demo y permite enfocarlas en orden', async () => {
+  it('enlaza las páginas de ejemplo con y sin arreglo y permite enfocarlas en orden', async () => {
     const user = userEvent.setup()
     render(<main>{slides}</main>)
     const links = screen.getAllByRole('link')
-    expect(
-      links.map((link) => new URL(link.getAttribute('href') || '').search),
-    ).toEqual([
-      '?path=/story/m2-keyboard-registration--contraejemplo',
-      '?path=/story/m2-keyboard-registration--boton-nativo',
-      '?path=/story/m2-button-semantics--comparacion',
-      '?path=/story/m2-button-semantics--no-disponible',
+    expect(links.map((link) => link.getAttribute('href'))).toEqual([
+      '/ejemplos/tienda-online',
+      '/ejemplos/tienda-online?arreglo=1',
+      '/ejemplos/cine',
+      '/ejemplos/cine?arreglo=1',
     ])
     for (const link of links) {
       expect(link).toHaveAccessibleName()

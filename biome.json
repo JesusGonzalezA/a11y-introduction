@@ -1,6 +1,6 @@
 {
   "files": {
-    "includes": ["**", "!dist", "!storybook-static", "!node_modules"]
+    "includes": ["**", "!dist", "!node_modules"]
   },
   "formatter": {
     "enabled": true,

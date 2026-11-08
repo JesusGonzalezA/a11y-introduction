@@ -1,5 +1,11 @@
 # Auditoría del módulo 5
 
+> **Nota (#13).** Los ejemplos auditados aquí se sustituyeron por páginas de
+> ejemplo con conmutador de arreglo. Esta auditoría conserva la evidencia
+> histórica de los ejemplos anteriores; la evidencia automatizada actual está en
+> los README de cada lección y en los tests de cada página. La matriz manual
+> sigue vigente como lista de comprobaciones pendientes.
+
 Pasada separada de autoría, **2026-10-09**. Delta propio sobre
 `1d917718123296fe9726892e0938f63e7c08375a` (#10, hereda #9/#8/#7).
 La investigación quedó en `5dcfb25` antes del commit de implementación; fuentes

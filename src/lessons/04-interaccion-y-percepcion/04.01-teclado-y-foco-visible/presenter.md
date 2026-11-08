@@ -40,21 +40,21 @@ La tercera es quedarse sin salida. El fragmento de la slide cancela Tab. Solo lo
 
 ## 6. Completar el recorrido y comparar el foco · 180 s, incluida demo
 
-Vamos a completar la inscripción de prueba desde el primer campo hasta la confirmación.
+Vamos a completar un acceso de prueba a la cuenta de una biblioteca, desde el primer campo hasta la confirmación.
 
-[Storybook: abrir «Completar inscripción con foco visible».]
+[Ejemplo: abrir «Completar el acceso con foco visible».]
 
-Con la página aislada preparada, avanzamos con Tab por los enlaces hasta el campo Nombre. Observamos cada indicador antes de pulsar de nuevo. Escribimos Ana. La etiqueta sigue junto al dato. Pulsamos Tab: el botón Inscribirme recibe el foco. Usamos Shift más Tab para volver al campo y Tab para regresar al botón. Activamos con Espacio. Aparece la confirmación de prueba y el botón conserva el foco. No se envían datos reales.
+Con la página preparada, avanzamos con Tab por los enlaces de la cabecera hasta el campo Número de carné. Observamos cada indicador antes de pulsar de nuevo. Escribimos un número, pasamos al PIN y a la casilla. Pulsamos Tab: el botón Entrar recibe el foco. Usamos Shift más Tab para volver a la casilla y Tab para regresar al botón. Activamos con Espacio. Aparece la confirmación de prueba y el botón conserva el foco. No se envían datos reales.
 
-Continuamos con Tab para salir del formulario y volvemos con Shift más Tab. En el documento aislado el siguiente destino puede ser la interfaz del navegador. También volvemos al enlace de información práctica y lo activamos con Enter: ahora estamos navegando a un destino, no enviando el formulario.
+Continuamos con Tab por las novedades del catálogo y volvemos hacia arriba con Shift más Tab. La cabecera fija no tapa el control enfocado. También activamos el enlace Horarios con Enter: ahora estamos navegando a un destino, no enviando el formulario.
 
-[Storybook: abrir «Comparar recorrido sin foco visible».]
+[Ejemplo: pulsar «Aplicar arreglo» para desactivarlo.]
 
-Repetimos el recorrido. El campo todavía permite escribir y el botón todavía se activa; no hemos deshabilitado nada. Sin embargo, fuera del cursor de edición cuesta saber qué control recibirá la próxima tecla. Contar pulsaciones no es una solución para la persona que usa la página.
+Repetimos el recorrido. El campo todavía permite escribir y el botón todavía se activa; no hemos deshabilitado nada. Sin embargo, fuera del cursor de edición cuesta saber qué control recibirá la próxima tecla. Al volver hacia arriba, además, algunos enlaces quedan escondidos bajo la cabecera. Contar pulsaciones no es una solución para la persona que usa la página.
 
-[Storybook: volver a «Completar inscripción con foco visible».]
+[Ejemplo: activar de nuevo el arreglo y abrir «Ver cambios».]
 
-Confirmamos que cada parada se puede reconocer, que se puede volver atrás y que la acción produce un resultado. Esta comparación aísla el dibujo del foco: no incluye una trampa activa. Si preparamos la grabación, practicamos ambos recorridos y dejamos las dos pestañas listas para no invertir la demostración en buscarlas.
+El panel muestra los dos cambios: el contorno con :focus-visible y el margen de desplazamiento bajo la cabecera fija. Confirmamos que cada parada se puede reconocer, que se puede volver atrás y que la acción produce un resultado. Esta comparación aísla el dibujo y la visibilidad del foco: no incluye una trampa activa. Si preparamos la grabación, practicamos ambos recorridos antes.
 
 ## 7. Comprobar el recorrido completo · 40 s
 

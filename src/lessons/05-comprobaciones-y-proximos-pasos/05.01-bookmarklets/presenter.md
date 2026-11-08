@@ -14,21 +14,21 @@ Después abrimos la página que queremos revisar y activamos el marcador guardad
 
 Headings muestra etiquetas de encabezado junto al contenido. No decide por nosotros qué debería ser una sección. Miramos los niveles y los comparamos con el significado.
 
-[Storybook: abrir «Inspeccionar niveles incoherentes» y activar el marcador Headings guardado.]
+[Ejemplo: abrir «Inspeccionar niveles incoherentes», cerrar el panel y activar el marcador Headings guardado.]
 
-El título principal es h1. Sobre la actividad e Información práctica aparecen como h3; dentro de Información práctica, Punto de encuentro aparece como h2. Eso no expresa la relación que queremos: una subsección está marcada como más general que la sección que la contiene. En este caso usaremos h2 para las secciones y h3 para su subsección.
+Es la página de una exposición en un museo. El título principal es h1. Sobre la exposición e Información práctica aparecen como h3; dentro de Información práctica, Horarios y Entradas aparecen como h2. Eso no expresa la relación que queremos: una subsección está marcada como más general que la sección que la contiene. En este caso usaremos h2 para las secciones y h3 para sus subsecciones.
 
 No estamos contando saltos para emitir un veredicto universal. Volver de h3 a h2 al comenzar otra sección puede ser correcto. Nos interesa que los niveles describan la organización; la tipografía por sí sola no lo demuestra.
 
 ## 4. Valorar la alternativa en contexto · 80 s, incluida demo
 
-[Storybook: abrir «Inspeccionar una alternativa poco útil», recargar y activar Images.]
+[Ejemplo: abrir «Inspeccionar una alternativa poco útil», recargar y activar Images.]
 
-Leemos el valor mostrado sobre la imagen: actividad punto svg. El atributo existe y puede aparecer marcado en verde, pero es el nombre de un archivo. No comunica la información de la ilustración. Para juzgarlo miramos también el texto cercano y el propósito de esa imagen en la actividad.
+Leemos el valor mostrado sobre la imagen: sala3_IMG_0412 punto jpg. El atributo existe y puede aparecer marcado en verde, pero es el nombre de un archivo. No comunica qué obra vemos. Para juzgarlo miramos también el texto cercano y el propósito de esa imagen en la página.
 
-[Storybook: abrir «Revisar jerarquía y alternativa corregidas» y activar Images.]
+[Ejemplo: abrir «Revisar jerarquía y alternativa corregidas», que carga la página con el arreglo, y activar Images.]
 
-La alternativa describe el sendero, los parterres, el pabellón y el árbol. Ahora aporta información reconocible de la imagen. Si esa información ya estuviera completa en un párrafo cercano, podríamos optar por alt vacío para evitar repetirla, como vimos antes. Un alt vacío no es lo mismo que un atributo omitido.
+La alternativa describe el tapiz: las olas azules y las barcas rojas sobre fondo arena. Ahora aporta información reconocible de la imagen. Si esa información ya estuviera completa en un párrafo cercano, podríamos optar por alt vacío para evitar repetirla, como vimos antes. Un alt vacío no es lo mismo que un atributo omitido.
 
 Recargamos y activamos Headings sobre la solución: título h1, secciones h2 y subsección h3. La revisión combina lo que revela la herramienta con lo que sabemos del contenido. Su color o sus iconos no sustituyen esa decisión.
 

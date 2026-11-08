@@ -9,7 +9,6 @@ Closes #
 - [ ] `pnpm test`
 - [ ] `pnpm lint`
 - [ ] `pnpm build`
-- [ ] `pnpm build-storybook`
 - Revisión visual manual del autor: pendiente / completada / no aplicable.
 
 <!-- Rama destino: develop. Integración mediante Squash and merge. -->

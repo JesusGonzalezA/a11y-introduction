@@ -11,28 +11,29 @@ Instalar el proyecto y arrancar los [servidores del módulo](../README.md#ejecut
 Instalar previamente Accessibility Insights for Web desde
 [Downloads oficial](https://accessibilityinsights.io/downloads/) para Chrome/Edge.
 [Guía FastPass](https://accessibilityinsights.io/docs/web/getstarted/fastpass/).
-Dejar dos pestañas de actividad aislada preparadas; no analizar el panel Storybook.
+Abrir la página de ejemplo con el panel «Ver cambios» cerrado.
 
-1. Abrir [campo sin etiqueta](http://localhost:6010/iframe.html?id=m5-label-inspection--contraejemplo&viewMode=story).
+1. Abrir `/ejemplos/taller-bicicletas` (cita en un taller de bicicletas).
    Abrir extensión desde su icono (atajo oficial Option+Shift+K en macOS,
    Alt+Shift+K en Windows/Linux, si no está reasignado). Elegir **FastPass**;
    **Automated checks** analiza la página objetivo.
 2. Expandir la regla del nombre del campo (`label`, el rótulo depende de versión).
    Seleccionar su instancia para resaltarla; leer explicación y propuesta de arreglo.
-   **Inspect HTML** requiere DevTools abierto. El input de este contraejemplo no
-   tiene label, placeholder, title, aria-label ni aria-labelledby.
-3. Mostrar la solución con `<label for="nombre">Nombre (opcional)</label>` e
-   `<input id="nombre" type="text" autocomplete="given-name">` (en React, htmlFor;
-   los IDs reales son únicos por instancia). La etiqueta permanece al escribir.
-4. Abrir [campo corregido](http://localhost:6010/iframe.html?id=m5-label-inspection--solucion&viewMode=story).
-   Lanzar de nuevo FastPass desde esa pestaña; si se reutiliza la ventana de
+   **Inspect HTML** requiere DevTools abierto. El texto «Teléfono» es un `span`
+   visible sin relación con el input, que no tiene label, placeholder, title,
+   aria-label ni aria-labelledby.
+3. Pulsar **Aplicar arreglo** y abrir **Ver cambios**: el span pasa a ser
+   `<label for="telefono">Teléfono</label>` asociado a
+   `<input id="telefono" type="tel" autocomplete="tel">` (en React, htmlFor; los
+   IDs reales son únicos por instancia). La etiqueta permanece al escribir.
+4. Cerrar el panel. Lanzar de nuevo FastPass; si se reutiliza la ventana de
    resultados, verificar página objetivo y usar **Start over**. Registrar que
    desaparece el fallo del campo. No prometer un total de fallos fijo entre versiones.
 5. En la página corregida, elegir **Tab stops**, recargar la página objetivo y activar
-   **Show tab stops**. Volver al documento; Tab recorre Sobre la actividad →
-   Inscripción → Consultar información práctica → Nombre → Inscribirme.
-   Escribir Ana; Shift+Tab vuelve al campo desde el botón; Tab y Espacio confirman.
-   Continuar con Tab fuera del formulario (puede llegar a la interfaz del navegador).
+   **Show tab stops**. Volver al documento; Tab recorre Servicios → Pedir cita →
+   Nombre → Teléfono → ¿Qué le pasa a la bicicleta? → Pedir cita (botón).
+   Escribir en los campos; Shift+Tab vuelve desde el botón; Tab y Espacio confirman.
+   Las últimas paradas son los controles de la herramienta flotante del curso.
 6. Leer las marcas numeradas, revisar alcance/orden/foco/salida y registrar Pass/Fail
    por requisito tras revisar posibles hallazgos. **Start Over** reinicia Tab stops.
    Atender **Needs review** cuando haya casos que necesitan juicio humano.
@@ -42,15 +43,16 @@ las anotaciones no reemplazan el indicador propio de foco ni el juicio de uso.
 
 ## Ejemplo, contrato y tests
 
-`LabelInspection` compone ActivityPage con `inspectionBarrier='label'` en la barrera
-rotulada. A diferencia del placeholder del módulo 3, aquí se elimina cualquier
-nombre alternativo para disponer de un fallo reproducible. La solución mantiene el
-campo text opcional, label/for/id, autocomplete y el envío simulado nativo heredado.
-No hay componente de extensión, backend, validación ni ARIA nuevos.
+`RepairBooking` (escenario de página completa) recibe `fixed: boolean`; su
+definición está en `RepairBooking.example.ts`. A diferencia del placeholder del
+módulo 3, el campo no tiene ningún nombre alternativo: el texto visible no está
+asociado, un fallo frecuente y reproducible. El envío está interceptado y no
+transmite datos. No hay componente de extensión, backend, validación ni ARIA nuevos.
 
-`LabelInspection.test.tsx`: barrera sin nombre y regla label en axe; solución con
-etiqueta persistente, edición, clic de etiqueta, Tab/Shift+Tab, activación, confirmación,
-salida y axe inicial/final. Son pruebas DOM/JSDOM; **no ejecución de FastPass**.
+`RepairBooking.test.tsx`: con la barrera, el teléfono no tiene nombre y axe informa
+exactamente la regla `label`; con el arreglo, nombre por etiqueta, `type`/
+`autocomplete`, foco al hacer clic en la etiqueta, confirmación y axe sin
+infracciones. Son pruebas DOM/JSDOM; **no ejecución de FastPass**.
 Fuentes, criterios Gherkin enlazados y matriz en [audit.md](../audit.md) y
 [nota de investigación](../../../../docs/research/05-comprobaciones-y-proximos-pasos.md).
 
@@ -62,8 +64,8 @@ prohibió buscar un rodeo. No se acreditan instalación, versión, resultados Fa
 ni Tab stops reales; no se sustituyeron por axe. Los pasos anteriores quedan listos
 para una ejecución humana en Chrome/Edge antes de grabar.
 
-Al ejecutar, completar: fecha, SO, navegador/versión, extensión/versión, URL de ambas
-variantes, regla e instancia antes, resultado después, recorrido Tab stops y bloqueo
+Al ejecutar, completar: fecha, SO, navegador/versión, extensión/versión, URL y
+estado del arreglo, regla e instancia antes, resultado después, recorrido Tab stops y bloqueo
 si lo hubiera. La demo del guion describe el recorrido previsto, no una ejecución
 ya realizada. AT/voz/móvil/zoom, teclado humano, visual final y ensayo pendientes
 según [matriz](../README.md#evidencia-y-límites).

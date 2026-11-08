@@ -3,7 +3,7 @@
 Este repositorio contiene el curso Introducción al desarrollo web accesible.
 El temario validado está en la issue #1 de GitHub.
 
-- Para organizar módulos, lecciones, slides o Storybook, lee
+- Para organizar módulos, lecciones, slides o páginas de ejemplo, lee
   [.agents/skills/course-structure/SKILL.md](.agents/skills/course-structure/SKILL.md).
 - Para desarrollar una lección, lee
   [.agents/skills/create-lesson/SKILL.md](.agents/skills/create-lesson/SKILL.md).
@@ -15,7 +15,7 @@ El temario validado está en la issue #1 de GitHub.
   Issues y specs viven en GitHub y se gestionan con `gh`:
   [docs/agents/issue-tracker.md](docs/agents/issue-tracker.md).
 - Para preparar la revisión de superficies visuales, lee
-  [.agents/skills/storybook-pr-visuals/SKILL.md](.agents/skills/storybook-pr-visuals/SKILL.md).
+  [.agents/skills/example-pr-visuals/SKILL.md](.agents/skills/example-pr-visuals/SKILL.md).
 - Para incorporar feedback reutilizable, lee
   [.agents/skills/self-learning/SKILL.md](.agents/skills/self-learning/SKILL.md).
 - Antes de modificar decisiones de dominio, consulta `CONTEXT.md` y los ADRs si

@@ -4,74 +4,49 @@
 una imagen, adónde lleva un enlace, qué hace un botón y qué introducir en un campo.
 Aprenderá a decidir alt por propósito y a proporcionar nombres y etiquetas visibles.
 
-## Recorrido y ejecución
+## Recorrido y alcance
 
-Ocho slides y ocho apartados del [guion](presenter.md): necesidad (40 s), alt
-informativo (75 s), decorativa (50 s), enlace (65 s), botón (55 s), etiqueta (70 s),
-demo (145 s), comprobación (40 s). Total 540 s; ensayo humano pendiente.
-En la raíz: `pnpm install --frozen-lockfile`, `pnpm dev` y `pnpm storybook`.
-Abrir [slides 27–34](http://localhost:5173/#/26). Puertos de sesión 5175/6008 y mapa
-en el [README del módulo](../README.md#ejecutar-y-revisar).
+Alternativa por propósito → imagen decorativa → enlace → botón → etiqueta
+persistente → demo → comprobación. Imágenes complejas o funcionales, validación y
+errores quedan fuera de esta lección.
+
+## Página de ejemplo
+
+Instalar y arrancar según el [mapa del módulo](../README.md#ejecutar-y-revisar). Ruta: `/ejemplos/noticia`, una noticia de un
+periódico local con un gráfico y un formulario de boletín. Enlaces de la slide 7:
+«Examinar información con barreras» y «Comprobar nombres, etiqueta e imagen
+decorativa» (`?arreglo=1`).
+
+| Arreglo | Sin arreglo | Con arreglo |
+| --- | --- | --- |
+| Imagen informativa | `alt="grafico_final_v2.png"` | alt con las dos cifras del gráfico |
+| Imagen decorativa | `alt="icono-sobre.svg"` | `alt=""`; el título ya dice lo mismo |
+| Enlace | «Leer más» | «Consultar el informe de movilidad 2026» |
+| Botón | «Aceptar» | «Suscribirme» |
+| Campo | Solo placeholder «Tu correo» | `label` «Correo electrónico» asociada, `type="email"`, `autocomplete="email"` |
 
 ## Demo de corrección
 
-Preparar las tres stories y el código de `ActivityPage.tsx` antes de grabar:
+1. Con la barrera, revisar la lista de enlaces y controles del lector o el árbol
+   de accesibilidad. Escribir un correo y comprobar que el placeholder desaparece.
+2. Pulsar **Aplicar arreglo** y abrir **Ver cambios**: los cinco cambios se
+   resaltan. Hacer clic en la etiqueta para enfocar el campo, escribir y
+   comprobar que la etiqueta permanece.
+3. Con **Localizar «El icono decorativo tiene alt vacío»**, mostrar el icono que
+   ya no se anuncia. Activar **Suscribirme** y leer la confirmación de prueba.
 
-1. [Contraejemplo deliberado](http://localhost:6006/iframe.html?id=m3-activity-content--contraejemplo&viewMode=story).
-   La imagen tiene alt «actividad.svg»; el enlace, «Ver más»; el botón, «Aceptar».
-   Escribir Ana en el campo identificado solo mediante placeholder. Falta una
-   etiqueta persistente; no afirmar silencio universal del lector ni fallo
-   garantizado de axe. Un nombre de respaldo no resuelve esa barrera visible.
-2. [Contenido corregido](http://localhost:6006/iframe.html?id=m3-activity-content--contenido-corregido&viewMode=story).
-   Contrastar las ramas del código: alt pertinente, texto de destino, acción
-   «Inscribirme», label htmlFor/id. Activar el enlace y verificar que llega a
-   Información práctica. Pulsar la etiqueta, escribir Ana, comprobar que sigue
-   visible; Tab llega al botón, Enter o Espacio muestra confirmación. Recargar
-   reinicia datos y confirmación. No se envían datos a ningún servidor.
-3. [Imagen redundante](http://localhost:6006/iframe.html?id=m3-activity-content--imagen-decorativa&viewMode=story).
-   El párrafo ya expresa la aportación de la misma ilustración: alt vacío evita
-   repetirla. La decisión depende del contexto, no del nombre del archivo. Con
-   lector real, comprobar información conservada y omisión de imagen; pendiente.
+## Componentes y pruebas
 
-La selección entre stories representa las correcciones; no hay un interruptor
-oculto que cambie la interfaz durante la lectura. Las versiones son recuperables.
+`NewsArticle` (escenario de página completa) recibe `fixed: boolean`; su
+definición está en `NewsArticle.example.ts`. Los controles son nativos en ambas
+versiones para aislar la información que comunican. El formulario intercepta el
+envío y no transmite datos. Las ilustraciones SVG son originales del curso.
 
-## Escenario, semántica y teclado
-
-`examples/ActivityContent` compone `ActivityPage` con la estructura corregida de
-3.1 y la [acción compartida](../../shared/README.md). La imagen se carga localmente
-como img y obtiene nombre desde alt. La decorativa no tiene title, aria-label ni
-foco en el elemento img; su SVG externo contiene un title solo para apertura aislada.
-
-El enlace nativo a/href tiene un destino de fragmento existente. Se activa con
-Enter; no se sustituye por role=link. «Ver más» puede ser comprensible por contexto
-según WCAG 2.4.4; aquí mejoramos su texto para que funcione también en lista de enlaces.
-El botón submit usa texto visible «Inscribirme» como nombre, sin aria-label redundante.
-
-El único campo es input type=text, editable y opcional; autocomplete=given-name.
-Label visible usa for/id único por instancia; placeholder «Ej.: Ana» aporta pista.
-La etiqueta persiste al escribir. No hay grupo de campos, required, error, ayuda
-asociada, readonly ni disabled en esta etapa. El formulario evita navegación de
-envío; `RegistrationAction` no recibe ni persiste el valor del campo.
-
-Tab: enlaces de navegación → enlace de información → campo → botón; Shift+Tab
-invierte el recorrido. Clic en label enfoca; escribir/editar conserva el valor y
-la etiqueta. Enter/Espacio en botón o clic activa una vez la confirmación. El
-foco de teclado se conserva en el botón; el status ya existe vacío antes de actuar.
-La percepción del mensaje necesita AT real: no se promete un anuncio por ver el DOM.
-
-## Pruebas, criterios y límites
-
-`ActivityContent.test.tsx` comprueba lista ordenada de dos pasos en ambas soluciones, imagen/alt, enlace/href/destino y eventos,
-label/id/nombre/type/autocomplete, edición y persistencia, recorrido de Tab en
-ambos sentidos, activación única, foco y status, variante decorativa, IDs por
-instancia y las barreras esperadas. Axe se ejecuta en solución inicial, confirmada
-y decorativa. Tests no prueban pertinencia, lectura real, voz, teclado móvil,
-contraste ni zoom. No exigen que axe detecte texto genérico o alt inútil.
-
-Criterios I/D/L/T y botón/status, exclusiones condicionales y evidencia concreta en
-la [auditoría separada](../audit.md). Entornos pendientes en la
-[matriz manual](../README.md#matriz-manual-pendiente).
+`NewsArticle.test.tsx` comprueba los nombres poco útiles y la ausencia de label
+con la barrera; con el arreglo, el alt del gráfico, el icono fuera del árbol, el
+destino del enlace, la etiqueta asociada y persistente, el botón, la confirmación
+y axe sin infracciones detectables. La pertinencia editorial del alt y la lectura
+real quedan en la [matriz manual del módulo](../README.md#matriz-manual-pendiente).
 
 ## Referencias
 

@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
-
-const storybook = import.meta.env.VITE_STORYBOOK_URL || 'http://localhost:6006'
+import { exampleUrl } from '../../../examples/exampleUrl'
 
 export const slides = [
   <Fragment key="personas-interaccion-barreras">
@@ -65,18 +64,18 @@ export const slides = [
       acción, la tarea se interrumpe.
     </p>
     <pre>
-      <code>{'<button type="button">Inscribirme</button>'}</code>
+      <code>{'<button type="button">Añadir a la cesta</button>'}</code>
     </pre>
     <p>Un botón HTML permite activación con Enter y Espacio.</p>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/?path=/story/m2-keyboard-registration--contraejemplo`}
+      href={exampleUrl('tienda-online')}
     >
       Observar una acción inalcanzable
     </a>
     <a
       className="lesson-slide__example-link"
-      href={`${storybook}/?path=/story/m2-keyboard-registration--boton-nativo`}
+      href={exampleUrl('tienda-online', true)}
     >
       Completar la acción con teclado
     </a>

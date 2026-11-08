@@ -14,6 +14,6 @@ No hemos podido verificar una publicación y URL de curso específico de Formula
 
 ## 3. Herramientas, ejemplos y continuación · 35 s
 
-Esta última slide reúne los enlaces para volver después: Headings e Images para inspeccionar, FastPass para una primera revisión y las etapas de la actividad en Storybook para practicar. También conserva los cursos de continuación y el apoyo de WAI para formularios, con los límites de disponibilidad indicados.
+Esta última slide reúne los enlaces para volver después: Headings e Images para inspeccionar, FastPass para una primera revisión y las páginas de ejemplo para practicar activando y desactivando cada arreglo. También conserva los cursos de continuación y el apoyo de WAI para formularios, con los límites de disponibilidad indicados.
 
 No abrimos una demo nueva. Puedes volver a una tarea concreta, revisarla, corregir una barrera y comprobar el cambio. Esa práctica combina el significado del contenido, la interacción y las herramientas: ninguna de las tres partes sustituye a las otras.

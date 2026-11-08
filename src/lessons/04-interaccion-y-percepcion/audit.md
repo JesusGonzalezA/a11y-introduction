@@ -1,5 +1,11 @@
 # Auditoría del módulo 4
 
+> **Nota (#13).** Los ejemplos auditados aquí se sustituyeron por páginas de
+> ejemplo con conmutador de arreglo. Esta auditoría conserva la evidencia
+> histórica de los ejemplos anteriores; la evidencia automatizada actual está en
+> los README de cada lección y en los tests de cada página. La matriz manual
+> sigue vigente como lista de comprobaciones pendientes.
+
 Fecha: **2026-10-09**. Delta propio de #5 sobre
 `e8813d7a7afb762c4861936d33ddaf07fd7ce6fc` (PR #9, que hereda #8/#7).
 La investigación se guardó en `503ceec` antes de implementar componentes.

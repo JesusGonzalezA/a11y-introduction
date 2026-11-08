@@ -30,20 +30,15 @@ describe('Slides de dar significado al contenido', () => {
     expect(lessonSlides.indexOf(registered[0])).toBe(18)
   })
 
-  it('enlaza las cinco demos de página aislada', () => {
+  it('enlaza las páginas de ejemplo con y sin arreglo', () => {
     render(<main>{slides}</main>)
     expect(
-      screen.getAllByRole('link').map((link) => {
-        const url = new URL(link.getAttribute('href') || '')
-        expect(url.pathname).toBe('/iframe.html')
-        return url.searchParams.get('id')
-      }),
+      screen.getAllByRole('link').map((link) => link.getAttribute('href')),
     ).toEqual([
-      'm3-activity-structure--contraejemplo',
-      'm3-activity-structure--estructura-corregida',
-      'm3-activity-content--contraejemplo',
-      'm3-activity-content--contenido-corregido',
-      'm3-activity-content--imagen-decorativa',
+      '/ejemplos/receta',
+      '/ejemplos/receta?arreglo=1',
+      '/ejemplos/noticia',
+      '/ejemplos/noticia?arreglo=1',
     ])
   })
 

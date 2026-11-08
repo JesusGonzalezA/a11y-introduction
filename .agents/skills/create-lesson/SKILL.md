@@ -58,11 +58,11 @@ objetivos y la duración del curso.
    justificación; ningún test exige un rol inexistente y la documentación no presenta
    como automatizado lo que requiere navegador o tecnología de asistencia real.
 
-6. **Valida y prepara la revisión.** Ejecuta `pnpm test`, `pnpm lint`, `pnpm build` y
-   `pnpm build-storybook`. Aplica `storybook-pr-visuals` para comprobar que todas las
-   stories y slides tienen una ruta local y deja la revisión visual manual claramente
-   marcada. Revisa el diff completo antes de preparar la PR.
-   **Completado cuando:** pasan las cuatro validaciones, todas las superficies se pueden
+6. **Valida y prepara la revisión.** Ejecuta `pnpm test`, `pnpm lint` y `pnpm build`.
+   Aplica `example-pr-visuals` para comprobar que todas las páginas de ejemplo y slides
+   tienen una ruta local y deja la revisión visual manual claramente marcada. Revisa el
+   diff completo antes de preparar la PR.
+   **Completado cuando:** pasan las tres validaciones, todas las superficies se pueden
    revisar localmente y la PR cumple `repository-workflow`.
 
 7. **Aprende del feedback real.** Cuando la revisión revele una convención reutilizable,
