@@ -19,7 +19,10 @@ export const slides = [
   </Fragment>,
   <Fragment key="mapa-del-curso">
     <SlideTitle kind="leccion">El recorrido del curso</SlideTitle>
-    <ol className="course-map" start={2}>
+    <ol className="course-map">
+      <li>
+        <strong>Introducción:</strong> objetivos, recorrido y materiales.
+      </li>
       <li>
         <strong>Entender la accesibilidad:</strong> cómo usan la web distintas
         personas y qué entiende el navegador de nuestro HTML.
@@ -43,7 +46,7 @@ export const slides = [
     <p>Cada lección tiene tres materiales:</p>
     <ul>
       <li>
-        <strong>Diapositivas:</strong> se entienden solas, sin el vídeo.
+        <strong>Diapositivas:</strong> las ideas clave de cada lección.
       </li>
       <li>
         <strong>Ejemplos:</strong> páginas para probar cada error y su arreglo.

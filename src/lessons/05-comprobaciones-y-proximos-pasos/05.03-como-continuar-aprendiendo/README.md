@@ -25,7 +25,9 @@
 | Nombres, roles, estados | [Introducción a ARIA](https://weaaare.com/cursos/curso-accesibilidad-digital-introduccion-a-aria) |
 | Verificar componentes | [Testing de accesibilidad para desarrolladores](https://weaaare.com/cursos/curso-testing-de-accesibilidad-digital-para-desarrolladores) |
 | Navegación | [ARIA Avanzado: Navegación accesible](https://weaaare.com/cursos/aria-avanzado-navegacion-accesible) |
-| Formularios | [Tutorial de formularios, W3C WAI](https://www.w3.org/WAI/tutorials/forms/) (curso propio pendiente de publicar) |
+| Formularios | [ARIA Avanzado: Formularios accesibles](https://weaaare.com/cursos/aria-avanzado-formularios-accesibles) |
+| Bases de la accesibilidad | [Fundamentos de accesibilidad y diseño universal](https://weaaare.com/cursos/curso-fundamentos-accesibilidad-diseno-universal) |
+| Cómo usan la web las personas | [Discapacidad y tecnologías asistivas](https://weaaare.com/cursos/curso-discapacidad-y-tecnologias-asistivas) |
 
 Catálogo completo: [weaaare.com/cursos](https://weaaare.com/cursos). Data Display queda como curso futuro.
 
