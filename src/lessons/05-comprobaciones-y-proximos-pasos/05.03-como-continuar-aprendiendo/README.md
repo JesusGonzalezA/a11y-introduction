@@ -31,8 +31,6 @@
 
 Catálogo completo: [weaaare.com/cursos](https://weaaare.com/cursos). Data Display queda como curso futuro.
 
-## Herramientas y referencias
+## Herramientas
 
 - [Headings](https://pauljadam.com/bookmarklets/headings.html) · [Images](https://pauljadam.com/bookmarklets/images.html) · [Accessibility Insights](https://accessibilityinsights.io/docs/web/getstarted/fastpass/)
-- [WCAG 2.2, referencia rápida](https://www.w3.org/WAI/WCAG22/quickref/)
-- [Cómo usan la web las personas con discapacidad, W3C WAI](https://www.w3.org/WAI/people-use-web/)
