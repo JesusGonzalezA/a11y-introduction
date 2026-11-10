@@ -72,6 +72,14 @@ flotante permite elegir la versión **Con barrera** o **Con arreglo** sin recarg
 Su botón **Explicación** dice qué probar y, para cada cambio, dónde está, cuál
 es el problema y cuál la solución, con el código de las dos versiones.
 
+## Publicación
+
+El curso se publica en GitHub Pages en cada push a `develop`:
+<https://jesusgonzaleza.github.io/a11y-introduction/>. El workflow
+`.github/workflows/pages.yml` construye con `BASE_PATH=/a11y-introduction/` y el
+build copia `index.html` en cada ruta del curso y en `404.html`, para que los
+enlaces directos funcionen en un hosting estático.
+
 ## Validación
 
 ```bash
