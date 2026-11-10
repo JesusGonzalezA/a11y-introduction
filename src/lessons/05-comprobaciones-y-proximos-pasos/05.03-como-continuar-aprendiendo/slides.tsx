@@ -116,15 +116,8 @@ export const slides = [
         .
       </li>
       <li>
-        Consultar:{' '}
-        <a href="https://www.w3.org/WAI/WCAG22/quickref/">
-          WCAG 2.2, referencia rápida
-        </a>{' '}
-        y{' '}
-        <a href="https://www.w3.org/WAI/people-use-web/">
-          cómo usan la web las personas con discapacidad
-        </a>
-        .
+        Seguir aprendiendo: el{' '}
+        <a href="https://weaaare.com/cursos">catálogo de cursos de weAAAre</a>.
       </li>
     </ul>
     <p>
