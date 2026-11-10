@@ -15,7 +15,7 @@
 
 ## 3. Error · Niveles desordenados
 
-- [Ejemplo: abrir «Inspeccionar la exposición con barreras» y pulsar Headings]
+- [Ejemplo: abrir «Con barrera: revisar la exposición» y pulsar Headings]
 - h3 antes que h2: la jerarquía no cuadra
 - Recordar 3.1: nivel = relación, no tamaño
 
@@ -26,5 +26,5 @@
 
 ## 5. Solución · Corregir, recargar y volver a mirar
 
-- [Ejemplo: «Aplicar arreglo» y repetir]
+- [Ejemplo: elegir «Con arreglo» y repetir]
 - > «La herramienta enseña; tú decides.»

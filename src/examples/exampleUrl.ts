@@ -1,6 +1,6 @@
 export const examplesBase = `${import.meta.env.BASE_URL}ejemplos/`
 
-/** Enlace a una página de ejemplo con el arreglo desactivado o activado. */
+/** Enlace a una página de ejemplo con la barrera o con el arreglo. */
 export function exampleUrl(slug: string, fixed = false) {
   return `${examplesBase}${slug}${fixed ? '?arreglo=1' : ''}`
 }

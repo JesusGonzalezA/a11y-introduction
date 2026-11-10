@@ -17,7 +17,7 @@ interface FixHighlightsProps {
   located?: string
 }
 
-/** Marcas visuales sobre los elementos con `data-fix`; ocultas a las tecnologías de apoyo. */
+/** Marcas visuales sobre los elementos con `data-fix`; ocultas a las tecnologías asistivas. */
 export function FixHighlights({ fixes, fixed, located }: FixHighlightsProps) {
   const overlay = useRef<HTMLDivElement>(null)
   const [boxes, setBoxes] = useState<Box[]>([])

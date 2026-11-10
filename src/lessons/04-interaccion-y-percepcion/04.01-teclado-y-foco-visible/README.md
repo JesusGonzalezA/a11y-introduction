@@ -17,7 +17,7 @@
 
 | Error | Qué le pasa a Andrés | Solución |
 | --- | --- | --- |
-| `*:focus { outline: none }` | No sabe dónde está: navega a ciegas | `:focus-visible { outline: 3px solid … }` |
+| `*:focus { outline: none }` | No sabe dónde está el foco | `:focus-visible { outline: 3px solid … }` |
 | Cabecera `sticky` tapa el foco al retroceder | El foco existe, pero no se ve | `html { scroll-padding-top: 6rem }` |
 
 ## Ejemplo

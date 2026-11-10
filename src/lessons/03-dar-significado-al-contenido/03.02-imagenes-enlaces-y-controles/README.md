@@ -26,7 +26,7 @@
 ## Ejemplo
 
 - Página: noticia sobre el carril bici en «Diario de Barrio».
-- Demo: lista de enlaces y controles; escribir en el campo del boletín → **Aplicar arreglo** → repetir.
+- Demo: lista de enlaces y controles; escribir en el campo del boletín → elegir **Con arreglo** → repetir.
 - Código: `examples/NewsArticle/`.
 
 ## Conceptos clave

@@ -13,24 +13,24 @@ export const slides = [
     </SlideTitle>
     <p>
       Con la vista, una página se entiende de un vistazo. Con un lector de
-      pantalla se recorre por partes: la estructura es el mapa.
+      pantalla se recorre por partes, y la estructura es el mapa.
     </p>
     <p>En esta lección:</p>
     <ul>
-      <li>Encabezados y sus niveles: h1, h2, h3…</li>
-      <li>Regiones: cabecera, navegación, contenido principal y pie.</li>
-      <li>Un orden del HTML que conserve el sentido.</li>
+      <li>Encabezados y niveles: h1, h2, h3…</li>
+      <li>Regiones: cabecera, menú, contenido principal y pie.</li>
+      <li>Un HTML escrito en el orden en que debe leerse.</li>
     </ul>
   </Fragment>,
   <Fragment key="3.1-situacion">
     <SlideTitle kind="situacion">Elena quiere cocinar unas lentejas</SlideTitle>
     <PersonaCard
       id="elena"
-      task="Abre una receta en un blog. Quiere saltar directamente a los ingredientes y después seguir los pasos en orden."
+      task="Abre una receta en un blog. Quiere ir directa a los ingredientes y después seguir los pasos en orden."
     />
     <p>
-      Su lector le ofrece la lista de encabezados y de regiones para saltar
-      entre secciones, como quien echa un vistazo.
+      Su lector le da la lista de encabezados y de regiones para saltar de una
+      sección a otra.
     </p>
   </Fragment>,
   <Fragment key="3.1-error-estructura">
@@ -41,9 +41,9 @@ export const slides = [
       }
     </Code>
     <p>
-      <strong>Qué le pasa a Elena:</strong> su lector no encuentra ningún
-      encabezado ni región. Tiene que escuchar la página entera, desde el menú,
-      para llegar a los ingredientes.
+      <strong>Qué le pasa a Elena:</strong> su lector no encuentra encabezados
+      ni regiones. Tiene que escuchar toda la página, desde el menú, para llegar
+      a los ingredientes.
     </p>
   </Fragment>,
   <Fragment key="3.1-solucion-estructura">
@@ -55,7 +55,7 @@ export const slides = [
     </Code>
     <ul>
       <li>
-        El nivel indica la jerarquía, no el tamaño: el tamaño se cambia con CSS.
+        El nivel indica la jerarquía, no el tamaño. El tamaño se cambia con CSS.
       </li>
       <li>
         Un solo <code>h1</code> y un solo <code>main</code> por página.
@@ -73,7 +73,7 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Elena:</strong> el lector sigue el orden del HTML,
-      no el de la pantalla. Oye «cuece 35 minutos» antes de picar la cebolla.
+      no el de la pantalla. Oye «cuece 35 minutos» antes que «pica la cebolla».
     </p>
   </Fragment>,
   <Fragment key="3.1-solucion-orden">
@@ -86,15 +86,11 @@ export const slides = [
       }
     </Code>
     <ul>
-      <li>Escribe el HTML en el orden en que debe leerse; CSS solo coloca.</li>
+      <li>Escribe el HTML en el orden de lectura. El CSS solo coloca.</li>
       <li>
-        <code>ol</code> anuncia que son pasos y cuántos hay.
+        <code>ol</code> avisa de que es una lista y de cuántos pasos tiene.
       </li>
     </ul>
-    <ExampleLinks
-      slug="receta"
-      barrier="Recorrer la receta sin estructura"
-      fixed="Recorrer la receta con encabezados y regiones"
-    />
+    <ExampleLinks slug="receta" task="recorrer la receta" />
   </Fragment>,
 ]

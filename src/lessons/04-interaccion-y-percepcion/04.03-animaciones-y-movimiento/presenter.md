@@ -20,14 +20,14 @@
 
 ## 4. Error · Las animaciones ignoran la preferencia
 
-- [Ejemplo: abrir «Ver el festival con movimiento constante» con la emulación activada]
+- [Ejemplo: abrir «Con barrera: ver la web del festival» con la emulación activada]
 - Todo se mueve igual
 
 ## 5. Solución · prefers-reduced-motion
 
 - Media query = lee el ajuste: `reduce` / `no-preference`
 - Animar solo con `no-preference` → mejora progresiva
-- [Ejemplo: «Aplicar arreglo»: todo quieto]
+- [Ejemplo: elegir «Con arreglo»: todo quieto]
 
 ## 6. Error · Cartel sin fin
 

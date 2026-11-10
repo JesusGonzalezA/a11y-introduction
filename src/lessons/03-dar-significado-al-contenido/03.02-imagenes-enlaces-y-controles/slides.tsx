@@ -11,16 +11,13 @@ export const slides = [
     <SlideTitle kind="leccion">
       Imágenes, enlaces y controles comprensibles
     </SlideTitle>
-    <p>
-      Cada elemento necesita un texto que diga qué es o qué hace, aunque no se
-      vea.
-    </p>
+    <p>Cada elemento necesita un texto que diga qué es o qué hace.</p>
     <p>En esta lección:</p>
     <ul>
       <li>
-        Imágenes: qué escribir en el <code>alt</code>, y cuándo dejarlo vacío.
+        Imágenes: qué escribir en el <code>alt</code> y cuándo dejarlo vacío.
       </li>
-      <li>Enlaces: un texto que anticipe el destino.</li>
+      <li>Enlaces: un texto que diga adónde llevan.</li>
       <li>
         Botones y campos: una acción clara y una etiqueta que no desaparece.
       </li>
@@ -35,7 +32,7 @@ export const slides = [
   </Fragment>,
   <Fragment key="3.2-error-imagenes">
     <SlideTitle kind="error">
-      Imágenes con nombre de archivo como texto
+      Imágenes con el nombre del archivo como texto
     </SlideTitle>
     <Code tone="error" caption="Así está">
       {
@@ -44,24 +41,25 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Elena:</strong> oye «grafico final v2 punto png» y
-      no conoce los datos. Después oye el nombre de un icono que no aporta nada.
+      se queda sin los datos. Después oye el nombre de un icono que no aporta
+      nada.
     </p>
   </Fragment>,
   <Fragment key="3.2-solucion-imagenes">
     <SlideTitle kind="solucion">
       El alt depende de para qué sirve la imagen
     </SlideTitle>
-    <Code tone="solucion" caption="Informativa: contar lo que aporta">
+    <Code tone="solucion" caption="Informa: el alt cuenta lo que aporta">
       {
         '<img src="grafico.svg"\n  alt="Gráfico de barras: 1.200 viajes diarios\n       en marzo de 2025 y 2.450 en marzo de 2026.">'
       }
     </Code>
-    <Code tone="solucion" caption="Decorativa: alt vacío para que se ignore">
+    <Code tone="solucion" caption="Solo decora: alt vacío para que se ignore">
       {'<img src="icono-sobre.svg" alt="">'}
     </Code>
     <p>
-      Pregunta clave: ¿qué se perdería si no se viera la imagen? Sin{' '}
-      <code>alt</code>, el lector lee el nombre del archivo.
+      Pregúntate: ¿qué se perdería si no se viera la imagen? Y no quites el{' '}
+      <code>alt</code>: sin él, el lector lee el nombre del archivo.
     </p>
   </Fragment>,
   <Fragment key="3.2-error-enlace">
@@ -71,18 +69,18 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Elena:</strong> pide a su lector la lista de enlaces
-      de la página y oye «Leer más», sin contexto. ¿Más de qué?
+      y oye «Leer más», sin nada alrededor. ¿Más de qué?
     </p>
   </Fragment>,
   <Fragment key="3.2-solucion-enlace">
     <SlideTitle kind="solucion">
-      El texto del enlace anticipa el destino
+      El texto del enlace dice adónde lleva
     </SlideTitle>
     <Code tone="solucion" caption="Así se arregla">
       {'<a href="#informe">\n  Consultar el informe de movilidad 2026\n</a>'}
     </Code>
     <p>
-      Se entiende fuera de contexto, en una lista de enlaces o por voz: «pulsa
+      Se entiende solo: en una lista de enlaces o al decir por voz «pulsa
       consultar el informe».
     </p>
   </Fragment>,
@@ -104,8 +102,8 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Lucía:</strong> al empezar a escribir, el
-      placeholder desaparece y ya no recuerda qué pedía el campo. «Aceptar» no
-      dice qué va a pasar.
+      placeholder desaparece y ya no recuerda qué pedía el campo. «Aceptar»
+      tampoco dice qué va a pasar.
     </p>
     <p>A Elena, su lector solo le dice «campo de edición».</p>
   </Fragment>,
@@ -120,15 +118,11 @@ export const slides = [
     </Code>
     <ul>
       <li>
-        <code>for</code> e <code>id</code> unen etiqueta y campo: da nombre y
-        amplía la zona de clic.
+        <code>for</code> e <code>id</code> unen la etiqueta y el campo: le dan
+        nombre y amplían la zona de clic.
       </li>
-      <li>El placeholder es solo una pista, nunca la etiqueta.</li>
+      <li>El placeholder es una pista, nunca la etiqueta.</li>
     </ul>
-    <ExampleLinks
-      slug="noticia"
-      barrier="Leer la noticia y suscribirse con barreras"
-      fixed="Leer la noticia y suscribirse corregida"
-    />
+    <ExampleLinks slug="noticia" task="leer la noticia y suscribirse" />
   </Fragment>,
 ]

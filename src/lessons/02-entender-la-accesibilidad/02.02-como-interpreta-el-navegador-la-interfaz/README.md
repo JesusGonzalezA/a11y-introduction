@@ -24,12 +24,12 @@
 ## Ejemplo
 
 - Página: elegir sesión de «La ola tranquila» en Cine Alameda.
-- Demo: abrir el árbol de accesibilidad de las devtools → comparar `div` y `button` → **Aplicar arreglo** → elegir sesión y ver la confirmación.
+- Demo: abrir el árbol de accesibilidad de las devtools → comparar `div` y `button` → elegir **Con arreglo** → elegir sesión y ver la confirmación.
 - Código: `examples/CinemaBooking/`.
 
 ## Conceptos clave
 
-- HTML → árbol de accesibilidad → tecnología de apoyo.
+- HTML → árbol de accesibilidad → tecnología asistiva.
 - Nombre (qué es) · rol (qué tipo de control) · estado (cómo está).
 - ARIA añade información, no comportamiento ni teclado.
 

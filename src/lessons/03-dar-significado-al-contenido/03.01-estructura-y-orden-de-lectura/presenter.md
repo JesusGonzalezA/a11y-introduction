@@ -15,7 +15,7 @@
 ## 3. Error · Títulos y zonas que solo lo parecen
 
 - `div` grande y en negrita ≠ encabezado
-- [Ejemplo: abrir «Recorrer la receta sin estructura»; lista de encabezados vacía]
+- [Ejemplo: abrir «Con barrera: recorrer la receta»; lista de encabezados vacía]
 - Elena escucha menú, cabecera… hasta llegar
 
 ## 4. Solución · Encabezados con nivel y regiones
@@ -32,5 +32,5 @@
 ## 6. Solución · El HTML manda en el orden
 
 - Escribir en orden · `ol` anuncia «lista de 4 elementos»
-- [Ejemplo: «Aplicar arreglo»; repetir encabezados, regiones y pasos]
+- [Ejemplo: elegir «Con arreglo»; repetir encabezados, regiones y pasos]
 - > «CSS coloca; el HTML cuenta la historia.»

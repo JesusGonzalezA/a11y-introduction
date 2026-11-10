@@ -10,16 +10,16 @@ export const slides = [
   <Fragment key="4.3-leccion">
     <SlideTitle kind="leccion">Animaciones y movimiento</SlideTitle>
     <p>
-      Las animaciones pueden ayudar, pero el movimiento grande o constante marea
-      a unas personas y distrae a otras.
+      Una animación puede ayudar. Pero el movimiento grande o constante marea a
+      unas personas y distrae a otras.
     </p>
     <p>En esta lección:</p>
     <ul>
-      <li>Dónde pide una persona «reducir movimiento» a su sistema.</li>
+      <li>Dónde pide una persona «Reducir movimiento».</li>
       <li>
         Cómo lo lee CSS: la media query <code>prefers-reduced-motion</code>.
       </li>
-      <li>Por qué todo lo que se mueve solo debe poder pausarse.</li>
+      <li>Por qué todo lo que se mueve solo se debe poder pausar.</li>
     </ul>
   </Fragment>,
   <Fragment key="4.3-ajustes">
@@ -44,7 +44,7 @@ export const slides = [
       </li>
     </ul>
     <p>
-      Para probarlo sin cambiar el sistema: DevTools → Rendering → Emular{' '}
+      Para probarlo sin cambiar tu sistema: DevTools → Rendering → emular{' '}
       <code>prefers-reduced-motion: reduce</code>.
     </p>
   </Fragment>,
@@ -67,9 +67,9 @@ export const slides = [
       }
     </Code>
     <p>
-      <strong>Qué le pasa a Ana:</strong> aunque su sistema pide menos
-      movimiento, el fondo gira y el botón «Comprar abono» late sin parar. Se
-      marea y tiene que cerrar la página.
+      <strong>Qué le pasa a Ana:</strong> su sistema pide menos movimiento, pero
+      el fondo gira y el botón «Comprar abono» late sin parar. Se marea y cierra
+      la página.
     </p>
   </Fragment>,
   <Fragment key="4.3-solucion-preferencia">
@@ -87,7 +87,7 @@ export const slides = [
         <code>no-preference</code>.
       </li>
       <li>
-        El movimiento es una mejora que se añade, no algo que haya que quitar
+        El movimiento es un extra que se añade, no algo que haya que quitar
         después.
       </li>
     </ul>
@@ -103,8 +103,7 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Ana y a Lucía:</strong> los nombres de los grupos
-      pasan sin parar. Ana se marea; Lucía pierde la concentración y no consigue
-      leerlos.
+      pasan sin parar. Ana se marea. Lucía se distrae y no consigue leerlos.
     </p>
   </Fragment>,
   <Fragment key="4.3-solucion-pausa">
@@ -116,13 +115,9 @@ export const slides = [
     </Code>
     <p>
       Todo lo que se mueve solo durante más de 5 segundos necesita un control
-      para pausarlo, detenerlo u ocultarlo.
+      para pausarlo, pararlo u ocultarlo.
     </p>
-    <ExampleLinks
-      slug="festival"
-      barrier="Ver el festival con movimiento constante"
-      fixed="Ver el festival respetando la preferencia"
-    />
+    <ExampleLinks slug="festival" task="ver la web del festival" />
   </Fragment>,
   <Fragment key="4.3-preferencias">
     <SlideTitle kind="resumen">
@@ -147,7 +142,8 @@ export const slides = [
       </li>
     </ul>
     <p>
-      La persona ya ha dicho cómo necesita la web: nuestro CSS debe escucharla.
+      La persona ya ha dicho cómo necesita la web. Nuestro CSS tiene que
+      escucharla.
     </p>
   </Fragment>,
 ]

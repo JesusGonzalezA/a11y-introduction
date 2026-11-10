@@ -28,7 +28,7 @@
 - Demo:
   1. Activar «Reducir movimiento» en el sistema o en devtools (Rendering → Emulate CSS media feature `prefers-reduced-motion: reduce`).
   2. Con la barrera, todo sigue moviéndose.
-  3. **Aplicar arreglo**: sin movimiento y el cartel pasa a lista.
+  3. elegir **Con arreglo**: sin movimiento y el cartel pasa a lista.
   4. Quitar la emulación: vuelve la animación y aparece «Pausar el cartel».
 - Código: `examples/FestivalPage/`.
 

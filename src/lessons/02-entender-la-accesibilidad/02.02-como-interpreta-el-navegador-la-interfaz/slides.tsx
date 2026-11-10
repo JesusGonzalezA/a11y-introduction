@@ -12,7 +12,7 @@ export const slides = [
       Cómo interpreta el navegador nuestra interfaz
     </SlideTitle>
     <p>
-      Un lector de pantalla no ve la página: lee lo que el navegador le cuenta
+      Un lector de pantalla no ve la página. Lee lo que el navegador le cuenta
       de cada elemento.
     </p>
     <p>En esta lección:</p>
@@ -25,24 +25,25 @@ export const slides = [
   <Fragment key="2.2-arbol">
     <SlideTitle kind="leccion">Nombre, rol y estado</SlideTitle>
     <p>
-      HTML → el navegador crea el <strong>árbol de accesibilidad</strong> → la
-      tecnología de apoyo lo lee y lo anuncia.
+      El navegador lee el HTML y crea el <strong>árbol de accesibilidad</strong>
+      : la lista de lo que hay en la página. Las tecnologías asistivas, como el
+      lector de pantalla, leen ese árbol.
     </p>
     <Code tone="neutral">
       {'<button type="button" disabled>19:00 · Agotada</button>'}
     </Code>
     <ul>
       <li>
-        <strong>Nombre</strong> (qué es): «19:00 · Agotada».
+        <strong>Nombre</strong> (cómo se llama): «19:00 · Agotada».
       </li>
       <li>
-        <strong>Rol</strong> (qué tipo de control): botón.
+        <strong>Rol</strong> (qué es): botón.
       </li>
       <li>
         <strong>Estado</strong> (cómo está): no disponible.
       </li>
     </ul>
-    <p>Un lector lo anuncia así: «19:00 Agotada, botón, atenuado».</p>
+    <p>Un lector lo anuncia así: «19:00 Agotada, botón, no disponible».</p>
   </Fragment>,
   <Fragment key="2.2-situacion">
     <SlideTitle kind="situacion">
@@ -50,7 +51,7 @@ export const slides = [
     </SlideTitle>
     <PersonaCard
       id="elena"
-      task="Quiere ver una película esta tarde: elegir una sesión que tenga entradas y saber que la ha elegido."
+      task="Quiere ir al cine esta tarde: elegir una sesión con entradas y saber que la ha elegido."
     />
   </Fragment>,
   <Fragment key="2.2-error">
@@ -66,23 +67,29 @@ export const slides = [
       <strong>Qué le pasa a Elena:</strong>
     </p>
     <ul>
-      <li>Oye «16:30», sin rol: no sabe que puede pulsarlo.</li>
-      <li>La sesión agotada solo se distingue por estar en gris.</li>
-      <li>Al elegir, el mensaje aparece en pantalla, pero nadie se lo lee.</li>
+      <li>Oye «16:30» y nada más: no sabe que se puede pulsar.</li>
+      <li>La sesión agotada solo se distingue por el color gris.</li>
+      <li>
+        Al elegir, aparece un mensaje en pantalla, pero el lector no se lo lee.
+      </li>
     </ul>
   </Fragment>,
   <Fragment key="2.2-solucion-html">
-    <SlideTitle kind="solucion">Botones nativos con su estado</SlideTitle>
+    <SlideTitle kind="solucion">Botones de verdad, con su estado</SlideTitle>
     <Code tone="solucion" caption="Así se arregla">
       {
         '<button type="button" onclick="elegir()">16:30</button>\n<button type="button" disabled>\n  19:00 · Agotada\n</button>'
       }
     </Code>
-    <p>
-      El elemento <code>button</code> ya aporta rol, teclado y foco;{' '}
-      <code>disabled</code> aporta el estado. El texto «Agotada» lo hace visible
-      para todas las personas.
-    </p>
+    <ul>
+      <li>
+        <code>button</code> ya trae el rol, el teclado y el foco.
+      </li>
+      <li>
+        <code>disabled</code> añade el estado.
+      </li>
+      <li>El texto «Agotada» lo explica a todas las personas.</li>
+    </ul>
   </Fragment>,
   <Fragment key="2.2-solucion-aria">
     <SlideTitle kind="solucion">Anunciar la confirmación con ARIA</SlideTitle>
@@ -93,21 +100,17 @@ export const slides = [
     </Code>
     <ul>
       <li>
-        <code>role="status"</code>: el lector anuncia el texto cuando cambia,
-        sin mover el foco.
+        <code>role="status"</code>: el lector lee el texto cuando cambia, sin
+        mover el foco.
       </li>
       <li>
-        <code>aria-atomic="true"</code>: lo lee completo.
+        <code>aria-atomic="true"</code>: lo lee entero.
       </li>
     </ul>
     <p>
-      Regla de oro: primero HTML. ARIA solo añade información; no añade teclado
+      Regla de oro: primero HTML. ARIA añade información, pero no añade teclado
       ni comportamiento.
     </p>
-    <ExampleLinks
-      slug="cine"
-      barrier="Ver las sesiones en el árbol de accesibilidad"
-      fixed="Elegir sesión con botones y confirmación"
-    />
+    <ExampleLinks slug="cine" task="elegir una sesión" />
   </Fragment>,
 ]

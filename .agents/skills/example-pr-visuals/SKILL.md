@@ -20,8 +20,8 @@ review locally; the agent leaves every affected surface ready to inspect.
    `#/leccion-N-M`), examples at `/ejemplos/<slug>` with `?arreglo=1` for the
    fixed state, and Markdown content at `/contenido/`.
 3. Confirm that each affected example page opens in both states, that the floating
-   toggle switches between them, and that "Ver cambios" highlights every fix listed
-   in its definition. Confirm that every affected slide is reachable in teaching
+   bar switches between "Con barrera" and "Con arreglo", and that "Explicación"
+   highlights every fix listed in its definition. Confirm that every affected slide is reachable in teaching
    order. Render every changed slide at the review viewport and confirm that all
    visible content and links remain inside the slide canvas without clipping or
    overlap. Leave those surfaces running when the author is actively reviewing them.

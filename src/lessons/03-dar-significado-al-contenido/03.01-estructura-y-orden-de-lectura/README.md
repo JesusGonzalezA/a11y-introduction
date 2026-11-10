@@ -24,7 +24,7 @@
 ## Ejemplo
 
 - Página: receta de lentejas en el blog «La Cuchara Lenta».
-- Demo: lista de encabezados y de regiones del lector (o del inspector) → leer los pasos → **Aplicar arreglo** → repetir.
+- Demo: lista de encabezados y de regiones del lector (o del inspector) → leer los pasos → elegir **Con arreglo** → repetir.
 - Código: `examples/RecipePage/`.
 
 ## Conceptos clave

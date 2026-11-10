@@ -24,8 +24,8 @@
 ## Ejemplo
 
 - Página: exposición «Hilos del Mediterráneo» del Museo de Arte Textil.
-- Demo: instalar [Headings](https://pauljadam.com/bookmarklets/headings.html) e [Images](https://pauljadam.com/bookmarklets/images.html) de Paul J. Adam → ejecutarlos con la barrera → **Aplicar arreglo**, recargar si hace falta y repetir.
-- Cerrar el panel «Ver cambios» antes de ejecutar los bookmarklets.
+- Demo: instalar [Headings](https://pauljadam.com/bookmarklets/headings.html) e [Images](https://pauljadam.com/bookmarklets/images.html) de Paul J. Adam → ejecutarlos con la barrera → elegir **Con arreglo**, recargar si hace falta y repetir.
+- Cerrar la «Explicación» antes de ejecutar los bookmarklets.
 - Código: `examples/MuseumExhibition/`.
 
 ## Conceptos clave

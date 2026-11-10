@@ -32,9 +32,9 @@ export function ExamplesIndex({
           </p>
         )}
         <p>
-          Cada página se abre con una barrera. Usa el botón flotante «Aplicar
-          arreglo» para corregirla y «Ver cambios» para saber dónde está cada
-          cambio y por qué.
+          Cada página se abre con una barrera. Abajo a la derecha verás una
+          barra flotante: elige «Con arreglo» para corregir la página y abre
+          «Explicación» para saber qué cambia, dónde y por qué.
         </p>
         {groups.map(({ module, examples: moduleExamples }) => (
           <section

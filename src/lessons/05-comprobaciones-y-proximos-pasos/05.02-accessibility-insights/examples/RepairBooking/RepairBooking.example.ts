@@ -7,14 +7,20 @@ export const repairBookingExample: ExampleDefinition = {
   lesson: '5.2',
   lessonTitle: 'Detectar problemas con Accessibility Insights',
   title: 'Pide cita · Taller La Cadena',
-  tryIt:
-    'Cierra este panel y ejecuta FastPass. Localiza el campo que falla, aplica el arreglo y repite la comprobación. Después recorre el formulario con Tab stops.',
+  tryIt: [
+    'Cierra esta explicación.',
+    'Ejecuta FastPass en Accessibility Insights y busca el campo que falla.',
+    'Elige «Con arreglo» y repite el análisis.',
+    'Activa Tab stops y recorre el formulario con Tab.',
+  ],
   fixes: [
     {
       id: 'label',
-      title: 'El campo de teléfono tiene una etiqueta asociada',
-      where: 'Segundo campo del formulario, «Teléfono».',
-      why: 'El texto «Teléfono» se ve encima del campo, pero es un span sin relación con él: el campo no tiene nombre accesible y FastPass lo marca. Una label con for e id lo nombra y se mantiene visible.',
+      title: 'El campo «Teléfono» tiene etiqueta',
+      where: 'Segundo campo del formulario.',
+      problem:
+        '«Teléfono» se ve encima del campo, pero es un span suelto. El campo no tiene nombre: el lector solo dice «campo de edición».',
+      solution: 'Una label unida al campo con for e id le da nombre.',
       before: '<span>Teléfono</span>\n<input id="telefono" type="tel">',
       after:
         '<label for="telefono">Teléfono</label>\n<input id="telefono" type="tel"\n  autocomplete="tel">',

@@ -27,11 +27,11 @@
 ## 5. Error · El botón solo responde al ratón
 
 - `div` + `onclick` = se ve, no se alcanza
-- [Ejemplo: abrir «Intentar comprar solo con teclado» y recorrer con Tab]
+- [Ejemplo: abrir «Con barrera: comprar la taza con teclado» y recorrer con Tab]
 - Tab: envíos → dudas · el botón no existe para el teclado
 
 ## 6. Solución · Botón HTML de verdad
 
 - `button` = foco + Enter + Espacio + rol, gratis
-- [Ejemplo: «Aplicar arreglo» y «Ver cambios»; repetir con Tab y Enter]
+- [Ejemplo: elegir «Con arreglo» y abrir «Explicación»; repetir con Tab y Enter]
 - > «Si funciona solo con ratón, no está terminado.»

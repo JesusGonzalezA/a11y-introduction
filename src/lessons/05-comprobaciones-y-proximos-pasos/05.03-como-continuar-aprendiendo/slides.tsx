@@ -5,9 +5,7 @@ import { SlideTitle } from '../../../slides/parts'
 export const slides = [
   <Fragment key="5.3-resumen">
     <SlideTitle kind="leccion">Cómo continuar aprendiendo</SlideTitle>
-    <p>
-      Antes de seguir, repasemos qué necesita cada persona y cómo se lo damos:
-    </p>
+    <p>Primero, un repaso: qué necesita cada persona y cómo se lo damos.</p>
     <table className="summary-table">
       <thead>
         <tr>
@@ -27,16 +25,16 @@ export const slides = [
         <tr>
           <th scope="row">Elena</th>
           <td>Que el lector le cuente qué es cada cosa</td>
-          <td>Encabezados, regiones, alt, label, ARIA justa</td>
+          <td>Encabezados, regiones, alt, label y ARIA solo si hace falta</td>
         </tr>
         <tr>
           <th scope="row">Lucía</th>
           <td>Textos claros que no desaparecen</td>
-          <td>Etiquetas visibles, botones con acción, pausa</td>
+          <td>Etiquetas visibles, botones que nombran la acción, pausa</td>
         </tr>
         <tr>
           <th scope="row">Manuel</th>
-          <td>Leer sin depender del color ni del tamaño</td>
+          <td>Leer sin depender del color y con su tamaño de letra</td>
           <td>
             Texto en el estado, contraste, <code>rem</code>
           </td>

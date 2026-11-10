@@ -8,9 +8,9 @@ export const course = {
   description:
     'Veremos, desde la experiencia de personas concretas, los errores de accesibilidad más frecuentes en la web y cómo resolverlos con HTML y CSS.',
   objectives: [
-    'Reconocer cómo usan la web personas con distintas necesidades.',
+    'Reconocer cómo usan la web personas con necesidades distintas.',
     'Dar significado al contenido: estructura, imágenes, enlaces, botones y campos.',
-    'Permitir usar la página con teclado y percibirla con color, tamaño de letra y movimiento adecuados.',
+    'Hacer que la página se use con teclado y se perciba bien: color, tamaño de letra y movimiento.',
     'Hacer una primera revisión con herramientas sencillas y conocer sus límites.',
   ],
 }

@@ -13,16 +13,16 @@ export const slides = [
       Personas, formas de interacción y barreras
     </SlideTitle>
     <p>
-      Una <strong>barrera</strong> aparece cuando la página exige una forma de
-      uso que la persona no puede realizar. No es un problema de la persona: es
-      una decisión de diseño o de código.
+      Una <strong>barrera</strong> es algo de la página que impide a una persona
+      usarla. No es un problema de la persona: nace de una decisión de diseño o
+      de código.
     </p>
     <p>En esta lección:</p>
     <ul>
       <li>Conocerás a las cinco personas que nos acompañan en el curso.</li>
-      <li>Relacionarás cada tipo de necesidad con una barrera típica.</li>
+      <li>Verás qué barrera encuentra cada tipo de necesidad.</li>
       <li>
-        Verás la barrera más básica: una acción que solo funciona con ratón.
+        Arreglarás la barrera más básica: un botón que solo funciona con ratón.
       </li>
     </ul>
   </Fragment>,
@@ -42,8 +42,8 @@ export const slides = [
     <SlideTitle kind="leccion">Cada necesidad, una barrera típica</SlideTitle>
     <ul>
       <li>
-        <strong>Visual:</strong> un estado que solo se muestra en verde o rojo.
-        Quien no distingue esos colores pierde la información.
+        <strong>Visual:</strong> un estado que solo se indica con verde o rojo.
+        Quien no distingue esos colores no se entera.
       </li>
       <li>
         <strong>Auditiva:</strong> un vídeo sin subtítulos. Quien no oye se
@@ -55,19 +55,19 @@ export const slides = [
       </li>
       <li>
         <strong>Cognitiva:</strong> instrucciones confusas o que desaparecen.
-        Cuesta entender qué hacer.
+        Cuesta saber qué hacer.
       </li>
     </ul>
     <p>
-      Las necesidades pueden ser permanentes, temporales (un brazo roto) o de
-      situación (el móvil en una mano).
+      Una necesidad puede ser permanente, temporal (un brazo roto) o de un
+      momento (el móvil en una mano).
     </p>
   </Fragment>,
   <Fragment key="2.1-situacion">
     <SlideTitle kind="situacion">Andrés quiere comprar una taza</SlideTitle>
     <PersonaCard
       id="andres"
-      task="Está en la ficha de una taza de una tienda online y quiere añadirla a la cesta."
+      task="Está en la ficha de una taza, en una tienda online, y quiere añadirla a la cesta."
     />
   </Fragment>,
   <Fragment key="2.1-error">
@@ -76,14 +76,14 @@ export const slides = [
     </SlideTitle>
     <p>
       Parece un botón, pero es un <code>div</code> con un evento de clic. El
-      teclado no puede llegar a él.
+      teclado no llega a él.
     </p>
     <Code tone="error" caption="Así está">
       {'<div class="boton" onclick="anadir()">\n  Añadir a la cesta\n</div>'}
     </Code>
     <p>
-      <strong>Qué le pasa a Andrés:</strong> pulsa Tab y el foco salta del
-      enlace de envíos al de dudas. Ve el botón, pero no puede comprar.
+      <strong>Qué le pasa a Andrés:</strong> pulsa Tab y el foco se salta el
+      botón. Lo ve, pero no puede comprar.
     </p>
   </Fragment>,
   <Fragment key="2.1-solucion">
@@ -94,16 +94,12 @@ export const slides = [
       }
     </Code>
     <ul>
-      <li>Tab lo alcanza y el foco se ve.</li>
-      <li>Enter y Espacio lo activan, sin programar nada más.</li>
+      <li>Tab llega a él y el foco se ve.</li>
+      <li>Enter y Espacio lo pulsan, sin programar nada más.</li>
       <li>
-        El control por voz y el lector de pantalla lo reconocen como botón.
+        El lector de pantalla y el control por voz lo reconocen como botón.
       </li>
     </ul>
-    <ExampleLinks
-      slug="tienda-online"
-      barrier="Intentar comprar solo con teclado"
-      fixed="Comprar con el botón corregido"
-    />
+    <ExampleLinks slug="tienda-online" task="comprar la taza con teclado" />
   </Fragment>,
 ]
