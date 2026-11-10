@@ -13,7 +13,7 @@ export const slides = [
       ))}
     </ul>
     <p>
-      Es una primera base: ARIA avanzado, auditorías completas y tests
+      Es una primera base. ARIA avanzado, auditorías completas y tests
       automáticos quedan para otros cursos.
     </p>
   </Fragment>,
@@ -40,17 +40,16 @@ export const slides = [
   </Fragment>,
   <Fragment key="materiales">
     <SlideTitle kind="leccion">Dónde encontrar los materiales</SlideTitle>
-    <p>Para cada módulo tienes tres materiales:</p>
+    <p>Cada lección tiene tres materiales:</p>
     <ul>
       <li>
-        <strong>Diapositivas:</strong> se entienden por sí solas, sin el vídeo.
+        <strong>Diapositivas:</strong> se entienden solas, sin el vídeo.
       </li>
       <li>
-        <strong>Ejemplos:</strong> páginas con el error; el botón «Aplicar
-        arreglo» lo corrige y «Ver cambios» explica dónde y por qué.
+        <strong>Ejemplos:</strong> páginas para probar cada error y su arreglo.
       </li>
       <li>
-        <strong>Contenido:</strong> resumen de cada lección, fuentes y
+        <strong>Contenido:</strong> resumen de la lección, con fuentes y
         comprobaciones.
       </li>
     </ul>

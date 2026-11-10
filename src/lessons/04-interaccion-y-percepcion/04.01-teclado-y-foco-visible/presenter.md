@@ -15,7 +15,7 @@
 ## 3. Error · Foco borrado con CSS
 
 - `outline: none` «porque queda feo»
-- [Ejemplo: abrir «Entrar en la cuenta sin foco visible»; Tab varias veces]
+- [Ejemplo: abrir «Con barrera: entrar en la cuenta con teclado»; Tab varias veces]
 - > «Quitar el foco es como quitarle el cursor al ratón.»
 
 ## 4. Solución · Foco visible con contraste
@@ -30,5 +30,5 @@
 ## 6. Solución · scroll-padding-top
 
 - Reservar el alto de la cabecera
-- [Ejemplo: «Aplicar arreglo»; recorrer hacia delante y atrás]
+- [Ejemplo: elegir «Con arreglo»; recorrer hacia delante y atrás]
 - Comprobación de 1 minuto: desenchufar el ratón y recorrer la página

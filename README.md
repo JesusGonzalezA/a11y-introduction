@@ -67,9 +67,10 @@ Cada lección vive en `src/lessons/<módulo>/<lección>/`:
 
 ## Páginas de ejemplo
 
-Cada página es un sitio creíble y distinto que se abre con la barrera. El botón
-flotante **Aplicar arreglo** la corrige sin recargar y **Ver cambios** resalta
-dónde está cada cambio, explica por qué y muestra el código antes y después.
+Cada página es un sitio creíble y distinto que se abre con la barrera. Una barra
+flotante permite elegir la versión **Con barrera** o **Con arreglo** sin recargar.
+Su botón **Explicación** dice qué probar y, para cada cambio, dónde está, cuál
+es el problema y cuál la solución, con el código de las dos versiones.
 
 ## Validación
 

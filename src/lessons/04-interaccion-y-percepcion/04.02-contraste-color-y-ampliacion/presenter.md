@@ -14,7 +14,7 @@
 ## 3. Error · Solo color y gris claro
 
 - Punto rojo = cancelado… si distingues el rojo
-- [Ejemplo: abrir «Consultar los horarios con barreras»; devtools → Rendering → simular deuteranopía]
+- [Ejemplo: abrir «Con barrera: consultar el autobús»; devtools → Rendering → simular deuteranopía]
 - Medir el gris: 2,07:1
 
 ## 4. Solución · Texto y contraste
@@ -42,4 +42,4 @@
 ## 8. Solución · Cajas flexibles
 
 - Sin alturas fijas · que crezca
-- [Ejemplo: «Aplicar arreglo»; zoom 200 % y 320 px]
+- [Ejemplo: elegir «Con arreglo»; zoom 200 % y 320 px]

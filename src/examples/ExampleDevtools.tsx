@@ -10,12 +10,18 @@ interface ExampleDevtoolsProps {
   onFixedChange: (fixed: boolean) => void
 }
 
+const versions = [
+  { fixed: false, label: 'Con barrera', mark: '✕' },
+  { fixed: true, label: 'Con arreglo', mark: '✓' },
+]
+
 const reducedMotion = () =>
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
 
 /**
- * Herramienta flotante del curso: alterna el arreglo y explica cada cambio.
- * Va después de la página para no alterar su orden de lectura ni de foco.
+ * Herramienta flotante del curso: elige la versión de la página (con barrera o
+ * con arreglo) y explica cada cambio. Va después de la página para no alterar
+ * su orden de lectura ni de foco.
  */
 export function ExampleDevtools({
   example,
@@ -38,7 +44,12 @@ export function ExampleDevtools({
     setLocated(fixId)
   }
 
-  // Escape cierra el panel y devuelve el foco al botón que lo abrió.
+  const close = () => {
+    setOpen(false)
+    toggleRef.current?.focus()
+  }
+
+  // Escape cierra la explicación y devuelve el foco al botón que la abrió.
   useEffect(() => {
     if (!open) return
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -50,6 +61,8 @@ export function ExampleDevtools({
     return () => document.removeEventListener('keydown', closeOnEscape)
   }, [open])
 
+  const count = example.fixes.length
+
   return (
     <div className="example-devtools" data-example-devtools="">
       {open && highlight && (
@@ -60,22 +73,41 @@ export function ExampleDevtools({
         className="example-devtools__panel"
         hidden={!open}
       >
-        <p className="example-devtools__eyebrow">
-          Lección {example.lesson} · {example.lessonTitle}
-        </p>
+        <div className="example-devtools__panel-header">
+          <p className="example-devtools__eyebrow">
+            Lección {example.lesson} · {example.lessonTitle}
+          </p>
+          <button
+            type="button"
+            className="example-devtools__button"
+            onClick={close}
+          >
+            Cerrar
+          </button>
+        </div>
         <p className="example-devtools__state">
           {fixed
-            ? 'Estás viendo la página con el arreglo aplicado.'
+            ? 'Estás viendo la página con el arreglo.'
             : 'Estás viendo la página con la barrera.'}
         </p>
-        <p>{example.tryIt}</p>
+        <p className="example-devtools__label">Pruébalo</p>
+        <ol className="example-devtools__steps">
+          {example.tryIt.map((step) => (
+            <li key={step}>{step}</li>
+          ))}
+        </ol>
+        <p className="example-devtools__label">
+          {count === 1
+            ? 'Qué cambia: 1 arreglo'
+            : `Qué cambia: ${count} arreglos`}
+        </p>
         <label className="example-devtools__option">
           <input
             type="checkbox"
             checked={highlight}
             onChange={(event) => setHighlight(event.target.checked)}
           />
-          Resaltar los cambios en la página
+          Marcar los cambios en la página
         </label>
         <ol className="example-devtools__fixes">
           {example.fixes.map((fix, index) => (
@@ -89,31 +121,35 @@ export function ExampleDevtools({
               <dl className="example-devtools__details">
                 <dt>Dónde</dt>
                 <dd>{fix.where}</dd>
-                <dt>Por qué</dt>
-                <dd>{fix.why}</dd>
+                <dt>Problema</dt>
+                <dd>{fix.problem}</dd>
+                <dt>Solución</dt>
+                <dd>{fix.solution}</dd>
               </dl>
-              <p
-                className={`example-devtools__code-label${fixed ? '' : ' example-devtools__code-label--current'}`}
-              >
-                Sin arreglo{fixed ? '' : ' · en pantalla'}
-              </p>
-              <pre className="example-devtools__code">
-                <code>{fix.before}</code>
-              </pre>
-              <p
-                className={`example-devtools__code-label${fixed ? ' example-devtools__code-label--current' : ''}`}
-              >
-                Con arreglo{fixed ? ' · en pantalla' : ''}
-              </p>
-              <pre className="example-devtools__code">
-                <code>{fix.after}</code>
-              </pre>
+              {versions.map((version) => {
+                const current = version.fixed === fixed
+                return (
+                  <div key={version.label}>
+                    <p
+                      className={`example-devtools__code-label${current ? ' example-devtools__code-label--current' : ''}`}
+                    >
+                      <span aria-hidden="true">{version.mark} </span>
+                      {version.label}
+                      {current ? ' · lo que ves ahora' : ''}
+                    </p>
+                    <pre className="example-devtools__code">
+                      <code>{version.fixed ? fix.after : fix.before}</code>
+                    </pre>
+                  </div>
+                )
+              })}
               <button
                 type="button"
-                className="example-devtools__locate"
+                className="example-devtools__button"
+                aria-label={`Mostrar en la página: ${fix.title}`}
                 onClick={() => locate(fix.id)}
               >
-                Localizar «{fix.title}»
+                Mostrar en la página
               </button>
             </li>
           ))}
@@ -123,20 +159,34 @@ export function ExampleDevtools({
         </a>
       </div>
       <div className="example-devtools__bar">
-        <button
-          type="button"
-          className="example-devtools__switch"
-          aria-pressed={fixed}
-          onClick={() => onFixedChange(!fixed)}
+        <div
+          role="radiogroup"
+          aria-labelledby={`${id}-version`}
+          className="example-devtools__versions"
         >
-          <span className="example-devtools__track" aria-hidden="true">
-            <span className="example-devtools__thumb" />
+          <span id={`${id}-version`} className="example-devtools__bar-label">
+            Ver la página
           </span>
-          Aplicar arreglo
-        </button>
-        <span className="example-devtools__switch-state" aria-hidden="true">
-          {fixed ? 'Activado' : 'Desactivado'}
-        </span>
+          <span className="example-devtools__segments">
+            {versions.map((version) => (
+              <label key={version.label} className="example-devtools__choice">
+                <input
+                  type="radio"
+                  className="example-devtools__radio"
+                  name={`${id}-version`}
+                  checked={version.fixed === fixed}
+                  onChange={() => onFixedChange(version.fixed)}
+                />
+                <span
+                  className={`example-devtools__choice-text example-devtools__choice-text--${version.fixed ? 'fixed' : 'barrier'}`}
+                >
+                  <span aria-hidden="true">{version.mark}</span>
+                  {version.label}
+                </span>
+              </label>
+            ))}
+          </span>
+        </div>
         <button
           ref={toggleRef}
           type="button"
@@ -145,7 +195,7 @@ export function ExampleDevtools({
           aria-controls={`${id}-panel`}
           onClick={() => setOpen(!open)}
         >
-          Ver cambios ({example.fixes.length})
+          Explicación
         </button>
       </div>
     </div>

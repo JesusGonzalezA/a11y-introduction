@@ -26,7 +26,7 @@ export const slides = [
       </li>
       <li>
         Todo se debe poder <strong>alcanzar</strong>, <strong>ver</strong>,{' '}
-        <strong>activar</strong> y <strong>abandonar</strong> con teclado.
+        <strong>activar</strong> y <strong>abandonar</strong> con el teclado.
       </li>
     </ul>
   </Fragment>,
@@ -45,8 +45,8 @@ export const slides = [
       {'*:focus {\n  outline: none;\n}'}
     </Code>
     <p>
-      <strong>Qué le pasa a Andrés:</strong> pulsa Tab y no sabe dónde está.
-      ¿Escribe en el carné o en el PIN? ¿Está ya en «Entrar»? Navega a ciegas.
+      <strong>Qué le pasa a Andrés:</strong> pulsa Tab y no sabe dónde está. ¿Va
+      a escribir en el carné o en el PIN? ¿Ha llegado ya a «Entrar»?
     </p>
   </Fragment>,
   <Fragment key="4.1-solucion-foco">
@@ -60,13 +60,13 @@ export const slides = [
     </Code>
     <ul>
       <li>
-        <code>:focus-visible</code> es un selector de CSS: se aplica cuando el
-        navegador sabe que hace falta ver el foco, como al usar el teclado.
+        <code>:focus-visible</code> muestra el foco cuando hace falta verlo, por
+        ejemplo al usar el teclado.
       </li>
       <li>
-        Nunca quites el <code>outline</code> sin poner otro indicador. Contraste
-        mínimo 3:1 con el fondo.
+        Nunca quites el <code>outline</code> sin poner otro indicador.
       </li>
+      <li>Contraste mínimo del indicador: 3:1 con el fondo.</li>
     </ul>
   </Fragment>,
   <Fragment key="4.1-error-tapado">
@@ -77,9 +77,8 @@ export const slides = [
       {'.cabecera {\n  position: sticky;\n  top: 0;\n}'}
     </Code>
     <p>
-      <strong>Qué le pasa a Andrés:</strong> al volver hacia arriba con Shift +
-      Tab, el enlace con foco queda debajo de la cabecera. El foco existe, pero
-      no se ve.
+      <strong>Qué le pasa a Andrés:</strong> al subir con Shift + Tab, el enlace
+      con foco queda debajo de la cabecera. El foco está, pero no se ve.
     </p>
   </Fragment>,
   <Fragment key="4.1-solucion-tapado">
@@ -90,17 +89,13 @@ export const slides = [
       {'html {\n  scroll-padding-top: 6rem;\n}'}
     </Code>
     <p>
-      Al desplazarse hasta el elemento con foco, el navegador deja ese margen
-      libre arriba.
+      Cuando el navegador se desplaza hasta el elemento con foco, deja ese
+      espacio libre arriba.
     </p>
     <p>
-      Compruébalo: recorre la página entera hacia delante y hacia atrás, sin
-      ratón, mirando siempre dónde está el foco.
+      Compruébalo: recorre la página hacia delante y hacia atrás, sin ratón,
+      mirando siempre dónde está el foco.
     </p>
-    <ExampleLinks
-      slug="biblioteca"
-      barrier="Entrar en la cuenta sin foco visible"
-      fixed="Entrar en la cuenta con foco visible"
-    />
+    <ExampleLinks slug="biblioteca" task="entrar en la cuenta con teclado" />
   </Fragment>,
 ]

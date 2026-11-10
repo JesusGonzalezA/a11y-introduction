@@ -13,13 +13,13 @@
 
 ## 3. Error · Texto no unido al campo
 
-- [Ejemplo: abrir «Analizar el formulario con el campo sin etiqueta»; FastPass]
+- [Ejemplo: abrir «Con barrera: analizar el formulario de cita»; FastPass]
 - Regla de etiqueta → instancia → resaltado
 
 ## 4. Solución · Asociar y repetir
 
 - `label for` + `id`
-- [Ejemplo: «Aplicar arreglo»; Start over; Tab stops]
+- [Ejemplo: elegir «Con arreglo»; Start over; Tab stops]
 - Tab stops = el recorrido de Andrés dibujado
 
 ## 5. Cero errores no significa accesible

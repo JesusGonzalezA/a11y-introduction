@@ -38,11 +38,11 @@
 
 - Escribe → la pista desaparece → ¿qué era?
 - Elena: «campo de edición» sin nombre
-- [Ejemplo: abrir «Leer la noticia y suscribirse con barreras»; escribir en el campo]
+- [Ejemplo: abrir «Con barrera: leer la noticia y suscribirse»; escribir en el campo]
 
 ## 9. Solución · Etiqueta visible y botón con acción
 
 - `label for` + `id` · clic en la etiqueta enfoca el campo
 - «Suscribirme» dice lo que pasa
-- [Ejemplo: «Aplicar arreglo» y «Ver cambios»: cinco arreglos]
+- [Ejemplo: elegir «Con arreglo» y abrir «Explicación»: cinco arreglos]
 - > «El placeholder es una pista, nunca la etiqueta.»

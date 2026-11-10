@@ -85,12 +85,13 @@ añadir slides de tipo «Lección» con conceptos previos y cerrar con un «Resu
 - `slides.tsx`: se entiende sin el vídeo ni otro material. Usa las piezas de
   `src/slides/parts.tsx`: `SlideTitle` (tipo `leccion`, `situacion`, `error`,
   `solucion`, `comprobar` o `resumen`), `PersonaCard`, `Code` (tono `error`,
-  `solucion` o `neutral`) y `ExampleLinks`. La primera slide es de tipo
+  `solucion` o `neutral`) y `ExampleLinks` (recibe la tarea y enlaza las versiones
+  «Con barrera» y «Con arreglo»). La primera slide es de tipo
   `leccion` y su título es el nombre completo de la lección. Cada título nombra
   el concepto o el error concreto en lenguaje cotidiano. El texto de error dice
   «Qué le pasa a <persona>». El código reproduce el antes y el después de la
-  definición del ejemplo. Los enlaces se rotulan por la interacción que permiten
-  revisar. **Nunca muestres tiempos en las slides.**
+  definición del ejemplo. Los enlaces nombran la tarea que permiten probar, en
+  minúscula y sin punto: «comprar la taza con teclado». **Nunca muestres tiempos en las slides.**
 - `presenter.md`: guía para presentar, no texto para leer. Por cada slide, un
   apartado `## N. Título` con palabras clave en viñetas, frases importantes como
   cita (`> «…»`) y acotaciones `[Ejemplo: …]` cuando cambia la pantalla. La
@@ -100,8 +101,8 @@ añadir slides de tipo «Lección» con conceptos previos y cerrar con un «Resu
   (página, pasos de la demo, código), Conceptos clave, Pruebas (automatizadas y
   manuales pendientes) y Fuentes. Sin prosa larga ni duplicar las slides.
 - `examples/`: páginas de ejemplo de la lección.
-- `*.example.ts`: definición de la página (slug, lección, título, qué probar y lista
-  de arreglos con dónde, por qué y código antes/después). Se registra una vez en
+- `*.example.ts`: definición de la página (slug, lección, título, pasos breves para
+  probarla y lista de arreglos con dónde, problema, solución y código antes/después). Se registra una vez en
   `src/examples/exampleRegistry.ts`, en el orden del curso.
 - `*.test.tsx`: comportamiento, semántica accesible y teclado de la página con y sin
   arreglo.
@@ -118,9 +119,12 @@ la sirve en `/ejemplos/<slug>`; `?arreglo=1` la abre con el arreglo aplicado.
 - La página recibe `fixed: boolean` y muestra por defecto la barrera. No incluye
   rótulos didácticos: la herramienta flotante del curso explica el cambio.
 - Marca con `data-fix="<id>"` cada elemento que cambia, en ambos estados, para que
-  «Ver cambios» lo resalte. Cada `id` corresponde a un arreglo de la definición.
-- Cada arreglo dice dónde está, por qué la versión sin arreglo es una barrera y
-  muestra el código antes y después con los mismos detalles que la página.
+  la «Explicación» lo resalte. Cada `id` corresponde a un arreglo de la definición.
+- Cada arreglo dice dónde está, cuál es el problema (qué falla y a quién afecta) y
+  cuál es la solución, en una o dos frases cortas cada uno, y muestra el código
+  antes y después con los mismos detalles que la página.
+- La herramienta flotante usa siempre los mismos nombres: versiones «Con barrera» y
+  «Con arreglo» y botón «Explicación». Slides, guiones y README los citan igual.
 - Las barreras se acotan al bloque BEM de la página; nunca afectan a la
   herramienta flotante ni capturan el teclado de forma real.
 - La herramienta flotante no añade encabezados ni regiones, para no alterar lo que

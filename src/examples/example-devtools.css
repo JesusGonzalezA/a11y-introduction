@@ -50,7 +50,7 @@
   gap: 0.5rem 0.75rem;
   padding: 0.5rem 0.5rem 0.5rem 0.75rem;
   border: 2px solid var(--devtools-border);
-  border-radius: 999px;
+  border-radius: 1.75rem;
   background: var(--devtools-bg);
   box-shadow:
     0 4px 0 0 #161616,
@@ -62,61 +62,91 @@
   cursor: pointer;
 }
 
-.example-devtools__switch {
+.example-devtools__versions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem 0.625rem;
+}
+
+.example-devtools__bar-label {
+  color: var(--devtools-muted);
+  font-weight: 700;
+}
+
+.example-devtools__segments {
+  display: inline-flex;
+  gap: 0.125rem;
+  padding: 0.125rem;
+  border: 2px solid var(--devtools-border);
+  border-radius: 999px;
+}
+
+.example-devtools__choice {
+  position: relative;
+  display: inline-flex;
+}
+
+/* El radio nativo cubre su opción: conserva teclado, foco y estado. */
+.example-devtools__radio {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.example-devtools__choice-text {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem;
-  border: 0;
+  gap: 0.375rem;
+  min-block-size: 2.25rem;
+  padding: 0.25rem 0.875rem;
   border-radius: 999px;
-  background: transparent;
-  color: inherit;
-  font-weight: 600;
+  color: var(--devtools-muted);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.example-devtools__track {
-  position: relative;
-  display: inline-block;
-  inline-size: 2.5rem;
-  block-size: 1.375rem;
-  border: 2px solid var(--devtools-barrier);
-  border-radius: 999px;
-  background: #4a1d1d;
+.example-devtools__choice:hover .example-devtools__choice-text {
+  color: var(--devtools-text);
 }
 
-.example-devtools__thumb {
-  position: absolute;
-  inset-block-start: 0.125rem;
-  inset-inline-start: 0.125rem;
-  inline-size: 0.875rem;
-  block-size: 0.875rem;
-  border-radius: 50%;
+.example-devtools__radio:checked + .example-devtools__choice-text {
+  color: #161616;
+}
+
+.example-devtools__radio:checked + .example-devtools__choice-text--barrier {
   background: var(--devtools-barrier);
 }
 
-.example-devtools__switch[aria-pressed="true"] .example-devtools__track {
-  border-color: var(--devtools-fixed);
-  background: #10331f;
-}
-
-.example-devtools__switch[aria-pressed="true"] .example-devtools__thumb {
-  inset-inline-start: auto;
-  inset-inline-end: 0.125rem;
+.example-devtools__radio:checked + .example-devtools__choice-text--fixed {
   background: var(--devtools-fixed);
 }
 
-.example-devtools__switch-state {
-  min-inline-size: 6.5em;
-  color: var(--devtools-muted);
+.example-devtools__radio:focus-visible + .example-devtools__choice-text {
+  outline: 3px solid var(--devtools-focus);
+  outline-offset: 3px;
 }
 
 .example-devtools__toggle {
+  min-block-size: 2.5rem;
   padding: 0.375rem 0.875rem;
   border: 2px solid var(--devtools-border);
   border-radius: 0.5rem;
   background: var(--devtools-surface);
   color: inherit;
   font-weight: 700;
+}
+
+.example-devtools__toggle::after {
+  content: " ▴";
+}
+
+.example-devtools__toggle[aria-expanded="true"]::after {
+  content: " ▾";
 }
 
 .example-devtools__toggle:hover {
@@ -150,9 +180,33 @@
   margin: 0 0 0.75rem;
 }
 
-.example-devtools__eyebrow {
+.example-devtools__panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-block-end: 0.75rem;
+}
+
+.example-devtools__panel .example-devtools__eyebrow {
+  margin: 0;
   color: var(--devtools-muted);
   font-size: 0.8125rem;
+}
+
+.example-devtools__panel .example-devtools__label {
+  margin-block: 1rem 0.375rem;
+  color: var(--devtools-focus);
+  font-weight: 700;
+}
+
+.example-devtools__steps {
+  margin: 0 0 0.75rem;
+  padding-inline-start: 1.25rem;
+}
+
+.example-devtools__steps li {
+  margin-block: 0.25rem;
 }
 
 .example-devtools__state {
@@ -173,7 +227,7 @@
 }
 
 .example-devtools__fixes {
-  margin: 1rem 0;
+  margin: 0.75rem 0 1rem;
   padding: 0;
   list-style: none;
 }
@@ -243,7 +297,8 @@
   white-space: pre;
 }
 
-.example-devtools__locate {
+.example-devtools__button {
+  flex: none;
   padding: 0.25rem 0.75rem;
   border: 2px solid var(--devtools-border);
   border-radius: 0.5rem;
@@ -252,7 +307,7 @@
   font-weight: 700;
 }
 
-.example-devtools__locate:hover {
+.example-devtools__button:hover {
   background: #efcd55;
   color: #161616;
 }

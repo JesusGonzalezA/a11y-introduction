@@ -79,7 +79,7 @@ describe('Registro de páginas de ejemplo', () => {
       screen.getByRole('heading', { level: 1, name: 'La ola tranquila' }),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: 'Aplicar arreglo' }),
+      screen.getByRole('radiogroup', { name: 'Ver la página' }),
     ).toBeInTheDocument()
   })
 })

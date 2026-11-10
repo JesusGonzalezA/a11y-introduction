@@ -99,34 +99,27 @@ export function Code({
   )
 }
 
-/** Enlaces a la página de ejemplo: con la barrera y con el arreglo aplicado. */
-export function ExampleLinks({
-  slug,
-  barrier,
-  fixed,
-}: {
-  slug: string
-  barrier?: string
-  fixed?: string
-}) {
+/**
+ * Enlaces a la página de ejemplo. La misma tarea se prueba en las dos
+ * versiones, con los nombres que usa la barra flotante del ejemplo.
+ */
+export function ExampleLinks({ slug, task }: { slug: string; task: string }) {
   return (
     <p className="example-links">
-      {barrier && (
-        <a
-          className="lesson-slide__example-link example-links__barrier"
-          href={exampleUrl(slug)}
-        >
-          {barrier}
-        </a>
-      )}
-      {fixed && (
-        <a
-          className="lesson-slide__example-link example-links__fixed"
-          href={exampleUrl(slug, true)}
-        >
-          {fixed}
-        </a>
-      )}
+      <a
+        className="lesson-slide__example-link example-links__barrier"
+        href={exampleUrl(slug)}
+      >
+        <span aria-hidden="true">✕ </span>
+        Con barrera: {task}
+      </a>
+      <a
+        className="lesson-slide__example-link example-links__fixed"
+        href={exampleUrl(slug, true)}
+      >
+        <span aria-hidden="true">✓ </span>
+        Con arreglo: {task}
+      </a>
     </p>
   )
 }

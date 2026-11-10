@@ -10,16 +10,15 @@ export const slides = [
   <Fragment key="4.2-leccion">
     <SlideTitle kind="leccion">Contraste, color y tamaño del texto</SlideTitle>
     <p>
-      Para leer una página no basta con que el texto esté ahí: hay que poder
-      verlo.
+      Para leer una página no basta con que el texto esté: hay que poder verlo.
     </p>
     <p>En esta lección:</p>
     <ul>
       <li>Información que no dependa solo del color.</li>
-      <li>Contraste suficiente entre texto y fondo.</li>
+      <li>Contraste suficiente entre el texto y el fondo.</li>
       <li>
-        Letra que crece con el tamaño que la persona ha elegido:{' '}
-        <code>rem</code> y <code>clamp()</code>.
+        Letra que crece con el tamaño que eligió la persona: <code>rem</code> y{' '}
+        <code>clamp()</code>.
       </li>
       <li>Contenido que se adapta al ampliar, sin recortes.</li>
     </ul>
@@ -42,8 +41,8 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Manuel:</strong> no distingue el punto rojo del
-      verde, así que no sabe que su autobús está cancelado. El gris claro sobre
-      blanco se le confunde con el fondo.
+      verde: no sabe que su autobús está cancelado. Y el gris claro se le
+      confunde con el fondo blanco.
     </p>
   </Fragment>,
   <Fragment key="4.2-solucion-color">
@@ -57,11 +56,11 @@ export const slides = [
     </Code>
     <ul>
       <li>
-        El color puede reforzar, pero siempre acompañado de texto o forma.
+        El color puede reforzar, pero siempre junto a un texto o una forma.
       </li>
       <li>
-        Contraste mínimo: <strong>4,5:1</strong> para texto normal,{' '}
-        <strong>3:1</strong> para texto grande e iconos necesarios.
+        Contraste mínimo: <strong>4,5:1</strong> en texto normal y{' '}
+        <strong>3:1</strong> en texto grande e iconos necesarios.
       </li>
     </ul>
   </Fragment>,
@@ -69,26 +68,27 @@ export const slides = [
     <SlideTitle kind="error">
       La letra no crece aunque Manuel la agrande
     </SlideTitle>
-    <p>
-      Manuel ha subido el tamaño de letra en su navegador (Ajustes → Aspecto →
-      Tamaño de fuente) y en su móvil.
-    </p>
     <Code tone="error" caption="Así está">
       {'.horarios { font-size: 15px; }\n.horarios h1 { font-size: 4vw; }'}
     </Code>
+    <p>
+      <strong>Qué le pasa a Manuel:</strong> ha agrandado la letra en su
+      navegador (Ajustes → Aspecto → Tamaño de fuente), pero esta página sigue
+      igual de pequeña.
+    </p>
     <ul>
       <li>
-        <code>px</code> fija el tamaño e ignora la preferencia de Manuel.
+        <code>px</code> fija el tamaño e ignora lo que eligió Manuel.
       </li>
       <li>
-        <code>vw</code> depende solo del ancho de la ventana: al hacer zoom, el
-        título no crece, incluso encoge.
+        <code>vw</code> depende solo del ancho de la ventana: con zoom, el
+        título no crece.
       </li>
     </ul>
   </Fragment>,
   <Fragment key="4.2-solucion-letra">
     <SlideTitle kind="solucion">
-      Letra responsive en rem, con clamp()
+      Letra en rem, con clamp() para los títulos
     </SlideTitle>
     <Code tone="solucion" caption="Así se arregla">
       {
@@ -97,14 +97,14 @@ export const slides = [
     </Code>
     <ul>
       <li>
-        <code>1rem</code> = el tamaño de letra que eligió la persona (16 px si
+        <code>1rem</code> es el tamaño de letra que eligió la persona (16 px si
         no cambió nada).
       </li>
       <li>
         <code>clamp(mínimo, ideal, máximo)</code>: el título se adapta a la
-        pantalla, pero siempre parte de <code>rem</code> y crece con el zoom.
+        pantalla, pero parte de <code>rem</code> y crece con el zoom.
       </li>
-      <li>Objetivo: texto legible al 200 % sin perder contenido.</li>
+      <li>Objetivo: que todo se lea al 200 % sin perder contenido.</li>
     </ul>
   </Fragment>,
   <Fragment key="4.2-error-recorte">
@@ -114,27 +114,21 @@ export const slides = [
     </Code>
     <p>
       <strong>Qué le pasa a Manuel:</strong> con la letra grande o en el móvil,
-      el texto no cabe en la caja y se esconde. Nunca lee dónde está la parada
-      provisional.
+      el texto no cabe en la caja y se corta. No llega a leer dónde está la
+      parada provisional.
     </p>
   </Fragment>,
   <Fragment key="4.2-solucion-recorte">
-    <SlideTitle kind="solucion">
-      Cajas flexibles que crecen con el contenido
-    </SlideTitle>
+    <SlideTitle kind="solucion">Cajas que crecen con su contenido</SlideTitle>
     <Code tone="solucion" caption="Así se arregla">
       {
         '.aviso {\n  max-inline-size: 100%;\n  overflow-wrap: anywhere;\n  /* Sin altura fija ni recorte */\n}'
       }
     </Code>
     <p>
-      Compruébalo: zoom al 200 % y ventana de 320 px de ancho. Todo se lee con
-      scroll solo vertical.
+      Compruébalo: zoom al 200 % y ventana de 320 px de ancho. Todo se debe leer
+      desplazándote solo en vertical.
     </p>
-    <ExampleLinks
-      slug="horarios"
-      barrier="Consultar los horarios con barreras"
-      fixed="Consultar los horarios corregidos"
-    />
+    <ExampleLinks slug="horarios" task="consultar el autobús" />
   </Fragment>,
 ]

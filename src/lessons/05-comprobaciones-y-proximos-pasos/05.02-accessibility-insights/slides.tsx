@@ -13,16 +13,16 @@ export const slides = [
     </SlideTitle>
     <p>
       Accessibility Insights for Web es una extensión gratuita de Microsoft para
-      Chrome y Edge.
+      Chrome y Edge. Usaremos dos de sus pruebas:
     </p>
     <ul>
       <li>
         <strong>FastPass → Automated checks:</strong> analiza la página y lista
-        los fallos que se pueden detectar automáticamente.
+        los fallos que una máquina puede detectar.
       </li>
       <li>
-        <strong>Tab stops:</strong> dibuja el recorrido del teclado mientras
-        pulsas Tab.
+        <strong>Tab stops:</strong> dibuja el camino del foco mientras pulsas
+        Tab.
       </li>
     </ul>
     <p>
@@ -61,8 +61,8 @@ export const slides = [
       «campo de edición». No sabe qué escribir.
     </p>
     <p>
-      FastPass lo detecta: abre el resultado, selecciona la instancia y la
-      herramienta resalta el campo en la página.
+      FastPass lo detecta. Abre el resultado y la extensión resalta el campo en
+      la página.
     </p>
   </Fragment>,
   <Fragment key="5.2-solucion">
@@ -75,23 +75,22 @@ export const slides = [
       }
     </Code>
     <ol>
-      <li>Ejecuta FastPass otra vez: el fallo del campo desaparece.</li>
+      <li>Ejecuta FastPass otra vez: el fallo ya no aparece.</li>
       <li>
         Activa Tab stops y recorre el formulario como Andrés: ¿llegas a todo, en
-        orden, viendo el foco?
+        orden y viendo el foco?
       </li>
     </ol>
     <ExampleLinks
       slug="taller-bicicletas"
-      barrier="Analizar el formulario con el campo sin etiqueta"
-      fixed="Repetir el análisis con la etiqueta asociada"
+      task="analizar el formulario de cita"
     />
   </Fragment>,
   <Fragment key="5.2-limites">
     <SlideTitle kind="resumen">Cero errores no significa accesible</SlideTitle>
     <p>
-      Las herramientas automáticas solo detectan una parte de los problemas. No
-      saben si:
+      Las herramientas automáticas solo encuentran una parte de los problemas.
+      No saben si:
     </p>
     <ul>
       <li>un alt describe bien la imagen;</li>
