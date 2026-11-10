@@ -95,6 +95,7 @@ dentro de la herramienta flotante, que está aislada.
 
 - Recoleta es comercial: el curso usa **Fraunces**, la sustituta que weAAAre ya
   usa en sus páginas de práctica.
-- El logotipo se dibuja con texto y CSS; no se descargan recursos de weaaare.com.
+- El logotipo es el SVG original de weaaare.com, incrustado en `BrandMark`; no
+  se redibuja con texto ni CSS ni se carga en tiempo de ejecución desde weaaare.com.
 - Las ilustraciones y garabatos son decorativos: `aria-hidden="true"` y nunca
   portadores de información.
