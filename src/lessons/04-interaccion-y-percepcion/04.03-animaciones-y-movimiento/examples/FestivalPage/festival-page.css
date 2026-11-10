@@ -303,7 +303,10 @@
   }
 }
 
-.festival__ticker--paused .festival__ticker-track {
+/* Más específico que la animación del arreglo: si no, su shorthand la reanuda. */
+.festival:not(.festival--barrier)
+  .festival__ticker--paused
+  .festival__ticker-track {
   animation-play-state: paused;
 }
 

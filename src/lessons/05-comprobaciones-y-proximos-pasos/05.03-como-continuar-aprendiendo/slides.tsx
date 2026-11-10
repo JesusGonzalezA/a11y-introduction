@@ -82,8 +82,22 @@ export const slides = [
       </li>
       <li>
         Formularios:{' '}
-        <a href="https://www.w3.org/WAI/tutorials/forms/">
-          tutorial de formularios de W3C WAI
+        <a href="https://weaaare.com/cursos/aria-avanzado-formularios-accesibles">
+          ARIA Avanzado: Formularios accesibles
+        </a>
+        .
+      </li>
+      <li>
+        Bases de la accesibilidad:{' '}
+        <a href="https://weaaare.com/cursos/curso-fundamentos-accesibilidad-diseno-universal">
+          Fundamentos de accesibilidad y diseño universal
+        </a>
+        .
+      </li>
+      <li>
+        Cómo usan la web las personas:{' '}
+        <a href="https://weaaare.com/cursos/curso-discapacidad-y-tecnologias-asistivas">
+          Discapacidad y tecnologías asistivas
         </a>
         .
       </li>

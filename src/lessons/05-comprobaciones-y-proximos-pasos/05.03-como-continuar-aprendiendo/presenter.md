@@ -9,7 +9,8 @@
 
 ## 2. Cursos para profundizar
 
-- HTML Semántico · ARIA · Testing · Navegación · Formularios
+- Todos de weAAAre: HTML Semántico · ARIA · Testing · Navegación · Formularios
+- Para ampliar la base: Fundamentos y diseño universal · Discapacidad y tecnologías asistivas
 
 ## 3. Herramientas y materiales
 
