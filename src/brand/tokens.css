@@ -86,22 +86,26 @@
 
 /* Logotipo: tres píldoras apiladas. */
 .brand-mark {
-  display: inline-grid;
-  justify-items: center;
-  gap: 0.1em;
-  font-family: var(--font-body);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--color-ink);
+  display: inline-block;
+  inline-size: auto;
+  block-size: 3em;
+  aspect-ratio: 61 / 65;
+  vertical-align: middle;
+  overflow: visible;
 }
 
-.brand-mark span {
-  padding: 0.08em 0.4em 0.12em;
-  border: 0.14em solid currentColor;
-  border-radius: var(--radius-pill);
-  font-size: 0.8em;
+.brand-mark__ink {
+  fill: var(--color-ink);
 }
 
-.brand-mark--inverse {
-  color: var(--color-paper);
+.brand-mark__paper {
+  fill: var(--color-paper);
+}
+
+.brand-mark--inverse .brand-mark__ink {
+  fill: var(--color-paper);
+}
+
+.brand-mark--inverse .brand-mark__paper {
+  fill: var(--color-ink);
 }

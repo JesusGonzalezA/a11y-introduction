@@ -232,8 +232,11 @@ bold 0.85em. Igual que en la web de Halloween.
 
 ### Logotipo
 
-Tres píldoras apiladas con borde de tinta: «we», «AAA», «re». En el curso se
-dibuja con texto y CSS (`BrandMark`), con `aria-label="weAAAre"`.
+Tres píldoras apiladas con volumen y alineadas a la izquierda: «we», «AAA»,
+«re». El curso usa el SVG original de weaaare.com dentro de `BrandMark`, con
+`role="img"` y `aria-label="weAAAre"`; los colores salen de `--color-ink` y
+`--color-paper` (la variante `inverse` los intercambia). No se redibuja con
+texto ni CSS.
 
 ## 6. Presentaciones
 
