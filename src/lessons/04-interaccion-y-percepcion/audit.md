@@ -39,9 +39,9 @@ los puntos redundantes son decorativos. No hay widget ARIA nuevo.
 
 ## Auditoría de tests
 
-**K** = [FocusRegistration.test.tsx](04.01-teclado-y-foco-visible/examples/FocusRegistration/FocusRegistration.test.tsx),
-**P** = [PerceptionRegistration.test.tsx](04.02-contraste-color-y-ampliacion/examples/PerceptionRegistration/PerceptionRegistration.test.tsx),
-**S** = [slides.test.tsx](slides.test.tsx).
+**K** = `FocusRegistration.test.tsx` y **P** = `PerceptionRegistration.test.tsx`
+(retirados con los ejemplos locales),
+**S** = [slides.test.tsx](../slides.test.tsx).
 G1/G2/G3 y claves Magenta remiten a los originales enlazados arriba; no implican
 que sus frases de lectura se hayan ejecutado con AT.
 
