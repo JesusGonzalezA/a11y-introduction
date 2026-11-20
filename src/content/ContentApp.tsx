@@ -2,11 +2,10 @@ import { Marked } from 'marked'
 import { useEffect, useMemo } from 'react'
 import { course } from '../course'
 import { exampleRegistry } from '../examples/exampleRegistry'
-import { exampleUrl } from '../examples/exampleUrl'
+import { exampleUrl, moduleExamplesUrl } from '../examples/exampleUrl'
 import {
   contentBase,
   contentUrl,
-  examplesBase,
   lessonAnchor,
   moduleAnchor,
   moduleContentPath,
@@ -79,7 +78,7 @@ function RelatedLinks({ page }: { page: ContentPage }) {
         label: 'Diapositivas del módulo',
       },
       {
-        href: `${examplesBase}#modulo-${page.moduleNumber}`,
+        href: moduleExamplesUrl(page.moduleNumber),
         label: 'Ejemplos del módulo',
       },
     )

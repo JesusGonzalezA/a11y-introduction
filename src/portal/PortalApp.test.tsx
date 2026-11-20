@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import { describe, expect, it } from 'vitest'
-import { exampleRegistry } from '../examples/exampleRegistry'
+import { exampleRegistry, examplesBase } from '../examples/exampleRegistry'
 import { exampleUrl } from '../examples/exampleUrl'
 import { courseModules } from '../lessons/lessonRegistry'
 import { PortalApp } from './PortalApp'
@@ -19,7 +19,7 @@ describe('Índice del curso', () => {
       .getAllByRole('link')
       .map((link) => link.getAttribute('href'))
     expect(hrefs).toEqual(
-      expect.arrayContaining(['/diapositivas/', '/ejemplos/', '/contenido/']),
+      expect.arrayContaining(['/diapositivas/', examplesBase, '/contenido/']),
     )
   })
 
@@ -37,6 +37,8 @@ describe('Índice del curso', () => {
         .map((link) => link.getAttribute('href'))
       expect(hrefs).toContain(`/diapositivas/#/modulo-${module.number}`)
       expect(hrefs).toContain(`/contenido/modulo-${module.number}`)
+      if (module.number > 1)
+        expect(hrefs).toContain(`${examplesBase}#module-${module.number}`)
       for (const lesson of module.lessons) {
         const anchor = lesson.number.replace('.', '-')
         expect(hrefs).toContain(`/diapositivas/#/leccion-${anchor}`)

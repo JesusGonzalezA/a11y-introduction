@@ -1,23 +1,70 @@
-import { productPageExample } from '../lessons/02-entender-la-accesibilidad/02.01-personas-interaccion-y-barreras/examples/ProductPage/ProductPage.example'
-import { cinemaBookingExample } from '../lessons/02-entender-la-accesibilidad/02.02-como-interpreta-el-navegador-la-interfaz/examples/CinemaBooking/CinemaBooking.example'
-import { recipePageExample } from '../lessons/03-dar-significado-al-contenido/03.01-estructura-y-orden-de-lectura/examples/RecipePage/RecipePage.example'
-import { newsArticleExample } from '../lessons/03-dar-significado-al-contenido/03.02-imagenes-enlaces-y-controles/examples/NewsArticle/NewsArticle.example'
-import { libraryLoginExample } from '../lessons/04-interaccion-y-percepcion/04.01-teclado-y-foco-visible/examples/LibraryLogin/LibraryLogin.example'
-import { busTimetableExample } from '../lessons/04-interaccion-y-percepcion/04.02-contraste-color-y-ampliacion/examples/BusTimetable/BusTimetable.example'
-import { festivalPageExample } from '../lessons/04-interaccion-y-percepcion/04.03-animaciones-y-movimiento/examples/FestivalPage/FestivalPage.example'
-import { museumExhibitionExample } from '../lessons/05-comprobaciones-y-proximos-pasos/05.01-bookmarklets/examples/MuseumExhibition/MuseumExhibition.example'
-import { repairBookingExample } from '../lessons/05-comprobaciones-y-proximos-pasos/05.02-accessibility-insights/examples/RepairBooking/RepairBooking.example'
-import type { ExampleDefinition } from './types'
+/** Sitio publicado con las páginas de ejemplo del curso. */
+export const examplesBase =
+  'https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/'
 
-/** Única fuente de las páginas de ejemplo, en el orden del curso. */
-export const exampleRegistry: ExampleDefinition[] = [
-  productPageExample,
-  cinemaBookingExample,
-  recipePageExample,
-  newsArticleExample,
-  libraryLoginExample,
-  busTimetableExample,
-  festivalPageExample,
-  museumExhibitionExample,
-  repairBookingExample,
+/** Páginas de ejemplo publicadas, en el orden del curso. */
+export interface ExampleLink {
+  /** Segmento de la URL en el sitio de ejemplos: `/<slug>/`. */
+  slug: string
+  /** Qué página es. */
+  name: string
+  lesson: string
+  lessonTitle: string
+}
+
+export const exampleRegistry: ExampleLink[] = [
+  {
+    slug: 'tienda-online',
+    name: 'Ficha de producto de una tienda online',
+    lesson: '2.1',
+    lessonTitle: 'Personas, formas de interacción y barreras',
+  },
+  {
+    slug: 'cine',
+    name: 'Elegir sesión en la web de un cine',
+    lesson: '2.2',
+    lessonTitle: 'Cómo interpreta el navegador nuestra interfaz',
+  },
+  {
+    slug: 'receta',
+    name: 'Receta en un blog de cocina',
+    lesson: '3.1',
+    lessonTitle: 'Estructura de página y orden de lectura',
+  },
+  {
+    slug: 'noticia',
+    name: 'Noticia en un periódico local',
+    lesson: '3.2',
+    lessonTitle: 'Imágenes, enlaces y controles comprensibles',
+  },
+  {
+    slug: 'biblioteca',
+    name: 'Acceso a la cuenta de una biblioteca',
+    lesson: '4.1',
+    lessonTitle: 'Navegación por teclado y foco visible',
+  },
+  {
+    slug: 'horarios',
+    name: 'Próximas salidas de una línea de autobús',
+    lesson: '4.2',
+    lessonTitle: 'Contraste, color y tamaño del texto',
+  },
+  {
+    slug: 'festival',
+    name: 'Portada de un festival de música',
+    lesson: '4.3',
+    lessonTitle: 'Animaciones y movimiento',
+  },
+  {
+    slug: 'museo',
+    name: 'Exposición temporal en la web de un museo',
+    lesson: '5.1',
+    lessonTitle: 'Inspeccionar el contenido con bookmarklets',
+  },
+  {
+    slug: 'taller-bicicletas',
+    name: 'Formulario de cita en un taller de bicicletas',
+    lesson: '5.2',
+    lessonTitle: 'Detectar problemas con Accessibility Insights',
+  },
 ]

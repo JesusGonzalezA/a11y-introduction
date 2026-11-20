@@ -21,7 +21,7 @@ Las personas del curso (Andrés, Elena, Lucía, Manuel y Ana) viven en `src/pers
 | Material | Ruta local (`pnpm dev`) |
 | --- | --- |
 | Diapositivas | `/diapositivas/#/modulo-1` |
-| Ejemplos | `/ejemplos/#modulo-1` |
+| Ejemplos | <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/#module-1> |
 | Contenido | `/contenido/modulo-1` y `/contenido/<lección>` |
 | Notas del presentador | `/contenido/<lección>/presentador` |
 

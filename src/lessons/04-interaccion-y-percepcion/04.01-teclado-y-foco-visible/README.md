@@ -1,6 +1,6 @@
 # 4.1 Navegación por teclado y foco visible
 
-> Módulo 4 · Permitir la interacción y la percepción · ejemplo: `/ejemplos/biblioteca`
+> Módulo 4 · Permitir la interacción y la percepción · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/biblioteca/>
 
 ## Objetivo
 
@@ -24,7 +24,6 @@
 
 - Página: acceso a la cuenta de la Biblioteca Municipal, con cabecera fija.
 - Demo: Tab hasta el final y Shift + Tab de vuelta, sin y con arreglo.
-- Código: `examples/LibraryLogin/`.
 
 ## Conceptos clave
 

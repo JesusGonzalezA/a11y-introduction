@@ -1,6 +1,6 @@
 # 5.1 Inspeccionar el contenido con bookmarklets
 
-> Módulo 5 · Primeras comprobaciones y próximos pasos · ejemplo: `/ejemplos/museo`
+> Módulo 5 · Primeras comprobaciones y próximos pasos · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/museo/>
 
 ## Objetivo
 
@@ -26,7 +26,6 @@
 - Página: exposición «Hilos del Mediterráneo» del Museo de Arte Textil.
 - Demo: instalar [Headings](https://pauljadam.com/bookmarklets/headings.html) e [Images](https://pauljadam.com/bookmarklets/images.html) de Paul J. Adam → ejecutarlos con la barrera → elegir **Con arreglo**, recargar si hace falta y repetir.
 - Cerrar la «Explicación» antes de ejecutar los bookmarklets.
-- Código: `examples/MuseumExhibition/`.
 
 ## Conceptos clave
 

@@ -17,9 +17,7 @@ con valores y fuentes, está en [`DESIGN.md`](../../../DESIGN.md).
 | Tokens (color, tipografía, forma, foco) | `src/brand/tokens.css` |
 | Logotipo | `src/brand/BrandMark.tsx` (`<BrandMark />`) |
 | Diapositivas | `src/styles.css`, `src/slides/CourseSlides.tsx`, `src/slides/parts.tsx` |
-| Portal, contenido e índice de ejemplos | `src/portal/portal.css`, `src/content/content.css`, `src/examples/examples-index.css` |
-| Base de las páginas de ejemplo | `src/examples/example-base.css` |
-| Herramienta flotante | `src/examples/example-devtools.css` (paleta propia en negativo) |
+| Portal y contenido | `src/portal/portal.css`, `src/content/content.css` |
 
 Usa siempre las variables de `tokens.css`. Un valor de color, radio o sombra
 escrito a mano solo es válido para el acento ficticio de una página de ejemplo o
@@ -64,7 +62,7 @@ dentro de la herramienta flotante, que está aislada.
    **Completado cuando:** la superficie no introduce un componente nuevo que ya
    exista en `DESIGN.md` §5 con otro aspecto.
 
-5. **Protege las barreras de los ejemplos.** Cada página de ejemplo es una marca
+5. **Protege las barreras de los ejemplos.** (Aplica en el repositorio de ejemplos, no aquí.) Cada página de ejemplo es una marca
    ficticia con el lenguaje de weAAAre y un `--page-accent` pastel propio, como la
    tienda de la web de Halloween de weAAAre. Las reglas que crean la barrera
    (`--barrier`, `--no-focus`, `--sold-out`, `--reversed`…) se conservan tal cual;

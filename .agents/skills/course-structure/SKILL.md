@@ -16,13 +16,7 @@ src/lessons/
 │   └── 01.01-nombre-de-la-leccion/
 │       ├── README.md
 │       ├── presenter.md
-│       ├── slides.tsx
-│       └── examples/
-│           └── ExampleName/
-│               ├── ExampleName.tsx
-│               ├── ExampleName.example.ts
-│               ├── example-name.css
-│               └── ExampleName.test.tsx
+│       └── slides.tsx
 └── 02-nombre-del-modulo/
 ```
 
@@ -100,35 +94,23 @@ añadir slides de tipo «Lección» con conceptos previos y cerrar con un «Resu
   Errores comunes → solución (tabla error / qué le pasa / solución), Ejemplo
   (página, pasos de la demo, código), Conceptos clave, Pruebas (automatizadas y
   manuales pendientes) y Fuentes. Sin prosa larga ni duplicar las slides.
-- `examples/`: páginas de ejemplo de la lección.
-- `*.example.ts`: definición de la página (slug, lección, título, pasos breves para
-  probarla y lista de arreglos con dónde, problema, solución y código antes/después). Se registra una vez en
-  `src/examples/exampleRegistry.ts`, en el orden del curso.
-- `*.test.tsx`: comportamiento, semántica accesible y teclado de la página con y sin
-  arreglo.
 
 Las lecciones de introducción y cierre (1.1, 1.2, 5.3) no tienen persona ni
 ejemplo: usan slides `leccion` y `resumen`.
 
 ## Páginas de ejemplo
 
-Cada ejemplo es una página simple y creíble de un sitio distinto (tienda, receta,
-noticia…), elegido porque la barrera aparece ahí con naturalidad. La aplicación
-la sirve en `/ejemplos/<slug>`; `?arreglo=1` la abre con el arreglo aplicado.
+Los ejemplos viven fuera de este repositorio, en <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/>. Cada uno es una página
+simple y creíble de un sitio distinto (tienda, receta, noticia…), elegido porque
+la barrera aparece ahí con naturalidad. Se abre en `<slug>/` con la barrera y en
+`<slug>/arreglo/` con el arreglo aplicado.
 
-- La página recibe `fixed: boolean` y muestra por defecto la barrera. No incluye
-  rótulos didácticos: la herramienta flotante del curso explica el cambio.
-- Marca con `data-fix="<id>"` cada elemento que cambia, en ambos estados, para que
-  la «Explicación» lo resalte. Cada `id` corresponde a un arreglo de la definición.
-- Cada arreglo dice dónde está, cuál es el problema (qué falla y a quién afecta) y
-  cuál es la solución, en una o dos frases cortas cada uno, y muestra el código
-  antes y después con los mismos detalles que la página.
-- La herramienta flotante usa siempre los mismos nombres: versiones «Con barrera» y
-  «Con arreglo» y botón «Explicación». Slides, guiones y README los citan igual.
-- Las barreras se acotan al bloque BEM de la página; nunca afectan a la
-  herramienta flotante ni capturan el teclado de forma real.
-- La herramienta flotante no añade encabezados ni regiones, para no alterar lo que
-  revelan lectores, bookmarklets o Accessibility Insights.
+- Cambios en las páginas se hacen en el repositorio de ejemplos, no aquí.
+- Aquí solo se mantiene el enlace: registra el ejemplo una vez en
+  `src/examples/exampleRegistry.ts` (slug, nombre, lección) y enlázalo desde la
+  slide con `<ExampleLinks slug task />`.
+- Si cambia un ejemplo publicado, revisa que el texto y los pasos de las slides
+  y del guion sigan coincidiendo con lo que muestra.
 
 ## Slides continuas y superficies del servidor
 
@@ -140,11 +122,11 @@ lección (`#/leccion-N-M`) y la etiqueta «Lección N.M · Título»; no contien
 contenido de lecciones. Una lección no importa `lessonRegistry` (dependencia
 circular).
 
-El servidor ofrece cuatro superficies (rutas en `src/routes.ts`):
+El servidor ofrece estas superficies (rutas en `src/routes.ts`):
 
 - `/`: índice; por módulo y lección enlaza diapositivas, ejemplos y contenido.
 - `/diapositivas/`: la presentación.
-- `/ejemplos/`: páginas de ejemplo, agrupadas por módulo (`#modulo-N`).
+- `/ejemplos/…`: redirige al sitio de ejemplos publicado.
 - `/contenido/`: Markdown del repositorio (`modulo-N`, `N.M`, `N.M/presentador`).
 
 `src/lessons/slides.test.tsx` valida todas las slides: tipo y título, axe,
@@ -153,10 +135,10 @@ ausencia de tiempos.
 
 ## Reglas de colocación
 
-1. Coloca una página de ejemplo, su definición y sus tests dentro de la lección que la enseña.
+1. Coloca las slides, el guion y el README dentro de la lección que los enseña.
 2. Reutiliza un módulo desde otra lección solo cuando sea realmente compartido; entonces
    muévelo a un módulo común explícito y documenta su interfaz.
-3. Registra cada página de ejemplo una sola vez en `src/examples/exampleRegistry.ts`.
+3. Registra el enlace a cada ejemplo una sola vez en `src/examples/exampleRegistry.ts`.
 4. No dupliques el contenido completo en Markdown y slides: el primero desarrolla, las
    segundas sintetizan.
 5. Usa nombres de carpetas estables, numerados y sin espacios ni tildes.
@@ -205,8 +187,8 @@ ausencia de tiempos.
       guion del presentador, incluidos sus números y acotaciones.
 - [ ] Cada salto a un ejemplo indicado en el guion tiene un enlace directo a la
       página en la slide correspondiente.
-- [ ] Cada ejemplo tiene página, definición y test co-localizados, y está en el
-      registro de ejemplos.
+- [ ] Cada ejemplo está publicado en el sitio de ejemplos y registrado en
+      `exampleRegistry.ts`.
 - [ ] La lección está incluida una sola vez y en orden en `lessonRegistry.ts` y
       aparece en el índice `/` con sus diapositivas, ejemplos y contenido.
 - [ ] Las páginas de ejemplo y slides afectadas quedan disponibles para la

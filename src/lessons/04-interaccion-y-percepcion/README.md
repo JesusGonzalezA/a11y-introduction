@@ -18,7 +18,7 @@ letra, «Reducir movimiento»).
 | Material | Ruta local (`pnpm dev`) |
 | --- | --- |
 | Diapositivas | `/diapositivas/#/modulo-4` |
-| Ejemplos | `/ejemplos/#modulo-4` |
+| Ejemplos | <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/#module-4> |
 | Contenido | `/contenido/modulo-4` y `/contenido/<lección>` |
 | Notas del presentador | `/contenido/<lección>/presentador` |
 

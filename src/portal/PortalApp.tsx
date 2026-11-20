@@ -1,11 +1,10 @@
 import { BrandMark } from '../brand/BrandMark'
 import { course } from '../course'
-import { exampleRegistry } from '../examples/exampleRegistry'
-import { exampleUrl } from '../examples/exampleUrl'
+import { exampleRegistry, examplesBase } from '../examples/exampleRegistry'
+import { exampleUrl, moduleExamplesUrl } from '../examples/exampleUrl'
 import { courseModules } from '../lessons/lessonRegistry'
 import {
   contentUrl,
-  examplesBase,
   lessonAnchor,
   moduleAnchor,
   moduleContentPath,
@@ -72,7 +71,7 @@ export function PortalApp() {
                   </li>
                   <li>
                     {moduleExamples.length > 0 ? (
-                      <a href={`${examplesBase}#modulo-${module.number}`}>
+                      <a href={moduleExamplesUrl(module.number)}>
                         Ejemplos ({moduleExamples.length})
                       </a>
                     ) : (

@@ -1,17 +1,26 @@
-export const examplesBase = `${import.meta.env.BASE_URL}ejemplos/`
+import { examplesBase } from './exampleRegistry'
 
-/** Enlace a una página de ejemplo con la barrera o con el arreglo. */
+/** Enlace a la página de ejemplo publicada, con la barrera o con el arreglo. */
 export function exampleUrl(slug: string, fixed = false) {
-  return `${examplesBase}${slug}${fixed ? '?arreglo=1' : ''}`
+  return `${examplesBase}${slug}/${fixed ? 'arreglo/' : ''}`
 }
 
-export function readFixedParam(search: string) {
-  return new URLSearchParams(search).get('arreglo') === '1'
+/** Enlace al índice de ejemplos de un módulo del sitio publicado. */
+export function moduleExamplesUrl(moduleNumber: number) {
+  return `${examplesBase}#module-${moduleNumber}`
 }
 
-export function withFixedParam(href: string, fixed: boolean) {
-  const url = new URL(href)
-  if (fixed) url.searchParams.set('arreglo', '1')
-  else url.searchParams.delete('arreglo')
-  return `${url.pathname}${url.search}${url.hash}`
+const legacyBase = `${import.meta.env.BASE_URL}ejemplos`
+
+/**
+ * Las páginas de ejemplo ya no se sirven aquí. Devuelve la dirección publicada
+ * que sustituye a una antigua `/ejemplos/…`, o `undefined` si no lo es.
+ */
+export function legacyExampleRedirect(pathname: string, search = '') {
+  if (pathname !== legacyBase && !pathname.startsWith(`${legacyBase}/`))
+    return undefined
+  const slug = pathname.slice(legacyBase.length).split('/').filter(Boolean)[0]
+  if (!slug) return examplesBase
+  const fixed = new URLSearchParams(search).get('arreglo') === '1'
+  return exampleUrl(slug, fixed)
 }

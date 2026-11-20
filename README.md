@@ -47,7 +47,6 @@ pnpm dev
 | --- | --- |
 | `/` | Índice: por módulo y lección, enlaces a diapositivas, ejemplos y contenido |
 | `/diapositivas/` | Presentación completa; `#/modulo-2` o `#/leccion-2-1` abren un punto concreto |
-| `/ejemplos/` | Páginas de ejemplo agrupadas por módulo; `/ejemplos/<slug>?arreglo=1` abre la versión corregida |
 | `/contenido/` | Documentación Markdown: `/contenido/modulo-2`, `/contenido/2.1`, `/contenido/2.1/presentador` |
 
 Al publicar en un servidor estático, configura que las rutas desconocidas sirvan
@@ -60,17 +59,16 @@ Cada lección vive en `src/lessons/<módulo>/<lección>/`:
 - `slides.tsx`: diapositivas que se entienden sin otro material.
 - `presenter.md`: guía del presentador con palabras clave y frases importantes.
 - `README.md`: resumen esquemático (objetivo, situación, errores, ejemplo, pruebas, fuentes).
-- `examples/<Página>/`: página de ejemplo, su definición (`*.example.ts`) y sus tests.
 
 `src/lessons/lessonRegistry.ts` fija el orden de módulos, lecciones y slides;
-`src/examples/exampleRegistry.ts` registra las páginas de ejemplo.
+`src/examples/exampleRegistry.ts` enlaza las páginas de ejemplo publicadas.
 
 ## Páginas de ejemplo
 
-Cada página es un sitio creíble y distinto que se abre con la barrera. Una barra
-flotante permite elegir la versión **Con barrera** o **Con arreglo** sin recargar.
-Su botón **Explicación** dice qué probar y, para cada cambio, dónde está, cuál
-es el problema y cuál la solución, con el código de las dos versiones.
+Las páginas de ejemplo no están en este repositorio: se publican aparte en
+<https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/>. Cada una se abre con la barrera (`<slug>/`) y tiene su versión corregida
+(`<slug>/arreglo/`). Las slides, el índice y el contenido enlazan ahí, y las
+direcciones antiguas `/ejemplos/…` redirigen al sitio nuevo.
 
 ## Publicación
 

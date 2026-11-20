@@ -1,6 +1,6 @@
 # 2.2 Cómo interpreta el navegador nuestra interfaz
 
-> Módulo 2 · Entender la accesibilidad · ejemplo: `/ejemplos/cine`
+> Módulo 2 · Entender la accesibilidad · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/cine/>
 
 ## Objetivo
 
@@ -25,7 +25,6 @@
 
 - Página: elegir sesión de «La ola tranquila» en Cine Alameda.
 - Demo: abrir el árbol de accesibilidad de las devtools → comparar `div` y `button` → elegir **Con arreglo** → elegir sesión y ver la confirmación.
-- Código: `examples/CinemaBooking/`.
 
 ## Conceptos clave
 

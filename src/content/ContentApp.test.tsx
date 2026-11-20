@@ -59,7 +59,10 @@ describe('Contenido del curso', () => {
     )
     expect(
       screen.getByRole('link', { name: /Ficha de producto/ }),
-    ).toHaveAttribute('href', '/ejemplos/tienda-online')
+    ).toHaveAttribute(
+      'href',
+      'https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/tienda-online/',
+    )
     expect(await axe(container)).toHaveNoViolations()
   })
 

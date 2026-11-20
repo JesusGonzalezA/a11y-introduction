@@ -1,6 +1,6 @@
 # 3.1 Estructura de página y orden de lectura
 
-> Módulo 3 · Dar significado al contenido · ejemplo: `/ejemplos/receta`
+> Módulo 3 · Dar significado al contenido · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/receta/>
 
 ## Objetivo
 
@@ -25,7 +25,6 @@
 
 - Página: receta de lentejas en el blog «La Cuchara Lenta».
 - Demo: lista de encabezados y de regiones del lector (o del inspector) → leer los pasos → elegir **Con arreglo** → repetir.
-- Código: `examples/RecipePage/`.
 
 ## Conceptos clave
 

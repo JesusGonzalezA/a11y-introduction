@@ -1,6 +1,6 @@
 # 4.2 Contraste, color y tamaño del texto
 
-> Módulo 4 · Permitir la interacción y la percepción · ejemplo: `/ejemplos/horarios`
+> Módulo 4 · Permitir la interacción y la percepción · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/horarios/>
 
 ## Objetivo
 
@@ -32,7 +32,6 @@
   3. Navegador → Ajustes → Aspecto → Tamaño de fuente «Muy grande»: el texto no crece.
   4. Zoom al 200 % o ventana de 320 px: el aviso se corta.
   5. elegir **Con arreglo** y repetir.
-- Código: `examples/BusTimetable/`.
 
 ## Conceptos clave
 

@@ -1,12 +1,9 @@
-import { examplesBase } from './examples/exampleUrl'
-
 const base = import.meta.env.BASE_URL
 
-/** Superficies del servidor: portal, diapositivas, ejemplos y contenido. */
+/** Superficies del servidor: portal, diapositivas y contenido. Los ejemplos están en otro sitio. */
 export const portalUrl = base
 export const slidesBase = `${base}diapositivas/`
 export const contentBase = `${base}contenido/`
-export { examplesBase }
 
 export const moduleAnchor = (moduleNumber: number) => `modulo-${moduleNumber}`
 export const lessonAnchor = (lessonNumber: string) =>

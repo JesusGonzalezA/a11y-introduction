@@ -1,6 +1,6 @@
 # 3.2 Imágenes, enlaces y controles comprensibles
 
-> Módulo 3 · Dar significado al contenido · ejemplo: `/ejemplos/noticia`
+> Módulo 3 · Dar significado al contenido · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/noticia/>
 
 ## Objetivo
 
@@ -27,7 +27,6 @@
 
 - Página: noticia sobre el carril bici en «Diario de Barrio».
 - Demo: lista de enlaces y controles; escribir en el campo del boletín → elegir **Con arreglo** → repetir.
-- Código: `examples/NewsArticle/`.
 
 ## Conceptos clave
 

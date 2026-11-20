@@ -12,7 +12,7 @@
 | Material | Ruta local (`pnpm dev`) |
 | --- | --- |
 | Diapositivas | `/diapositivas/#/modulo-3` |
-| Ejemplos | `/ejemplos/#modulo-3` |
+| Ejemplos | <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/#module-3> |
 | Contenido | `/contenido/modulo-3` y `/contenido/<lección>` |
 | Notas del presentador | `/contenido/<lección>/presentador` |
 

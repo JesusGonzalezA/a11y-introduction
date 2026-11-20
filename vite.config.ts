@@ -7,14 +7,13 @@ const lessonsDir = 'src/lessons'
 
 /** Rutas del curso que deben abrirse directamente en un hosting estático. */
 async function staticRoutes() {
+  // `ejemplos` y sus páginas redirigen al sitio de ejemplos publicado.
   const routes = ['diapositivas', 'ejemplos', 'contenido']
+  const registry = await readFile('src/examples/exampleRegistry.ts', 'utf8')
+  for (const [, slug] of registry.matchAll(/slug: '([^']+)'/g))
+    routes.push(`ejemplos/${slug}`)
   const files = await readdir(lessonsDir, { recursive: true })
   for (const file of files) {
-    if (file.endsWith('.example.ts')) {
-      const source = await readFile(join(lessonsDir, file), 'utf8')
-      const slug = source.match(/slug: '([^']+)'/)?.[1]
-      if (slug) routes.push(`ejemplos/${slug}`)
-    }
     const lesson = file.match(/^(\d+)-[^/]+\/(\d+)\.(\d+)-[^/]+\/README\.md$/)
     if (lesson) {
       const number = `${Number(lesson[2])}.${Number(lesson[3])}`

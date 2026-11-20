@@ -1,6 +1,6 @@
 # 5.2 Detectar problemas con Accessibility Insights
 
-> Módulo 5 · Primeras comprobaciones y próximos pasos · ejemplo: `/ejemplos/taller-bicicletas`
+> Módulo 5 · Primeras comprobaciones y próximos pasos · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/taller-bicicletas/>
 
 ## Objetivo
 
@@ -30,7 +30,6 @@
   3. **FastPass → Automated checks** → expandir la regla de etiqueta → seleccionar la instancia.
   4. elegir **Con arreglo** → **Start over** → el fallo desaparece.
   5. **Tab stops** → recargar → recorrer con Tab y Shift + Tab.
-- Código: `examples/RepairBooking/`.
 
 ## Conceptos clave
 

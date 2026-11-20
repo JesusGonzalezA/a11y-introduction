@@ -1,6 +1,6 @@
 # 4.3 Animaciones y movimiento
 
-> Módulo 4 · Permitir la interacción y la percepción · ejemplo: `/ejemplos/festival`
+> Módulo 4 · Permitir la interacción y la percepción · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/festival/>
 
 ## Objetivo
 
@@ -30,7 +30,6 @@
   2. Con la barrera, todo sigue moviéndose.
   3. elegir **Con arreglo**: sin movimiento y el cartel pasa a lista.
   4. Quitar la emulación: vuelve la animación y aparece «Pausar el cartel».
-- Código: `examples/FestivalPage/`.
 
 ## Dónde se activa «Reducir movimiento»
 

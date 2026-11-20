@@ -1,6 +1,6 @@
 # 2.1 Personas, formas de interacción y barreras
 
-> Módulo 2 · Entender la accesibilidad · ejemplo: `/ejemplos/tienda-online`
+> Módulo 2 · Entender la accesibilidad · ejemplo: <https://weaaare.github.io/curso-introduccion-desarrollo-web-accesible/tienda-online/>
 
 ## Objetivo
 
@@ -23,7 +23,6 @@
 
 - Página: ficha de una taza en la tienda de un taller de cerámica.
 - Demo: Tab desde «Consultar envíos y devoluciones» → el foco salta a «¿Dudas sobre la pieza?» → elegir **Con arreglo** → Tab llega al botón → Enter o Espacio añaden la taza.
-- Código: `examples/ProductPage/` (página, definición y tests).
 
 ## Conceptos clave
 
