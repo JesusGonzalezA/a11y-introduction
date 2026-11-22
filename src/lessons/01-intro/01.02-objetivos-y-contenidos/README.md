@@ -6,7 +6,6 @@
 
 - Presentar los resultados de aprendizaje.
 - Presentar el mapa de módulos.
-- Explicar dónde están los materiales: diapositivas, ejemplos y contenido.
 
 ## Resultados de aprendizaje
 
@@ -25,7 +24,6 @@ ARIA avanzado, auditorías completas y tests automáticos en profundidad.
 
 1. Objetivos y contenidos.
 2. El recorrido del curso.
-3. Dónde encontrar los materiales (enlace al índice del servidor).
 
 ## Fuentes
 

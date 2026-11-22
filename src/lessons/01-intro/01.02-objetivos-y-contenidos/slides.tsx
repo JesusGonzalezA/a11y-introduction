@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import { course } from '../../../course'
-import { portalUrl } from '../../../routes'
 import { SlideTitle } from '../../../slides/parts'
 
 export const slides = [
@@ -21,7 +20,7 @@ export const slides = [
     <SlideTitle kind="leccion">El recorrido del curso</SlideTitle>
     <ol className="course-map">
       <li>
-        <strong>Introducción:</strong> objetivos, recorrido y materiales.
+        <strong>Introducción:</strong> objetivos y recorrido.
       </li>
       <li>
         <strong>Entender la accesibilidad:</strong> cómo usan la web distintas
@@ -40,26 +39,5 @@ export const slides = [
         Accessibility Insights y cómo seguir aprendiendo.
       </li>
     </ol>
-  </Fragment>,
-  <Fragment key="materiales">
-    <SlideTitle kind="leccion">Dónde encontrar los materiales</SlideTitle>
-    <p>Cada lección tiene tres materiales:</p>
-    <ul>
-      <li>
-        <strong>Diapositivas:</strong> las ideas clave de cada lección.
-      </li>
-      <li>
-        <strong>Ejemplos:</strong> páginas para probar cada error y su arreglo.
-      </li>
-      <li>
-        <strong>Contenido:</strong> resumen de la lección, con fuentes y
-        comprobaciones.
-      </li>
-    </ul>
-    <p>
-      <a className="lesson-slide__example-link" href={portalUrl}>
-        Abrir el índice del curso
-      </a>
-    </p>
   </Fragment>,
 ]

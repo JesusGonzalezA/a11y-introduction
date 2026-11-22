@@ -5,7 +5,7 @@
 | Lección | Qué se aprende | Ejemplo |
 | --- | --- | --- |
 | [1.1 Bienvenida y presentación](./01.01-bienvenida-y-presentacion/README.md) | Qué es la accesibilidad y cómo funciona cada lección | — |
-| [1.2 Objetivos y contenidos](./01.02-objetivos-y-contenidos/README.md) | Resultados, recorrido y materiales | — |
+| [1.2 Objetivos y contenidos](./01.02-objetivos-y-contenidos/README.md) | Resultados y recorrido | — |
 
 ## Formato de cada lección práctica
 
