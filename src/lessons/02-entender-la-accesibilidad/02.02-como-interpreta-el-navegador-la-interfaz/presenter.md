@@ -21,16 +21,17 @@
 ## 4. Error · Parecen botones, no lo son
 
 - Tres fallos: sin rol · agotada solo en gris · confirmación muda
-- [Ejemplo: abrir «Con barrera: elegir una sesión»; devtools → Accessibility]
+- [Ejemplo: abrir «Con barrera: elegir una sesión» → Devtools → Accesibilidad sobre «16:30»: no es un botón. «19:00» solo está en gris. Clic en 16:30: el mensaje sale, pero el lector no lo anuncia]
 - > «El aspecto no define el control.»
 
 ## 5. Solución · Botones nativos con su estado
 
 - `button` + `disabled` + texto visible «Agotada»
 - Gratis: rol, foco, teclado, estado
+- [Ejemplo: abrir «Con arreglo: elegir una sesión» → Devtools → Accesibilidad: «16:30» es un botón; «19:00» está deshabilitado y dice «Agotada». Tab llega a las sesiones]
 
 ## 6. Solución · Anunciar con ARIA
 
 - `role="status"`: anuncia sin mover el foco · `aria-atomic`: completo
-- [Ejemplo: elegir «Con arreglo», elegir 16:30, abrir «Explicación»]
+- [Ejemplo: abrir «Con arreglo: oír la confirmación» → Elegir 16:30 con el lector (o mirar en el inspector el `p` con `role="status"`): anuncia la sesión elegida]
 - > «Primero HTML. ARIA solo cuando HTML no llega.»

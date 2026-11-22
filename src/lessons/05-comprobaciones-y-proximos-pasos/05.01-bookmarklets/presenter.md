@@ -15,16 +15,17 @@
 
 ## 3. Error · Niveles desordenados
 
-- [Ejemplo: abrir «Con barrera: revisar la exposición» y pulsar Headings]
 - h3 antes que h2: la jerarquía no cuadra
 - Recordar 3.1: nivel = relación, no tamaño
+- [Ejemplo: abrir «Con barrera: revisar los encabezados» → Bookmarklet Headings: «Información práctica» es `h3` y «Horarios» es `h2`]
 
 ## 4. Error · Alt que no describe
 
 - [Pulsar Images]
 - Marca verde = existe; no = sirve
+- [Ejemplo: abrir «Con barrera: revisar la imagen» → Bookmarklet Images: el alt del tapiz es «sala3_IMG_0412.jpg»]
 
 ## 5. Solución · Corregir, recargar y volver a mirar
 
-- [Ejemplo: elegir «Con arreglo» y repetir]
+- [Ejemplo: abrir «Con arreglo: repetir Headings e Images» → Headings: secciones `h2` y subsecciones `h3`. Images: el alt describe el tapiz]
 - > «La herramienta enseña; tú decides.»

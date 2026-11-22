@@ -26,9 +26,9 @@
 - Página: «Pide cita» del Taller La Cadena.
 - Demo:
   1. Instalar [Accessibility Insights for Web](https://accessibilityinsights.io/downloads/) (Chrome o Edge).
-  2. Abrir la página con la «Explicación» cerrada; lanzar la extensión (Alt/Option + Shift + K).
+  2. Abrir la página con barrera; lanzar la extensión (Alt/Option + Shift + K).
   3. **FastPass → Automated checks** → expandir la regla de etiqueta → seleccionar la instancia.
-  4. elegir **Con arreglo** → **Start over** → el fallo desaparece.
+  4. abrir el enlace **Con arreglo** (`/arreglo/`) → **Start over** → el fallo desaparece.
   5. **Tab stops** → recargar → recorrer con Tab y Shift + Tab.
 
 ## Conceptos clave

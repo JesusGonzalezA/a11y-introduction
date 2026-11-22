@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -44,6 +44,7 @@ export const slides = [
       se queda sin los datos. Después oye el nombre de un icono que no aporta
       nada.
     </p>
+    <ExampleLink slug="noticia" task="leer las imágenes" />
   </Fragment>,
   <Fragment key="3.2-solucion-imagenes">
     <SlideTitle kind="solucion">
@@ -61,6 +62,7 @@ export const slides = [
       Pregúntate: ¿qué se perdería si no se viera la imagen? Y no quites el{' '}
       <code>alt</code>: sin él, el lector lee el nombre del archivo.
     </p>
+    <ExampleLink slug="noticia" fixed task="leer las imágenes" />
   </Fragment>,
   <Fragment key="3.2-error-enlace">
     <SlideTitle kind="error">Enlaces que dicen «Leer más»</SlideTitle>
@@ -71,6 +73,7 @@ export const slides = [
       <strong>Qué le pasa a Elena:</strong> pide a su lector la lista de enlaces
       y oye «Leer más», sin nada alrededor. ¿Más de qué?
     </p>
+    <ExampleLink slug="noticia" task="entender el enlace" />
   </Fragment>,
   <Fragment key="3.2-solucion-enlace">
     <SlideTitle kind="solucion">
@@ -83,6 +86,7 @@ export const slides = [
       Se entiende solo: en una lista de enlaces o al decir por voz «pulsa
       consultar el informe».
     </p>
+    <ExampleLink slug="noticia" fixed task="entender el enlace" />
   </Fragment>,
   <Fragment key="3.2-situacion-lucia">
     <SlideTitle kind="situacion">Lucía se suscribe al boletín</SlideTitle>
@@ -106,6 +110,7 @@ export const slides = [
       tampoco dice qué va a pasar.
     </p>
     <p>A Elena, su lector solo le dice «campo de edición».</p>
+    <ExampleLink slug="noticia" task="suscribirse al boletín" />
   </Fragment>,
   <Fragment key="3.2-solucion-campo">
     <SlideTitle kind="solucion">
@@ -123,6 +128,6 @@ export const slides = [
       </li>
       <li>El placeholder es una pista, nunca la etiqueta.</li>
     </ul>
-    <ExampleLinks slug="noticia" task="leer la noticia y suscribirse" />
+    <ExampleLink slug="noticia" fixed task="suscribirse al boletín" />
   </Fragment>,
 ]

@@ -56,22 +56,23 @@ export const slides = [
   <Fragment key="como-usar-los-ejemplos">
     <SlideTitle kind="leccion">Cómo usar las páginas de ejemplo</SlideTitle>
     <p>
-      Cada ejemplo es una página web normal que se abre{' '}
-      <strong>con la barrera</strong>. Abajo a la derecha tiene una barra
-      flotante:
+      Cada ejemplo es una página web normal que existe en{' '}
+      <strong>dos versiones</strong>, cada una con su propio enlace en la
+      diapositiva:
     </p>
     <ol className="steps">
       <li>
-        <strong>Prueba la tarea</strong> de la persona y nota la barrera.
+        <strong>
+          <span aria-hidden="true">✕ </span>Con barrera
+        </strong>
+        : prueba la tarea de la persona y nota dónde falla.
       </li>
       <li>
-        Elige <strong>«Con arreglo»</strong> y repite la tarea.
-      </li>
-      <li>
-        Abre <strong>«Explicación»</strong>: verás qué cambia, dónde y por qué,
-        con el código de las dos versiones.
+        <strong>
+          <span aria-hidden="true">✓ </span>Con arreglo
+        </strong>
+        : la misma página corregida. Repite la tarea y compara.
       </li>
     </ol>
-    <p>Vuelve a «Con barrera» cuando quieras para comparar.</p>
   </Fragment>,
 ]

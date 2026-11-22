@@ -79,8 +79,8 @@ añadir slides de tipo «Lección» con conceptos previos y cerrar con un «Resu
 - `slides.tsx`: se entiende sin el vídeo ni otro material. Usa las piezas de
   `src/slides/parts.tsx`: `SlideTitle` (tipo `leccion`, `situacion`, `error`,
   `solucion`, `comprobar` o `resumen`), `PersonaCard`, `Code` (tono `error`,
-  `solucion` o `neutral`) y `ExampleLinks` (recibe la tarea y enlaza las versiones
-  «Con barrera» y «Con arreglo»). La primera slide es de tipo
+  `solucion` o `neutral`) y `ExampleLink` (recibe la tarea y enlaza una versión:
+  «Con barrera» o, con `fixed`, «Con arreglo»). La primera slide es de tipo
   `leccion` y su título es el nombre completo de la lección. Cada título nombra
   el concepto o el error concreto en lenguaje cotidiano. El texto de error dice
   «Qué le pasa a <persona>». El código reproduce el antes y el después de la
@@ -108,7 +108,13 @@ la barrera aparece ahí con naturalidad. Se abre en `<slug>/` con la barrera y e
 - Cambios en las páginas se hacen en el repositorio de ejemplos, no aquí.
 - Aquí solo se mantiene el enlace: registra el ejemplo una vez en
   `src/examples/exampleRegistry.ts` (slug, nombre, lección) y enlázalo desde la
-  slide con `<ExampleLinks slug task />`.
+  slide con `<ExampleLink slug task />`.
+- Cada versión tiene su enlace: no hay botón dentro de la página para cambiar.
+- Se muestra un fallo cada vez: cada slide `error` lleva su enlace «Con barrera»
+  y cada slide `solucion` su enlace «Con arreglo» (`fixed`), con la tarea
+  concreta de esa slide. Se entra en la página tantas veces como haga falta.
+- En `presenter.md`, cada uno de esos apartados tiene su acotación
+  `[Ejemplo: abrir «…» → qué hacer y qué se ve]`.
 - Si cambia un ejemplo publicado, revisa que el texto y los pasos de las slides
   y del guion sigan coincidiendo con lo que muestra.
 
@@ -155,8 +161,7 @@ ausencia de tiempos.
 9. Da a cada página de ejemplo una identidad propia y creíble para su sitio
    (nombre, acento pastel, contenido) dibujada con el lenguaje visual de weAAAre
    que define la skill `weaaare-brand`, con un foco inequívoco salvo cuando el foco
-   sea la barrera. La herramienta flotante mantiene un aspecto propio de devtools,
-   distinto de la página.
+   sea la barrera.
 10. Representa las affordances comunes como aparecerían en producto. Por ejemplo,
     usa un SVG decorativo en un botón de icono y conserva el nombre y el estado
     accesibles; evita indicadores pedagógicos ajenos a una interfaz real.

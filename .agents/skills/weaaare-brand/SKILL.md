@@ -20,8 +20,7 @@ con valores y fuentes, está en [`DESIGN.md`](../../../DESIGN.md).
 | Portal y contenido | `src/portal/portal.css`, `src/content/content.css` |
 
 Usa siempre las variables de `tokens.css`. Un valor de color, radio o sombra
-escrito a mano solo es válido para el acento ficticio de una página de ejemplo o
-dentro de la herramienta flotante, que está aislada.
+escrito a mano solo es válido para el acento ficticio de una página de ejemplo.
 
 ## Pasos
 

@@ -24,7 +24,7 @@
 ## Ejemplo
 
 - Página: elegir sesión de «La ola tranquila» en Cine Alameda.
-- Demo: abrir el árbol de accesibilidad de las devtools → comparar `div` y `button` → elegir **Con arreglo** → elegir sesión y ver la confirmación.
+- Demo: abrir el árbol de accesibilidad de las devtools → comparar `div` y `button` → abrir el enlace **Con arreglo** (`/arreglo/`) → elegir sesión y ver la confirmación.
 
 ## Conceptos clave
 

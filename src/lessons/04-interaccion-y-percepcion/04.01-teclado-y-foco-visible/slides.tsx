@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -48,6 +48,7 @@ export const slides = [
       <strong>Qué le pasa a Andrés:</strong> pulsa Tab y no sabe dónde está. ¿Va
       a escribir en el carné o en el PIN? ¿Ha llegado ya a «Entrar»?
     </p>
+    <ExampleLink slug="biblioteca" task="ver dónde está el foco" />
   </Fragment>,
   <Fragment key="4.1-solucion-foco">
     <SlideTitle kind="solucion">
@@ -68,6 +69,7 @@ export const slides = [
       </li>
       <li>Contraste mínimo del indicador: 3:1 con el fondo.</li>
     </ul>
+    <ExampleLink slug="biblioteca" fixed task="ver dónde está el foco" />
   </Fragment>,
   <Fragment key="4.1-error-tapado">
     <SlideTitle kind="error">
@@ -80,6 +82,7 @@ export const slides = [
       <strong>Qué le pasa a Andrés:</strong> al subir con Shift + Tab, el enlace
       con foco queda debajo de la cabecera. El foco está, pero no se ve.
     </p>
+    <ExampleLink slug="biblioteca" task="subir con Shift + Tab" />
   </Fragment>,
   <Fragment key="4.1-solucion-tapado">
     <SlideTitle kind="solucion">
@@ -96,6 +99,6 @@ export const slides = [
       Compruébalo: recorre la página hacia delante y hacia atrás, sin ratón,
       mirando siempre dónde está el foco.
     </p>
-    <ExampleLinks slug="biblioteca" task="entrar en la cuenta con teclado" />
+    <ExampleLink slug="biblioteca" fixed task="subir con Shift + Tab" />
   </Fragment>,
 ]

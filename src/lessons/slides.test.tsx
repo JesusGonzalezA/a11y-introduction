@@ -61,6 +61,28 @@ describe('Slides del curso', () => {
     }
   })
 
+  it('cada error abre la página con barrera y cada solución, la arreglada', () => {
+    for (const example of exampleRegistry) {
+      const lesson = courseLessons.find(
+        ({ number }) => number === example.lesson,
+      )
+      for (const slide of lesson?.slides ?? []) {
+        const { container, unmount } = render(<main>{slide}</main>)
+        const kind = container.querySelector('.lesson-slide__kind')?.className
+        const hrefs = [...container.querySelectorAll('a')].map((link) =>
+          link.getAttribute('href'),
+        )
+        if (kind?.endsWith('--error'))
+          expect(hrefs, String(slide.key)).toEqual([exampleUrl(example.slug)])
+        if (kind?.endsWith('--solucion'))
+          expect(hrefs, String(slide.key)).toEqual([
+            exampleUrl(example.slug, true),
+          ])
+        unmount()
+      }
+    }
+  })
+
   it('cada página de ejemplo se enlaza, con y sin arreglo, desde su lección', () => {
     for (const example of exampleRegistry) {
       const lesson = courseLessons.find(

@@ -23,7 +23,7 @@
 
 ## 4. Cómo usar las páginas de ejemplo
 
-- Página web normal · se abre con la barrera
-- Barra flotante abajo a la derecha: «Con barrera» / «Con arreglo»
-- «Explicación»: qué probar, qué cambia, dónde y por qué, código de las dos versiones
+- Página web normal · dos versiones, dos enlaces en la slide
+- «✕ Con barrera» → `<ejemplo>/` · «✓ Con arreglo» → `<ejemplo>/arreglo/`
+- No hay botón dentro de la página para cambiar de versión: se abre el otro enlace
 - > «Primero nota la barrera; después mira el arreglo.»

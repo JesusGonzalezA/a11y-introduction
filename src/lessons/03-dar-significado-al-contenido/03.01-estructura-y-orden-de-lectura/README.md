@@ -24,7 +24,7 @@
 ## Ejemplo
 
 - Página: receta de lentejas en el blog «La Cuchara Lenta».
-- Demo: lista de encabezados y de regiones del lector (o del inspector) → leer los pasos → elegir **Con arreglo** → repetir.
+- Demo: lista de encabezados y de regiones del lector (o del inspector) → leer los pasos → abrir el enlace **Con arreglo** (`/arreglo/`) → repetir.
 
 ## Conceptos clave
 

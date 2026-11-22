@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -64,6 +64,7 @@ export const slides = [
       fuera una sección nueva. No entiende que forma parte de «Información
       práctica».
     </p>
+    <ExampleLink slug="museo" task="revisar los encabezados" />
   </Fragment>,
   <Fragment key="5.1-error-alt">
     <SlideTitle kind="error">Un alt que no describe nada</SlideTitle>
@@ -81,6 +82,7 @@ export const slides = [
       Ojo: el bookmarklet solo indica que el <code>alt</code> existe. Si sirve o
       no, lo decides tú.
     </p>
+    <ExampleLink slug="museo" task="revisar la imagen" />
   </Fragment>,
   <Fragment key="5.1-solucion">
     <SlideTitle kind="solucion">Corregir, recargar y volver a mirar</SlideTitle>
@@ -90,6 +92,6 @@ export const slides = [
       }
     </Code>
     <p>Los bookmarklets enseñan datos: decidir te toca a ti.</p>
-    <ExampleLinks slug="museo" task="revisar la exposición" />
+    <ExampleLink slug="museo" fixed task="repetir Headings e Images" />
   </Fragment>,
 ]

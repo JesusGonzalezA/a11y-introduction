@@ -20,7 +20,7 @@
 | --- | --- | --- |
 | Estado solo con un punto de color | No sabe que su autobús está cancelado | Texto del estado junto al punto |
 | Gris `#b4b4b4` sobre blanco (2,07:1) | El texto se confunde con el fondo | `#52525b` (7,73:1); mínimo 4,5:1 |
-| `font-size: 15px` y título en `4vw` | La letra no crece con su ajuste ni con el zoom | `1rem` y `clamp(1.5rem, 1rem + 2vw, 2.25rem)` |
+| `font-size: 15px` y título en `4vw` | La letra no crece con su ajuste ni con el zoom | `1rem` y `clamp(1.875rem, 1.2rem + 2vw, 3rem)` |
 | Aviso con ancho y alto fijos y `overflow: hidden` | El texto se corta al ampliar | Caja flexible sin altura fija |
 
 ## Ejemplo
@@ -31,7 +31,7 @@
   2. Medir el contraste del texto gris con el selector de color de las devtools.
   3. Navegador → Ajustes → Aspecto → Tamaño de fuente «Muy grande»: el texto no crece.
   4. Zoom al 200 % o ventana de 320 px: el aviso se corta.
-  5. elegir **Con arreglo** y repetir.
+  5. abrir el enlace **Con arreglo** (`/arreglo/`) y repetir.
 
 ## Conceptos clave
 

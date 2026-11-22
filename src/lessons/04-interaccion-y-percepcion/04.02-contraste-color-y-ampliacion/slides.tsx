@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -44,6 +44,7 @@ export const slides = [
       verde: no sabe que su autobús está cancelado. Y el gris claro se le
       confunde con el fondo blanco.
     </p>
+    <ExampleLink slug="horarios" task="saber qué autobús está cancelado" />
   </Fragment>,
   <Fragment key="4.2-solucion-color">
     <SlideTitle kind="solucion">
@@ -63,6 +64,11 @@ export const slides = [
         <strong>3:1</strong> en texto grande e iconos necesarios.
       </li>
     </ul>
+    <ExampleLink
+      slug="horarios"
+      fixed
+      task="saber qué autobús está cancelado"
+    />
   </Fragment>,
   <Fragment key="4.2-error-letra">
     <SlideTitle kind="error">
@@ -85,6 +91,7 @@ export const slides = [
         título no crece.
       </li>
     </ul>
+    <ExampleLink slug="horarios" task="agrandar la letra" />
   </Fragment>,
   <Fragment key="4.2-solucion-letra">
     <SlideTitle kind="solucion">
@@ -92,7 +99,7 @@ export const slides = [
     </SlideTitle>
     <Code tone="solucion" caption="Así se arregla">
       {
-        '.horarios { font-size: 1rem; }\n.horarios h1 {\n  font-size: clamp(1.5rem, 1rem + 2vw, 2.25rem);\n}'
+        '.horarios { font-size: 1rem; }\n.horarios h1 {\n  font-size: clamp(1.875rem, 1.2rem + 2vw, 3rem);\n}'
       }
     </Code>
     <ul>
@@ -106,6 +113,7 @@ export const slides = [
       </li>
       <li>Objetivo: que todo se lea al 200 % sin perder contenido.</li>
     </ul>
+    <ExampleLink slug="horarios" fixed task="agrandar la letra" />
   </Fragment>,
   <Fragment key="4.2-error-recorte">
     <SlideTitle kind="error">El aviso se corta al ampliar</SlideTitle>
@@ -117,18 +125,19 @@ export const slides = [
       el texto no cabe en la caja y se corta. No llega a leer dónde está la
       parada provisional.
     </p>
+    <ExampleLink slug="horarios" task="leer el aviso por obras" />
   </Fragment>,
   <Fragment key="4.2-solucion-recorte">
     <SlideTitle kind="solucion">Cajas que crecen con su contenido</SlideTitle>
     <Code tone="solucion" caption="Así se arregla">
       {
-        '.aviso {\n  max-inline-size: 100%;\n  overflow-wrap: anywhere;\n  /* Sin altura fija ni recorte */\n}'
+        '.aviso {\n  overflow-wrap: anywhere;\n  /* Sin ancho ni alto fijos, sin recorte */\n}'
       }
     </Code>
     <p>
       Compruébalo: zoom al 200 % y ventana de 320 px de ancho. Todo se debe leer
       desplazándote solo en vertical.
     </p>
-    <ExampleLinks slug="horarios" task="consultar el autobús" />
+    <ExampleLink slug="horarios" fixed task="leer el aviso por obras" />
   </Fragment>,
 ]

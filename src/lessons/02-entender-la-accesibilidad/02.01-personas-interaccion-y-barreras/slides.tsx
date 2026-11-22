@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { personaList } from '../../../personas'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -85,6 +85,7 @@ export const slides = [
       <strong>Qué le pasa a Andrés:</strong> pulsa Tab y el foco se salta el
       botón. Lo ve, pero no puede comprar.
     </p>
+    <ExampleLink slug="tienda-online" task="comprar la taza con teclado" />
   </Fragment>,
   <Fragment key="2.1-solucion">
     <SlideTitle kind="solucion">Usar un botón HTML de verdad</SlideTitle>
@@ -100,6 +101,10 @@ export const slides = [
         El lector de pantalla y el control por voz lo reconocen como botón.
       </li>
     </ul>
-    <ExampleLinks slug="tienda-online" task="comprar la taza con teclado" />
+    <ExampleLink
+      slug="tienda-online"
+      fixed
+      task="comprar la taza con teclado"
+    />
   </Fragment>,
 ]

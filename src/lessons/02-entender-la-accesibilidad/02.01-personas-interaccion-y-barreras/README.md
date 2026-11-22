@@ -22,7 +22,7 @@
 ## Ejemplo
 
 - Página: ficha de una taza en la tienda de un taller de cerámica.
-- Demo: Tab desde «Consultar envíos y devoluciones» → el foco salta a «¿Dudas sobre la pieza?» → elegir **Con arreglo** → Tab llega al botón → Enter o Espacio añaden la taza.
+- Demo: Tab desde «Consultar envíos y devoluciones» → el foco salta a «¿Dudas sobre la pieza?» → abrir el enlace **Con arreglo** (`/arreglo/`) → Tab llega al botón → Enter o Espacio añaden la taza.
 
 ## Conceptos clave
 

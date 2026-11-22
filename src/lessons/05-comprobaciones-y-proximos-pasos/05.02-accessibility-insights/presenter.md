@@ -13,14 +13,14 @@
 
 ## 3. Error · Texto no unido al campo
 
-- [Ejemplo: abrir «Con barrera: analizar el formulario de cita»; FastPass]
 - Regla de etiqueta → instancia → resaltado
+- [Ejemplo: abrir «Con barrera: analizar el formulario» → Accessibility Insights → FastPass: falla el campo «Teléfono», sin nombre]
 
 ## 4. Solución · Asociar y repetir
 
 - `label for` + `id`
-- [Ejemplo: elegir «Con arreglo»; Start over; Tab stops]
 - Tab stops = el recorrido de Andrés dibujado
+- [Ejemplo: abrir «Con arreglo: analizar el formulario» → FastPass otra vez: el fallo ya no aparece. Después, Tab stops]
 
 ## 5. Cero errores no significa accesible
 

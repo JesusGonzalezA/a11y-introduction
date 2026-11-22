@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -73,6 +73,7 @@ export const slides = [
         Al elegir, aparece un mensaje en pantalla, pero el lector no se lo lee.
       </li>
     </ul>
+    <ExampleLink slug="cine" task="elegir una sesión" />
   </Fragment>,
   <Fragment key="2.2-solucion-html">
     <SlideTitle kind="solucion">Botones de verdad, con su estado</SlideTitle>
@@ -90,6 +91,7 @@ export const slides = [
       </li>
       <li>El texto «Agotada» lo explica a todas las personas.</li>
     </ul>
+    <ExampleLink slug="cine" fixed task="elegir una sesión" />
   </Fragment>,
   <Fragment key="2.2-solucion-aria">
     <SlideTitle kind="solucion">Anunciar la confirmación con ARIA</SlideTitle>
@@ -111,6 +113,6 @@ export const slides = [
       Regla de oro: primero HTML. ARIA añade información, pero no añade teclado
       ni comportamiento.
     </p>
-    <ExampleLinks slug="cine" task="elegir una sesión" />
+    <ExampleLink slug="cine" fixed task="oír la confirmación" />
   </Fragment>,
 ]

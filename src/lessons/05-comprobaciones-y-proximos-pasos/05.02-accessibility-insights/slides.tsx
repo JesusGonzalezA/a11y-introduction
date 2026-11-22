@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -54,7 +54,9 @@ export const slides = [
       El texto «Teléfono» no está unido al campo
     </SlideTitle>
     <Code tone="error" caption="Así está">
-      {'<span>Teléfono</span>\n<input id="telefono" type="tel">'}
+      {
+        '<span>Teléfono</span>\n<input id="telefono" type="tel"\n  autocomplete="tel">'
+      }
     </Code>
     <p>
       <strong>Qué le pasa a Elena:</strong> llega al campo y su lector solo dice
@@ -64,6 +66,7 @@ export const slides = [
       FastPass lo detecta. Abre el resultado y la extensión resalta el campo en
       la página.
     </p>
+    <ExampleLink slug="taller-bicicletas" task="analizar el formulario" />
   </Fragment>,
   <Fragment key="5.2-solucion">
     <SlideTitle kind="solucion">
@@ -81,10 +84,7 @@ export const slides = [
         orden y viendo el foco?
       </li>
     </ol>
-    <ExampleLinks
-      slug="taller-bicicletas"
-      task="analizar el formulario de cita"
-    />
+    <ExampleLink slug="taller-bicicletas" fixed task="analizar el formulario" />
   </Fragment>,
   <Fragment key="5.2-limites">
     <SlideTitle kind="resumen">Cero errores no significa accesible</SlideTitle>

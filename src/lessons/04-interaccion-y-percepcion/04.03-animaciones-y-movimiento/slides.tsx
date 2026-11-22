@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -71,6 +71,7 @@ export const slides = [
       el fondo gira y el botón «Comprar abono» late sin parar. Se marea y cierra
       la página.
     </p>
+    <ExampleLink slug="festival" task="ver la web con «Reducir movimiento»" />
   </Fragment>,
   <Fragment key="4.3-solucion-preferencia">
     <SlideTitle kind="solucion">
@@ -91,6 +92,11 @@ export const slides = [
         después.
       </li>
     </ul>
+    <ExampleLink
+      slug="festival"
+      fixed
+      task="ver la web con «Reducir movimiento»"
+    />
   </Fragment>,
   <Fragment key="4.3-error-pausa">
     <SlideTitle kind="error">
@@ -105,6 +111,7 @@ export const slides = [
       <strong>Qué le pasa a Ana y a Lucía:</strong> los nombres de los grupos
       pasan sin parar. Ana se marea. Lucía se distrae y no consigue leerlos.
     </p>
+    <ExampleLink slug="festival" task="parar el cartel" />
   </Fragment>,
   <Fragment key="4.3-solucion-pausa">
     <SlideTitle kind="solucion">Un botón para pausar el movimiento</SlideTitle>
@@ -117,7 +124,7 @@ export const slides = [
       Todo lo que se mueve solo durante más de 5 segundos necesita un control
       para pausarlo, pararlo u ocultarlo.
     </p>
-    <ExampleLinks slug="festival" task="ver la web del festival" />
+    <ExampleLink slug="festival" fixed task="parar el cartel" />
   </Fragment>,
   <Fragment key="4.3-preferencias">
     <SlideTitle kind="resumen">

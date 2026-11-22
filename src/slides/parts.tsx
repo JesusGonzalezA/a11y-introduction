@@ -100,25 +100,29 @@ export function Code({
 }
 
 /**
- * Enlaces a la página de ejemplo. La misma tarea se prueba en las dos
- * versiones, con los nombres que usa la barra flotante del ejemplo.
+ * Enlace a una versión de la página de ejemplo. Cada slide de error abre la
+ * página con barrera (`<slug>/`) para notar el fallo; cada slide de solución
+ * abre la arreglada (`<slug>/arreglo/`) para comprobar el cambio.
  */
-export function ExampleLinks({ slug, task }: { slug: string; task: string }) {
+export function ExampleLink({
+  slug,
+  task,
+  fixed = false,
+}: {
+  slug: string
+  task: string
+  fixed?: boolean
+}) {
   return (
     <p className="example-links">
       <a
-        className="lesson-slide__example-link example-links__barrier"
-        href={exampleUrl(slug)}
+        className={`lesson-slide__example-link ${
+          fixed ? 'example-links__fixed' : 'example-links__barrier'
+        }`}
+        href={exampleUrl(slug, fixed)}
       >
-        <span aria-hidden="true">✕ </span>
-        Con barrera: {task}
-      </a>
-      <a
-        className="lesson-slide__example-link example-links__fixed"
-        href={exampleUrl(slug, true)}
-      >
-        <span aria-hidden="true">✓ </span>
-        Con arreglo: {task}
+        <span aria-hidden="true">{fixed ? '✓ ' : '✕ '}</span>
+        {fixed ? 'Con arreglo' : 'Con barrera'}: {task}
       </a>
     </p>
   )

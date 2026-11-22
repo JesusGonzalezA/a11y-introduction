@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import {
   Code,
-  ExampleLinks,
+  ExampleLink,
   PersonaCard,
   SlideTitle,
 } from '../../../slides/parts'
@@ -45,6 +45,7 @@ export const slides = [
       ni regiones. Tiene que escuchar toda la página, desde el menú, para llegar
       a los ingredientes.
     </p>
+    <ExampleLink slug="receta" task="buscar títulos y zonas" />
   </Fragment>,
   <Fragment key="3.1-solucion-estructura">
     <SlideTitle kind="solucion">Encabezados con nivel y regiones</SlideTitle>
@@ -61,6 +62,7 @@ export const slides = [
         Un solo <code>h1</code> y un solo <code>main</code> por página.
       </li>
     </ul>
+    <ExampleLink slug="receta" fixed task="buscar títulos y zonas" />
   </Fragment>,
   <Fragment key="3.1-error-orden">
     <SlideTitle kind="error">
@@ -75,6 +77,7 @@ export const slides = [
       <strong>Qué le pasa a Elena:</strong> el lector sigue el orden del HTML,
       no el de la pantalla. Oye «cuece 35 minutos» antes que «pica la cebolla».
     </p>
+    <ExampleLink slug="receta" task="leer los pasos" />
   </Fragment>,
   <Fragment key="3.1-solucion-orden">
     <SlideTitle kind="solucion">
@@ -91,6 +94,6 @@ export const slides = [
         <code>ol</code> avisa de que es una lista y de cuántos pasos tiene.
       </li>
     </ul>
-    <ExampleLinks slug="receta" task="recorrer la receta" />
+    <ExampleLink slug="receta" fixed task="leer los pasos" />
   </Fragment>,
 ]

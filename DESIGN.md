@@ -154,7 +154,7 @@ texto siempre es tinta.
 - **Radios**: 8 px (`--radius-md`) en botones y campos; 12 px (`--radius-lg`) en
   tarjetas y avisos; 999 px en etiquetas y conmutadores.
 - **Sombra dura**: `0 var(--shadow-h) 0 0 var(--color-ink)` con `--shadow-h` de
-  4, 6 u 8 px. Nunca sombras difuminadas, salvo en la herramienta flotante.
+  4, 6 u 8 px. Nunca sombras difuminadas.
 - **Espaciado**: múltiplos de 0.25rem. Margen lateral de página
   `clamp(1.25rem, 5vw, 3.5rem)`; separación entre secciones
   `clamp(3rem, 7vw, 5rem)`; relleno de tarjeta `clamp(1.5rem, 4vw, 2.5rem)`;
@@ -333,5 +333,4 @@ identificadores del código mantienen `weaaare`.
 | --- | --- |
 | Diapositivas | Lienzo de 1080 px de alto cuyo ancho sigue la proporción de la ventana (de 1728 a 2560 px, de 16:10 a 21:9) para ocupar todo el ancho sin recortar, letra base de 42 px, con el marco de las presentaciones, portada y separadores de módulo con degradado iridiscente, insignia «Módulo N / Lección N.M», títulos Fraunces, tipo de slide como etiqueta pastel con borde, tarjeta de persona en familia `decide`, código negro con marca ✕ (error) o ✓ (solución) y código en línea como ficha negra. |
 | Portal y contenido | Cabecera con logotipo y línea de 2 px, tarjetas con sombra dura, enlaces con relleno ámbar. |
-| Herramienta flotante | Barra de tinta con botones de borde, foco ámbar. Sigue aislada con su bloque BEM. |
 | Páginas de ejemplo | Viven en un sitio aparte y comparten un kit propio: tipografías, papel, tinta, botones y tarjetas. Cada página conserva un color propio como «marca ficticia», como la llama de la web de Halloween. Las barreras deliberadas (`--barrier`) **no se suavizan** al aplicar la marca. |
